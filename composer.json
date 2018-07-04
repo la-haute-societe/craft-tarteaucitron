@@ -1,0 +1,41 @@
+{
+  "name": "la-haute-societe/craft-tarteaucitron",
+  "description": "tarteaucitron.js plugin for Craft 3",
+  "version": "1.0.0",
+  "type": "craft-plugin",
+  "keywords": [
+    "craft",
+    "cms",
+    "craftcms",
+    "craft-plugin",
+    "tarteaucitron",
+    "rgpd",
+    "gdpr"
+  ],
+  "require": {
+    "craftcms/cms": "^3.0.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "lahautesociete\\tarteaucitron\\": "src/"
+    }
+  },
+  "config": {
+    "platform": {
+      "php": "7.1"
+    }
+  },
+  "support": {
+    "email": "clement.g@lahautesociete.com"
+  },
+  "extra": {
+    "handle": "tarteaucitron-js",
+    "name": "tarteaucitron.js",
+    "developer": "La Haute Société",
+    "developerUrl": "https://www.lahautesociete.com/",
+    "class": "lahautesociete\\tarteaucitron\\Tarteaucitron",
+    "components": {
+      "services": "lahautesociete\\tarteaucitron\\services\\TarteaucitronService"
+    }
+  }
+}

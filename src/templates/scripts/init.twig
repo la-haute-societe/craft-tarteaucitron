@@ -1,0 +1,15 @@
+<script type="text/javascript" src="../../../tarteaucitron/tarteaucitron.js"></script>
+
+<script type="text/javascript">
+  tarteaucitron.init({
+    "hashtag": "{{ hashtag }}",
+    "highPrivacy": {{ highPrivacy }},
+    "orientation": "{{ orientation }}",
+    "adblocker": {{ adblocker }},
+    "showAlertSmall": {{ showAlertSmall }},
+    "cookieslist": {{ cookieslist }},
+    "removeCredit": {{ removeCredit }},
+    "handleBrowserDNTRequest": {{ handleBrowserDNTRequest }},
+    {% if cookieDomain %}"cookieDomain": {{ cookieDomain }}{% endif %}
+  });
+</script>
