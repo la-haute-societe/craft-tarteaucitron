@@ -15,6 +15,11 @@ use yii\base\Event;
 class Tarteaucitron extends Plugin
 {
     /**
+     * @var Tarteaucitron
+     */
+    public static $plugin;
+
+    /**
      * @var bool
      */
     public $hasCpSettings = true;
@@ -25,6 +30,7 @@ class Tarteaucitron extends Plugin
     public function init(): void
     {
         parent::init();
+        self::$plugin = $this;
 
         Event::on(CraftVariable::class, CraftVariable::EVENT_INIT, function(Event $event) {
             /** @var CraftVariable $variable */

@@ -57,12 +57,17 @@ class Settings extends Model
     public $cookieDomain = '';
 
     /**
+     * @var string
+     */
+    public $customCss = '';
+
+    /**
      * @inheritdoc
      */
     public function rules(): array
     {
         return [
-            [['hashtag', 'orientation', 'cookieDomain'], 'string'],
+            [['hashtag', 'orientation', 'cookieDomain', 'customCss'], 'string'],
             [['highPrivacy', 'adblocker', 'showAlertSmall', 'cookieslist', 'removeCredit', 'handleBrowserDNTRequest'], 'boolean'],
             ['hashtag', 'default', 'value' => '#tarteaucitron'],
             ['highPrivacy', 'default', 'value' => false],
@@ -73,6 +78,7 @@ class Settings extends Model
             ['removeCredit', 'default', 'value' => false],
             ['handleBrowserDNTRequest', 'default', 'value' => false],
             ['cookieDomain', 'default', 'value' => null],
+            ['customCss', 'default', 'value' => ""],
         ];
     }
 }

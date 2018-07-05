@@ -26,11 +26,11 @@ class TarteaucitronService extends Component
     public function renderInitScript(): string
     {
         $settings = Tarteaucitron::$plugin->getSettings();
-        $vars = json_decode(json_encode($settings), true);
+        $vars = get_object_vars($settings);
 
         $oldMode = Craft::$app->view->getTemplateMode();
         Craft::$app->view->setTemplateMode(View::TEMPLATE_MODE_CP);
-        $html = Craft::$app->view->renderTemplate('tarteaucitron/scripts/init', $vars);
+        $html = Craft::$app->view->renderTemplate('tarteaucitron-js/scripts/init', $vars);
         Craft::$app->view->setTemplateMode($oldMode);
 
         return $html;

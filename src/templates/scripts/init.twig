@@ -1,15 +1,20 @@
-<script type="text/javascript" src="../../../tarteaucitron/tarteaucitron.js"></script>
+{% do view.registerAssetBundle("lahautesociete\\tarteaucitron\\bundles\\PluginBundle") %}
 
-<script type="text/javascript">
-  tarteaucitron.init({
-    "hashtag": "{{ hashtag }}",
-    "highPrivacy": {{ highPrivacy }},
-    "orientation": "{{ orientation }}",
-    "adblocker": {{ adblocker }},
-    "showAlertSmall": {{ showAlertSmall }},
-    "cookieslist": {{ cookieslist }},
-    "removeCredit": {{ removeCredit }},
-    "handleBrowserDNTRequest": {{ handleBrowserDNTRequest }},
-    {% if cookieDomain %}"cookieDomain": {{ cookieDomain }}{% endif %}
-  });
-</script>
+{% css %}
+    {{ customCss }}
+{% endcss %}
+
+{% js %}
+    tarteaucitron.init({
+        "hashtag": "{{ hashtag }}",
+        "highPrivacy": {{ highPrivacy ? 'true' : 'false' }},
+        "orientation": "{{ orientation }}",
+        "adblocker": {{ adblocker ? 'true' : 'false' }},
+        "showAlertSmall": {{ showAlertSmall ? 'true' : 'false' }},
+        "cookieslist": {{ cookieslist ? 'true' : 'false' }},
+        "removeCredit": {{ removeCredit ? 'true' : 'false' }},
+        "handleBrowserDNTRequest": {{ handleBrowserDNTRequest ? 'true' : 'false' }},
+        {% if cookieDomain %}"cookieDomain": {{ cookieDomain }}{% endif %}
+    });
+{% endjs %}
+

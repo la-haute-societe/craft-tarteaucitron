@@ -1,3 +1,5 @@
+{% do view.registerAssetBundle("lahautesociete\\tarteaucitron\\bundles\\SettingsBundle") %}
+
 {% import "_includes/forms" as forms %}
 
 {% macro configWarning(setting) -%}
@@ -16,6 +18,7 @@
     name: 'hashtag',
     instructions: "Open panel automatically with this hashtag in URL.",
     value: settings.hashtag,
+    required: true,
     disabled: 'hashtag' in overrides,
     warning: 'hashtag' in overrides ? configWarning('hashtag'),
     errors: settings.getErrors('hashtag')
@@ -38,6 +41,7 @@
     instructions: "Disable implied consent (while browsing)",
     on: settings.highPrivacy,
     toggle: true,
+    required: true,
     disabled: 'highPrivacy' in overrides,
     warning: 'highPrivacy' in overrides ? configWarning('highPrivacy'),
     errors: settings.getErrors('highPrivacy')
@@ -49,6 +53,7 @@
     name: 'orientation',
     instructions: "Banner position",
     value: settings.orientation,
+    required: true,
     options: orientationOptions,
     disabled: 'orientation' in overrides,
     warning: 'orientation' in overrides ? configWarning('orientation'),
@@ -62,6 +67,7 @@
     instructions: "Display a message if an adblocker is detected",
     on: settings.adblocker,
     toggle: true,
+    required: true,
     disabled: 'adblocker' in overrides,
     warning: 'adblocker' in overrides ? configWarning('adblocker'),
     errors: settings.getErrors('adblocker')
@@ -74,6 +80,7 @@
     instructions: "Display the small banner at the bottom right",
     on: settings.showAlertSmall,
     toggle: true,
+    required: true,
     disabled: 'showAlertSmall' in overrides,
     warning: 'showAlertSmall' in overrides ? configWarning('showAlertSmall'),
     errors: settings.getErrors('showAlertSmall')
@@ -86,6 +93,7 @@
     instructions: "View the list of installed cookies",
     on: settings.cookieslist,
     toggle: true,
+    required: true,
     disabled: 'cookieslist' in overrides,
     warning: 'cookieslist' in overrides ? configWarning('cookieslist'),
     errors: settings.getErrors('cookieslist')
@@ -98,6 +106,7 @@
     instructions: "Delete the link to the source",
     on: settings.removeCredit,
     toggle: true,
+    required: true,
     disabled: 'removeCredit' in overrides,
     warning: 'removeCredit' in overrides ? configWarning('removeCredit'),
     errors: settings.getErrors('removeCredit')
@@ -110,6 +119,7 @@
     instructions: "Respond to the DoNotTrack request",
     on: settings.handleBrowserDNTRequest,
     toggle: true,
+    required: true,
     disabled: 'handleBrowserDNTRequest' in overrides,
     warning: 'handleBrowserDNTRequest' in overrides ? configWarning('handleBrowserDNTRequest'),
     errors: settings.getErrors('handleBrowserDNTRequest')
@@ -124,4 +134,16 @@
     disabled: 'cookieDomain' in overrides,
     warning: 'cookieDomain' in overrides ? configWarning('cookieDomain'),
     errors: settings.getErrors('cookieDomain')
+}) }}
+
+{{ forms.textAreaField({
+    label: "Custom CSS"|t,
+    id: 'customCss',
+    name: 'customCss',
+    instructions: "Set custom CSS for tarteaucitron.js.",
+    value: settings.customCss,
+    required: true,
+    disabled: 'customCss' in overrides,
+    warning: 'customCss' in overrides ? configWarning('customCss'),
+    errors: settings.getErrors('customCss')
 }) }}
