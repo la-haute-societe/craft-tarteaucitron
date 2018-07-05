@@ -35,8 +35,8 @@ class Tarteaucitron extends Plugin
 
         $this->setComponents(['tarteaucitron' => TarteaucitronService::class]);
 
-        \Craft::info(
-            \Craft::t('tarteaucitron', '{name} plugin loaded', [
+        Craft::info(
+            Craft::t('app', '{name} plugin loaded', [
                 'name' => $this->name
             ]),
             __METHOD__
@@ -72,9 +72,9 @@ class Tarteaucitron extends Plugin
         $settings->validate();
 
         // Get the settings that are being defined by the config file
-        $overrides = \Craft::$app->getConfig()->getConfigFromFile(strtolower($this->handle));
+        $overrides = Craft::$app->getConfig()->getConfigFromFile(strtolower($this->handle));
 
-        return Craft::$app->view->renderTemplate('cookiebot/settings', [
+        return Craft::$app->view->renderTemplate('tarteaucitron/settings', [
             'settings' => $settings,
             'overrides' => array_keys($overrides),
         ]);
