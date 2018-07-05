@@ -15,9 +15,9 @@ use yii\base\Event;
 class Tarteaucitron extends Plugin
 {
     /**
-     * @var Plugin
+     * @var bool
      */
-    public static $plugin;
+    public $hasCpSettings = true;
 
     /**
      * Initialize plugin.
@@ -25,7 +25,6 @@ class Tarteaucitron extends Plugin
     public function init(): void
     {
         parent::init();
-        self::$plugin = $this;
 
         Event::on(CraftVariable::class, CraftVariable::EVENT_INIT, function(Event $event) {
             /** @var CraftVariable $variable */
@@ -71,11 +70,23 @@ class Tarteaucitron extends Plugin
         $settings = $this->getSettings();
         $settings->validate();
 
+        $orientationOptions = [
+            [
+                'label' => 'Top',
+                'value' => 'top'
+            ],
+            [
+                'label' => 'Bottom',
+                'value' => 'bottom'
+            ],
+        ];
+
         // Get the settings that are being defined by the config file
         $overrides = Craft::$app->getConfig()->getConfigFromFile(strtolower($this->handle));
 
-        return Craft::$app->view->renderTemplate('tarteaucitron/settings', [
+        return Craft::$app->view->renderTemplate('tarteaucitron-js/settings', [
             'settings' => $settings,
+            'orientationOptions' => $orientationOptions,
             'overrides' => array_keys($overrides),
         ]);
     }

@@ -1,6 +1,6 @@
 {
   "name": "la-haute-societe/craft-tarteaucitron",
-  "description": "tarteaucitron.js plugin for Craft 3",
+  "description": "tarteaucitron.js integration for Craft CMS 3",
   "type": "craft-plugin",
   "version": "1.0.0",
   "keywords": [
