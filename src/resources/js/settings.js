@@ -1,8 +1,13 @@
 (function() {
-  var cssInput = document.getElementById('settings-customCss');
-  var editor = CodeMirror.fromTextArea(cssInput, {
+  var customCssInput = document.getElementById('settings-customCss');
+  var customCssEditor = CodeMirror.fromTextArea(customCssInput, {
     mode: "css",
-    autoCloseBrackets: true,
-    showHint: true,
+    autoCloseBrackets: true
+  });
+
+  var googleAnalyticsUniversalMoreInput = document.getElementById('settings-googleAnalyticsUniversalMore');
+  var googleAnalyticsUniversalEditor = CodeMirror.fromTextArea(googleAnalyticsUniversalMoreInput, {
+    mode: "javascript",
+    autoCloseBrackets: true
   });
 })();

@@ -74,6 +74,7 @@ class Tarteaucitron extends Plugin
     {
         // Get and pre-validate the settings
         $settings = $this->getSettings();
+//        print_r($settings->getValidators());
         $settings->validate();
 
         $orientationOptions = [

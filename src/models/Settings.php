@@ -2,6 +2,7 @@
 
 namespace lahautesociete\tarteaucitron\models;
 
+use Craft;
 use craft\base\Model;
 
 /**
@@ -62,13 +63,64 @@ class Settings extends Model
     public $customCss = '';
 
     /**
+     * @var boolean
+     */
+    public $isGoogleTagManagerEnabled = false;
+
+    /**
+     * @var string
+     */
+    public $googleTagManagerId = '';
+
+    /**
+     * @var boolean
+     */
+    public $isReCaptchaEnabled = false;
+
+    /**
+     * @var string
+     */
+    public $reCaptchaSiteKey = '';
+
+    /**
+     * @var boolean
+     */
+    public $isGoogleAnalyticsUniversalEnabled = false;
+
+    /**
+     * @var string
+     */
+    public $googleAnalyticsUniversalUa = '';
+
+    /**
+     * @var string
+     */
+    public $googleAnalyticsUniversalMore = '';
+
+    /**
      * @inheritdoc
      */
     public function rules(): array
     {
         return [
-            [['hashtag', 'orientation', 'cookieDomain', 'customCss'], 'string'],
-            [['highPrivacy', 'adblocker', 'showAlertSmall', 'cookieslist', 'removeCredit', 'handleBrowserDNTRequest'], 'boolean'],
+            [['hashtag'], 'required'],
+            [['googleTagManagerId'], 'lahautesociete\tarteaucitron\validators\GoogleTagManagerValidator'],
+            [['reCaptchaSiteKey'], 'lahautesociete\tarteaucitron\validators\ReCaptchaValidator'],
+            [['googleAnalyticsUniversalUa'], 'lahautesociete\tarteaucitron\validators\GoogleAnalyticsUniversalValidator'],
+
+            [
+                [
+                    'hashtag', 'orientation', 'cookieDomain', 'customCss',
+                    'googleTagManagerId', 'reCaptchaSiteKey'
+                ], 'string'
+            ],
+            [
+                [
+                    'highPrivacy', 'adblocker', 'showAlertSmall', 'cookieslist', 'removeCredit', 'handleBrowserDNTRequest',
+                    'isGoogleTagManagerEnabled', 'isReCaptchaEnabled', 'isGoogleAnalyticsUniversalEnabled'
+                ], 'boolean'
+            ],
+
             ['hashtag', 'default', 'value' => '#tarteaucitron'],
             ['highPrivacy', 'default', 'value' => false],
             ['orientation', 'default', 'value' => 'top'],
@@ -78,7 +130,16 @@ class Settings extends Model
             ['removeCredit', 'default', 'value' => false],
             ['handleBrowserDNTRequest', 'default', 'value' => false],
             ['cookieDomain', 'default', 'value' => null],
-            ['customCss', 'default', 'value' => ""],
+            ['customCss', 'default', 'value' => ""]
         ];
+    }
+
+    public function ruleGoogleTagManager($attribute)
+    {
+        if ($this->isGoogleTagManagerEnabled && empty($this->$attribute)) {
+            $this->addError($attribute, Craft::t('yii', '{attribute} cannot be blank.', [
+                'attribute' => $attribute
+            ]));
+        }
     }
 }
