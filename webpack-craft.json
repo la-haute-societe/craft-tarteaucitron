@@ -1,0 +1,16 @@
+{
+  "sourceDir": "src\/resources\/webpack",
+  "entry": {
+    "settings": "./js/settings.js"
+  },
+  "externals": {},
+  "alias": {},
+  "subDirectories": {
+    "sources": "src",
+    "dist": "dist"
+  },
+  "assets": {
+    "styles": "css",
+    "scripts": "js"
+  }
+}

@@ -1,3 +1,5 @@
+import Styles from '../scss/settings.scss';
+
 (function() {
   var customCssInput = document.getElementById('settings-customCss');
   var customCssEditor = CodeMirror.fromTextArea(customCssInput, {
