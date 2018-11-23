@@ -23,12 +23,12 @@ class SettingsBundle extends AssetBundle
             'libs/codemirror/addon/edit/closebrackets.js',
             'libs/codemirror/mode/css/css.js',
             'libs/codemirror/mode/javascript/javascript.js',
-            'js/settings.js',
+            'webpack/dist/js/settings.js',
         ];
 
         $this->css = [
             'libs/codemirror/lib/codemirror.css',
-            'css/settings.css',
+            'webpack/dist/css/settings.css',
         ];
 
         parent::init();
