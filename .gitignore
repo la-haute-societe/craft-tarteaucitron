@@ -1,4 +1,12 @@
+# Common
 .DS_Store
 /.idea
-vendor
+
+# Build files
 node_modules
+
+# Composer
+vendor
+
+# Generated resources
+dist/src/resources/**/*
