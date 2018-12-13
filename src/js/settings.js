@@ -1,3 +1,5 @@
+import CodeMirror from 'codemirror';
+
 import Styles from '../scss/settings.scss';
 
 (function() {
