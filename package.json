@@ -4,9 +4,9 @@
   "description": "tarteaucitron.js integration for Craft CMS 3",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "./node_modules/.bin/webpack --config build/dev.js --watch",
-    "build-dev": "./node_modules/.bin/webpack --config build/dev.js",
-    "build-prod": "./node_modules/.bin/webpack --config build/prod.js "
+    "watch": "NODE_ENV=development ./node_modules/.bin/webpack --config build/dev.js --watch",
+    "build-dev": "NODE_ENV=development ./node_modules/.bin/webpack --config build/dev.js",
+    "build-prod": "NODE_ENV=production ./node_modules/.bin/webpack --config build/prod.js "
   },
   "author": "Clément Gayot",
   "license": "BSD-3-Clause",

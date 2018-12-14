@@ -8,13 +8,14 @@
     "styles": "css",
     "scripts": "js"
   },
+
   "filenames": {
-    "dev": {
+    "development": {
       "js": "[name].js",
       "css": "[name].css",
       "cssChunk": "[id].css"
     },
-    "prod": {
+    "production": {
       "js": "[name].[hash].js",
       "css": "[name].[hash].css",
       "cssChunk": "[id].[hash].css"

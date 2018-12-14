@@ -5,19 +5,19 @@
 const webpack = require('webpack');
 const path = require('path');
 
-
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const AssetsPlugin = require('assets-webpack-plugin');
 
+
 // Webpack process
-module.exports = (config, type) => {
+module.exports = (config) => {
     return {
         entry: config.entry,
         context: path.resolve(__dirname, config.sourceDir),
         output: {
             path: path.resolve(__dirname, config.outputDir),
-            filename: `${config.assets.scripts}/${config.filenames[type].js}`
+            filename: `${config.assets.scripts}/${config.filenames[process.env.NODE_ENV].js}`
         },
 
         plugins: [
@@ -47,15 +47,9 @@ module.exports = (config, type) => {
 
             // Extract css to new files
             new MiniCssExtractPlugin({
-                filename: `${config.assets.styles}/${config.filenames[type].css}`,
-                chunkFilename: `${config.assets.styles}/${config.filenames[type].cssChunk}`,
+                filename: `${config.assets.styles}/${config.filenames[process.env.NODE_ENV].css}`,
+                chunkFilename: `${config.assets.styles}/${config.filenames[process.env.NODE_ENV].cssChunk}`,
             }),
-
-            // new ExtraneousFileCleanupPlugin({
-            //   extensions: ['.js', '.css'],
-            //   minBytes: 512,
-            //   manifestJsonName: 'generated-assets-files.json'
-            // }),
         ],
 
         module: {

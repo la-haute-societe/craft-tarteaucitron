@@ -17,7 +17,7 @@ const config = require(confPath);
 module.exports = () => {
 
     // Get Webpack base config
-    const webpackConfig = require('./base')(config, "prod");
+    const webpackConfig = require('./base')(config);
     webpackConfig.mode = "production";
 
 
@@ -27,7 +27,7 @@ module.exports = () => {
             new UglifyJsPlugin(),
             new OptimizeCSSAssetsPlugin({})
         ]
-    }
+    };
 
     return webpackConfig;
 };
