@@ -1,0 +1,23 @@
+{
+  "entry": {
+    "settings": "./js/settings.js"
+  },
+  "sourceDir": "..\/src\/",
+  "outputDir": "..\/dist\/src\/resources",
+  "assets": {
+    "styles": "css",
+    "scripts": "js"
+  },
+  "filenames": {
+    "dev": {
+      "js": "[name].js",
+      "css": "[name].css",
+      "cssChunk": "[id].css"
+    },
+    "prod": {
+      "js": "[name].[hash].js",
+      "css": "[name].[hash].css",
+      "cssChunk": "[id].[hash].css"
+    }
+  }
+}
