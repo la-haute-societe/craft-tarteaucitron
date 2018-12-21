@@ -9,4 +9,4 @@ node_modules
 vendor
 
 # Generated resources
-dist/src/resources/**/*
+src/resources/**/*

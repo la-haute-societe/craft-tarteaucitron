@@ -2,8 +2,8 @@
   "entry": {
     "settings": "./js/settings.js"
   },
-  "sourceDir": "..\/src\/",
-  "outputDir": "..\/dist\/src\/resources",
+  "sourceDir": "..\/resources\/",
+  "outputDir": "..\/src\/resources",
   "assets": {
     "styles": "css",
     "scripts": "js"
