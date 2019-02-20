@@ -1,0 +1,29 @@
+{% embed "tarteaucitron-js/config/services/template.twig" %}
+    {% import "_includes/forms" as forms %}
+    {% import "tarteaucitron-js/config/macros" as macros %}
+
+    {% block inputs %}
+        {{ forms.lightswitchField({
+            label: "Activate reCAPTCHA ?"|t,
+            id: 'isReCaptchaEnabled',
+            name: 'isReCaptchaEnabled',
+            on: settings.isReCaptchaEnabled,
+            toggle: true,
+            disabled: 'isReCaptchaEnabled' in overrides,
+            warning: 'isReCaptchaEnabled' in overrides ? configWarning('isReCaptchaEnabled'),
+            errors: settings.getErrors('isReCaptchaEnabled')
+        }) }}
+
+        {{ forms.textField({
+            label: "reCAPTCHA site key"|t,
+            id: 'reCaptchaSiteKey',
+            name: 'reCaptchaSiteKey',
+            value: settings.reCaptchaSiteKey,
+            required: true,
+            disabled: 'reCaptchaSiteKey' in overrides,
+            warning: 'reCaptchaSiteKey' in overrides ? configWarning('reCaptchaSiteKey'),
+            errors: settings.getErrors('reCaptchaSiteKey')
+        }) }}
+
+    {% endblock %}
+{% endembed %}
