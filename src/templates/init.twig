@@ -1,5 +1,3 @@
-{% do view.registerAssetBundle("lahautesociete\\tarteaucitron\\bundles\\PluginBundle") %}
-
 {% css %}
     {{ customCss }}
 {% endcss %}
@@ -14,12 +12,13 @@
         "cookieslist": {{ cookieslist ? 'true' : 'false' }},
         "removeCredit": {{ removeCredit ? 'true' : 'false' }},
         "handleBrowserDNTRequest": {{ handleBrowserDNTRequest ? 'true' : 'false' }},
+        "useExternalCss": "true",
         {% if cookieDomain %}"cookieDomain": {{ cookieDomain }}{% endif %}
     });
 {% endjs %}
 
 {% if isGoogleTagManagerEnabled and googleTagManagerId is not empty %}
-    <!-- Google Tag Manager -->
+    {# Google Tag Manager #}
     {% js %}
       tarteaucitron.user.googletagmanagerId = '{{ googleTagManagerId }}';
       (tarteaucitron.job = tarteaucitron.job || []).push('googletagmanager');
@@ -27,14 +26,14 @@
 {% endif %}
 
 {% if isReCaptchaEnabled and reCaptchaSiteKey is not empty %}
-    <!-- reCAPTCHA -->
+    {# reCAPTCHA #}
     {% js %}
         (tarteaucitron.job = tarteaucitron.job || []).push('recaptcha');
     {% endjs %}
 {% endif %}
 
 {% if isGoogleAnalyticsUniversalEnabled and googleAnalyticsUniversalUa is not empty %}
-    <!-- reCAPTCHA -->
+    {# Google Analytics Universal #}
     {% js %}
         tarteaucitron.user.analyticsUa = '{{ googleAnalyticsUniversalUa }}';
         tarteaucitron.user.analyticsMore = function () { {{ googleAnalyticsUniversalMore }} };

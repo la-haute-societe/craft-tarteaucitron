@@ -6,7 +6,6 @@ use lahautesociete\tarteaucitron\Tarteaucitron as Plugin;
 
 /**
  * Class TarteaucitronVariable
- * @package humandirect\cookiebot\variables
  */
 class TarteaucitronVariable
 {

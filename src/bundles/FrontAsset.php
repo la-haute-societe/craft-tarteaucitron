@@ -4,7 +4,7 @@ namespace lahautesociete\tarteaucitron\bundles;
 use craft\web\AssetBundle;
 use craft\web\assets\cp\CpAsset;
 
-class PluginBundle extends AssetBundle
+class FrontAsset extends AssetBundle
 {
     public function init()
     {
@@ -19,11 +19,11 @@ class PluginBundle extends AssetBundle
         // define the relative path to CSS/JS files that should be registered with the page
         // when this asset bundle is registered
         $this->js = [
-            'libs/tarteaucitron/tarteaucitron.js',
+            'js/tarteaucitron.js',
         ];
 
         $this->css = [
-
+            'css/tarteaucitron.css',
         ];
 
         parent::init();

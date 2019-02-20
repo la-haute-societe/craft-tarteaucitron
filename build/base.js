@@ -8,10 +8,27 @@ const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const AssetsPlugin = require('assets-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
+
+// Get list of files paths to copy
+function getCopyFilesPathsArray(paths, baseOutputDir) {
+    let copyFilesArray = [];
+
+    for (let copyFilePaths of paths) {
+        copyFilesArray.push({
+            "from": copyFilePaths["from"],
+            "to": path.resolve(__dirname, baseOutputDir, copyFilePaths["to"]),
+        });
+    }
+    return copyFilesArray;
+
+}
 
 // Webpack process
 module.exports = (config) => {
+    let copyFilesArray = getCopyFilesPathsArray(config.assets.copy, config.outputDir);
+
     return {
         entry: config.entry,
         context: path.resolve(__dirname, config.sourceDir),
@@ -44,6 +61,9 @@ module.exports = (config) => {
                     exclude: []
                 }
             ),
+
+            // Copy files
+            new CopyPlugin(copyFilesArray),
 
             // Extract css to new files
             new MiniCssExtractPlugin({
@@ -79,3 +99,5 @@ module.exports = (config) => {
         target: 'web'
     }
 };
+
+

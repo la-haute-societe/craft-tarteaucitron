@@ -6,6 +6,7 @@ use Craft;
 use craft\base\Component;
 use craft\web\View;
 
+use lahautesociete\tarteaucitron\bundles\FrontAsset;
 use lahautesociete\tarteaucitron\Tarteaucitron;
 
 /**
@@ -25,6 +26,8 @@ class TarteaucitronService extends Component
      */
     public function renderInitScript(): string
     {
+        Craft::$app->view->registerAssetBundle(FrontAsset::class);
+
         $settings = Tarteaucitron::$plugin->getSettings();
         $vars = get_object_vars($settings);
 

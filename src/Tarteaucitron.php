@@ -6,6 +6,7 @@ use Craft;
 use craft\base\Plugin;
 use craft\web\twig\variables\CraftVariable;
 
+use lahautesociete\tarteaucitron\bundles\SettingsAsset;
 use lahautesociete\tarteaucitron\models\Settings;
 use lahautesociete\tarteaucitron\services\TarteaucitronService;
 use lahautesociete\tarteaucitron\variables\TarteaucitronVariable;
@@ -74,9 +75,9 @@ class Tarteaucitron extends Plugin
     {
         // Get and pre-validate the settings
         $settings = $this->getSettings();
-//        print_r($settings->getValidators());
         $settings->validate();
 
+        //@Todo : wtf ?
         $orientationOptions = [
             [
                 'label' => 'Top',
@@ -91,7 +92,8 @@ class Tarteaucitron extends Plugin
         // Get the settings that are being defined by the config file
         $overrides = Craft::$app->getConfig()->getConfigFromFile(strtolower($this->handle));
 
-        return Craft::$app->view->renderTemplate('tarteaucitron-js/settings', [
+        Craft::$app->view->registerAssetBundle(SettingsAsset::class);
+        return Craft::$app->getView()->renderTemplate('tarteaucitron-js/settings', [
             'settings' => $settings,
             'orientationOptions' => $orientationOptions,
             'overrides' => array_keys($overrides),
