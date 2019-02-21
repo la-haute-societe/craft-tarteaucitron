@@ -43,7 +43,7 @@ class GoogleTagManagerValidator extends Validator
      */
     public function validateAttribute($model, $attribute)
     {
-        if (!$model->isReCaptchaEnabled)
+        if (!$model->isGoogleTagManagerEnabled)
             return;
 
         $result = $this->validateValue($model->$attribute);

@@ -16,7 +16,7 @@ export default class Settings {
     }
 
     init() {
-        this.enableCollapsing();
+        this.setCollapsingElements();
         this.initCodeMirrorInputs();
     }
 
@@ -36,13 +36,24 @@ export default class Settings {
         }
     }
 
-    enableCollapsing() {
+    setCollapsingElements() {
+        // Set height of each ecollapsing element
         Array.prototype.forEach.call(
             document.getElementsByClassName("collapse__content"), function (hideable) {
                 hideable.style.maxHeight = hideable.scrollHeight + "px";
             }
         );
+
         document.querySelectorAll(".collapse__enable").forEach(function (el) {
+
+            // Collapse if enabled
+            let isEnabled = el.querySelector('input').value;
+            let collapser = el.nextSibling.nextSibling;
+            if (isEnabled) {
+                collapser.checked = isEnabled;
+            }
+
+            // Collapse / uncollapse on click
             el.addEventListener('click', function (e) {
                 let isEnabled = el.querySelector('input').value;
                 let collapser = el.nextSibling.nextSibling;

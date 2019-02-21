@@ -103,21 +103,32 @@ class Settings extends Model
     public function rules(): array
     {
         return [
-            [['hashtag'], 'required'],
+            // Service - Google Tag Manager
+            [['isGoogleTagManagerEnabled'], 'boolean'],
+            [['googleTagManagerId'], 'string'],
             [['googleTagManagerId'], 'lahautesociete\tarteaucitron\validators\GoogleTagManagerValidator'],
+
+            // Service - reCaptcha
+            [['isReCaptchaEnabled'], 'boolean'],
+            [['reCaptchaSiteKey'], 'string'],
             [['reCaptchaSiteKey'], 'lahautesociete\tarteaucitron\validators\ReCaptchaValidator'],
+
+            // Service - Google Analytics Universal UA
+            [['isGoogleAnalyticsUniversalEnabled'], 'boolean'],
             [['googleAnalyticsUniversalUa'], 'lahautesociete\tarteaucitron\validators\GoogleAnalyticsUniversalValidator'],
 
+
+
+
+            [['hashtag'], 'required'],
             [
                 [
                     'hashtag', 'orientation', 'cookieDomain', 'customCss',
-                    'googleTagManagerId', 'reCaptchaSiteKey'
                 ], 'string'
             ],
             [
                 [
                     'highPrivacy', 'adblocker', 'showAlertSmall', 'cookieslist', 'removeCredit', 'handleBrowserDNTRequest',
-                    'isGoogleTagManagerEnabled', 'isReCaptchaEnabled', 'isGoogleAnalyticsUniversalEnabled'
                 ], 'boolean'
             ],
 
