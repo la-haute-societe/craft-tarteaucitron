@@ -1,0 +1,17 @@
+<div class="collapse">
+    <div class="collapse__enable flex align-center justify-center">
+        {% block enable %}{% endblock %}
+    </div>
+
+    <input type="checkbox" id="{{ id }}">
+    <label class="collapse__title flex align-center" for="{{ id }}">
+        <span>{% block name %}{% endblock %}</span>
+        <div class="collapse__arrow flex align-center justify-center icon-keyboard_arrow_up"></div>
+    </label>
+
+    <div class="collapse__content">
+        <div>
+            {% block options %}{% endblock %}
+        </div>
+    </div>
+</div>

@@ -1,10 +1,10 @@
+// Base
+@import "./base/common";
+@import "./base/flex";
+@import "./base/fonts";
+
+// Libs
 @import "./libs/codemirror";
 
-.flex {
-  display: flex;
-  align-items: normal;
-}
-
-.fit-container {
-  flex: 1 1 auto;
-}
+// Components
+@import "./components/collapse";

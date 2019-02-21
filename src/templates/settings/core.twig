@@ -1,5 +1,7 @@
 {% import "_includes/forms" as forms %}
-{% import "tarteaucitron-js/config/macros" as macros %}
+{% import "tarteaucitron-js/settings/macros" as macros %}
+
+<div class="flex align-start">
 
 <div class="fit-container">
     {{ forms.textField({
@@ -139,4 +141,6 @@
         warning: 'customCss' in overrides ? macros.configWarning('customCss'),
         errors: settings.getErrors('customCss')
     }) }}
+</div>
+
 </div>

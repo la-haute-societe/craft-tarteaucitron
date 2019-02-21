@@ -1,10 +1,11 @@
-{% embed "tarteaucitron-js/config/services/template.twig" %}
+{% embed "tarteaucitron-js/settings/services/template.twig" with {"id": "google-tag-manager"} %}
     {% import "_includes/forms" as forms %}
-    {% import "tarteaucitron-js/config/macros" as macros %}
+    {% import "tarteaucitron-js/settings/macros" as macros %}
 
-    {% block inputs %}
+    {% block name %}Google Tag Manager{% endblock %}
+
+    {% block enable %}
         {{ forms.lightswitchField({
-            label: "Activate Google Tag Manager ?"|t,
             id: 'isGoogleTagManagerEnabled',
             name: 'isGoogleTagManagerEnabled',
             on: settings.isGoogleTagManagerEnabled,
@@ -13,9 +14,11 @@
             warning: 'isGoogleTagManagerEnabled' in overrides ? macros.configWarning('isGoogleTagManagerEnabled'),
             errors: settings.getErrors('isGoogleTagManagerEnabled')
         }) }}
+    {% endblock %}
 
+    {% block options %}
         {{ forms.textField({
-            label: "Google Tag Manager ID"|t,
+            label: "Google Tag managers ID"|t,
             id: 'googleTagManagerId',
             name: 'googleTagManagerId',
             value: settings.googleTagManagerId,

@@ -75,6 +75,28 @@ module.exports = (config) => {
         module: {
             rules: [
                 {
+                    test: /\.(png|jpe?g|gif)(\?\S*)?$/,
+                    use: {
+                        loader: 'file-loader',
+                        options: {
+                            outputPath: 'assets/img/',
+                            publicPath: '../assets/img/',
+                            name: '[name].[ext]'
+                        }
+                    },
+                },
+                {
+                    test: /\.(svg|woff|woff2|ttf|eot|otf)(\?\S*)?$/,
+                    use: {
+                        loader: 'file-loader',
+                        options: {
+                            outputPath: 'assets/fonts/',
+                            publicPath: '../assets/fonts/',
+                            name: '[name].[ext]'
+                        }
+                    },
+                },
+                {
                     test: /\.js$/,
                     exclude: /(node_modules)/,
                     use: {
@@ -89,7 +111,6 @@ module.exports = (config) => {
                     use: [
                         MiniCssExtractPlugin.loader,
                         'css-loader',
-                        // 'postcss-loader',
                         'sass-loader',
                     ],
                 },

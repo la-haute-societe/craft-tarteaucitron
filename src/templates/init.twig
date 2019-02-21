@@ -18,7 +18,7 @@
 {% endjs %}
 
 {% if isGoogleTagManagerEnabled and googleTagManagerId is not empty %}
-    {# Google Tag Manager #}
+    {# Google Tag managers #}
     {% js %}
       tarteaucitron.user.googletagmanagerId = '{{ googleTagManagerId }}';
       (tarteaucitron.job = tarteaucitron.job || []).push('googletagmanager');
