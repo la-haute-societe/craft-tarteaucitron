@@ -75,12 +75,12 @@ class Settings extends Model
     /**
      * @var boolean
      */
-    public $isReCaptchaEnabled = false;
+    public $isReCAPTCHAEnabled = false;
 
     /**
      * @var string
      */
-    public $reCaptchaSiteKey = '';
+    public $reCAPTCHASiteKey = '';
 
     /**
      * @var boolean
@@ -108,10 +108,10 @@ class Settings extends Model
             [['googleTagManagerId'], 'string'],
             [['googleTagManagerId'], 'lahautesociete\tarteaucitron\validators\GoogleTagManagerValidator'],
 
-            // Service - reCaptcha
-            [['isReCaptchaEnabled'], 'boolean'],
-            [['reCaptchaSiteKey'], 'string'],
-            [['reCaptchaSiteKey'], 'lahautesociete\tarteaucitron\validators\ReCaptchaValidator'],
+            // Service - reCAPTCHA
+            [['isReCAPTCHAEnabled'], 'boolean'],
+            [['reCAPTCHASiteKey'], 'string'],
+            [['reCAPTCHASiteKey'], 'lahautesociete\tarteaucitron\validators\ReCAPTCHAValidator'],
 
             // Service - Google Analytics Universal UA
             [['isGoogleAnalyticsUniversalEnabled'], 'boolean'],

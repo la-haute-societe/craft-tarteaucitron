@@ -1,29 +1,37 @@
-{% embed "tarteaucitron-js/settings/services/template.twig" %}
+{% embed "tarteaucitron-js/settings/services/template.twig" with {"id": "reCAPTCHA"} %}
     {% import "_includes/forms" as forms %}
     {% import "tarteaucitron-js/settings/macros" as macros %}
 
-    {% block inputs %}
-        {{ forms.lightswitchField({
-            label: "Activate reCAPTCHA ?"|t,
-            id: 'isReCaptchaEnabled',
-            name: 'isReCaptchaEnabled',
-            on: settings.isReCaptchaEnabled,
-            toggle: true,
-            disabled: 'isReCaptchaEnabled' in overrides,
-            warning: 'isReCaptchaEnabled' in overrides ? configWarning('isReCaptchaEnabled'),
-            errors: settings.getErrors('isReCaptchaEnabled')
-        }) }}
+    {% block name %}reCAPTCHA{% endblock %}
 
+    {% block enable %}
+        {{ forms.lightswitchField({
+            id: 'isReCAPTCHAEnabled',
+            name: 'isReCAPTCHAEnabled',
+            on: settings.isReCAPTCHAEnabled,
+            toggle: true,
+            warning: 'isReCAPTCHAEnabled' in overrides ? macros.configWarning('isReCAPTCHAEnabled'),
+            errors: settings.getErrors('isReCAPTCHAEnabled')
+        }) }}
+    {% endblock %}
+
+    {% block options %}
         {{ forms.textField({
             label: "reCAPTCHA site key"|t,
-            id: 'reCaptchaSiteKey',
-            name: 'reCaptchaSiteKey',
-            value: settings.reCaptchaSiteKey,
+            id: 'reCAPTCHASiteKey',
+            name: 'reCAPTCHASiteKey',
+            value: settings.reCAPTCHASiteKey,
             required: true,
-            disabled: 'reCaptchaSiteKey' in overrides,
-            warning: 'reCaptchaSiteKey' in overrides ? configWarning('reCaptchaSiteKey'),
-            errors: settings.getErrors('reCaptchaSiteKey')
+            warning: 'reCAPTCHASiteKey' in overrides ? macros.configWarning('reCAPTCHASiteKey'),
+            errors: settings.getErrors('reCAPTCHASiteKey')
         }) }}
 
+        <p>Include this code where you want to instantiate reCAPTCHA :</p>
+        {{ forms.textAreaField({
+            id: 'reCAPTCHACodeExample',
+            value: "{{ craft.tarteaucitron.reCAPTCHA() }}",
+            rows: 1,
+            disabled: true
+        }) }}
     {% endblock %}
 {% endembed %}

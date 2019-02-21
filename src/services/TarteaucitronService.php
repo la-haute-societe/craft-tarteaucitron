@@ -6,8 +6,10 @@ use Craft;
 use craft\base\Component;
 use craft\web\View;
 
+use Exception;
 use lahautesociete\tarteaucitron\bundles\FrontAsset;
 use lahautesociete\tarteaucitron\Tarteaucitron;
+use Twig\Markup;
 
 /**
  * Class TarteaucitronService
@@ -19,23 +21,47 @@ class TarteaucitronService extends Component
     /**
      * Renders tarteaucitron dialog script
      *
-     * @return string
+     * @return Markup
      *
      * @throws \Twig_Error_Loader
      * @throws \yii\base\Exception
+     * @throws \yii\base\InvalidConfigException
      */
-    public function renderInitScript(): string
+    public function renderInitScript(): Markup
     {
-        Craft::$app->view->registerAssetBundle(FrontAsset::class);
+        Craft::$app->getView()->registerAssetBundle(FrontAsset::class);
 
         $settings = Tarteaucitron::$plugin->getSettings();
         $vars = get_object_vars($settings);
 
-        $oldMode = Craft::$app->view->getTemplateMode();
-        Craft::$app->view->setTemplateMode(View::TEMPLATE_MODE_CP);
-        $html = Craft::$app->view->renderTemplate('tarteaucitron-js/init', $vars);
-        Craft::$app->view->setTemplateMode($oldMode);
+        $oldMode = Craft::$app->getView()->getTemplateMode();
+        Craft::$app->getView()->setTemplateMode(View::TEMPLATE_MODE_CP);
+        $html = Craft::$app->getView()->renderTemplate('tarteaucitron-js/init', $vars);
+        Craft::$app->getView()->setTemplateMode($oldMode);
 
-        return $html;
+        return new Markup($html, 'UTF-8');
+    }
+
+    /**
+     * @return Markup
+     *
+     * @throws \Twig_Error_Loader
+     * @throws \yii\base\Exception
+     */
+    public function renderReCAPTCHA(): Markup
+    {
+        $settings = Tarteaucitron::$plugin->getSettings();
+        $vars = get_object_vars($settings);
+        $reCAPTCHASiteKey = $vars['reCAPTCHASiteKey'];
+        if (empty($reCAPTCHASiteKey)) {
+            throw new Exception('craft-tarteaucitron : reCAPTCHASiteKey is empty');
+        }
+
+        $oldMode = Craft::$app->getView()->getTemplateMode();
+        Craft::$app->getView()->setTemplateMode(View::TEMPLATE_MODE_CP);
+        $html = Craft::$app->getView()->renderTemplate('tarteaucitron-js/services/recaptcha', $vars);
+        Craft::$app->getView()->setTemplateMode($oldMode);
+
+        return new Markup($html, 'UTF-8');
     }
 }

@@ -6,10 +6,10 @@ use Yii;
 use yii\validators\Validator;
 
 /**
- * Class ReCaptchaValidator
+ * Class ReCAPTCHAValidator
  * @package lahautesociete\tarteaucitron\validators
  */
-class ReCaptchaValidator extends Validator
+class ReCAPTCHAValidator extends Validator
 {
     /**
      * @var bool whether to skip this validator if the value being validated is empty.

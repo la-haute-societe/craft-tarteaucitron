@@ -10,7 +10,6 @@
             name: 'isGoogleTagManagerEnabled',
             on: settings.isGoogleTagManagerEnabled,
             toggle: true,
-            disabled: 'isGoogleTagManagerEnabled' in overrides,
             warning: 'isGoogleTagManagerEnabled' in overrides ? macros.configWarning('isGoogleTagManagerEnabled'),
             errors: settings.getErrors('isGoogleTagManagerEnabled')
         }) }}
@@ -23,7 +22,6 @@
             name: 'googleTagManagerId',
             value: settings.googleTagManagerId,
             required: true,
-            disabled: 'googleTagManagerId' in overrides,
             warning: 'googleTagManagerId' in overrides ? macros.configWarning('googleTagManagerId'),
             errors: settings.getErrors('googleTagManagerId')
         }) }}

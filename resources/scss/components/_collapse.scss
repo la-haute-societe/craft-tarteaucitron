@@ -22,7 +22,7 @@ $title-height: 50px;
   @include animate;
   display: block;
   width: 100%;
-  margin: 50px auto 10px;
+  margin: 10px auto;
   cursor: pointer;
   background: $white;
   border-radius: 4px;
@@ -74,7 +74,6 @@ $title-height: 50px;
     cursor: pointer;
     background: $white;
     border-radius: 4px;
-    box-shadow: 0 3px 2px 1px $black-3;
 
     & > div {
       padding: 0 20px 20px;

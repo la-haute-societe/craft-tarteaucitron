@@ -8,3 +8,13 @@
 
 // Components
 @import "./components/collapse";
+
+
+// Special cases
+#settings-reCAPTCHACodeExample-field {
+  margin-top: 0;
+
+  .CodeMirror {
+    height: auto !important;
+  }
+}

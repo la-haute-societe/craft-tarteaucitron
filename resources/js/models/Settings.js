@@ -1,13 +1,17 @@
 import CodeMirrorManager from "../managers/CodeMirrorManager";
 
 // Constantes
-const CSS_INPUTS_ID = [
-    'settings-customCss'
-];
+const CSS_INPUTS_ID = {
+    'settings-customCss': {}
+};
 
-const JS_INPUTS_ID = [
-    'settings-googleAnalyticsUniversalMore'
-];
+const JS_INPUTS_ID = {
+    'settings-googleAnalyticsUniversalMore': {}
+};
+
+const TWIG_INPUTS_ID = {
+    'settings-reCAPTCHACodeExample': {'readOnly' : true}
+};
 
 
 export default class Settings {
@@ -21,17 +25,24 @@ export default class Settings {
     }
 
     initCodeMirrorInputs() {
-        for (let id of CSS_INPUTS_ID) {
+        for (let id in CSS_INPUTS_ID) {
             let el = document.getElementById(id);
             if (el) {
-                CodeMirrorManager.initCssInput(el);
+                CodeMirrorManager.initCssInput(el, CSS_INPUTS_ID[id]);
             }
         }
 
-        for (let id of JS_INPUTS_ID) {
+        for (let id in JS_INPUTS_ID) {
             let el = document.getElementById(id);
             if (el) {
-                CodeMirrorManager.initJsInput(el);
+                CodeMirrorManager.initJsInput(el, JS_INPUTS_ID[id]);
+            }
+        }
+
+        for (let id in TWIG_INPUTS_ID) {
+            let el = document.getElementById(id);
+            if (el) {
+                CodeMirrorManager.initTwigInput(el, TWIG_INPUTS_ID[id]);
             }
         }
     }
