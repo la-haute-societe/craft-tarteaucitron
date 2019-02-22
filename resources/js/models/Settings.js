@@ -17,6 +17,7 @@ const TWIG_INPUTS_ID = {
     'settings-linkedinExample': {'readOnly' : true},
     'settings-twitterExample': {'readOnly' : true},
     'settings-vimeoExample': {'readOnly' : true},
+    'settings-youtubeExample': {'readOnly' : true},
 };
 
 

@@ -93,3 +93,10 @@
         (tarteaucitron.job = tarteaucitron.job || []).push('vimeo');
     {% endjs %}
 {% endif %}
+
+{# Youtube #}
+{% if isYoutubeEnabled %}
+    {% js %}
+        (tarteaucitron.job = tarteaucitron.job || []).push('youtube');
+    {% endjs %}
+{% endif %}

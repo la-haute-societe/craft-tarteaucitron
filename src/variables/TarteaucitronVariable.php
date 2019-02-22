@@ -70,4 +70,13 @@ class TarteaucitronVariable
     {
         return Plugin::$plugin->tarteaucitron->renderVimeo($options);
     }
+
+    /**
+     * @param array $options
+     * @return Markup
+     */
+    public function youtube(array $options): Markup
+    {
+        return Plugin::$plugin->tarteaucitron->renderYoutube($options);
+    }
 }

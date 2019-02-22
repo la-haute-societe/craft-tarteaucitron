@@ -237,4 +237,40 @@ class TarteaucitronService extends Component
 
         return new Markup($html, 'UTF-8');
     }
+
+    /**
+     * @param array $options
+     * @return Markup
+     * @throws \Twig_Error_Loader
+     * @throws \yii\base\Exception
+     */
+    public function renderYoutube(array $options): Markup
+    {
+        $settings = Tarteaucitron::$plugin->getSettings();
+        $vars = get_object_vars($settings);
+
+        $isYoutubeEnabled = $vars['isYoutubeEnabled'];
+        if (!$isYoutubeEnabled) {
+            return new Markup('', 'UTF-8');
+        }
+
+        $cOptions = [
+            'videoId' => $options['videoId'],
+            'width' => $options['width'],
+            'height' => $options['height'],
+            'theme' => $options['theme'],
+            'rel' => $options['rel'],
+            'controls' => $options['controls'],
+            'showinfo' => $options['showinfo'],
+            'autoplay' => $options['autoplay'],
+        ];
+        $vars = array_merge($vars, $cOptions);
+
+        $oldMode = Craft::$app->getView()->getTemplateMode();
+        Craft::$app->getView()->setTemplateMode(View::TEMPLATE_MODE_CP);
+        $html = Craft::$app->getView()->renderTemplate('tarteaucitron-js/services/youtube', $vars);
+        Craft::$app->getView()->setTemplateMode($oldMode);
+
+        return new Markup($html, 'UTF-8');
+    }
 }

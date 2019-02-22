@@ -1,0 +1,37 @@
+{% embed "tarteaucitron-js/settings/services/template.twig" with {"id": "youtube"} %}
+    {% import "_includes/forms" as forms %}
+    {% import "tarteaucitron-js/settings/macros" as macros %}
+
+    {% block name %}Youtube{% endblock %}
+
+    {% block enable %}
+        {{ forms.lightswitchField({
+            id: 'isYoutubeEnabled',
+            name: 'isYoutubeEnabled',
+            on: settings.isYoutubeEnabled,
+            toggle: true,
+            warning: 'isYoutubeEnabled' in overrides ? macros.configWarning('isYoutubeEnabled'),
+            errors: settings.getErrors('isYoutubeEnabled')
+        }) }}
+    {% endblock %}
+
+    {% block options %}
+        <p>Include this code where you want to instantiate Youtube :</p>
+        {{ forms.textAreaField({
+            id: 'youtubeExample',
+            value: "
+{{ craft.tarteaucitron.youtube({
+    videoId: 'VIDEO_ID',
+    width: 'WIDTH',
+    height: 'HEIGHT',
+    theme: 'dark'|'light',
+    rel: 0|1,
+    controls: 0|1,
+    showinfo: 0|1,
+    autoplay: 0|1,
+}) }}",
+            rows: 1,
+            disabled: true
+        }) }}
+    {% endblock %}
+{% endembed %}

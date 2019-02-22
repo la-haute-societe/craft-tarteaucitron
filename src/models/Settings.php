@@ -152,6 +152,11 @@ class Settings extends Model
      */
     public $isVimeoEnabled = false;
 
+    /**
+     * @var boolean
+     */
+    public $isYoutubeEnabled = false;
+
 
 
     /**
@@ -197,6 +202,10 @@ class Settings extends Model
 
             // Service - Vimeo
             [['isVimeoEnabled'], 'boolean'],
+
+            // Service - Youtube
+            [['isYoutubeEnabled'], 'boolean'],
+
 
 
             [['hashtag'], 'required'],
