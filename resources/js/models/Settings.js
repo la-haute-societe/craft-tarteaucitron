@@ -14,6 +14,7 @@ const TWIG_INPUTS_ID = {
     'settings-googleMapsCodeExample': {'readOnly' : true},
     'settings-reCAPTCHACodeExample': {'readOnly' : true},
     'settings-googleAdwordsConversionExample': {'readOnly' : true},
+    'settings-linkedinExample': {'readOnly' : true},
 };
 
 

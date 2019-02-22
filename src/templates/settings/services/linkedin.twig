@@ -1,0 +1,30 @@
+{% embed "tarteaucitron-js/settings/services/template.twig" with {"id": "linkedin"} %}
+    {% import "_includes/forms" as forms %}
+    {% import "tarteaucitron-js/settings/macros" as macros %}
+
+    {% block name %}Linkedin{% endblock %}
+
+    {% block enable %}
+        {{ forms.lightswitchField({
+            id: 'isLinkedinEnabled',
+            name: 'isLinkedinEnabled',
+            on: settings.isLinkedinEnabled,
+            toggle: true,
+            warning: 'isLinkedinEnabled' in overrides ? macros.configWarning('isLinkedinEnabled'),
+            errors: settings.getErrors('isLinkedinEnabled')
+        }) }}
+    {% endblock %}
+
+    {% block options %}
+        <p>Include this code where you want to instantiate Linkedin :</p>
+        {{ forms.textAreaField({
+            id: 'linkedinExample',
+            value: "
+{{ craft.tarteaucitron.linkedin([
+    'counter' => top|right, {# not required #}
+]) }}",
+            rows: 1,
+            disabled: true
+        }) }}
+    {% endblock %}
+{% endembed %}

@@ -137,6 +137,12 @@ class Settings extends Model
      */
     public $facebookPixelMore = '';
 
+    /**
+     * @var boolean
+     */
+    public $isLinkedinEnabled = false;
+
+
 
     /**
      * @inheritdoc
@@ -173,6 +179,8 @@ class Settings extends Model
             [['isFacebookPixelEnabled'], 'boolean'],
             [['facebookPixelId'], 'lahautesociete\tarteaucitron\validators\FacebookPixelValidator'],
 
+            // Service - Linkedin
+            [['isLinkedinEnabled'], 'boolean'],
 
             [['hashtag'], 'required'],
             [

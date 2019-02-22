@@ -120,8 +120,8 @@ class TarteaucitronService extends Component
         $settings = Tarteaucitron::$plugin->getSettings();
         $vars = get_object_vars($settings);
 
-        $isGoogleAdwordsConversion = $vars['isGoogleAdwordsConversion'];
-        if (!$isGoogleAdwordsConversion) {
+        $isGoogleAdwordsConversionEnabled = $vars['isGoogleAdwordsConversionEnabled'];
+        if (!$isGoogleAdwordsConversionEnabled) {
             return new Markup('', 'UTF-8');
         }
 
@@ -141,6 +141,35 @@ class TarteaucitronService extends Component
         $oldMode = Craft::$app->getView()->getTemplateMode();
         Craft::$app->getView()->setTemplateMode(View::TEMPLATE_MODE_CP);
         $html = Craft::$app->getView()->renderTemplate('tarteaucitron-js/services/google-adwords-conversion', $vars);
+        Craft::$app->getView()->setTemplateMode($oldMode);
+
+        return new Markup($html, 'UTF-8');
+    }
+
+    /**
+     * @param array $options
+     * @return Markup
+     * @throws \Twig_Error_Loader
+     * @throws \yii\base\Exception
+     */
+    public function renderLinkedin(array $options): Markup
+    {
+        $settings = Tarteaucitron::$plugin->getSettings();
+        $vars = get_object_vars($settings);
+
+        $isLinkedinEnabled = $vars['isLinkedinEnabled'];
+        if (!$isLinkedinEnabled) {
+            return new Markup('', 'UTF-8');
+        }
+
+        $cOptions = [
+            'counter' => $options['counter'] ? $options['counter'] : null,
+        ];
+        $vars = array_merge($vars, $cOptions);
+
+        $oldMode = Craft::$app->getView()->getTemplateMode();
+        Craft::$app->getView()->setTemplateMode(View::TEMPLATE_MODE_CP);
+        $html = Craft::$app->getView()->renderTemplate('tarteaucitron-js/services/linkedin', $vars);
         Craft::$app->getView()->setTemplateMode($oldMode);
 
         return new Markup($html, 'UTF-8');

@@ -43,4 +43,13 @@ class TarteaucitronVariable
     {
         return Plugin::$plugin->tarteaucitron->renderGoogleAdwordsConversion($options);
     }
+
+    /**
+     * @param array $options
+     * @return Markup
+     */
+    public function linkedin(array $options): Markup
+    {
+        return Plugin::$plugin->tarteaucitron->renderLinkedin($options);
+    }
 }
