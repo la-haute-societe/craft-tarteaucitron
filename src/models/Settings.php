@@ -113,6 +113,16 @@ class Settings extends Model
     public $isGoogleAdwordsConversionEnabled = false;
 
     /**
+     * @var boolean
+     */
+    public $isGoogleAdwordsRemarketingEnabled = false;
+
+    /**
+     * @var boolean
+     */
+    public $googleAdwordsRemarketingId = false;
+
+    /**
      * @inheritdoc
      */
     public function rules(): array
@@ -139,6 +149,9 @@ class Settings extends Model
             // Service - Google Adwords (conversion)
             [['isGoogleAdwordsConversionEnabled'], 'boolean'],
 
+            // Service - Google Adwords (remarketing)
+            [['isGoogleAdwordsRemarketingEnabled'], 'boolean'],
+            [['googleAdwordsRemarketingId'], 'lahautesociete\tarteaucitron\validators\GoogleAdwordsRemarketingValidator'],
 
 
             [['hashtag'], 'required'],

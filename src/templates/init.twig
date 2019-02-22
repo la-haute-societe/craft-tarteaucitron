@@ -55,3 +55,11 @@
         (tarteaucitron.job = tarteaucitron.job || []).push('googleadwordsconversion');
     {% endjs %}
 {% endif %}
+
+{# Google Adwords Remarketing #}
+{% if isGoogleAdwordsRemarketingEnabled and googleAdwordsRemarketingId is not empty %}
+    {% js %}
+        tarteaucitron.user.adwordsremarketingId = '{{ googleAdwordsRemarketingId }}';
+        (tarteaucitron.job = tarteaucitron.job || []).push('googleadwordsremarketing');
+    {% endjs %}
+{% endif %}

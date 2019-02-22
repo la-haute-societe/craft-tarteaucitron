@@ -1,0 +1,29 @@
+{% embed "tarteaucitron-js/settings/services/template.twig" with {"id": "google-adwords-remarketing"} %}
+    {% import "_includes/forms" as forms %}
+    {% import "tarteaucitron-js/settings/macros" as macros %}
+
+    {% block name %}Google Adwords (remarketing){% endblock %}
+
+    {% block enable %}
+        {{ forms.lightswitchField({
+            id: 'isGoogleAdwordsRemarketingEnabled',
+            name: 'isGoogleAdwordsRemarketingEnabled',
+            on: settings.isGoogleAdwordsRemarketingEnabled,
+            toggle: true,
+            warning: 'isGoogleAdwordsRemarketingEnabled' in overrides ? macros.configWarning('isGoogleAdwordsRemarketingEnabled'),
+            errors: settings.getErrors('isGoogleAdwordsRemarketingEnabled')
+        }) }}
+    {% endblock %}
+
+    {% block options %}
+        {{ forms.textField({
+            label: "Google Adwords Remarketing ID"|t,
+            id: 'googleAdwordsRemarketingId',
+            name: 'googleAdwordsRemarketingId',
+            value: settings.googleAdwordsRemarketingId,
+            required: true,
+            warning: 'googleAdwordsRemarketingId' in overrides ? macros.configWarning('googleAdwordsRemarketingId'),
+            errors: settings.getErrors('googleAdwordsRemarketingId')
+        }) }}
+    {% endblock %}
+{% endembed %}

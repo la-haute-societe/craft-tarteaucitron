@@ -6,7 +6,7 @@ use Yii;
 use yii\validators\Validator;
 
 /**
- * Class GoogleTagManagerValidator
+ * Class GoogleMapsValidator
  * @package lahautesociete\tarteaucitron\validators
  */
 class GoogleMapsValidator extends TarteaucitronValidator
