@@ -108,6 +108,11 @@ class Settings extends Model
     public $googleAnalyticsUniversalMore = '';
 
     /**
+     * @var boolean
+     */
+    public $isGoogleAdwordsConversionEnabled = false;
+
+    /**
      * @inheritdoc
      */
     public function rules(): array
@@ -131,6 +136,8 @@ class Settings extends Model
             [['isGoogleAnalyticsUniversalEnabled'], 'boolean'],
             [['googleAnalyticsUniversalUa'], 'lahautesociete\tarteaucitron\validators\GoogleAnalyticsUniversalValidator'],
 
+            // Service - Google Adwords (conversion)
+            [['isGoogleAdwordsConversionEnabled'], 'boolean'],
 
 
 
@@ -157,14 +164,5 @@ class Settings extends Model
             ['cookieDomain', 'default', 'value' => null],
             ['customCss', 'default', 'value' => ""]
         ];
-    }
-
-    public function ruleGoogleTagManager($attribute)
-    {
-        if ($this->isGoogleTagManagerEnabled && empty($this->$attribute)) {
-            $this->addError($attribute, Craft::t('yii', '{attribute} cannot be blank.', [
-                'attribute' => $attribute
-            ]));
-        }
     }
 }

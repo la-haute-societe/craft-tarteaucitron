@@ -30,7 +30,14 @@
         {{ forms.textAreaField({
             id: 'googleMapsCodeExample',
             value: "
-{{ craft.tarteaucitron.gmap(zoom, latitude, longitude, width, height) }}
+{{ craft.tarteaucitron.googleMaps([
+    'zoom' => zoom,
+    'latitude' => latitude,
+    'longitude' => longitude,
+    'longitude' => longitude,
+    'width' => width,
+    'height' => height,
+]) }}
 {% js %}tarteaucitron.user.mapscallback = 'CALLBACK_FUNCTION';tarteaucitron.user.googlemapsLibraries = 'LIBRARIES';{% endjs %}",
             rows: 1,
             disabled: true

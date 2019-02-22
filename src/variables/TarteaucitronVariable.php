@@ -27,10 +27,20 @@ class TarteaucitronVariable
     }
 
     /**
+     * @param array $options
      * @return Markup
      */
-    public function googleMaps($zoom, $latitude, $longitude, $width, $height): Markup
+    public function googleMaps(array $options): Markup
     {
-        return Plugin::$plugin->tarteaucitron->renderGoogleMaps($zoom, $latitude, $longitude, $width, $height);
+        return Plugin::$plugin->tarteaucitron->renderGoogleMaps($options);
+    }
+
+    /**
+     * @param array $options
+     * @return Markup
+     */
+    public function googleAdwordsConversion(array $options): Markup
+    {
+        return Plugin::$plugin->tarteaucitron->renderGoogleAdwordsConversion($options);
     }
 }

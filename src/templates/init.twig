@@ -4,24 +4,24 @@
 
 {% js %}
     tarteaucitron.init({
-        "hashtag": "{{ hashtag }}",
-        "highPrivacy": {{ highPrivacy ? 'true' : 'false' }},
-        "orientation": "{{ orientation }}",
-        "adblocker": {{ adblocker ? 'true' : 'false' }},
-        "showAlertSmall": {{ showAlertSmall ? 'true' : 'false' }},
-        "cookieslist": {{ cookieslist ? 'true' : 'false' }},
-        "removeCredit": {{ removeCredit ? 'true' : 'false' }},
-        "handleBrowserDNTRequest": {{ handleBrowserDNTRequest ? 'true' : 'false' }},
-        "useExternalCss": "true",
-        {% if cookieDomain %}"cookieDomain": {{ cookieDomain }}{% endif %}
+    "hashtag": "{{ hashtag }}",
+    "highPrivacy": {{ highPrivacy ? 'true' : 'false' }},
+    "orientation": "{{ orientation }}",
+    "adblocker": {{ adblocker ? 'true' : 'false' }},
+    "showAlertSmall": {{ showAlertSmall ? 'true' : 'false' }},
+    "cookieslist": {{ cookieslist ? 'true' : 'false' }},
+    "removeCredit": {{ removeCredit ? 'true' : 'false' }},
+    "handleBrowserDNTRequest": {{ handleBrowserDNTRequest ? 'true' : 'false' }},
+    "useExternalCss": "true",
+    {% if cookieDomain %}"cookieDomain": {{ cookieDomain }}{% endif %}
     });
 {% endjs %}
 
 {# Google Tag Manager #}
 {% if isGoogleTagManagerEnabled and googleTagManagerId is not empty %}
     {% js %}
-      tarteaucitron.user.googletagmanagerId = '{{ googleTagManagerId }}';
-      (tarteaucitron.job = tarteaucitron.job || []).push('googletagmanager');
+        tarteaucitron.user.googletagmanagerId = '{{ googleTagManagerId }}';
+        (tarteaucitron.job = tarteaucitron.job || []).push('googletagmanager');
     {% endjs %}
 {% endif %}
 
@@ -46,5 +46,12 @@
         tarteaucitron.user.analyticsUa = '{{ googleAnalyticsUniversalUa }}';
         tarteaucitron.user.analyticsMore = function () { {{ googleAnalyticsUniversalMore }} };
         (tarteaucitron.job = tarteaucitron.job || []).push('analytics');
+    {% endjs %}
+{% endif %}
+
+{# Google Adwords Conversion #}
+{% if isGoogleAdwordsConversionEnabled %}
+    {% js %}
+        (tarteaucitron.job = tarteaucitron.job || []).push('googleadwordsconversion');
     {% endjs %}
 {% endif %}

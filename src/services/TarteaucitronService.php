@@ -72,20 +72,15 @@ class TarteaucitronService extends Component
     }
 
     /**
-     * @param array $params
+     * @param array $options
      * @return Markup
      * @throws \Twig_Error_Loader
      * @throws \yii\base\Exception
      */
-    public function renderGoogleMaps($zoom, $latitude, $longitude, $width, $height): Markup
+    public function renderGoogleMaps(array $options): Markup
     {
         $settings = Tarteaucitron::$plugin->getSettings();
         $vars = get_object_vars($settings);
-        $vars ['zoom'] = $zoom;
-        $vars ['latitude'] = $latitude;
-        $vars ['longitude'] = $longitude;
-        $vars ['width'] = $width;
-        $vars ['height'] = $height;
 
         $isGoogleMapsEnabled = $vars['isGoogleMapsEnabled'];
         if (!$isGoogleMapsEnabled) {
@@ -97,9 +92,55 @@ class TarteaucitronService extends Component
             throw new Exception('craft-tarteaucitron: googleMapsAPIKey is empty');
         }
 
+        $cOptions = [
+            'zoom' => $options['zoom'],
+            'latitude' => $options['latitude'],
+            'longitude' => $options['longitude'],
+            'width' => $options['width'],
+            'height' => $options['height'],
+        ];
+        $vars = array_merge($vars, $cOptions);
+
         $oldMode = Craft::$app->getView()->getTemplateMode();
         Craft::$app->getView()->setTemplateMode(View::TEMPLATE_MODE_CP);
         $html = Craft::$app->getView()->renderTemplate('tarteaucitron-js/services/google-maps', $vars);
+        Craft::$app->getView()->setTemplateMode($oldMode);
+
+        return new Markup($html, 'UTF-8');
+    }
+
+    /**
+     * @param array $options
+     * @return Markup
+     * @throws \Twig_Error_Loader
+     * @throws \yii\base\Exception
+     */
+    public function renderGoogleAdwordsConversion(array $options): Markup
+    {
+        $settings = Tarteaucitron::$plugin->getSettings();
+        $vars = get_object_vars($settings);
+
+        $isGoogleAdwordsConversion = $vars['isGoogleAdwordsConversion'];
+        if (!$isGoogleAdwordsConversion) {
+            return new Markup('', 'UTF-8');
+        }
+
+        $cOptions = [
+            'adwordsconversionId' => $options['adwordsconversionId'],
+            'label' => $options['label'],
+            'language' => $options['language'],
+            'format' => $options['format'],
+            'color' => $options['color'],
+            'value' => $options['value'],
+            'currency' => $options['currency'],
+            'custom1' => $options['custom1'] ? $options['custom1'] : '',
+            'custom2' => $options['custom2'] ? $options['custom2'] : '',
+        ];
+        $vars = array_merge($vars, $cOptions);
+
+        $oldMode = Craft::$app->getView()->getTemplateMode();
+        Craft::$app->getView()->setTemplateMode(View::TEMPLATE_MODE_CP);
+        $html = Craft::$app->getView()->renderTemplate('tarteaucitron-js/services/google-adwords-conversion', $vars);
         Craft::$app->getView()->setTemplateMode($oldMode);
 
         return new Markup($html, 'UTF-8');

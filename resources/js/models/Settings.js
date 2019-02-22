@@ -6,12 +6,13 @@ const CSS_INPUTS_ID = {
 };
 
 const JS_INPUTS_ID = {
-    'settings-googleAnalyticsUniversalMore': {'autoCloseBrackets': true}
+    'settings-googleAnalyticsUniversalMore': {'autoCloseBrackets': true},
 };
 
 const TWIG_INPUTS_ID = {
     'settings-googleMapsCodeExample': {'readOnly' : true},
-    'settings-reCAPTCHACodeExample': {'readOnly' : true}
+    'settings-reCAPTCHACodeExample': {'readOnly' : true},
+    'settings-googleAdwordsConversionExample': {'readOnly' : true},
 };
 
 

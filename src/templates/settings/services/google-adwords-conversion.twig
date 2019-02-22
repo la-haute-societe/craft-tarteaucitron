@@ -1,0 +1,38 @@
+{% embed "tarteaucitron-js/settings/services/template.twig" with {"id": "google-adwords-conversion"} %}
+    {% import "_includes/forms" as forms %}
+    {% import "tarteaucitron-js/settings/macros" as macros %}
+
+    {% block name %}Google Adwords (conversion){% endblock %}
+
+    {% block enable %}
+        {{ forms.lightswitchField({
+            id: 'isGoogleAdwordsConversionEnabled',
+            name: 'isGoogleAdwordsConversionEnabled',
+            on: settings.isGoogleAdwordsConversionEnabled,
+            toggle: true,
+            warning: 'isGoogleAdwordsConversionEnabled' in overrides ? macros.configWarning('isGoogleAdwordsConversionEnabled'),
+            errors: settings.getErrors('isGoogleAdwordsConversionEnabled')
+        }) }}
+    {% endblock %}
+
+    {% block options %}
+        <p>Include this code where you want to instantiate Google Adwords (conversion) :</p>
+        {{ forms.textAreaField({
+            id: 'googleAdwordsConversionExample',
+            value: "
+{{ craft.tarteaucitron.googleAdwordsConversion([
+    'adwordsconversionId' => adwordsconversionId,
+    'label' => label,
+    'language' => language,
+    'format' => format,
+    'color' => color,
+    'value' => value,
+    'currency' => currency,
+    'custom1' => custom1, {# not required #}
+    'custom2' => custom2, {# not required #}
+]) }}",
+            rows: 1,
+            disabled: true
+        }) }}
+    {% endblock %}
+{% endembed %}
