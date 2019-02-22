@@ -6,7 +6,7 @@ const CSS_INPUTS_ID = {
 };
 
 const JS_INPUTS_ID = {
-    'settings-googleAnalyticsUniversalMore': {}
+    'settings-googleAnalyticsUniversalMore': {'autoCloseBrackets': true}
 };
 
 const TWIG_INPUTS_ID = {
@@ -50,11 +50,13 @@ export default class Settings {
 
     setCollapsingElements() {
         // Set height of each collapsing element
-        Array.prototype.forEach.call(
-            document.getElementsByClassName("collapse__content"), function (hideable) {
-                hideable.style.maxHeight = hideable.scrollHeight + "px";
-            }
-        );
+        document.addEventListener("DOMContentLoaded",function() {
+            Array.prototype.forEach.call(
+                document.getElementsByClassName("collapse__content"), function (hideable) {
+                    hideable.style.maxHeight = hideable.scrollHeight + "px";
+                }
+            );
+        });
 
         document.querySelectorAll(".collapse__enable").forEach(function (el) {
 

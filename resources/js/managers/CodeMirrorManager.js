@@ -21,7 +21,7 @@ class CodeMirrorManager {
     }
 
     initJsInput(el, options = {}) {
-        options.mode = "js";
+        options.mode = "javascript";
 
         this.jsInputs.push(
             CodeMirror.fromTextArea(el, options)

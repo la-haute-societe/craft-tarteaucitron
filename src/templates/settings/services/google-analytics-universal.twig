@@ -1,28 +1,28 @@
-{% embed "tarteaucitron-js/settings/services/template.twig" %}
+{% embed "tarteaucitron-js/settings/services/template.twig" with {"id": "google-analytics-universal"} %}
     {% import "_includes/forms" as forms %}
     {% import "tarteaucitron-js/settings/macros" as macros %}
 
-    {% block inputs %}
+    {% block name %}Google Analytics Universal{% endblock %}
 
+    {% block enable %}
         {{ forms.lightswitchField({
-            label: "Activate Google Analytics (universal) ?"|t,
             id: 'isGoogleAnalyticsUniversalEnabled',
             name: 'isGoogleAnalyticsUniversalEnabled',
             on: settings.isGoogleAnalyticsUniversalEnabled,
             toggle: true,
-            disabled: 'isGoogleAnalyticsUniversalEnabled' in overrides,
-            warning: 'isGoogleAnalyticsUniversalEnabled' in overrides ? configWarning('isGoogleAnalyticsUniversalEnabled'),
+            warning: 'isGoogleAnalyticsUniversalEnabled' in overrides ? macros.configWarning('isGoogleAnalyticsUniversalEnabled'),
             errors: settings.getErrors('isGoogleAnalyticsUniversalEnabled')
         }) }}
+    {% endblock %}
 
+    {% block options %}
         {{ forms.textField({
             label: "Analytics UA"|t,
             id: 'googleAnalyticsUniversalUa',
             name: 'googleAnalyticsUniversalUa',
             value: settings.googleAnalyticsUniversalUa,
             required: true,
-            disabled: 'googleAnalyticsUniversalUa' in overrides,
-            warning: 'googleAnalyticsUniversalUa' in overrides ? configWarning('googleAnalyticsUniversalUa'),
+            warning: 'googleAnalyticsUniversalUa' in overrides ? macros.configWarning('googleAnalyticsUniversalUa'),
             errors: settings.getErrors('googleAnalyticsUniversalUa')
         }) }}
 
@@ -32,8 +32,7 @@
             name: 'googleAnalyticsUniversalMore',
             instructions: "Optional - Add here your optional ga.push()",
             value: settings.googleAnalyticsUniversalMore,
-            disabled: 'googleAnalyticsUniversalMore' in overrides,
-            warning: 'googleAnalyticsUniversalMore' in overrides ? configWarning('googleAnalyticsUniversalMore'),
+            warning: 'googleAnalyticsUniversalMore' in overrides ? macros.configWarning('googleAnalyticsUniversalMore'),
             errors: settings.getErrors('googleAnalyticsUniversalMore')
         }) }}
 
