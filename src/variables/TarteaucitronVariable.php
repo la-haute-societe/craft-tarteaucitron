@@ -61,4 +61,13 @@ class TarteaucitronVariable
     {
         return Plugin::$plugin->tarteaucitron->renderTwitter($options);
     }
+
+    /**
+     * @param array $options
+     * @return Markup
+     */
+    public function vimeo(array $options): Markup
+    {
+        return Plugin::$plugin->tarteaucitron->renderVimeo($options);
+    }
 }

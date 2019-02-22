@@ -147,6 +147,11 @@ class Settings extends Model
      */
     public $isTwitterEnabled = false;
 
+    /**
+     * @var boolean
+     */
+    public $isVimeoEnabled = false;
+
 
 
     /**
@@ -189,6 +194,9 @@ class Settings extends Model
 
             // Service - Twitter
             [['isTwitterEnabled'], 'boolean'],
+
+            // Service - Vimeo
+            [['isVimeoEnabled'], 'boolean'],
 
 
             [['hashtag'], 'required'],

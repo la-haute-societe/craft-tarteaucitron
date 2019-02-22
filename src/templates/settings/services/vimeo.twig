@@ -1,0 +1,32 @@
+{% embed "tarteaucitron-js/settings/services/template.twig" with {"id": "vimeo"} %}
+    {% import "_includes/forms" as forms %}
+    {% import "tarteaucitron-js/settings/macros" as macros %}
+
+    {% block name %}Vimeo{% endblock %}
+
+    {% block enable %}
+        {{ forms.lightswitchField({
+            id: 'isVimeoEnabled',
+            name: 'isVimeoEnabled',
+            on: settings.isVimeoEnabled,
+            toggle: true,
+            warning: 'isVimeoEnabled' in overrides ? macros.configWarning('isVimeoEnabled'),
+            errors: settings.getErrors('isVimeoEnabled')
+        }) }}
+    {% endblock %}
+
+    {% block options %}
+        <p>Include this code where you want to instantiate Vimeo :</p>
+        {{ forms.textAreaField({
+            id: 'vimeoExample',
+            value: "
+{{ craft.tarteaucitron.vimeo({
+    videoId: 'VIDEO_ID',
+    width: 'WIDTH',
+    height: 'HEIGHT'
+}) }}",
+            rows: 1,
+            disabled: true
+        }) }}
+    {% endblock %}
+{% endembed %}
