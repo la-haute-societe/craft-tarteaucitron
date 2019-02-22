@@ -118,9 +118,25 @@ class Settings extends Model
     public $isGoogleAdwordsRemarketingEnabled = false;
 
     /**
+     * @var string
+     */
+    public $googleAdwordsRemarketingId = '';
+
+    /**
      * @var boolean
      */
-    public $googleAdwordsRemarketingId = false;
+    public $isFacebookPixelEnabled = false;
+
+    /**
+     * @var string
+     */
+    public $facebookPixelId = '';
+
+    /**
+     * @var string
+     */
+    public $facebookPixelMore = '';
+
 
     /**
      * @inheritdoc
@@ -152,6 +168,10 @@ class Settings extends Model
             // Service - Google Adwords (remarketing)
             [['isGoogleAdwordsRemarketingEnabled'], 'boolean'],
             [['googleAdwordsRemarketingId'], 'lahautesociete\tarteaucitron\validators\GoogleAdwordsRemarketingValidator'],
+
+            // Service - Facebook Pixel
+            [['isFacebookPixelEnabled'], 'boolean'],
+            [['facebookPixelId'], 'lahautesociete\tarteaucitron\validators\FacebookPixelValidator'],
 
 
             [['hashtag'], 'required'],

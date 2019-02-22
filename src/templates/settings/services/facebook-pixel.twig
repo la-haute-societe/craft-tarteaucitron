@@ -1,0 +1,39 @@
+{% embed "tarteaucitron-js/settings/services/template.twig" with {"id": "facebook-pixel"} %}
+    {% import "_includes/forms" as forms %}
+    {% import "tarteaucitron-js/settings/macros" as macros %}
+
+    {% block name %}Facebook Pixel{% endblock %}
+
+    {% block enable %}
+        {{ forms.lightswitchField({
+            id: 'isFacebookPixelEnabled',
+            name: 'isFacebookPixelEnabled',
+            on: settings.isFacebookPixelEnabled,
+            toggle: true,
+            warning: 'isFacebookPixelEnabled' in overrides ? macros.configWarning('isFacebookPixelEnabled'),
+            errors: settings.getErrors('isFacebookPixelEnabled')
+        }) }}
+    {% endblock %}
+
+    {% block options %}
+        {{ forms.textField({
+            label: "Facebook Pixel ID"|t,
+            id: 'facebookPixelId',
+            name: 'facebookPixelId',
+            value: settings.facebookPixelId,
+            required: true,
+            warning: 'facebookPixelId' in overrides ? macros.configWarning('facebookPixelId'),
+            errors: settings.getErrors('facebookPixelId')
+        }) }}
+
+        {{ forms.textField({
+            label: "Additional Javascript"|t,
+            id: 'facebookPixelMore',
+            name: 'facebookPixelMore',
+            instructions: "Optional - Add here your optional facebook Pixel function",
+            value: settings.facebookPixelMore,
+            warning: 'facebookPixelMore' in overrides ? macros.configWarning('facebookPixelMore'),
+            errors: settings.getErrors('facebookPixelMore')
+        }) }}
+    {% endblock %}
+{% endembed %}

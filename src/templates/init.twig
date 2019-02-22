@@ -63,3 +63,12 @@
         (tarteaucitron.job = tarteaucitron.job || []).push('googleadwordsremarketing');
     {% endjs %}
 {% endif %}
+
+{# Facebook Pixel #}
+{% if isFacebookPixelEnabled and facebookPixelId is not empty %}
+    {% js %}
+        tarteaucitron.user.facebookpixelId = '{{ facebookPixelId }}';
+        tarteaucitron.user.facebookpixelMore = function () { {{ facebookPixelMore }} };
+        (tarteaucitron.job = tarteaucitron.job || []).push('facebookpixel');
+    {% endjs %}
+{% endif %}

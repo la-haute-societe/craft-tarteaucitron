@@ -2,9 +2,6 @@
 
 namespace lahautesociete\tarteaucitron\validators;
 
-use Yii;
-use yii\validators\Validator;
-
 /**
  * Class GoogleAdwordsRemarketingValidator
  * @package lahautesociete\tarteaucitron\validators
