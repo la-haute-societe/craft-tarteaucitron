@@ -142,6 +142,11 @@ class Settings extends Model
      */
     public $isLinkedinEnabled = false;
 
+    /**
+     * @var boolean
+     */
+    public $isTwitterEnabled = false;
+
 
 
     /**
@@ -181,6 +186,10 @@ class Settings extends Model
 
             // Service - Linkedin
             [['isLinkedinEnabled'], 'boolean'],
+
+            // Service - Twitter
+            [['isTwitterEnabled'], 'boolean'],
+
 
             [['hashtag'], 'required'],
             [

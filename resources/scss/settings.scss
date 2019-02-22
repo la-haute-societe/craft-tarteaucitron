@@ -11,7 +11,12 @@
 
 
 // Special cases
-#settings-reCAPTCHACodeExample-field, #settings-googleMapsCodeExample-field, #settings-googleAdwordsConversionExample-field, #settings-linkedinExample-field {
+#settings-reCAPTCHACodeExample-field,
+#settings-googleMapsCodeExample-field,
+#settings-googleAdwordsConversionExample-field,
+#settings-linkedinExample-field,
+#settings-twitterExample-field
+{
   margin-top: 0;
 
   .CodeMirror {

@@ -15,6 +15,7 @@ const TWIG_INPUTS_ID = {
     'settings-reCAPTCHACodeExample': {'readOnly' : true},
     'settings-googleAdwordsConversionExample': {'readOnly' : true},
     'settings-linkedinExample': {'readOnly' : true},
+    'settings-twitterExample': {'readOnly' : true},
 };
 
 

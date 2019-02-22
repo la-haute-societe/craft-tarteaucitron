@@ -72,3 +72,17 @@
         (tarteaucitron.job = tarteaucitron.job || []).push('facebookpixel');
     {% endjs %}
 {% endif %}
+
+{# Linkedin #}
+{% if isLinkedinEnabled %}
+    {% js %}
+        (tarteaucitron.job = tarteaucitron.job || []).push('linkedin');
+    {% endjs %}
+{% endif %}
+
+{# Twitter #}
+{% if isTwitterEnabled %}
+    {% js %}
+        (tarteaucitron.job = tarteaucitron.job || []).push('twitter');
+    {% endjs %}
+{% endif %}

@@ -1,0 +1,22 @@
+<span class="tacTwitter"></span>
+{{ countPosition }}
+{% if type == "share" %}
+    <a
+            href="https://twitter.com/share"
+            class="twitter-share-button" data-via="{{ username }}"
+            data-count="{{ (countPosition == "vertical" or countPosition == "horizontal") ? countPosition : 'none' }}"
+            {% if size == "large" %}data-size="{{ size }}"{% endif %}
+            data-dnt="true">
+    </a>
+{% endif %}
+
+{% if type == "follow" %}
+
+    <a
+            href="https://twitter.com/{{ username }}"
+            class="twitter-follow-button"
+            data-show-count="{{ (countPosition == "vertical" or countPosition == "horizontal") ? countPosition : 'false' }}"
+            {% if size == "large" %}data-size="{{ size }}"{% endif %}
+            data-dnt="true">
+    </a>
+{% endif %}

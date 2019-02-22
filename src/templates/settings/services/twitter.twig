@@ -1,0 +1,33 @@
+{% embed "tarteaucitron-js/settings/services/template.twig" with {"id": "twitter"} %}
+    {% import "_includes/forms" as forms %}
+    {% import "tarteaucitron-js/settings/macros" as macros %}
+
+    {% block name %}Twitter{% endblock %}
+
+    {% block enable %}hori
+        {{ forms.lightswitchField({
+            id: 'isTwitterEnabled',
+            name: 'isTwitterEnabled',
+            on: settings.isTwitterEnabled,
+            toggle: true,
+            warning: 'isTwitterEnabled' in overrides ? macros.configWarning('isTwitterEnabled'),
+            errors: settings.getErrors('isTwitterEnabled')
+        }) }}
+    {% endblock %}
+
+    {% block options %}
+        <p>Include this code where you want to instantiate Twitter :</p>
+        {{ forms.textAreaField({
+            id: 'twitterExample',
+            value: "
+{{ craft.tarteaucitron.twitter({
+    username: 'USERNAME'
+    type: 'share'|'follow'
+    size: 'normal'|'large', {# not required #}
+    countPosition: 'vertical'|'horizontal', {# not required, vertical only for share #}
+}) }}",
+            rows: 1,
+            disabled: true
+        }) }}
+    {% endblock %}
+{% endembed %}

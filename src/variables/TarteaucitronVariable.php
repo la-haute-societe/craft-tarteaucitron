@@ -52,4 +52,13 @@ class TarteaucitronVariable
     {
         return Plugin::$plugin->tarteaucitron->renderLinkedin($options);
     }
+
+    /**
+     * @param array $options
+     * @return Markup
+     */
+    public function twitter(array $options): Markup
+    {
+        return Plugin::$plugin->tarteaucitron->renderTwitter($options);
+    }
 }

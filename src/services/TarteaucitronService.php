@@ -174,4 +174,36 @@ class TarteaucitronService extends Component
 
         return new Markup($html, 'UTF-8');
     }
+
+    /**
+     * @param array $options
+     * @return Markup
+     * @throws \Twig_Error_Loader
+     * @throws \yii\base\Exception
+     */
+    public function renderTwitter(array $options): Markup
+    {
+        $settings = Tarteaucitron::$plugin->getSettings();
+        $vars = get_object_vars($settings);
+
+        $isTwitterEnabled = $vars['isTwitterEnabled'];
+        if (!$isTwitterEnabled) {
+            return new Markup('', 'UTF-8');
+        }
+
+        $cOptions = [
+            'username' => $options['username'],
+            'type' => $options['type'],
+            'size' => $options['size'] ? $options['size'] : 'normal',
+            'countPosition' => $options['countPosition'] ? $options['countPosition'] : 'null',
+        ];
+        $vars = array_merge($vars, $cOptions);
+
+        $oldMode = Craft::$app->getView()->getTemplateMode();
+        Craft::$app->getView()->setTemplateMode(View::TEMPLATE_MODE_CP);
+        $html = Craft::$app->getView()->renderTemplate('tarteaucitron-js/services/twitter', $vars);
+        Craft::$app->getView()->setTemplateMode($oldMode);
+
+        return new Markup($html, 'UTF-8');
+    }
 }

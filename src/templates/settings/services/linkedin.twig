@@ -20,9 +20,9 @@
         {{ forms.textAreaField({
             id: 'linkedinExample',
             value: "
-{{ craft.tarteaucitron.linkedin([
-    'counter' => top|right, {# not required #}
-]) }}",
+{{ craft.tarteaucitron.linkedin({
+    counter: 'top'|'right'|'none', {# not required #}
+}) }}",
             rows: 1,
             disabled: true
         }) }}
