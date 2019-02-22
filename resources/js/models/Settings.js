@@ -10,6 +10,7 @@ const JS_INPUTS_ID = {
 };
 
 const TWIG_INPUTS_ID = {
+    'settings-googleMapsCodeExample': {'readOnly' : true},
     'settings-reCAPTCHACodeExample': {'readOnly' : true}
 };
 
@@ -48,7 +49,7 @@ export default class Settings {
     }
 
     setCollapsingElements() {
-        // Set height of each ecollapsing element
+        // Set height of each collapsing element
         Array.prototype.forEach.call(
             document.getElementsByClassName("collapse__content"), function (hideable) {
                 hideable.style.maxHeight = hideable.scrollHeight + "px";

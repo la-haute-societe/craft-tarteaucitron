@@ -25,4 +25,12 @@ class TarteaucitronVariable
     {
         return Plugin::$plugin->tarteaucitron->renderReCAPTCHA();
     }
+
+    /**
+     * @return Markup
+     */
+    public function googleMaps($zoom, $latitude, $longitude, $width, $height): Markup
+    {
+        return Plugin::$plugin->tarteaucitron->renderGoogleMaps($zoom, $latitude, $longitude, $width, $height);
+    }
 }

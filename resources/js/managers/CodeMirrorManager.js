@@ -13,38 +13,27 @@ class CodeMirrorManager {
     }
 
     initCssInput(el, options = {}) {
-        let cOptions = this.getOptions(options);
-        cOptions.mode = "css";
+        options.mode = "css";
 
-        this.twigInputs.push(
-            CodeMirror.fromTextArea(el, cOptions)
+        this.cssInputs.push(
+            CodeMirror.fromTextArea(el, options)
         );
     }
 
     initJsInput(el, options = {}) {
-        let cOptions = this.getOptions(options);
-        cOptions.mode = "js";
+        options.mode = "js";
 
-        this.twigInputs.push(
-            CodeMirror.fromTextArea(el, cOptions)
+        this.jsInputs.push(
+            CodeMirror.fromTextArea(el, options)
         );
     }
 
     initTwigInput(el, options = {}) {
-        let cOptions = this.getOptions(options);
-        cOptions.mode = "twig";
+        options.mode = "twig";
 
         this.twigInputs.push(
-            CodeMirror.fromTextArea(el, cOptions)
+            CodeMirror.fromTextArea(el, options)
         );
-    }
-
-    getOptions(options) {
-        return {
-            autoCloseBrackets: (options.autoCloseBrackets !== undefined) ? options.autoCloseBrackets : false,
-            readOnly: (options.readOnly !== undefined) ? options.readOnly : false,
-            // viewportMargin: (options.readOnly !== undefined) ? options.viewportMargin : 10,
-        };
     }
 }
 

@@ -17,23 +17,31 @@
     });
 {% endjs %}
 
+{# Google Tag Manager #}
 {% if isGoogleTagManagerEnabled and googleTagManagerId is not empty %}
-    {# Google Tag managers #}
     {% js %}
       tarteaucitron.user.googletagmanagerId = '{{ googleTagManagerId }}';
       (tarteaucitron.job = tarteaucitron.job || []).push('googletagmanager');
     {% endjs %}
 {% endif %}
 
+{# reCAPTCHA #}
 {% if isReCAPTCHAEnabled and reCAPTCHASiteKey is not empty %}
-    {# reCAPTCHA #}
     {% js %}
         (tarteaucitron.job = tarteaucitron.job || []).push('recaptcha');
     {% endjs %}
 {% endif %}
 
+{# Google Maps #}
+{% if isGoogleMapsEnabled and googleMapsAPIKey is not empty %}
+    {% js %}
+        tarteaucitron.user.googlemapsKey = '{{ googleMapsAPIKey }}';
+        (tarteaucitron.job = tarteaucitron.job || []).push('googlemaps');
+    {% endjs %}
+{% endif %}
+
+{# Google Analytics Universal #}
 {% if isGoogleAnalyticsUniversalEnabled and googleAnalyticsUniversalUa is not empty %}
-    {# Google Analytics Universal #}
     {% js %}
         tarteaucitron.user.analyticsUa = '{{ googleAnalyticsUniversalUa }}';
         tarteaucitron.user.analyticsMore = function () { {{ googleAnalyticsUniversalMore }} };

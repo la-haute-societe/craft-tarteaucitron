@@ -6,10 +6,10 @@ use Yii;
 use yii\validators\Validator;
 
 /**
- * Class ReCAPTCHAValidator
+ * Class GoogleTagManagerValidator
  * @package lahautesociete\tarteaucitron\validators
  */
-class ReCAPTCHAValidator extends TarteaucitronValidator
+class GoogleMapsValidator extends TarteaucitronValidator
 {
-    protected $enablerKey = "isReCAPTCHAEnabled";
+    protected $enablerKey = "isGoogleMapsEnabled";
 }

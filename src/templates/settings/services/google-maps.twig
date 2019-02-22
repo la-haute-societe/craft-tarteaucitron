@@ -1,0 +1,39 @@
+{% embed "tarteaucitron-js/settings/services/template.twig" with {"id": "google-maps"} %}
+    {% import "_includes/forms" as forms %}
+    {% import "tarteaucitron-js/settings/macros" as macros %}
+
+    {% block name %}Google Maps{% endblock %}
+
+    {% block enable %}
+        {{ forms.lightswitchField({
+            id: 'isGoogleMapsEnabled',
+            name: 'isGoogleMapsEnabled',
+            on: settings.isGoogleMapsEnabled,
+            toggle: true,
+            warning: 'isGoogleMapsEnabled' in overrides ? macros.configWarning('isGoogleMapsEnabled'),
+            errors: settings.getErrors('isGoogleMapsEnabled')
+        }) }}
+    {% endblock %}
+
+    {% block options %}
+        {{ forms.textField({
+            label: "Google Maps API KEY"|t,
+            id: 'googleMapsAPIKey',
+            name: 'googleMapsAPIKey',
+            value: settings.googleMapsAPIKey,
+            required: true,
+            warning: 'googleMapsAPIKey' in overrides ? macros.configWarning('googleMapsAPIKey'),
+            errors: settings.getErrors('googleMapsAPIKey')
+        }) }}
+
+        <p>Include this code where you want to instantiate Google Maps :</p>
+        {{ forms.textAreaField({
+            id: 'googleMapsCodeExample',
+            value: "
+{{ craft.tarteaucitron.gmap(zoom, latitude, longitude, width, height) }}
+{% js %}tarteaucitron.user.mapscallback = 'CALLBACK_FUNCTION';tarteaucitron.user.googlemapsLibraries = 'LIBRARIES';{% endjs %}",
+            rows: 1,
+            disabled: true
+        }) }}
+    {% endblock %}
+{% endembed %}

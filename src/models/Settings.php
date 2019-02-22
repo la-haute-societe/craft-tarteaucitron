@@ -85,6 +85,16 @@ class Settings extends Model
     /**
      * @var boolean
      */
+    public $isGoogleMapsEnabled = false;
+
+    /**
+     * @var string
+     */
+    public $googleMapsAPIKey = '';
+
+    /**
+     * @var boolean
+     */
     public $isGoogleAnalyticsUniversalEnabled = false;
 
     /**
@@ -112,6 +122,10 @@ class Settings extends Model
             [['isReCAPTCHAEnabled'], 'boolean'],
             [['reCAPTCHASiteKey'], 'string'],
             [['reCAPTCHASiteKey'], 'lahautesociete\tarteaucitron\validators\ReCAPTCHAValidator'],
+
+            // Service - Google Maps
+            [['isGoogleMapsEnabled'], 'boolean'],
+            [['googleMapsAPIKey'], 'lahautesociete\tarteaucitron\validators\GoogleMapsValidator'],
 
             // Service - Google Analytics Universal UA
             [['isGoogleAnalyticsUniversalEnabled'], 'boolean'],
