@@ -19,6 +19,7 @@ function getCopyFilesPathsArray(paths, baseOutputDir) {
         copyFilesArray.push({
             "from": copyFilePaths["from"],
             "to": path.resolve(__dirname, baseOutputDir, copyFilePaths["to"]),
+            "flatten": true
         });
     }
     return copyFilesArray;

@@ -14,8 +14,8 @@
         "to": "js/tarteaucitron.services.js"
       },
       {
-        "from": "../node_modules/tarteaucitronjs/lang/tarteaucitron.fr.js",
-        "to": "js/lang/tarteaucitron.fr.js"
+        "from": "../node_modules/tarteaucitronjs/lang/**/*",
+        "to": "js/lang/"
       }
     ]
   },
