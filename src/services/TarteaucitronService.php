@@ -92,14 +92,14 @@ class TarteaucitronService extends Component
             throw new Exception('craft-tarteaucitron: googleMapsAPIKey is empty');
         }
 
-        $cOptions = [
+        $castedOptions = [
             'zoom' => $options['zoom'],
             'latitude' => $options['latitude'],
             'longitude' => $options['longitude'],
             'width' => $options['width'],
             'height' => $options['height'],
         ];
-        $vars = array_merge($vars, $cOptions);
+        $vars = array_merge($vars, $castedOptions);
 
         $oldMode = Craft::$app->getView()->getTemplateMode();
         Craft::$app->getView()->setTemplateMode(View::TEMPLATE_MODE_CP);
@@ -125,7 +125,7 @@ class TarteaucitronService extends Component
             return new Markup('', 'UTF-8');
         }
 
-        $cOptions = [
+        $castedOptions = [
             'adwordsconversionId' => $options['adwordsconversionId'],
             'label' => $options['label'],
             'language' => $options['language'],
@@ -136,7 +136,7 @@ class TarteaucitronService extends Component
             'custom1' => $options['custom1'] ? $options['custom1'] : '',
             'custom2' => $options['custom2'] ? $options['custom2'] : '',
         ];
-        $vars = array_merge($vars, $cOptions);
+        $vars = array_merge($vars, $castedOptions);
 
         $oldMode = Craft::$app->getView()->getTemplateMode();
         Craft::$app->getView()->setTemplateMode(View::TEMPLATE_MODE_CP);
@@ -162,10 +162,10 @@ class TarteaucitronService extends Component
             return new Markup('', 'UTF-8');
         }
 
-        $cOptions = [
+        $castedOptions = [
             'counter' => $options['counter'] ? $options['counter'] : null,
         ];
-        $vars = array_merge($vars, $cOptions);
+        $vars = array_merge($vars, $castedOptions);
 
         $oldMode = Craft::$app->getView()->getTemplateMode();
         Craft::$app->getView()->setTemplateMode(View::TEMPLATE_MODE_CP);
@@ -191,13 +191,13 @@ class TarteaucitronService extends Component
             return new Markup('', 'UTF-8');
         }
 
-        $cOptions = [
+        $castedOptions = [
             'username' => $options['username'],
             'type' => $options['type'],
             'size' => $options['size'] ? $options['size'] : 'normal',
             'countPosition' => $options['countPosition'] ? $options['countPosition'] : 'null',
         ];
-        $vars = array_merge($vars, $cOptions);
+        $vars = array_merge($vars, $castedOptions);
 
         $oldMode = Craft::$app->getView()->getTemplateMode();
         Craft::$app->getView()->setTemplateMode(View::TEMPLATE_MODE_CP);
@@ -223,12 +223,12 @@ class TarteaucitronService extends Component
             return new Markup('', 'UTF-8');
         }
 
-        $cOptions = [
+        $castedOptions = [
             'videoId' => $options['videoId'],
             'width' => $options['width'],
             'height' => $options['height'],
         ];
-        $vars = array_merge($vars, $cOptions);
+        $vars = array_merge($vars, $castedOptions);
 
         $oldMode = Craft::$app->getView()->getTemplateMode();
         Craft::$app->getView()->setTemplateMode(View::TEMPLATE_MODE_CP);
@@ -254,7 +254,7 @@ class TarteaucitronService extends Component
             return new Markup('', 'UTF-8');
         }
 
-        $cOptions = [
+        $castedOptions = [
             'videoId' => $options['videoId'],
             'width' => $options['width'],
             'height' => $options['height'],
@@ -264,7 +264,7 @@ class TarteaucitronService extends Component
             'showinfo' => $options['showinfo'],
             'autoplay' => $options['autoplay'],
         ];
-        $vars = array_merge($vars, $cOptions);
+        $vars = array_merge($vars, $castedOptions);
 
         $oldMode = Craft::$app->getView()->getTemplateMode();
         Craft::$app->getView()->setTemplateMode(View::TEMPLATE_MODE_CP);

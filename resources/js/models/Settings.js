@@ -11,13 +11,13 @@ const JS_INPUTS_ID = {
 };
 
 const TWIG_INPUTS_ID = {
-    'settings-googleMapsCodeExample': {'readOnly' : true},
-    'settings-reCAPTCHACodeExample': {'readOnly' : true},
-    'settings-googleAdwordsConversionExample': {'readOnly' : true},
-    'settings-linkedinExample': {'readOnly' : true},
-    'settings-twitterExample': {'readOnly' : true},
-    'settings-vimeoExample': {'readOnly' : true},
-    'settings-youtubeExample': {'readOnly' : true},
+    'settings-googleMapsCodeExample': {'readOnly' : 'nocursor'},
+    'settings-reCAPTCHACodeExample': {'readOnly' : 'nocursor'},
+    'settings-googleAdwordsConversionExample': {'readOnly' : 'nocursor'},
+    'settings-linkedinExample': {'readOnly' : 'nocursor'},
+    'settings-twitterExample': {'readOnly' : 'nocursor'},
+    'settings-vimeoExample': {'readOnly' : 'nocursor'},
+    'settings-youtubeExample': {'readOnly' : 'nocursor'},
 };
 
 
