@@ -8,6 +8,7 @@ use craft\web\View;
 
 use Exception;
 use lahautesociete\tarteaucitron\bundles\FrontAsset;
+use lahautesociete\tarteaucitron\models\services\ReCAPTCHAServiceModel;
 use lahautesociete\tarteaucitron\Tarteaucitron;
 use Twig\Markup;
 use yii\helpers\Html;
@@ -65,35 +66,14 @@ class TarteaucitronService extends Component
      */
     public function renderReCAPTCHA(array $options): Markup
     {
-        // Check if service is enabled
-        $vars = $this->getSettingsVars();
-        if (!$vars['isReCAPTCHAEnabled']) {
-            return new Markup('', 'UTF-8');
-        }
+        $settingsVars = $this->getSettingsVars();
+        $vars = array_merge($settingsVars, $options);
 
-        // Check if required parameters are set
-        if (empty($vars['reCAPTCHASiteKey'])) {
-            throw new Exception('craft-tarteaucitron: reCAPTCHASiteKey is empty');
-        }
+        $model = new ReCAPTCHAServiceModel();
+        $model->setAttributes($vars);
+        $model->validateAndThrowErrors();
 
-        // Cast options
-        $castedOptions = [
-            'attributes' => array_key_exists('attributes', $options) ? $options['attributes'] : [],
-        ];
-        $vars = array_merge($vars, $castedOptions);
-
-        $html = $this->getReCAPTCHAHtml($vars);
-        return new Markup($html, 'UTF-8');
-    }
-
-    /**
-     * @param array $vars
-     * @return string
-     */
-    private function getReCAPTCHAHtml(array $vars) {
-        $vars['attributes']['data-sitekey'] = $vars['reCAPTCHASiteKey'];
-        Html::addCssClass($vars['attributes'], 'g-recaptcha');
-        return Html::tag('div', '', $vars['attributes']);
+        return $model->getHtml();
     }
 
     /**

@@ -10,7 +10,7 @@ use craft\base\Model;
  * @package lahautesociete\tarteaucitron\models
  */
 
-class Settings extends Model
+class SettingsModel extends Model
 {
     /**
      * @var string

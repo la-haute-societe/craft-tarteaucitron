@@ -7,7 +7,7 @@ use craft\base\Plugin;
 use craft\web\twig\variables\CraftVariable;
 
 use lahautesociete\tarteaucitron\bundles\SettingsAsset;
-use lahautesociete\tarteaucitron\models\Settings;
+use lahautesociete\tarteaucitron\models\SettingsModel;
 use lahautesociete\tarteaucitron\services\TarteaucitronService;
 use lahautesociete\tarteaucitron\variables\TarteaucitronVariable;
 
@@ -63,7 +63,7 @@ class Tarteaucitron extends Plugin
      */
     protected function createSettingsModel()
     {
-        return new Settings();
+        return new SettingsModel();
     }
 
     /**
