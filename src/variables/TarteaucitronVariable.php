@@ -19,18 +19,19 @@ class TarteaucitronVariable
     }
 
     /**
+     * @param array $options
      * @return Markup
      */
-    public function reCAPTCHA(): Markup
+    public function reCAPTCHA(array $options = []): Markup
     {
-        return Plugin::$plugin->tarteaucitron->renderReCAPTCHA();
+        return Plugin::$plugin->tarteaucitron->renderReCAPTCHA($options);
     }
 
     /**
      * @param array $options
      * @return Markup
      */
-    public function googleMaps(array $options): Markup
+    public function googleMaps(array $options = []): Markup
     {
         return Plugin::$plugin->tarteaucitron->renderGoogleMaps($options);
     }
@@ -39,7 +40,7 @@ class TarteaucitronVariable
      * @param array $options
      * @return Markup
      */
-    public function googleAdwordsConversion(array $options): Markup
+    public function googleAdwordsConversion(array $options = []): Markup
     {
         return Plugin::$plugin->tarteaucitron->renderGoogleAdwordsConversion($options);
     }
@@ -48,7 +49,7 @@ class TarteaucitronVariable
      * @param array $options
      * @return Markup
      */
-    public function linkedin(array $options): Markup
+    public function linkedin(array $options = []): Markup
     {
         return Plugin::$plugin->tarteaucitron->renderLinkedin($options);
     }
@@ -57,7 +58,7 @@ class TarteaucitronVariable
      * @param array $options
      * @return Markup
      */
-    public function twitter(array $options): Markup
+    public function twitter(array $options = []): Markup
     {
         return Plugin::$plugin->tarteaucitron->renderTwitter($options);
     }
@@ -66,7 +67,7 @@ class TarteaucitronVariable
      * @param array $options
      * @return Markup
      */
-    public function vimeo(array $options): Markup
+    public function vimeo(array $options = []): Markup
     {
         return Plugin::$plugin->tarteaucitron->renderVimeo($options);
     }
@@ -75,7 +76,7 @@ class TarteaucitronVariable
      * @param array $options
      * @return Markup
      */
-    public function youtube(array $options): Markup
+    public function youtube(array $options = []): Markup
     {
         return Plugin::$plugin->tarteaucitron->renderYoutube($options);
     }
