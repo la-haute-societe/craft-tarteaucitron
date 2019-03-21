@@ -23,7 +23,7 @@ class ReCAPTCHAServiceModel extends ServiceModel
     public $reCAPTCHASiteKey;
 
     /**
-     * @return array
+     * @var array
      */
     public $htmlAttributes;
 

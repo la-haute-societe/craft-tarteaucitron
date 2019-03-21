@@ -8,6 +8,7 @@ use craft\web\View;
 
 use Exception;
 use lahautesociete\tarteaucitron\bundles\FrontAsset;
+use lahautesociete\tarteaucitron\models\services\GoogleMapsServiceModel;
 use lahautesociete\tarteaucitron\models\services\ReCAPTCHAServiceModel;
 use lahautesociete\tarteaucitron\Tarteaucitron;
 use Twig\Markup;
@@ -76,54 +77,24 @@ class TarteaucitronService extends Component
         return $model->getHtml();
     }
 
+
     /**
      * @param array $options
      * @return Markup
-     * @throws \Twig_Error_Loader
-     * @throws \yii\base\Exception
      * @throws Exception
      */
     public function renderGoogleMaps(array $options): Markup
     {
-        // Check if service is enabled
-        $vars = $this->getSettingsVars();
-        if (!$vars['isGoogleMapsEnabled']) {
-            return new Markup('', 'UTF-8');
-        }
+        $settingsVars = $this->getSettingsVars();
+        $vars = array_merge($settingsVars, $options);
 
-        // Check if required parameters are set
-        if (empty($vars['googleMapsAPIKey'])) {
-            throw new Exception('craft-tarteaucitron: googleMapsAPIKey is empty');
-        }
+        $model = new GoogleMapsServiceModel();
+        $model->setAttributes($vars);
+        $model->validateAndThrowErrors();
 
-        // Cast options
-        $castedOptions = [
-            'zoom' => $options['zoom'],
-            'latitude' => $options['latitude'],
-            'longitude' => $options['longitude'],
-            'width' => $options['width'],
-            'height' => $options['height'],
-            'attributes' => array_key_exists('attributes', $options) ? $options['attributes'] : [],
-        ];
-        $vars = array_merge($vars, $castedOptions);
-
-        $html = $this->getGoogleMapsHtml($vars);
-        return new Markup($html, 'UTF-8');
+        return $model->getHtml();
     }
 
-    /**
-     * @param array $vars
-     * @return string
-     */
-    private function getGoogleMapsHtml(array $vars)
-    {
-        $vars['attributes']['zoom'] = $vars['zoom'];
-        $vars['attributes']['latitude'] = $vars['latitude'];
-        $vars['attributes']['longitude'] = $vars['longitude'];
-        Html::addCssClass($vars['attributes'], 'googlemaps-canvas');
-        Html::addCssStyle($vars['attributes'], sprintf('width: %s; height: %s;', $vars['width'], $vars['height']));
-        return Html::tag('div', '', $vars['attributes']);
-    }
 
     /**
      * @param array $options
