@@ -10,6 +10,7 @@ use Exception;
 use lahautesociete\tarteaucitron\bundles\FrontAsset;
 use lahautesociete\tarteaucitron\models\services\GoogleAdwordsConversionServiceModel;
 use lahautesociete\tarteaucitron\models\services\GoogleMapsServiceModel;
+use lahautesociete\tarteaucitron\models\services\LinkedinServiceModel;
 use lahautesociete\tarteaucitron\models\services\ReCAPTCHAServiceModel;
 use lahautesociete\tarteaucitron\Tarteaucitron;
 use Twig\Markup;
@@ -116,46 +117,19 @@ class TarteaucitronService extends Component
     /**
      * @param array $options
      * @return Markup
+     * @throws Exception
      */
     public function renderLinkedin(array $options): Markup
     {
-        // Check if service is enabled
-        $vars = $this->getSettingsVars();
-        if (!$vars['isLinkedinEnabled']) {
-            return new Markup('', 'UTF-8');
-        }
+        $settingsVars = $this->getSettingsVars();
+        $vars = array_merge($settingsVars, $options);
 
-        // Cast options
-        $castedOptions = [
-            'counter' => array_key_exists('counter', $options) ? $options['counter'] : null,
-            'attributes' => array_key_exists('attributes', $options) ? $options['attributes'] : [],
-        ];
-        $vars = array_merge($vars, $castedOptions);
+        $model = new LinkedinServiceModel();
+        $model->setAttributes($vars);
+        $model->validateAndThrowErrors();
 
-        $html = $this->getLinkedinHtml($vars);
-        return new Markup($html, 'UTF-8');
+        return $model->getHtml();
     }
-
-    /**
-     * @param array $vars
-     * @return string
-     */
-    private function getLinkedinHtml(array $vars)
-    {
-        Html::addCssClass($vars['attributes'], 'tacLinkedin');
-        $html = Html::tag('span', '', $vars['attributes']);
-
-        $scriptAttributes = [];
-        $scriptAttributes['type'] = 'IN/Share';
-        if (!empty($vars['counter'])) {
-            $scriptAttributes['data-counter'] = $vars['counter'];
-        }
-        $html .= Html::tag('script', '', $scriptAttributes);
-
-        return $html;
-    }
-
-
 
     /**
      * @param array $options
