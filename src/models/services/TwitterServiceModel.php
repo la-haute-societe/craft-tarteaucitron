@@ -50,7 +50,7 @@ class TwitterServiceModel extends ServiceModel
             [['isTwitterEnabled'], 'boolean'],
             [['username', 'type', 'size', 'countPosition'], 'string'],
 
-            // Values validation
+            // Value validation
             ['type', 'in', 'range' => ['share', 'follow']],
             ['size', 'in', 'range' => ['normal', 'large']],
             ['countPosition', 'in', 'range' => ['vertical', 'horizontal']],

@@ -38,6 +38,9 @@ class LinkedinServiceModel extends ServiceModel
             [['counter'], 'string'],
             [['htmlAttributes'], 'craft\validators\ArrayValidator'],
 
+            // Value validation
+            ['counter', 'in', 'range' => ['top', 'right']],
+
             // Default values
             [['htmlAttributes'], 'default', 'value' => []],
         ];
