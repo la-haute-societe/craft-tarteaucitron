@@ -115,6 +115,7 @@ class GoogleAdwordsConversionServiceModel extends ServiceModel
         Craft::$app->getView()->setTemplateMode(View::TEMPLATE_MODE_CP);
         $html = Craft::$app->getView()->renderTemplate('tarteaucitron-js/services/google-adwords-conversion', $attributes);
         Craft::$app->getView()->setTemplateMode($oldMode);
+
         return new Markup($html, 'UTF-8');
     }
 }

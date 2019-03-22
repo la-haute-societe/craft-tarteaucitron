@@ -12,6 +12,7 @@ use lahautesociete\tarteaucitron\models\services\GoogleAdwordsConversionServiceM
 use lahautesociete\tarteaucitron\models\services\GoogleMapsServiceModel;
 use lahautesociete\tarteaucitron\models\services\LinkedinServiceModel;
 use lahautesociete\tarteaucitron\models\services\ReCAPTCHAServiceModel;
+use lahautesociete\tarteaucitron\models\services\TwitterServiceModel;
 use lahautesociete\tarteaucitron\Tarteaucitron;
 use Twig\Markup;
 use yii\helpers\Html;
@@ -134,42 +135,18 @@ class TarteaucitronService extends Component
     /**
      * @param array $options
      * @return Markup
-     * @throws \Twig_Error_Loader
-     * @throws \yii\base\Exception
+     * @throws Exception
      */
     public function renderTwitter(array $options): Markup
     {
-        $vars = $this->getSettingsVars();
-        if (!$vars['isTwitterEnabled']) {
-            return new Markup('', 'UTF-8');
-        }
+        $settingsVars = $this->getSettingsVars();
+        $vars = array_merge($settingsVars, $options);
 
-        $castedOptions = [
-            'username' => $options['username'],
-            'type' => $options['type'],
-            'size' => array_key_exists('size', $options) ? $options['size'] : 'normal',
-            'countPosition' => array_key_exists('countPosition', $options) ? $options['countPosition'] : 'null',
-        ];
-        $vars = array_merge($vars, $castedOptions);
+        $model = new TwitterServiceModel();
+        $model->setAttributes($vars);
+        $model->validateAndThrowErrors();
 
-        $html = $this->getTwitterHtml($vars);
-        return new Markup($html, 'UTF-8');
-    }
-
-    /**
-     * @param array $vars
-     * @return string
-     * @throws \Twig_Error_Loader
-     * @throws \yii\base\Exception
-     */
-    private function getTwitterHtml(array $vars)
-    {
-        $oldMode = Craft::$app->getView()->getTemplateMode();
-        Craft::$app->getView()->setTemplateMode(View::TEMPLATE_MODE_CP);
-        $html = Craft::$app->getView()->renderTemplate('tarteaucitron-js/services/twitter', $vars);
-        Craft::$app->getView()->setTemplateMode($oldMode);
-
-        return $html;
+        return $model->getHtml();
     }
 
     /**

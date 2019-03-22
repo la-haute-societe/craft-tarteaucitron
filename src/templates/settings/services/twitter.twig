@@ -21,11 +21,10 @@
             id: 'twitterExample',
             value: "
 {{ craft.tarteaucitron.twitter({
-    username: 'USERNAME'
-    type: 'share'|'follow'
+    username: 'USERNAME',
+    type: 'share'|'follow',
     size: 'normal'|'large',                 {# not required #}
-    countPosition: 'vertical'|'horizontal', {# not required, vertical only for share #}
-    htmlOptions: YOUR_HTML_OPTIONS          {# not required #}
+    countPosition: 'vertical'|'horizontal'  {# not required, 'vertical' only available with 'share' type #}
 }) }}",
             rows: 1,
             disabled: true
