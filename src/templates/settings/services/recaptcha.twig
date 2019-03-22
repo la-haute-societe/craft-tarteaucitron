@@ -29,7 +29,9 @@
         <p>Include this code where you want to instantiate reCAPTCHA :</p>
         {{ forms.textAreaField({
             id: 'reCAPTCHACodeExample',
-            value: "{{ craft.tarteaucitron.reCAPTCHA() }}",
+            value: "{{ craft.tarteaucitron.reCAPTCHA({
+                htmlOptions: YOUR_HTML_OPTIONS  {# not required #}
+            ) }}",
             rows: 1,
             disabled: true
         }) }}

@@ -6,7 +6,6 @@ use Craft;
 use craft\web\View;
 
 use Twig\Markup;
-use yii\helpers\Html;
 
 /**
  * Class Settings
