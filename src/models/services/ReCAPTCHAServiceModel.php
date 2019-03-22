@@ -40,7 +40,7 @@ class ReCAPTCHAServiceModel extends ServiceModel
             [['htmlAttributes'], 'craft\validators\ArrayValidator'],
 
             // Required attributes
-            [['isReCAPTCHAEnabled', 'reCAPTCHASiteKey'], 'required'],
+            [['reCAPTCHASiteKey'], 'required'],
 
             // Default values
             [['htmlAttributes'], 'default', 'value' => []],

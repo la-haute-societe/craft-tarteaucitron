@@ -67,7 +67,7 @@ class GoogleMapsServiceModel extends ServiceModel
             [['htmlAttributes'], 'craft\validators\ArrayValidator'],
 
             // Required attributes
-            [['isGoogleMapsEnabled', 'googleMapsAPIKey', 'zoom', 'latitude', 'longitude', 'width', 'height'], 'required'],
+            [['googleMapsAPIKey', 'zoom', 'latitude', 'longitude', 'width', 'height'], 'required'],
 
             // Default values
             [['htmlAttributes'], 'default', 'value' => []],

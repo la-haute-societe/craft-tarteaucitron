@@ -161,6 +161,7 @@ class SettingsModel extends Model
 
     /**
      * @inheritdoc
+     * @Todo : réorganiser
      */
     public function rules(): array
     {

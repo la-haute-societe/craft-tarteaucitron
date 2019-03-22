@@ -8,6 +8,7 @@ use craft\web\View;
 
 use Exception;
 use lahautesociete\tarteaucitron\bundles\FrontAsset;
+use lahautesociete\tarteaucitron\models\services\GoogleAdwordsConversionServiceModel;
 use lahautesociete\tarteaucitron\models\services\GoogleMapsServiceModel;
 use lahautesociete\tarteaucitron\models\services\ReCAPTCHAServiceModel;
 use lahautesociete\tarteaucitron\Tarteaucitron;
@@ -95,53 +96,21 @@ class TarteaucitronService extends Component
         return $model->getHtml();
     }
 
-
     /**
      * @param array $options
      * @return Markup
-     * @throws \Twig_Error_Loader
-     * @throws \yii\base\Exception
+     * @throws Exception
      */
     public function renderGoogleAdwordsConversion(array $options): Markup
     {
-        // Check if service is enabled
-        $vars = $this->getSettingsVars();
-        if (!$vars['isGoogleAdwordsConversionEnabled']) {
-            return new Markup('', 'UTF-8');
-        }
+        $settingsVars = $this->getSettingsVars();
+        $vars = array_merge($settingsVars, $options);
 
-        // Cast options
-        $castedOptions = [
-            'adwordsconversionId' => $options['adwordsconversionId'],
-            'label' => $options['label'],
-            'language' => $options['language'],
-            'format' => $options['format'],
-            'color' => $options['color'],
-            'value' => $options['value'],
-            'currency' => $options['currency'],
-            'custom1' => array_key_exists('custom1', $options) ? $options['custom1'] : '',
-            'custom2' => array_key_exists('custom2', $options) ? $options['custom2'] : '',
-        ];
-        $vars = array_merge($vars, $castedOptions);
+        $model = new GoogleAdwordsConversionServiceModel();
+        $model->setAttributes($vars);
+        $model->validateAndThrowErrors();
 
-        $html = $this->getGoogleAdwordsConversionHtml($vars);
-        return new Markup($html, 'UTF-8');
-    }
-
-    /**
-     * @param array $vars
-     * @return string
-     * @throws \Twig_Error_Loader
-     * @throws \yii\base\Exception
-     */
-    private function getGoogleAdwordsConversionHtml(array $vars)
-    {
-        $oldMode = Craft::$app->getView()->getTemplateMode();
-        Craft::$app->getView()->setTemplateMode(View::TEMPLATE_MODE_CP);
-        $html = Craft::$app->getView()->renderTemplate('tarteaucitron-js/services/google-adwords-conversion', $vars);
-        Craft::$app->getView()->setTemplateMode($oldMode);
-
-        return $html;
+        return $model->getHtml();
     }
 
     /**
