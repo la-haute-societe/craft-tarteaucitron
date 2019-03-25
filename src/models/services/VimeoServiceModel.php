@@ -6,35 +6,20 @@ use Twig\Markup;
 use yii\helpers\Html;
 
 /**
- * Class GoogleMapsServiceModel
+ * Class VimeoServiceModel
  * @package lahautesociete\tarteaucitron\models\services
  */
-class GoogleMapsServiceModel extends ServiceModel
+class VimeoServiceModel extends ServiceModel
 {
     /**
      * @var boolean
      */
-    public $isGoogleMapsEnabled = false;
+    public $isVimeoEnabled = false;
 
     /**
      * @var string
      */
-    public $googleMapsAPIKey;
-
-    /**
-     * @var int
-     */
-    public $zoom;
-
-    /**
-     * @var double
-     */
-    public $latitude;
-
-    /**
-     * @var double
-     */
-    public $longitude;
+    public $videoId;
 
     /**
      * @var string
@@ -59,14 +44,12 @@ class GoogleMapsServiceModel extends ServiceModel
     {
         return [
             // Type validation
-            [['isGoogleMapsEnabled'], 'boolean'],
-            [['googleMapsAPIKey', 'width', 'height'], 'string'],
-            [['zoom'], 'integer'],
-            [['latitude', 'longitude'], 'double'],
+            [['isVimeoEnabled'], 'boolean'],
+            [['videoId', 'width', 'height'], 'string'],
             [['htmlAttributes'], 'craft\validators\ArrayValidator'],
 
             // Required attributes
-            [['googleMapsAPIKey', 'zoom', 'latitude', 'longitude', 'width', 'height'], 'required'],
+            [['videoId', 'width', 'height'], 'required'],
 
             // Default values
             [['htmlAttributes'], 'default', 'value' => []],
@@ -78,7 +61,7 @@ class GoogleMapsServiceModel extends ServiceModel
      */
     protected function getActivationStatus(): bool
     {
-        return $this->isGoogleMapsEnabled;
+        return $this->isVimeoEnabled;
     }
 
     /**
@@ -89,11 +72,10 @@ class GoogleMapsServiceModel extends ServiceModel
             return new Markup('', 'UTF-8');
         }
 
-        $this->htmlAttributes['zoom'] = $this->zoom;
-        $this->htmlAttributes['latitude'] = $this->latitude;
-        $this->htmlAttributes['longitude'] = $this->longitude;
-        Html::addCssStyle($this->htmlAttributes, sprintf('width: %s; height: %s;', $this->width, $this->height));
-        Html::addCssClass($this->htmlAttributes, 'googlemaps-canvas');
+        $this->htmlAttributes['videoID'] = $this->videoId;
+        $this->htmlAttributes['width'] = $this->width;
+        $this->htmlAttributes['height'] = $this->height;
+        Html::addCssClass($this->htmlAttributes, 'vimeo_player');
         $html = Html::tag('div', '', $this->htmlAttributes);
         return new Markup($html, 'UTF-8');
     }

@@ -6,10 +6,9 @@ use Twig\Markup;
 use yii\helpers\Html;
 
 /**
- * Class Settings
- * @package lahautesociete\tarteaucitron\models
+ * Class LinkedinServiceModel
+ * @package lahautesociete\tarteaucitron\models\services
  */
-
 class LinkedinServiceModel extends ServiceModel
 {
     /**

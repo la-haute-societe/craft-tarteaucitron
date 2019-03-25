@@ -6,10 +6,9 @@ use Twig\Markup;
 use yii\helpers\Html;
 
 /**
- * Class Settings
- * @package lahautesociete\tarteaucitron\models
+ * Class ReCAPTCHAServiceModel
+ * @package lahautesociete\tarteaucitron\models\services
  */
-
 class ReCAPTCHAServiceModel extends ServiceModel
 {
     /**

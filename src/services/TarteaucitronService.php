@@ -13,6 +13,7 @@ use lahautesociete\tarteaucitron\models\services\GoogleMapsServiceModel;
 use lahautesociete\tarteaucitron\models\services\LinkedinServiceModel;
 use lahautesociete\tarteaucitron\models\services\ReCAPTCHAServiceModel;
 use lahautesociete\tarteaucitron\models\services\TwitterServiceModel;
+use lahautesociete\tarteaucitron\models\services\VimeoServiceModel;
 use lahautesociete\tarteaucitron\Tarteaucitron;
 use Twig\Markup;
 use yii\helpers\Html;
@@ -152,36 +153,18 @@ class TarteaucitronService extends Component
     /**
      * @param array $options
      * @return Markup
+     * @throws Exception
      */
     public function renderVimeo(array $options): Markup
     {
-        $vars = $this->getSettingsVars();
-        if (!$vars['isVimeoEnabled']) {
-            return new Markup('', 'UTF-8');
-        }
+        $settingsVars = $this->getSettingsVars();
+        $vars = array_merge($settingsVars, $options);
 
-        $castedOptions = [
-            'videoId' => $options['videoId'],
-            'width' => $options['width'],
-            'height' => $options['height'],
-            'attributes' => array_key_exists('attributes', $options) ? $options['attributes'] : [],
-        ];
-        $vars = array_merge($vars, $castedOptions);
+        $model = new VimeoServiceModel();
+        $model->setAttributes($vars);
+        $model->validateAndThrowErrors();
 
-        $html = $this->getVimeoHtml($vars);
-        return new Markup($html, 'UTF-8');
-    }
-
-    /**
-     * @param array $vars
-     * @return string
-     */
-    private function getVimeoHtml(array $vars) {
-        $vars['attributes']['videoID'] = $vars['videoId'];
-        $vars['attributes']['width'] = $vars['width'];
-        $vars['attributes']['height'] = $vars['height'];
-        Html::addCssClass($vars['attributes'], 'vimeo_player');
-        return Html::tag('div', '', $vars['attributes']);
+        return $model->getHtml();
     }
 
     /**

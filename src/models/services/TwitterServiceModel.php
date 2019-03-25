@@ -5,13 +5,11 @@ namespace lahautesociete\tarteaucitron\models\services;
 use Craft;
 use craft\web\View;
 use Twig\Markup;
-use yii\helpers\Html;
 
 /**
- * Class Settings
- * @package lahautesociete\tarteaucitron\models
+ * Class TwitterServiceModel
+ * @package lahautesociete\tarteaucitron\models\services
  */
-
 class TwitterServiceModel extends ServiceModel
 {
     /**

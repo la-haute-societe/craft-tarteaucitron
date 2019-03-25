@@ -4,14 +4,12 @@ namespace lahautesociete\tarteaucitron\models\services;
 
 use Craft;
 use craft\web\View;
-
 use Twig\Markup;
 
 /**
- * Class Settings
- * @package lahautesociete\tarteaucitron\models
+ * Class GoogleAdwordsConversionServiceModel
+ * @package lahautesociete\tarteaucitron\models\services
  */
-
 class GoogleAdwordsConversionServiceModel extends ServiceModel
 {
     /**
