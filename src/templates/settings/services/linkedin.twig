@@ -18,11 +18,11 @@
     {% block options %}
         <p>Include this code where you want to instantiate Linkedin :</p>
         {{ forms.textAreaField({
-            id: 'linkedinExample',
+            id: 'linkedinCallExample',
             value: "
 {{ craft.tarteaucitron.linkedin({
-    counter: 'top'|'right',         {# not required #}
-    htmlAttributes: YOUR_HTML_OPTIONS  {# not required #}
+    counter: 'top'|'right',             {# not required #}
+    htmlAttributes: YOUR_HTML_OPTIONS   {# not required #}
 }) }}",
             rows: 1,
             disabled: true

@@ -14,6 +14,7 @@ use lahautesociete\tarteaucitron\models\services\LinkedinServiceModel;
 use lahautesociete\tarteaucitron\models\services\ReCAPTCHAServiceModel;
 use lahautesociete\tarteaucitron\models\services\TwitterServiceModel;
 use lahautesociete\tarteaucitron\models\services\VimeoServiceModel;
+use lahautesociete\tarteaucitron\models\services\YoutubeServiceModel;
 use lahautesociete\tarteaucitron\Tarteaucitron;
 use Twig\Markup;
 use yii\helpers\Html;
@@ -27,7 +28,8 @@ class TarteaucitronService extends Component
     /**
      * @return array
      */
-    private function getSettingsVars() {
+    private function getSettingsVars()
+    {
         $settings = Tarteaucitron::$plugin->getSettings();
         return get_object_vars($settings);
     }
@@ -56,7 +58,8 @@ class TarteaucitronService extends Component
      * @throws \Twig_Error_Loader
      * @throws \yii\base\Exception
      */
-    private function getInitHtml(array $vars) {
+    private function getInitHtml(array $vars)
+    {
         $oldMode = Craft::$app->getView()->getTemplateMode();
         Craft::$app->getView()->setTemplateMode(View::TEMPLATE_MODE_CP);
         $html = Craft::$app->getView()->renderTemplate('tarteaucitron-js/init', $vars);
@@ -170,44 +173,17 @@ class TarteaucitronService extends Component
     /**
      * @param array $options
      * @return Markup
+     * @throws Exception
      */
     public function renderYoutube(array $options): Markup
     {
-        $vars = $this->getSettingsVars();
-        if (!$vars['isYoutubeEnabled']) {
-            return new Markup('', 'UTF-8');
-        }
+        $settingsVars = $this->getSettingsVars();
+        $vars = array_merge($settingsVars, $options);
 
-        $castedOptions = [
-            'videoId' => $options['videoId'],
-            'width' => $options['width'],
-            'height' => $options['height'],
-            'theme' => $options['theme'],
-            'rel' => $options['rel'],
-            'controls' => $options['controls'],
-            'showinfo' => $options['showinfo'],
-            'autoplay' => $options['autoplay'],
-        ];
-        $vars = array_merge($vars, $castedOptions);
+        $model = new YoutubeServiceModel();
+        $model->setAttributes($vars);
+        $model->validateAndThrowErrors();
 
-        $html = $this->getYoutubeHtml($vars);
-        return new Markup($html, 'UTF-8');
-    }
-
-    /**
-     * @param array $vars
-     * @return string
-     */
-    private function getYoutubeHtml(array $vars) {
-        $vars['attributes']['videoID'] = $vars['videoId'];
-        $vars['attributes']['width'] = $vars['width'];
-        $vars['attributes']['height'] = $vars['height'];
-        $vars['attributes']['theme'] = $vars['theme'];
-        $vars['attributes']['rel'] = $vars['rel'];
-        $vars['attributes']['controls'] = $vars['controls'];
-        $vars['attributes']['showinfo'] = $vars['showinfo'];
-        $vars['attributes']['autoplay'] = $vars['autoplay'];
-        Html::addCssClass($vars['attributes'], 'youtube_player');
-        return Html::tag('div', '', $vars['attributes']);
+        return $model->getHtml();
     }
 }

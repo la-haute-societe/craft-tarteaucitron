@@ -14,8 +14,8 @@ The resources (js/css files, images, fonts, ...) are located in the `resources` 
 ## Commands
 
 ```bash
-yarn build-dev      # Build assets in development mode
 yarn watch          # Build assets in development mode & watch them for changes
+yarn build-dev      # Build assets in development mode
 yarn build-prod     # Build assets in production mode
 ```
 
