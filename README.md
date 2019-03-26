@@ -1,4 +1,4 @@
-![Logo Latarteaucitron.js](.readme/logo-tarteaucitron.png)
+![Logo tarteaucitron.js](.readme/logo-tarteaucitron.png)
 
 # Craft 3 - tarteaucitron.js
 
@@ -30,6 +30,24 @@ Run this command from your Craft project's root folder :
 ```bash
 composer require la-haute-societe/craft-tarteaucitron
 ```
+
+Then add this twig code on the templates where you want the plugin to be loaded.
+```twig
+{{ craft.tarteaucitron.initScript }}
+```
+
+
+### Load service
+
+![Settings page](.readme/settings.jpg)
+
+All services are configurable from the plugin settings page.
+
+You have to activate service, then, for some services, add the specified twig code on the pages where you want the service to appear. In this case, you must replace the parameters specified in the twig code with yours.
+
+### Service HTML Attributes
+
+For some service templates, you can include a parameter named `htmlAttributes`. See [dataAttributes Yii documentation](https://www.yiiframework.com/doc/api/2.0/yii-helpers-basehtml#$dataAttributes-detail).
 
 
 ## Contribute
