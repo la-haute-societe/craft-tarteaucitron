@@ -10,19 +10,5 @@
 @import "./components/collapse";
 @import "./components/infobar";
 
-
-// Special cases
-#settings-reCAPTCHACallExample-field,
-#settings-googleMapsCallExample-field,
-#settings-googleAdwordsConversionCallExample-field,
-#settings-linkedinCallExample-field,
-#settings-twitterCallExample-field,
-#settings-vimeoCallExample-field,
-#settings-youtubeCallExample-field
-{
-  margin-top: 0;
-
-  .CodeMirror {
-    height: auto !important;
-  }
-}
+// Pages
+@import "./pages/settings";
