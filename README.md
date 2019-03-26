@@ -41,13 +41,28 @@ Then add this twig code on the templates where you want the plugin to be loaded.
 
 ![Settings page](.readme/settings.jpg)
 
-All services are configurable from the plugin settings page.
+Plugin and associated services are configurable from the plugin settings page.
 
 You have to activate service, then, for some services, add the specified twig code on the pages where you want the service to appear. In this case, you must replace the parameters specified in the twig code with yours.
 
 ### Service HTML Attributes
 
-For some service templates, you can include a parameter named `htmlAttributes`. See [dataAttributes Yii documentation](https://www.yiiframework.com/doc/api/2.0/yii-helpers-basehtml#$dataAttributes-detail).
+For some service templates, you can include a parameter named `htmlAttributes`. This parameter allows you to define html parameters for the html tag associated with the service.
+
+Example :
+
+```twig
+{{ craft.tarteaucitron.vimeo({
+    videoId: '54989781',
+    width: '500px',
+    height: '200px',
+    htmlAttributes: {
+        class: 'border-black',
+    }
+}) }}
+```
+
+See [dataAttributes Yii documentation](https://www.yiiframework.com/doc/api/2.0/yii-helpers-basehtml#$dataAttributes-detail).
 
 
 ## Contribute
