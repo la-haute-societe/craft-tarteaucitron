@@ -7,10 +7,9 @@ use Exception;
 use Twig\Markup;
 
 /**
- * Class Settings
- * @package lahautesociete\tarteaucitron\models
+ * Class ServiceModel
+ * @package lahautesociete\tarteaucitron\models\services
  */
-
 abstract class ServiceModel extends Model
 {
 

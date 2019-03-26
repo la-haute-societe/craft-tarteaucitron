@@ -5,8 +5,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "NODE_ENV=development ./node_modules/.bin/webpack --config build/dev.js --watch",
-    "build-dev": "NODE_ENV=development ./node_modules/.bin/webpack --config build/dev.js",
-    "build-prod": "NODE_ENV=production ./node_modules/.bin/webpack --config build/prod.js "
+    "dev": "NODE_ENV=development ./node_modules/.bin/webpack --config build/dev.js",
+    "prod": "NODE_ENV=production ./node_modules/.bin/webpack --config build/prod.js "
   },
   "author": "Clément Gayot",
   "license": "BSD-3-Clause",

@@ -2,14 +2,12 @@
 
 namespace lahautesociete\tarteaucitron\models;
 
-use Craft;
 use craft\base\Model;
 
 /**
- * Class Settings
+ * Class SettingsModel
  * @package lahautesociete\tarteaucitron\models
  */
-
 class SettingsModel extends Model
 {
     /**
@@ -158,69 +156,16 @@ class SettingsModel extends Model
     public $isYoutubeEnabled = false;
 
 
-
     /**
-     * @inheritdoc
-     * @Todo : réorganiser
+     * @return array
      */
     public function rules(): array
     {
         return [
-            // Service - Google Tag Manager
-            [['isGoogleTagManagerEnabled'], 'boolean'],
-            [['googleTagManagerId'], 'string'],
-            [['googleTagManagerId'], 'lahautesociete\tarteaucitron\validators\GoogleTagManagerValidator'],
-
-            // Service - reCAPTCHA
-            [['isReCAPTCHAEnabled'], 'boolean'],
-            [['reCAPTCHASiteKey'], 'string'],
-            [['reCAPTCHASiteKey'], 'lahautesociete\tarteaucitron\validators\ReCAPTCHAValidator'],
-
-            // Service - Google Maps
-            [['isGoogleMapsEnabled'], 'boolean'],
-            [['googleMapsAPIKey'], 'lahautesociete\tarteaucitron\validators\GoogleMapsValidator'],
-
-            // Service - Google Analytics Universal UA
-            [['isGoogleAnalyticsUniversalEnabled'], 'boolean'],
-            [['googleAnalyticsUniversalUa'], 'lahautesociete\tarteaucitron\validators\GoogleAnalyticsUniversalValidator'],
-
-            // Service - Google Adwords (conversion)
-            [['isGoogleAdwordsConversionEnabled'], 'boolean'],
-
-            // Service - Google Adwords (remarketing)
-            [['isGoogleAdwordsRemarketingEnabled'], 'boolean'],
-            [['googleAdwordsRemarketingId'], 'lahautesociete\tarteaucitron\validators\GoogleAdwordsRemarketingValidator'],
-
-            // Service - Facebook Pixel
-            [['isFacebookPixelEnabled'], 'boolean'],
-            [['facebookPixelId'], 'lahautesociete\tarteaucitron\validators\FacebookPixelValidator'],
-
-            // Service - Linkedin
-            [['isLinkedinEnabled'], 'boolean'],
-
-            // Service - Twitter
-            [['isTwitterEnabled'], 'boolean'],
-
-            // Service - Vimeo
-            [['isVimeoEnabled'], 'boolean'],
-
-            // Service - Youtube
-            [['isYoutubeEnabled'], 'boolean'],
-
-
-
+            // Core
             [['hashtag'], 'required'],
-            [
-                [
-                    'hashtag', 'orientation', 'cookieDomain', 'customCss',
-                ], 'string'
-            ],
-            [
-                [
-                    'highPrivacy', 'adblocker', 'showAlertSmall', 'cookieslist', 'removeCredit', 'handleBrowserDNTRequest',
-                ], 'boolean'
-            ],
-
+            [['hashtag', 'orientation', 'cookieDomain', 'customCss',], 'string'],
+            [['highPrivacy', 'adblocker', 'showAlertSmall', 'cookieslist', 'removeCredit', 'handleBrowserDNTRequest',], 'boolean'],
             ['hashtag', 'default', 'value' => '#tarteaucitron'],
             ['highPrivacy', 'default', 'value' => false],
             ['orientation', 'default', 'value' => 'top'],
@@ -230,7 +175,48 @@ class SettingsModel extends Model
             ['removeCredit', 'default', 'value' => false],
             ['handleBrowserDNTRequest', 'default', 'value' => false],
             ['cookieDomain', 'default', 'value' => null],
-            ['customCss', 'default', 'value' => ""]
+            ['customCss', 'default', 'value' => ""],
+
+            // Service - Facebook Pixel
+            [['isFacebookPixelEnabled'], 'boolean'],
+            [['facebookPixelId'], 'lahautesociete\tarteaucitron\validators\FacebookPixelValidator'],
+
+            // Service - Google Adwords (conversion)
+            [['isGoogleAdwordsConversionEnabled'], 'boolean'],
+
+            // Service - Google Adwords (remarketing)
+            [['isGoogleAdwordsRemarketingEnabled'], 'boolean'],
+            [['googleAdwordsRemarketingId'], 'lahautesociete\tarteaucitron\validators\GoogleAdwordsRemarketingValidator'],
+
+            // Service - Google Analytics Universal UA
+            [['isGoogleAnalyticsUniversalEnabled'], 'boolean'],
+            [['googleAnalyticsUniversalUa'], 'lahautesociete\tarteaucitron\validators\GoogleAnalyticsUniversalValidator'],
+
+            // Service - Google Maps
+            [['isGoogleMapsEnabled'], 'boolean'],
+            [['googleMapsAPIKey'], 'lahautesociete\tarteaucitron\validators\GoogleMapsValidator'],
+
+            // Service - Google Tag Manager
+            [['isGoogleTagManagerEnabled'], 'boolean'],
+            [['googleTagManagerId'], 'string'],
+            [['googleTagManagerId'], 'lahautesociete\tarteaucitron\validators\GoogleTagManagerValidator'],
+
+            // Service - Linkedin
+            [['isLinkedinEnabled'], 'boolean'],
+
+            // Service - Twitter
+            [['isTwitterEnabled'], 'boolean'],
+
+            // Service - reCAPTCHA
+            [['isReCAPTCHAEnabled'], 'boolean'],
+            [['reCAPTCHASiteKey'], 'string'],
+            [['reCAPTCHASiteKey'], 'lahautesociete\tarteaucitron\validators\ReCAPTCHAValidator'],
+
+            // Service - Vimeo
+            [['isVimeoEnabled'], 'boolean'],
+
+            // Service - Youtube
+            [['isYoutubeEnabled'], 'boolean'],
         ];
     }
 }

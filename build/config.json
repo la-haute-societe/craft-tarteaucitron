@@ -27,9 +27,9 @@
       "cssChunk": "[id].css"
     },
     "production": {
-      "js": "[name].[hash].js",
-      "css": "[name].[hash].css",
-      "cssChunk": "[id].[hash].css"
+      "js": "[name].js",
+      "css": "[name].css",
+      "cssChunk": "[id].css"
     }
   }
 }

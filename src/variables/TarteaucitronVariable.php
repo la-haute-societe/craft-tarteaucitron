@@ -7,6 +7,7 @@ use Twig\Markup;
 
 /**
  * Class TarteaucitronVariable
+ * @package lahautesociete\tarteaucitron\variables
  */
 class TarteaucitronVariable
 {

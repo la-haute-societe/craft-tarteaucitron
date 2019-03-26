@@ -77,25 +77,12 @@ class Tarteaucitron extends Plugin
         $settings = $this->getSettings();
         $settings->validate();
 
-        //@Todo : wtf ?
-        $orientationOptions = [
-            [
-                'label' => 'Top',
-                'value' => 'top'
-            ],
-            [
-                'label' => 'Bottom',
-                'value' => 'bottom'
-            ],
-        ];
-
         // Get the settings that are being defined by the config file
         $overrides = Craft::$app->getConfig()->getConfigFromFile(strtolower($this->handle));
 
         Craft::$app->view->registerAssetBundle(SettingsAsset::class);
         return Craft::$app->getView()->renderTemplate('tarteaucitron-js/settings', [
             'settings' => $settings,
-            'orientationOptions' => $orientationOptions,
             'overrides' => array_keys($overrides),
         ]);
     }

@@ -3,144 +3,143 @@
 
 <div class="flex align-start">
 
-<div class="fit-container">
-    {{ forms.textField({
-        label: "Hashtag"|t,
-        id: 'hashtag',
-        name: 'hashtag',
-        instructions: "Open panel automatically with this hashtag in URL",
-        value: settings.hashtag,
-        required: true,
-        disabled: 'hashtag' in overrides,
-        warning: 'hashtag' in overrides ? macros.configWarning('hashtag'),
-        errors: settings.getErrors('hashtag')
-    }) }}
+    <div class="fit-container">
+        {{ forms.textField({
+            label: "Hashtag"|t,
+            id: 'hashtag',
+            name: 'hashtag',
+            instructions: "Open panel automatically with this hashtag in URL",
+            value: settings.hashtag,
+            required: true,
+            disabled: 'hashtag' in overrides,
+            warning: 'hashtag' in overrides ? macros.configWarning('hashtag'),
+            errors: settings.getErrors('hashtag')
+        }) }}
 
-    {#<hr>#}
-    {#<div class="field" id="settings-prependSender-field">#}
-    {#<div class="heading">#}
-    {#<label id="settings-checkboxes-default-mode-label">{{ 'Checkboxes default mode'|t }}</label>#}
-    {#<div class="instructions">#}
-    {#<p>{{ "Can be found by accessing {url} in \"Dialog\" tab."|t({url: 'https://manage.cookiebot.com/en/manage'}) }}</p>#}
-    {#</div>#}
-    {#</div>#}
-    {#</div>#}
+        {{ forms.lightswitchField({
+            label: "High Privacy"|t,
+            id: 'highPrivacy',
+            name: 'highPrivacy',
+            instructions: "Disable implied consent (while browsing)",
+            on: settings.highPrivacy,
+            toggle: true,
+            required: true,
+            disabled: 'highPrivacy' in overrides,
+            warning: 'highPrivacy' in overrides ? macros.configWarning('highPrivacy'),
+            errors: settings.getErrors('highPrivacy')
+        }) }}
 
-    {{ forms.lightswitchField({
-        label: "High Privacy"|t,
-        id: 'highPrivacy',
-        name: 'highPrivacy',
-        instructions: "Disable implied consent (while browsing)",
-        on: settings.highPrivacy,
-        toggle: true,
-        required: true,
-        disabled: 'highPrivacy' in overrides,
-        warning: 'highPrivacy' in overrides ? macros.configWarning('highPrivacy'),
-        errors: settings.getErrors('highPrivacy')
-    }) }}
+        {{ forms.selectField({
+            label: "Orientation"|t,
+            id: 'orientation',
+            name: 'orientation',
+            instructions: "Banner position",
+            value: settings.orientation,
+            required: true,
+            options: [
+                {
+                    'label': 'Top',
+                    'value': 'top'
+                },
+                {
+                    'label': 'Bottom',
+                    'value': 'bottom'
+                }
+            ],
+            disabled: 'orientation' in overrides,
+            warning: 'orientation' in overrides ? macros.configWarning('orientation'),
+            errors: settings.getErrors('orientation')
+        }) }}
 
-    {{ forms.selectField({
-        label: "Orientation"|t,
-        id: 'orientation',
-        name: 'orientation',
-        instructions: "Banner position",
-        value: settings.orientation,
-        required: true,
-        options: orientationOptions,
-        disabled: 'orientation' in overrides,
-        warning: 'orientation' in overrides ? macros.configWarning('orientation'),
-        errors: settings.getErrors('orientation')
-    }) }}
+        {{ forms.lightswitchField({
+            label: "Adblocker"|t,
+            id: 'adblocker',
+            name: 'adblocker',
+            instructions: "Display a message if an adblocker is detected",
+            on: settings.adblocker,
+            toggle: true,
+            required: true,
+            disabled: 'adblocker' in overrides,
+            warning: 'adblocker' in overrides ? macros.configWarning('adblocker'),
+            errors: settings.getErrors('adblocker')
+        }) }}
 
-    {{ forms.lightswitchField({
-        label: "Adblocker"|t,
-        id: 'adblocker',
-        name: 'adblocker',
-        instructions: "Display a message if an adblocker is detected",
-        on: settings.adblocker,
-        toggle: true,
-        required: true,
-        disabled: 'adblocker' in overrides,
-        warning: 'adblocker' in overrides ? macros.configWarning('adblocker'),
-        errors: settings.getErrors('adblocker')
-    }) }}
+        {{ forms.lightswitchField({
+            label: "Show small alert"|t,
+            id: 'showAlertSmall',
+            name: 'showAlertSmall',
+            instructions: "Display the small banner at the bottom right",
+            on: settings.showAlertSmall,
+            toggle: true,
+            required: true,
+            disabled: 'showAlertSmall' in overrides,
+            warning: 'showAlertSmall' in overrides ? macros.configWarning('showAlertSmall'),
+            errors: settings.getErrors('showAlertSmall')
+        }) }}
 
-    {{ forms.lightswitchField({
-        label: "Show small alert"|t,
-        id: 'showAlertSmall',
-        name: 'showAlertSmall',
-        instructions: "Display the small banner at the bottom right",
-        on: settings.showAlertSmall,
-        toggle: true,
-        required: true,
-        disabled: 'showAlertSmall' in overrides,
-        warning: 'showAlertSmall' in overrides ? macros.configWarning('showAlertSmall'),
-        errors: settings.getErrors('showAlertSmall')
-    }) }}
+        {{ forms.lightswitchField({
+            label: "Cookies list"|t,
+            id: 'cookieslist',
+            name: 'cookieslist',
+            instructions: "View the list of installed cookies",
+            on: settings.cookieslist,
+            toggle: true,
+            required: true,
+            disabled: 'cookieslist' in overrides,
+            warning: 'cookieslist' in overrides ? macros.configWarning('cookieslist'),
+            errors: settings.getErrors('cookieslist')
+        }) }}
+    </div>
 
-    {{ forms.lightswitchField({
-        label: "Cookies list"|t,
-        id: 'cookieslist',
-        name: 'cookieslist',
-        instructions: "View the list of installed cookies",
-        on: settings.cookieslist,
-        toggle: true,
-        required: true,
-        disabled: 'cookieslist' in overrides,
-        warning: 'cookieslist' in overrides ? macros.configWarning('cookieslist'),
-        errors: settings.getErrors('cookieslist')
-    }) }}
-</div>
+    <div class="fit-container">
 
-<div class="fit-container">
+        {{ forms.lightswitchField({
+            label: "Remove credit"|t,
+            id: 'removeCredit',
+            name: 'removeCredit',
+            instructions: "Delete the link to the source",
+            on: settings.removeCredit,
+            toggle: true,
+            required: true,
+            disabled: 'removeCredit' in overrides,
+            warning: 'removeCredit' in overrides ? macros.configWarning('removeCredit'),
+            errors: settings.getErrors('removeCredit')
+        }) }}
 
-    {{ forms.lightswitchField({
-        label: "Remove credit"|t,
-        id: 'removeCredit',
-        name: 'removeCredit',
-        instructions: "Delete the link to the source",
-        on: settings.removeCredit,
-        toggle: true,
-        required: true,
-        disabled: 'removeCredit' in overrides,
-        warning: 'removeCredit' in overrides ? macros.configWarning('removeCredit'),
-        errors: settings.getErrors('removeCredit')
-    }) }}
+        {{ forms.lightswitchField({
+            label: "Handle browser DNT request"|t,
+            id: 'handleBrowserDNTRequest',
+            name: 'handleBrowserDNTRequest',
+            instructions: "Respond to the DoNotTrack request",
+            on: settings.handleBrowserDNTRequest,
+            toggle: true,
+            required: true,
+            disabled: 'handleBrowserDNTRequest' in overrides,
+            warning: 'handleBrowserDNTRequest' in overrides ? macros.configWarning('handleBrowserDNTRequest'),
+            errors: settings.getErrors('handleBrowserDNTRequest')
+        }) }}
 
-    {{ forms.lightswitchField({
-        label: "Handle browser DNT request"|t,
-        id: 'handleBrowserDNTRequest',
-        name: 'handleBrowserDNTRequest',
-        instructions: "Respond to the DoNotTrack request",
-        on: settings.handleBrowserDNTRequest,
-        toggle: true,
-        required: true,
-        disabled: 'handleBrowserDNTRequest' in overrides,
-        warning: 'handleBrowserDNTRequest' in overrides ? macros.configWarning('handleBrowserDNTRequest'),
-        errors: settings.getErrors('handleBrowserDNTRequest')
-    }) }}
+        {{ forms.textField({
+            label: "Cookie domain"|t,
+            id: 'cookieDomain',
+            name: 'cookieDomain',
+            instructions: "Optional - Domain name on which the cookie will be placed (for multisites / subdomains)",
+            value: settings.cookieDomain,
+            disabled: 'cookieDomain' in overrides,
+            warning: 'cookieDomain' in overrides ? macros.configWarning('cookieDomain'),
+            errors: settings.getErrors('cookieDomain')
+        }) }}
 
-    {{ forms.textField({
-        label: "Cookie domain"|t,
-        id: 'cookieDomain',
-        name: 'cookieDomain',
-        instructions: "Optional - Domain name on which the cookie will be placed (for multisites / subdomains)",
-        value: settings.cookieDomain,
-        disabled: 'cookieDomain' in overrides,
-        warning: 'cookieDomain' in overrides ? macros.configWarning('cookieDomain'),
-        errors: settings.getErrors('cookieDomain')
-    }) }}
-
-    {{ forms.textAreaField({
-        label: "Custom CSS"|t,
-        id: 'customCss',
-        name: 'customCss',
-        instructions: "Set custom CSS for tarteaucitron.js.",
-        value: settings.customCss,
-        disabled: 'customCss' in overrides,
-        warning: 'customCss' in overrides ? macros.configWarning('customCss'),
-        errors: settings.getErrors('customCss')
-    }) }}
-</div>
+        {{ forms.textAreaField({
+            label: "Custom CSS"|t,
+            id: 'customCss',
+            name: 'customCss',
+            instructions: "Set custom CSS for tarteaucitron.js.",
+            value: settings.customCss,
+            disabled: 'customCss' in overrides,
+            warning: 'customCss' in overrides ? macros.configWarning('customCss'),
+            errors: settings.getErrors('customCss')
+        }) }}
+    </div>
 
 </div>

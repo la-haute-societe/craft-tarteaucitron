@@ -4,10 +4,16 @@ namespace lahautesociete\tarteaucitron\bundles;
 use craft\web\AssetBundle;
 use craft\web\assets\cp\CpAsset;
 
+/**
+ * Class SettingsAsset
+ * @package lahautesociete\tarteaucitron\bundles
+ */
 class SettingsAsset extends AssetBundle
 {
     public function init()
     {
+        $assetsFilenames = json_decode(file_get_contents(__DIR__."/../resources/webpack-assets.json"), true);
+
         // define the path that your publishable resources live
         $this->sourcePath = '@lahautesociete/tarteaucitron/resources';
 
@@ -19,11 +25,11 @@ class SettingsAsset extends AssetBundle
         // define the relative path to CSS/JS files that should be registered with the page
         // when this asset bundle is registered
         $this->js = [
-            'js/settings.js',
+            $assetsFilenames['settings']['js']
         ];
 
         $this->css = [
-            'css/settings.css',
+            $assetsFilenames['settings']['css'],
         ];
 
         parent::init();

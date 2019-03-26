@@ -39,7 +39,7 @@ class TwitterServiceModel extends ServiceModel
 
 
     /**
-     * @inheritdoc
+     * @return array
      */
     public function rules(): array
     {

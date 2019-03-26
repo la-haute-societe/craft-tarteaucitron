@@ -1,0 +1,10 @@
+{
+  "settings": {
+    "css": "css/settings.css",
+    "js": "js/settings.js"
+  },
+  "tarteaucitron": {
+    "css": "css/tarteaucitron.css",
+    "js": "js/tarteaucitron.js"
+  }
+}

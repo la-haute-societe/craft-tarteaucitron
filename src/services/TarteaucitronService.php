@@ -17,7 +17,6 @@ use lahautesociete\tarteaucitron\models\services\VimeoServiceModel;
 use lahautesociete\tarteaucitron\models\services\YoutubeServiceModel;
 use lahautesociete\tarteaucitron\Tarteaucitron;
 use Twig\Markup;
-use yii\helpers\Html;
 
 /**
  * Class TarteaucitronService
@@ -35,7 +34,7 @@ class TarteaucitronService extends Component
     }
 
     /**
-     * Renders tarteaucitron dialog script
+     * Call tarteaucitron init script
      *
      * @return Markup
      *
@@ -53,6 +52,7 @@ class TarteaucitronService extends Component
     }
 
     /**
+     *
      * @param array $vars
      * @return string
      * @throws \Twig_Error_Loader

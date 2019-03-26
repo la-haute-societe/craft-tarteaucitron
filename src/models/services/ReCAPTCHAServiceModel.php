@@ -28,7 +28,7 @@ class ReCAPTCHAServiceModel extends ServiceModel
 
 
     /**
-     * @inheritdoc
+     * @return array
      */
     public function rules(): array
     {

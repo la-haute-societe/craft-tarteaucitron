@@ -27,7 +27,7 @@ class LinkedinServiceModel extends ServiceModel
     public $htmlAttributes;
 
     /**
-     * @inheritdoc
+     * @return array
      */
     public function rules(): array
     {

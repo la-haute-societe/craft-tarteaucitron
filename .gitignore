@@ -8,5 +8,5 @@ node_modules
 # Composer
 vendor
 
-# Generated resources
-src/resources/**/*
+# Generated resources       // @Todo : use Travis for pushing them on releases only
+# src/resources/**/*
