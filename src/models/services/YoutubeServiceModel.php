@@ -1,13 +1,13 @@
 <?php
 
-namespace lahautesociete\tarteaucitron\models\services;
+namespace lhs\tarteaucitron\models\services;
 
 use Twig\Markup;
 use yii\helpers\Html;
 
 /**
  * Class YoutubeServiceModel
- * @package lahautesociete\tarteaucitron\models\services
+ * @package lhs\tarteaucitron\models\services
  */
 class YoutubeServiceModel extends ServiceModel
 {

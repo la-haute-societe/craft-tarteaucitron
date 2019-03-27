@@ -1,6 +1,6 @@
 <?php
 
-namespace lahautesociete\tarteaucitron\models\services;
+namespace lhs\tarteaucitron\models\services;
 
 use Craft;
 use craft\web\View;
@@ -8,7 +8,7 @@ use Twig\Markup;
 
 /**
  * Class TwitterServiceModel
- * @package lahautesociete\tarteaucitron\models\services
+ * @package lhs\tarteaucitron\models\services
  */
 class TwitterServiceModel extends ServiceModel
 {

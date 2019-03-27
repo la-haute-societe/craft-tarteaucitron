@@ -1,13 +1,13 @@
 <?php
 
-namespace lahautesociete\tarteaucitron\variables;
+namespace lhs\tarteaucitron\variables;
 
-use lahautesociete\tarteaucitron\Tarteaucitron as Plugin;
+use lhs\tarteaucitron\Tarteaucitron as Plugin;
 use Twig\Markup;
 
 /**
  * Class TarteaucitronVariable
- * @package lahautesociete\tarteaucitron\variables
+ * @package lhs\tarteaucitron\variables
  */
 class TarteaucitronVariable
 {

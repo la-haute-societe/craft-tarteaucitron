@@ -1,26 +1,26 @@
 <?php
 
-namespace lahautesociete\tarteaucitron\services;
+namespace lhs\tarteaucitron\services;
 
 use Craft;
 use craft\base\Component;
 use craft\web\View;
 
 use Exception;
-use lahautesociete\tarteaucitron\bundles\FrontAsset;
-use lahautesociete\tarteaucitron\models\services\GoogleAdwordsConversionServiceModel;
-use lahautesociete\tarteaucitron\models\services\GoogleMapsServiceModel;
-use lahautesociete\tarteaucitron\models\services\LinkedinServiceModel;
-use lahautesociete\tarteaucitron\models\services\ReCAPTCHAServiceModel;
-use lahautesociete\tarteaucitron\models\services\TwitterServiceModel;
-use lahautesociete\tarteaucitron\models\services\VimeoServiceModel;
-use lahautesociete\tarteaucitron\models\services\YoutubeServiceModel;
-use lahautesociete\tarteaucitron\Tarteaucitron;
+use lhs\tarteaucitron\bundles\FrontAsset;
+use lhs\tarteaucitron\models\services\GoogleAdwordsConversionServiceModel;
+use lhs\tarteaucitron\models\services\GoogleMapsServiceModel;
+use lhs\tarteaucitron\models\services\LinkedinServiceModel;
+use lhs\tarteaucitron\models\services\ReCAPTCHAServiceModel;
+use lhs\tarteaucitron\models\services\TwitterServiceModel;
+use lhs\tarteaucitron\models\services\VimeoServiceModel;
+use lhs\tarteaucitron\models\services\YoutubeServiceModel;
+use lhs\tarteaucitron\Tarteaucitron;
 use Twig\Markup;
 
 /**
  * Class TarteaucitronService
- * @package lahautesociete\tarteaucitron\services
+ * @package lhs\tarteaucitron\services
  */
 class TarteaucitronService extends Component
 {

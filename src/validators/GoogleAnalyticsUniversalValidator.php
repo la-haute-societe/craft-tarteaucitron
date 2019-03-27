@@ -1,10 +1,10 @@
 <?php
 
-namespace lahautesociete\tarteaucitron\validators;
+namespace lhs\tarteaucitron\validators;
 
 /**
  * Class GoogleAnalyticsUniversalValidator
- * @package lahautesociete\tarteaucitron\validators
+ * @package lhs\tarteaucitron\validators
  */
 class GoogleAnalyticsUniversalValidator extends TarteaucitronValidator
 {

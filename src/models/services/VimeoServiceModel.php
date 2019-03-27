@@ -1,13 +1,13 @@
 <?php
 
-namespace lahautesociete\tarteaucitron\models\services;
+namespace lhs\tarteaucitron\models\services;
 
 use Twig\Markup;
 use yii\helpers\Html;
 
 /**
  * Class VimeoServiceModel
- * @package lahautesociete\tarteaucitron\models\services
+ * @package lhs\tarteaucitron\models\services
  */
 class VimeoServiceModel extends ServiceModel
 {

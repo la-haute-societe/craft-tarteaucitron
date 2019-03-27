@@ -1,12 +1,12 @@
 <?php
-namespace lahautesociete\tarteaucitron\bundles;
+namespace lhs\tarteaucitron\bundles;
 
 use craft\web\AssetBundle;
 use craft\web\assets\cp\CpAsset;
 
 /**
  * Class SettingsAsset
- * @package lahautesociete\tarteaucitron\bundles
+ * @package lhs\tarteaucitron\bundles
  */
 class SettingsAsset extends AssetBundle
 {
@@ -15,7 +15,7 @@ class SettingsAsset extends AssetBundle
         $assetsFilenames = json_decode(file_get_contents(__DIR__."/../resources/webpack-assets.json"), true);
 
         // define the path that your publishable resources live
-        $this->sourcePath = '@lahautesociete/tarteaucitron/resources';
+        $this->sourcePath = '@lhs/tarteaucitron/resources';
 
         // define the dependencies
         $this->depends = [

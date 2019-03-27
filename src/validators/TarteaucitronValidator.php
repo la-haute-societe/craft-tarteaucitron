@@ -1,13 +1,13 @@
 <?php
 
-namespace lahautesociete\tarteaucitron\validators;
+namespace lhs\tarteaucitron\validators;
 
 use Yii;
 use yii\validators\Validator;
 
 /**
  * Class TarteaucitronValidator
- * @package lahautesociete\tarteaucitron\validators
+ * @package lhs\tarteaucitron\validators
  */
 class TarteaucitronValidator extends Validator
 {

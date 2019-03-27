@@ -1,6 +1,6 @@
 <?php
 
-namespace lahautesociete\tarteaucitron\models\services;
+namespace lhs\tarteaucitron\models\services;
 
 use craft\base\Model;
 use Exception;
@@ -8,7 +8,7 @@ use Twig\Markup;
 
 /**
  * Class ServiceModel
- * @package lahautesociete\tarteaucitron\models\services
+ * @package lhs\tarteaucitron\models\services
  */
 abstract class ServiceModel extends Model
 {

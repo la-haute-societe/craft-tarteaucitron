@@ -1,18 +1,22 @@
 <?php
 
-namespace lahautesociete\tarteaucitron;
+namespace lhs\tarteaucitron;
 
 use Craft;
 use craft\base\Plugin;
 use craft\web\twig\variables\CraftVariable;
 
-use lahautesociete\tarteaucitron\bundles\SettingsAsset;
-use lahautesociete\tarteaucitron\models\SettingsModel;
-use lahautesociete\tarteaucitron\services\TarteaucitronService;
-use lahautesociete\tarteaucitron\variables\TarteaucitronVariable;
+use lhs\tarteaucitron\bundles\SettingsAsset;
+use lhs\tarteaucitron\models\SettingsModel;
+use lhs\tarteaucitron\services\TarteaucitronService;
+use lhs\tarteaucitron\variables\TarteaucitronVariable;
 
 use yii\base\Event;
 
+/**
+ * Class Tarteaucitron
+ * @package lhs\tarteaucitron
+ */
 class Tarteaucitron extends Plugin
 {
     /**

@@ -1,12 +1,12 @@
 <?php
 
-namespace lahautesociete\tarteaucitron\models;
+namespace lhs\tarteaucitron\models;
 
 use craft\base\Model;
 
 /**
  * Class SettingsModel
- * @package lahautesociete\tarteaucitron\models
+ * @package lhs\tarteaucitron\models
  */
 class SettingsModel extends Model
 {
@@ -179,27 +179,27 @@ class SettingsModel extends Model
 
             // Service - Facebook Pixel
             [['isFacebookPixelEnabled'], 'boolean'],
-            [['facebookPixelId'], 'lahautesociete\tarteaucitron\validators\FacebookPixelValidator'],
+            [['facebookPixelId'], 'lhs\tarteaucitron\validators\FacebookPixelValidator'],
 
             // Service - Google Adwords (conversion)
             [['isGoogleAdwordsConversionEnabled'], 'boolean'],
 
             // Service - Google Adwords (remarketing)
             [['isGoogleAdwordsRemarketingEnabled'], 'boolean'],
-            [['googleAdwordsRemarketingId'], 'lahautesociete\tarteaucitron\validators\GoogleAdwordsRemarketingValidator'],
+            [['googleAdwordsRemarketingId'], 'lhs\tarteaucitron\validators\GoogleAdwordsRemarketingValidator'],
 
             // Service - Google Analytics Universal UA
             [['isGoogleAnalyticsUniversalEnabled'], 'boolean'],
-            [['googleAnalyticsUniversalUa'], 'lahautesociete\tarteaucitron\validators\GoogleAnalyticsUniversalValidator'],
+            [['googleAnalyticsUniversalUa'], 'lhs\tarteaucitron\validators\GoogleAnalyticsUniversalValidator'],
 
             // Service - Google Maps
             [['isGoogleMapsEnabled'], 'boolean'],
-            [['googleMapsAPIKey'], 'lahautesociete\tarteaucitron\validators\GoogleMapsValidator'],
+            [['googleMapsAPIKey'], 'lhs\tarteaucitron\validators\GoogleMapsValidator'],
 
             // Service - Google Tag Manager
             [['isGoogleTagManagerEnabled'], 'boolean'],
             [['googleTagManagerId'], 'string'],
-            [['googleTagManagerId'], 'lahautesociete\tarteaucitron\validators\GoogleTagManagerValidator'],
+            [['googleTagManagerId'], 'lhs\tarteaucitron\validators\GoogleTagManagerValidator'],
 
             // Service - Linkedin
             [['isLinkedinEnabled'], 'boolean'],
@@ -210,7 +210,7 @@ class SettingsModel extends Model
             // Service - reCAPTCHA
             [['isReCAPTCHAEnabled'], 'boolean'],
             [['reCAPTCHASiteKey'], 'string'],
-            [['reCAPTCHASiteKey'], 'lahautesociete\tarteaucitron\validators\ReCAPTCHAValidator'],
+            [['reCAPTCHASiteKey'], 'lhs\tarteaucitron\validators\ReCAPTCHAValidator'],
 
             // Service - Vimeo
             [['isVimeoEnabled'], 'boolean'],
