@@ -2,7 +2,7 @@
 
 # Craft 3 - tarteaucitron.js
 
-Handle GPRD in your Craft CMS projet the easy way with tarteaucitron.js.
+Handle GDPR in your Craft CMS projet the easy way with tarteaucitron.js.
 
 This plugin currently support the following services :
  - Facebook Pixel
@@ -37,7 +37,7 @@ Just install the plugin from the Craft Plugin Store.
 
 ## Tarte au citron plugin Overview
 
-[tarteaucitron.js](https://github.com/AmauriC/tarteaucitron.js) is a javascript library allowing you to handle GPRD compliance on your site. 
+[tarteaucitron.js](https://github.com/AmauriC/tarteaucitron.js) is a javascript library allowing you to handle GDPR compliance on your site. 
 It allows the end users to give there consent before exposing them to third party services (such as Google, Facebook, Twitter...).
 
 This plugin makes the integration of tarteaucitron.js as easy as possible in Craft CMS projets.
