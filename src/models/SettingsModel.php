@@ -166,16 +166,6 @@ class SettingsModel extends Model
             [['hashtag'], 'required'],
             [['hashtag', 'orientation', 'cookieDomain', 'customCss',], 'string'],
             [['highPrivacy', 'adblocker', 'showAlertSmall', 'cookieslist', 'removeCredit', 'handleBrowserDNTRequest',], 'boolean'],
-            ['hashtag', 'default', 'value' => '#tarteaucitron'],
-            ['highPrivacy', 'default', 'value' => false],
-            ['orientation', 'default', 'value' => 'top'],
-            ['adblocker', 'default', 'value' => false],
-            ['showAlertSmall', 'default', 'value' => true],
-            ['cookieslist', 'default', 'value' => true],
-            ['removeCredit', 'default', 'value' => false],
-            ['handleBrowserDNTRequest', 'default', 'value' => false],
-            ['cookieDomain', 'default', 'value' => null],
-            ['customCss', 'default', 'value' => ""],
 
             // Service - Facebook Pixel
             [['isFacebookPixelEnabled'], 'boolean'],
