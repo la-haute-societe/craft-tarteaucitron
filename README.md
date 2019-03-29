@@ -2,7 +2,7 @@
 
 # Craft 3 - tarteaucitron.js
 
-Integration of tarteaucitron.js as a Craft 3 Plugin.
+Handle GPRD in your Craft CMS projet the easy way with tarteaucitron.js.
 
 This plugin currently support the following services :
  - Facebook Pixel
