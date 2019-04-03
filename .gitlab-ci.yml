@@ -1,5 +1,5 @@
 Update Satis:
     image: lahautesociete/basic:3
     script:
-        - "curl -X POST -F token=514cf37d09559d5dabe0967fdbecdc -F ref=
+        - "curl -X POST -F token=514cf37d09559d5dabe0967fdbecdc -F ref=master
          http://gitlab.lahautesociete.int/api/v4/projects/14/trigger/pipeline"
