@@ -1,0 +1,26 @@
+.bar {
+  margin: 16px 0;
+  padding: 12px 20px;
+  border-radius: 4px;
+  line-height: 24px;
+  font-size: 16px;
+  font-weight: 400;
+
+  &--info {
+    color: #0c5460;
+    background-color: #d1ecf1;
+    border-color: #bee5eb;
+  }
+
+  &--warning {
+    color: #856404;
+    background-color: #fff3cd;
+    border-color: #ffeeba;
+  }
+
+  &--secondary {
+    color: #383d41;
+    background-color: #e2e3e5;
+    border-color: #d6d8db;
+  }
+}

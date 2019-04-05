@@ -4,16 +4,16 @@
 
 {% js %}
     tarteaucitron.init({
-    "hashtag": "{{ hashtag }}",
-    "highPrivacy": {{ highPrivacy ? 'true' : 'false' }},
-    "orientation": "{{ orientation }}",
-    "adblocker": {{ adblocker ? 'true' : 'false' }},
-    "showAlertSmall": {{ showAlertSmall ? 'true' : 'false' }},
-    "cookieslist": {{ cookieslist ? 'true' : 'false' }},
-    "removeCredit": {{ removeCredit ? 'true' : 'false' }},
-    "handleBrowserDNTRequest": {{ handleBrowserDNTRequest ? 'true' : 'false' }},
-    "useExternalCss": "true",
-    {% if cookieDomain %}"cookieDomain": {{ cookieDomain }}{% endif %}
+        "hashtag": "{{ hashtag }}",
+        "highPrivacy": {{ highPrivacy ? 'true' : 'false' }},
+        "orientation": "{{ orientation }}",
+        "adblocker": {{ adblocker ? 'true' : 'false' }},
+        "showAlertSmall": {{ showAlertSmall ? 'true' : 'false' }},
+        "cookieslist": {{ cookieslist ? 'true' : 'false' }},
+        "removeCredit": {{ removeCredit ? 'true' : 'false' }},
+        "handleBrowserDNTRequest": {{ handleBrowserDNTRequest ? 'true' : 'false' }},
+        "useExternalCss": "true",
+        {% if cookieDomain %}"cookieDomain": "{{ cookieDomain }}"{% endif %}
     });
 {% endjs %}
 

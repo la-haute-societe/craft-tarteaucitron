@@ -11,6 +11,7 @@ const JS_INPUTS_ID = {
 };
 
 const TWIG_INPUTS_ID = {
+    'settings-tarteaucitronInitCallExample': {'readOnly' : true, 'cursorBlinkRate': -1},
     'settings-googleMapsCallExample': {'readOnly' : true, 'cursorBlinkRate': -1},
     'settings-reCAPTCHACallExample': {'readOnly' : true},
     'settings-googleAdwordsConversionCallExample': {'readOnly' : true, 'cursorBlinkRate': -1},

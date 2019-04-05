@@ -1,8 +1,19 @@
 {% import "_includes/forms" as forms %}
 {% import "tarteaucitron-js/settings/macros" as macros %}
 
-<div class="flex align-start">
+<div class="bar bar--secondary">
+    Include this code in all pages where you want tarteaucitron to be loaded :<br>
+    {{ forms.textAreaField({
+        id: 'tarteaucitronInitCallExample',
+        value: "
+{{ craft.tarteaucitron.initScript }}",
+        rows: 1,
+        disabled: true
+    }) }}
+</div>
 
+
+<div class="flex align-start">
     <div class="fit-container">
         {{ forms.textField({
             label: "Hashtag"|t,
