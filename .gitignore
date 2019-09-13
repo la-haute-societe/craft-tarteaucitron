@@ -10,3 +10,4 @@ vendor
 
 # Generated resources       // @Todo : use Travis for pushing them on releases only
 # src/resources/**/*
+yarn-error.log
