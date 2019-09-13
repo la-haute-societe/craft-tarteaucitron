@@ -10,149 +10,94 @@ use craft\base\Model;
  */
 class SettingsModel extends Model
 {
-    /**
-     * @var string
-     */
+    /** @var string */
     public $hashtag = '#tarteaucitron';
 
-    /**
-     * @var bool
-     */
+    /** @var bool */
     public $highPrivacy = false;
 
-    /**
-     * @var string
-     */
+    /** @var string */
     public $orientation = "top";
 
-    /**
-     * @var bool
-     */
+    /** @var bool */
     public $adblocker = false;
 
-    /**
-     * @var bool
-     */
+    /** @var bool */
     public $showAlertSmall = true;
 
-    /**
-     * @var bool
-     */
+    /** @var bool */
     public $cookieslist = true;
 
-    /**
-     * @var bool
-     */
+    /** @var bool */
     public $removeCredit = false;
 
-    /**
-     * @var bool
-     */
+    /** @var bool */
     public $handleBrowserDNTRequest = false;
 
-    /**
-     * @var string
-     */
+    /** @var string */
     public $cookieDomain = '';
 
-    /**
-     * @var string
-     */
+    /** @var string */
     public $customCss = '';
 
-    /**
-     * @var boolean
-     */
+    /** @var boolean */
     public $isGoogleTagManagerEnabled = false;
 
-    /**
-     * @var string
-     */
+    /** @var string */
     public $googleTagManagerId = '';
 
-    /**
-     * @var boolean
-     */
+    /** @var boolean */
     public $isReCAPTCHAEnabled = false;
 
-    /**
-     * @var string
-     */
+    /** @var string */
     public $reCAPTCHASiteKey = '';
 
-    /**
-     * @var boolean
-     */
+    /** @var string */
+    public $reCAPTCHACallbackName = '';
+
+    /** @var boolean */
     public $isGoogleMapsEnabled = false;
 
-    /**
-     * @var string
-     */
+    /** @var string */
     public $googleMapsAPIKey = '';
 
-    /**
-     * @var boolean
-     */
+    /** @var boolean */
     public $isGoogleAnalyticsUniversalEnabled = false;
 
-    /**
-     * @var string
-     */
+    /** @var string */
     public $googleAnalyticsUniversalUa = '';
 
-    /**
-     * @var string
-     */
+    /** @var string */
     public $googleAnalyticsUniversalMore = '';
 
-    /**
-     * @var boolean
-     */
+    /** @var boolean */
     public $isGoogleAdwordsConversionEnabled = false;
 
-    /**
-     * @var boolean
-     */
+    /** @var boolean */
     public $isGoogleAdwordsRemarketingEnabled = false;
 
-    /**
-     * @var string
-     */
+    /** @var string */
     public $googleAdwordsRemarketingId = '';
 
-    /**
-     * @var boolean
-     */
+    /** @var boolean */
     public $isFacebookPixelEnabled = false;
 
-    /**
-     * @var string
-     */
+    /** @var string */
     public $facebookPixelId = '';
 
-    /**
-     * @var string
-     */
+    /** @var string */
     public $facebookPixelMore = '';
 
-    /**
-     * @var boolean
-     */
+    /** @var boolean */
     public $isLinkedinEnabled = false;
 
-    /**
-     * @var boolean
-     */
+    /** @var boolean */
     public $isTwitterEnabled = false;
 
-    /**
-     * @var boolean
-     */
+    /** @var boolean */
     public $isVimeoEnabled = false;
 
-    /**
-     * @var boolean
-     */
+    /** @var boolean */
     public $isYoutubeEnabled = false;
 
 

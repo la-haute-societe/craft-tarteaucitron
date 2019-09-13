@@ -26,6 +26,17 @@
             errors: settings.getErrors('reCAPTCHASiteKey')
         }) }}
 
+        {{ forms.textField({
+            label: "Callback name"|t,
+            id: 'reCAPTCHACallbackName',
+            name: 'reCAPTCHACallbackName',
+            instructions: 'The name of a globally defined javascript function to call when the reCAPTCHA script has finished loading.'|t,
+            value: settings.reCAPTCHACallbackName,
+            required: true,
+            warning: 'reCAPTCHACallbackName' in overrides ? macros.configWarning('reCAPTCHACallbackName'),
+            errors: settings.getErrors('reCAPTCHACallbackName')
+        }) }}
+
         <p>Include this code where you want to instantiate reCAPTCHA :</p>
         {{ forms.textAreaField({
             id: 'reCAPTCHACallExample',

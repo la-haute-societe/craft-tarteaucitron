@@ -27,6 +27,11 @@
 
 {# reCAPTCHA #}
 {% if isReCAPTCHAEnabled and reCAPTCHASiteKey is not empty %}
+    {% if reCAPTCHACallbackName is not empty %}
+        {% js %}
+            tarteaucitron.user.recaptchaOnLoad = function() { {{ reCAPTCHACallbackName }}() };
+        {% endjs %}
+    {% endif %}
     {% js %}
         (tarteaucitron.job = tarteaucitron.job || []).push('recaptcha');
     {% endjs %}
