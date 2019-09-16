@@ -16,6 +16,9 @@ class SettingsModel extends Model
     /** @var bool */
     public $highPrivacy = false;
 
+    /** @var bool */
+    public $AcceptAllCta = false;
+
     /** @var string */
     public $orientation = "top";
 
@@ -110,7 +113,7 @@ class SettingsModel extends Model
             // Core
             [['hashtag'], 'required'],
             [['hashtag', 'orientation', 'cookieDomain', 'customCss',], 'string'],
-            [['highPrivacy', 'adblocker', 'showAlertSmall', 'cookieslist', 'removeCredit', 'handleBrowserDNTRequest',], 'boolean'],
+            [['highPrivacy', 'adblocker', 'showAlertSmall', 'cookieslist', 'removeCredit', 'handleBrowserDNTRequest', 'AcceptAllCta'], 'boolean'],
 
             // Service - Facebook Pixel
             [['isFacebookPixelEnabled'], 'boolean'],
@@ -144,7 +147,7 @@ class SettingsModel extends Model
 
             // Service - reCAPTCHA
             [['isReCAPTCHAEnabled'], 'boolean'],
-            [['reCAPTCHASiteKey'], 'string'],
+            [['reCAPTCHASiteKey', 'reCAPTCHACallbackName'], 'string'],
             [['reCAPTCHASiteKey'], 'lhs\tarteaucitron\validators\ReCAPTCHAValidator'],
 
             // Service - Vimeo

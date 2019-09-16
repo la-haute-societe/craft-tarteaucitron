@@ -40,6 +40,19 @@
             errors: settings.getErrors('highPrivacy')
         }) }}
 
+        {{ forms.lightswitchField({
+            label: "Accept all CTA"|t,
+            id: 'AcceptAllCta',
+            name: 'AcceptAllCta',
+            instructions: "Show the accept all button when highPrivacy on",
+            on: settings.AcceptAllCta,
+            toggle: true,
+            required: true,
+            disabled: 'AcceptAllCta' in overrides,
+            warning: 'AcceptAllCta' in overrides ? macros.configWarning('AcceptAllCta'),
+            errors: settings.getErrors('AcceptAllCta')
+        }) }}
+
         {{ forms.selectField({
             label: "Orientation"|t,
             id: 'orientation',
