@@ -16,7 +16,7 @@ class TarteaucitronVariable
      */
     public function initScript(): Markup
     {
-        return Plugin::$plugin->tarteaucitron->renderInitScript();
+        return Plugin::getInstance()->tarteaucitron->renderInitScript();
     }
 
     /**
@@ -25,7 +25,7 @@ class TarteaucitronVariable
      */
     public function reCAPTCHA(array $options = []): Markup
     {
-        return Plugin::$plugin->tarteaucitron->renderReCAPTCHA($options);
+        return Plugin::getInstance()->tarteaucitron->renderReCAPTCHA($options);
     }
 
     /**
@@ -34,7 +34,7 @@ class TarteaucitronVariable
      */
     public function googleMaps(array $options = []): Markup
     {
-        return Plugin::$plugin->tarteaucitron->renderGoogleMaps($options);
+        return Plugin::getInstance()->tarteaucitron->renderGoogleMaps($options);
     }
 
     /**
@@ -43,7 +43,7 @@ class TarteaucitronVariable
      */
     public function googleAdwordsConversion(array $options = []): Markup
     {
-        return Plugin::$plugin->tarteaucitron->renderGoogleAdwordsConversion($options);
+        return Plugin::getInstance()->tarteaucitron->renderGoogleAdwordsConversion($options);
     }
 
     /**
@@ -52,7 +52,7 @@ class TarteaucitronVariable
      */
     public function linkedin(array $options = []): Markup
     {
-        return Plugin::$plugin->tarteaucitron->renderLinkedin($options);
+        return Plugin::getInstance()->tarteaucitron->renderLinkedin($options);
     }
 
     /**
@@ -61,7 +61,7 @@ class TarteaucitronVariable
      */
     public function twitter(array $options = []): Markup
     {
-        return Plugin::$plugin->tarteaucitron->renderTwitter($options);
+        return Plugin::getInstance()->tarteaucitron->renderTwitter($options);
     }
 
     /**
@@ -70,7 +70,7 @@ class TarteaucitronVariable
      */
     public function vimeo(array $options = []): Markup
     {
-        return Plugin::$plugin->tarteaucitron->renderVimeo($options);
+        return Plugin::getInstance()->tarteaucitron->renderVimeo($options);
     }
 
     /**
@@ -79,6 +79,6 @@ class TarteaucitronVariable
      */
     public function youtube(array $options = []): Markup
     {
-        return Plugin::$plugin->tarteaucitron->renderYoutube($options);
+        return Plugin::getInstance()->tarteaucitron->renderYoutube($options);
     }
 }

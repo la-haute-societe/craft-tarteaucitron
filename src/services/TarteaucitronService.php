@@ -29,7 +29,7 @@ class TarteaucitronService extends Component
      */
     private function getSettingsVars()
     {
-        $settings = Tarteaucitron::$plugin->getSettings();
+        $settings = Tarteaucitron::getInstance()->getSettings();
         return get_object_vars($settings);
     }
 

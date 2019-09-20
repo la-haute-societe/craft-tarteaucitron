@@ -12,18 +12,15 @@ use lhs\tarteaucitron\services\TarteaucitronService;
 use lhs\tarteaucitron\variables\TarteaucitronVariable;
 
 use yii\base\Event;
+use yii\base\Exception;
 
 /**
  * Class Tarteaucitron
  * @package lhs\tarteaucitron
+ * @method Tarteaucitron getInstance
  */
 class Tarteaucitron extends Plugin
 {
-    /**
-     * @var Tarteaucitron
-     */
-    public static $plugin;
-
     /**
      * @var bool
      */
@@ -35,7 +32,6 @@ class Tarteaucitron extends Plugin
     public function init(): void
     {
         parent::init();
-        self::$plugin = $this;
 
         Event::on(CraftVariable::class, CraftVariable::EVENT_INIT, function(Event $event) {
             /** @var CraftVariable $variable */
@@ -56,24 +52,29 @@ class Tarteaucitron extends Plugin
 
     /**
      * @return TarteaucitronService
+     * @throws \yii\base\InvalidConfigException Should not happen: if there's a plugin instance, the service should be accessible too.
      */
     public function getTarteaucitron(): TarteaucitronService
     {
-        return $this->get('tarteaucitron');
+        /** @var TarteaucitronService $service */
+        $service = $this->get('tarteaucitron');
+        return $service;
     }
 
     /**
      * @inheritdoc
      */
-    protected function createSettingsModel()
+    protected function createSettingsModel(): SettingsModel
     {
         return new SettingsModel();
     }
 
     /**
      * @return string
-     * @throws \Twig_Error_Loader
-     * @throws \yii\base\Exception
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
+     * @throws \yii\base\InvalidConfigException
      */
     protected function settingsHtml(): string
     {
