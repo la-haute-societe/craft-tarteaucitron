@@ -12,7 +12,7 @@
     "rgpd",
     "gdpr"
   ],
-  "license": "MIT",
+  "license": "proprietary",
   "authors": [
     {
       "name": "La Haute Société",
@@ -35,7 +35,8 @@
     }
   },
   "support": {
-    "email": "clement.g@lahautesociete.com"
+    "email": "dev@lahautesociete.com",
+    "issues": "https://github.com/la-haute-societe/craft-tarteaucitron/issues"
   },
   "extra": {
     "name": "tarteaucitron.js",

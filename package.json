@@ -8,8 +8,8 @@
     "dev": "NODE_ENV=development ./node_modules/.bin/webpack --config build/dev.js",
     "build": "NODE_ENV=production ./node_modules/.bin/webpack --config build/prod.js "
   },
-  "author": "Clément Gayot",
-  "license": "BSD-3-Clause",
+  "author": "La Haute Société",
+  "license": "proprietary",
   "devDependencies": {
     "@babel/core": "^7.2.0",
     "@babel/preset-env": "^7.2.0",
@@ -31,7 +31,6 @@
     "webpack-cli": "^3.1.2"
   },
   "dependencies": {
-    "codemirror": "^5.42.0",
-    "tarteaucitronjs": "^1.2.0"
+    "codemirror": "^5.42.0"
   }
 }

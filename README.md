@@ -20,7 +20,7 @@ This plugin currently support the following services :
 
 ## Requirements
 
-This plugin requires Craft CMS 3.0.0-RC1 or later.
+This plugin requires Craft CMS 3.0.0 or later.
 
 
 ## Installation
@@ -38,7 +38,7 @@ Just install the plugin from the Craft Plugin Store.
 ## Tarte au citron plugin Overview
 
 [tarteaucitron.js](https://github.com/AmauriC/tarteaucitron.js) is a javascript library allowing you to handle GDPR compliance on your site. 
-It allows the end users to give there consent before exposing them to third party services (such as Google, Facebook, Twitter...).
+It allows the end users to give their consent before exposing them to third party services (such as Google, Facebook, Twitter...).
 
 This plugin makes the integration of tarteaucitron.js as easy as possible in Craft CMS projets.
 
