@@ -29,7 +29,7 @@ class Tarteaucitron extends Plugin
     /**
      * Initialize plugin.
      */
-    public function init(): void
+    public function init()
     {
         parent::init();
 
