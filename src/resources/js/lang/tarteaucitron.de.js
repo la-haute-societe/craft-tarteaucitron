@@ -1,5 +1,6 @@
 /*global tarteaucitron */
 tarteaucitron.lang = {
+    "middleBarHead": "☝ 🍪",
     "adblock": "Hallo! Diese Seite ist transparent und lässt Ihnen die Wahl der externen Services, die aktiviert werden dürfen.",
     "adblock_call": "Bitte deaktivieren Sie Ihren 'Werbeblocker' um Cookie-Einstellungen vornehmen zu können.",
     "reload": "Seite neu laden",
@@ -8,7 +9,7 @@ tarteaucitron.lang = {
     "alertBigClick": "Wenn Sie diese Webseite benutzen,",
     "alertBig": "stimmen Sie der Benutzung von externen Diensten zu",
     
-    "alertBigPrivacy": "Diese Webseite verwendet 'Cookies' und ermöglicht dadurch Kontrolle, welche Dienste benutzt werden dürfen",
+    "alertBigPrivacy": "Diese Webseite verwendet 'Cookies' um Inhalte und Anzeigen zu personalisieren und zu analysieren. Bestimmen Sie, welche Dienste benutzt werden dürfen",
     "alertSmall": "Datenschutz-Einstellungen",
     "personalize": "Personalisieren",
     "acceptAll": "Alle akzeptieren",
