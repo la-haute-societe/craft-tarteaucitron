@@ -1,13 +1,10 @@
 # Common
-.DS_Store
 /.idea
 
-# Build files
-node_modules
-
-# Composer
-vendor
+# Dependencies
+/node_modules
+/vendor
+/composer.lock
 
 # Generated resources       // @Todo : use Travis for pushing them on releases only
 # src/resources/**/*
-yarn-error.log
