@@ -1,6 +1,6 @@
 # Contribute
 
-This plugin does not currently include the services offered by tarteaucitron.js, any contribution is therefore welcome.
+This plugin does not currently include all of the services offered by tarteaucitron.js, any contribution is therefore welcome.
 
 ## Installation
 
@@ -15,14 +15,14 @@ Add this in the `composer.json` of your Craft project.
   "repositories": [
     {
       "type": "path",
-      "url": "/path/to/your/craft3-tarteaucitron",
+      "url": "/path/to/your/craft-tarteaucitron",
       "options": {
         "symlink": true
       }
     }
   ],
   "require": {
-    "la-haute-societe/craft-tarteaucitron": "^1.0"
+    "la-haute-societe/craft-tarteaucitron": "dev-master"
   }
 }
 ```
@@ -30,9 +30,9 @@ Add this in the `composer.json` of your Craft project.
 
 ### Assets
 
-All sources are localised in `resources` folder in plugin's root folder.
+All sources are located in the `resources` folder in the plugin root folder.
 
-To build assets, run these commands from plugin's root folder :
+To build assets, run these commands from the plugin root folder :
 
 ```bash
 yarn        # Install node dependencies needed for building assets
@@ -43,19 +43,24 @@ yarn build  # Build assets in production mode
 ```
 
 
+## Updating tarteaucitron.js
+
+
+
+
 ## Add service
 
-Several steps are required for adding a tarteaucitron.js service into the plugin.
+Several steps are required to add a tarteaucitron.js service into the plugin.
 
 ### Settings
 
 1. Implements service settings template in `src/templates/settings/services`
-2. Load it in `src/templates/settings/settings.twig`
-3. Set parameters & rules in `src/models/SettingsModel.php`
+2. Include it in `src/templates/settings/settings.twig`
+3. Declare parameters & validation rules in `src/models/SettingsModel.php`
 4. Load CodeMirror style for your settings in `resources/js/models/Settings.js` and `resources/scss/pages/_settings.scss`
 
-### Front
+### Frontend
 
-1. Define service model in `src/models/services`
-2. Create plugin rendering function in `src/services/TarteaucitronService.php`
-3. Define Craft variable for rendering service in your templates in `src/variables/TarteaucitronVariable.php`
+1. Define a service model in `src/models/services`
+2. Create a plugin rendering function in `src/services/TarteaucitronService.php`
+3. Define a Craft variable method to render the service in your templates in `src/variables/TarteaucitronVariable.php`
