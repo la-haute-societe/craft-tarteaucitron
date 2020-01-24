@@ -186,4 +186,59 @@ class TarteaucitronService extends Component
 
         return $model->getHtml();
     }
+
+    public function isFacebookPixelEnabled(): bool
+    {
+        return (bool)$this->getSettingsVars()['isFacebookPixelEnabled'];
+    }
+
+    public function isGoogleTagManagerEnabled(): bool
+    {
+        return (bool)$this->getSettingsVars()['isGoogleTagManagerEnabled'];
+    }
+
+    public function isReCAPTCHAEnabled(): bool
+    {
+        return (bool)$this->getSettingsVars()['isReCAPTCHAEnabled'];
+    }
+
+    public function isGoogleMapsEnabled(): bool
+    {
+        return (bool)$this->getSettingsVars()['isGoogleMapsEnabled'];
+    }
+
+    public function isGoogleAnalyticsUniversalEnabled(): bool
+    {
+        return (bool)$this->getSettingsVars()['isGoogleAnalyticsUniversalEnabled'];
+    }
+
+    public function isGoogleAdwordsConversionEnabled(): bool
+    {
+        return (bool)$this->getSettingsVars()['isGoogleAdwordsConversionEnabled'];
+    }
+
+    public function isGoogleAdwordsRemarketingEnabled(): bool
+    {
+        return (bool)$this->getSettingsVars()['isGoogleAdwordsRemarketingEnabled'];
+    }
+
+    public function isLinkedinEnabled(): bool
+    {
+        return (bool)$this->getSettingsVars()['isLinkedinEnabled'];
+    }
+
+    public function isTwitterEnabled(): bool
+    {
+        return (bool)$this->getSettingsVars()['isTwitterEnabled'];
+    }
+
+    public function isVimeoEnabled(): bool
+    {
+        return (bool)$this->getSettingsVars()['isVimeoEnabled'];
+    }
+
+    public function isYoutubeEnabled(): bool
+    {
+        return (bool)$this->getSettingsVars()['isYoutubeEnabled'];
+    }
 }

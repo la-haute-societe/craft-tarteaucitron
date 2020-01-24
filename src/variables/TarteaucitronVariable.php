@@ -81,4 +81,59 @@ class TarteaucitronVariable
     {
         return Plugin::getInstance()->tarteaucitron->renderYoutube($options);
     }
+
+    public function isFacebookPixelEnabled(): bool
+    {
+        return Plugin::getInstance()->tarteaucitron->isFacebookPixelEnabled();
+    }
+
+    public function isGoogleTagManagerEnabled(): bool
+    {
+        return Plugin::getInstance()->tarteaucitron->isGoogleTagManagerEnabled();
+    }
+
+    public function isReCAPTCHAEnabled(): bool
+    {
+        return Plugin::getInstance()->tarteaucitron->isReCAPTCHAEnabled();
+    }
+
+    public function isGoogleMapsEnabled(): bool
+    {
+        return Plugin::getInstance()->tarteaucitron->isGoogleMapsEnabled();
+    }
+
+    public function isGoogleAnalyticsUniversalEnabled(): bool
+    {
+        return Plugin::getInstance()->tarteaucitron->isGoogleAnalyticsUniversalEnabled();
+    }
+
+    public function isGoogleAdwordsConversionEnabled(): bool
+    {
+        return Plugin::getInstance()->tarteaucitron->isGoogleAdwordsConversionEnabled();
+    }
+
+    public function isGoogleAdwordsRemarketingEnabled(): bool
+    {
+        return Plugin::getInstance()->tarteaucitron->isGoogleAdwordsRemarketingEnabled();
+    }
+
+    public function isLinkedinEnabled(): bool
+    {
+        return Plugin::getInstance()->tarteaucitron->isLinkedinEnabled();
+    }
+
+    public function isTwitterEnabled(): bool
+    {
+        return Plugin::getInstance()->tarteaucitron->isTwitterEnabled();
+    }
+
+    public function isVimeoEnabled(): bool
+    {
+        return Plugin::getInstance()->tarteaucitron->isVimeoEnabled();
+    }
+
+    public function isYoutubeEnabled(): bool
+    {
+        return Plugin::getInstance()->tarteaucitron->isYoutubeEnabled();
+    }
 }
