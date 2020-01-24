@@ -17,7 +17,7 @@ class SettingsModel extends Model
     public $highPrivacy = false;
 
     /** @var bool */
-    public $AcceptAllCta = false;
+    public $acceptAllCta = false;
 
     /** @var string */
     public $orientation = "top";
@@ -113,7 +113,7 @@ class SettingsModel extends Model
             // Core
             [['hashtag'], 'required'],
             [['hashtag', 'orientation', 'cookieDomain', 'customCss',], 'string'],
-            [['highPrivacy', 'adblocker', 'showAlertSmall', 'cookieslist', 'removeCredit', 'handleBrowserDNTRequest', 'AcceptAllCta'], 'boolean'],
+            [['highPrivacy', 'adblocker', 'showAlertSmall', 'cookieslist', 'removeCredit', 'handleBrowserDNTRequest', 'acceptAllCta'], 'boolean'],
 
             // Service - Facebook Pixel
             [['isFacebookPixelEnabled'], 'boolean'],

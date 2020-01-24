@@ -41,15 +41,15 @@
 
         {{ forms.lightswitchField({
             label: "Accept all CTA"|t('tarteaucitron-js'),
-            id: 'AcceptAllCta',
-            name: 'AcceptAllCta',
+            id: 'acceptAllCta',
+            name: 'acceptAllCta',
             instructions: "Show the accept all button when highPrivacy on"|t('tarteaucitron-js'),
-            on: settings.AcceptAllCta,
+            on: settings.acceptAllCta,
             toggle: true,
             required: true,
-            disabled: 'AcceptAllCta' in overrides,
-            warning: 'AcceptAllCta' in overrides ? macros.configWarning('AcceptAllCta'),
-            errors: settings.getErrors('AcceptAllCta')
+            disabled: 'acceptAllCta' in overrides,
+            warning: 'acceptAllCta' in overrides ? macros.configWarning('acceptAllCta'),
+            errors: settings.getErrors('acceptAllCta')
         }) }}
 
         {{ forms.selectField({
@@ -157,7 +157,7 @@
             label: "Custom CSS"|t('tarteaucitron-js'),
             id: 'customCss',
             name: 'customCss',
-            instructions: "Set custom CSS for tarteaucitron.js."|t('tarteaucitron-js'),
+            instructions: "Set custom CSS for tarteaucitron.js"|t('tarteaucitron-js'),
             value: settings.customCss,
             disabled: 'customCss' in overrides,
             warning: 'customCss' in overrides ? macros.configWarning('customCss'),

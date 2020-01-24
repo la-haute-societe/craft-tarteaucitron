@@ -29,7 +29,7 @@ return [
     /** @var bool High Privacy — Disable implied consent (while browsing) */
     'highPrivacy'                       => false,
     /** @var bool Accept all CTA — Show the accept all button when highPrivacy on */
-    'AcceptAllCta'                      => false,
+    'acceptAllCta'                      => false,
     /** @var string Orientation — Banner position */
     'orientation'                       => "top",
     /** @var bool Adblocker — Display a message if an adblocker is detected */
