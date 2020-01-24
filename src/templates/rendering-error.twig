@@ -1,0 +1,25 @@
+{% css %}
+    .craft-tarteaucitron-error {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        font-family: monospace;
+    }
+
+    .craft-tarteaucitron-error__heading {
+        margin-bottom: 1em;
+        font-weight: bold;
+    }
+
+    .craft-tarteaucitron-error ul {
+        align-self: stretch;
+
+        list-style-type: disc;
+        padding-left: 2em;
+    }
+{% endcss %}
+<div class="craft-tarteaucitron-error">
+    <div class="craft-tarteaucitron-error__heading">⚠️ Something's wrong with the craft-tarteaucitron plugin!</div>
+    {{ errors | raw }}
+</div>

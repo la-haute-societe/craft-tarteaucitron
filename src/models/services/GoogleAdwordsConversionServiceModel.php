@@ -10,7 +10,7 @@ use Twig\Markup;
  * Class GoogleAdwordsConversionServiceModel
  * @package lhs\tarteaucitron\models\services
  */
-class GoogleAdwordsConversionServiceModel extends ServiceModel
+class GoogleAdwordsConversionServiceModel extends AbstractServiceModel
 {
     /**
      * @var boolean
@@ -83,7 +83,7 @@ class GoogleAdwordsConversionServiceModel extends ServiceModel
     /**
      * @return boolean
      */
-    protected function getActivationStatus(): bool
+    public function isServiceEnabled(): bool
     {
         return $this->isGoogleAdwordsConversionEnabled;
     }
@@ -94,7 +94,7 @@ class GoogleAdwordsConversionServiceModel extends ServiceModel
      * @throws \yii\base\Exception
      */
     public function getHtml(): Markup {
-        if (!$this->getActivationStatus()) {
+        if (!$this->isServiceEnabled()) {
             return new Markup('', 'UTF-8');
         }
 

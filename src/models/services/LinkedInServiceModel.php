@@ -9,7 +9,7 @@ use yii\helpers\Html;
  * Class LinkedinServiceModel
  * @package lhs\tarteaucitron\models\services
  */
-class LinkedinServiceModel extends ServiceModel
+class LinkedInServiceModel extends AbstractServiceModel
 {
     /**
      * @var boolean
@@ -48,7 +48,7 @@ class LinkedinServiceModel extends ServiceModel
     /**
      * @return boolean
      */
-    protected function getActivationStatus(): bool
+    public function isServiceEnabled(): bool
     {
         return $this->isLinkedinEnabled;
     }
@@ -57,7 +57,7 @@ class LinkedinServiceModel extends ServiceModel
      * @return Markup
      */
     public function getHtml(): Markup {
-        if (!$this->getActivationStatus()) {
+        if (!$this->isServiceEnabled()) {
             return new Markup('', 'UTF-8');
         }
 

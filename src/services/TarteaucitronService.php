@@ -6,17 +6,18 @@ use Craft;
 use craft\base\Component;
 use craft\web\View;
 
-use Exception;
 use lhs\tarteaucitron\bundles\FrontAsset;
+use lhs\tarteaucitron\models\services\AbstractServiceModel;
 use lhs\tarteaucitron\models\services\GoogleAdwordsConversionServiceModel;
 use lhs\tarteaucitron\models\services\GoogleMapsServiceModel;
-use lhs\tarteaucitron\models\services\LinkedinServiceModel;
-use lhs\tarteaucitron\models\services\ReCAPTCHAServiceModel;
+use lhs\tarteaucitron\models\services\LinkedInServiceModel;
+use lhs\tarteaucitron\models\services\ReCaptchaServiceModel;
 use lhs\tarteaucitron\models\services\TwitterServiceModel;
 use lhs\tarteaucitron\models\services\VimeoServiceModel;
-use lhs\tarteaucitron\models\services\YoutubeServiceModel;
+use lhs\tarteaucitron\models\services\YouTubeServiceModel;
 use lhs\tarteaucitron\Tarteaucitron;
 use Twig\Markup;
+use yii\helpers\Html;
 
 /**
  * Class TarteaucitronService
@@ -25,29 +26,24 @@ use Twig\Markup;
 class TarteaucitronService extends Component
 {
     /**
-     * @return array
-     */
-    private function getSettingsVars()
-    {
-        $settings = Tarteaucitron::getInstance()->getSettings();
-        return get_object_vars($settings);
-    }
-
-    /**
      * Call tarteaucitron init script
      *
      * @return Markup
      *
-     * @throws \Twig_Error_Loader
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
      * @throws \yii\base\Exception
      * @throws \yii\base\InvalidConfigException
      */
     public function renderInitScript(): Markup
     {
         Craft::$app->getView()->registerAssetBundle(FrontAsset::class);
-        $vars = $this->getSettingsVars();
 
-        $html = $this->getInitHtml($vars);
+        /** @noinspection NullPointerExceptionInspection */
+        $settings = Tarteaucitron::getInstance()->getSettings();
+        $html = $this->getInitHtml(get_object_vars($settings));
+
         return new Markup($html, 'UTF-8');
     }
 
@@ -55,7 +51,9 @@ class TarteaucitronService extends Component
      *
      * @param array $vars
      * @return string
-     * @throws \Twig_Error_Loader
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
      * @throws \yii\base\Exception
      */
     private function getInitHtml(array $vars)
@@ -67,178 +65,181 @@ class TarteaucitronService extends Component
         return $html;
     }
 
-    /**
-     * @param array $options
-     * @return Markup
-     * @throws Exception
-     */
-    public function renderReCAPTCHA(array $options): Markup
-    {
-        $settingsVars = $this->getSettingsVars();
-        $vars = array_merge($settingsVars, $options);
-
-        $model = new ReCAPTCHAServiceModel();
-        $model->setAttributes($vars);
-        $model->validateAndThrowErrors();
-
-        return $model->getHtml();
-    }
-
-
-    /**
-     * @param array $options
-     * @return Markup
-     * @throws Exception
-     */
-    public function renderGoogleMaps(array $options): Markup
-    {
-        $settingsVars = $this->getSettingsVars();
-        $vars = array_merge($settingsVars, $options);
-
-        $model = new GoogleMapsServiceModel();
-        $model->setAttributes($vars);
-        $model->validateAndThrowErrors();
-
-        return $model->getHtml();
-    }
-
-    /**
-     * @param array $options
-     * @return Markup
-     * @throws Exception
-     */
-    public function renderGoogleAdwordsConversion(array $options): Markup
-    {
-        $settingsVars = $this->getSettingsVars();
-        $vars = array_merge($settingsVars, $options);
-
-        $model = new GoogleAdwordsConversionServiceModel();
-        $model->setAttributes($vars);
-        $model->validateAndThrowErrors();
-
-        return $model->getHtml();
-    }
-
-    /**
-     * @param array $options
-     * @return Markup
-     * @throws Exception
-     */
-    public function renderLinkedin(array $options): Markup
-    {
-        $settingsVars = $this->getSettingsVars();
-        $vars = array_merge($settingsVars, $options);
-
-        $model = new LinkedinServiceModel();
-        $model->setAttributes($vars);
-        $model->validateAndThrowErrors();
-
-        return $model->getHtml();
-    }
-
-    /**
-     * @param array $options
-     * @return Markup
-     * @throws Exception
-     */
-    public function renderTwitter(array $options): Markup
-    {
-        $settingsVars = $this->getSettingsVars();
-        $vars = array_merge($settingsVars, $options);
-
-        $model = new TwitterServiceModel();
-        $model->setAttributes($vars);
-        $model->validateAndThrowErrors();
-
-        return $model->getHtml();
-    }
-
-    /**
-     * @param array $options
-     * @return Markup
-     * @throws Exception
-     */
-    public function renderVimeo(array $options): Markup
-    {
-        $settingsVars = $this->getSettingsVars();
-        $vars = array_merge($settingsVars, $options);
-
-        $model = new VimeoServiceModel();
-        $model->setAttributes($vars);
-        $model->validateAndThrowErrors();
-
-        return $model->getHtml();
-    }
-
-    /**
-     * @param array $options
-     * @return Markup
-     * @throws Exception
-     */
-    public function renderYoutube(array $options): Markup
-    {
-        $settingsVars = $this->getSettingsVars();
-        $vars = array_merge($settingsVars, $options);
-
-        $model = new YoutubeServiceModel();
-        $model->setAttributes($vars);
-        $model->validateAndThrowErrors();
-
-        return $model->getHtml();
-    }
 
     public function isFacebookPixelEnabled(): bool
     {
-        return (bool)$this->getSettingsVars()['isFacebookPixelEnabled'];
+        /** @noinspection NullPointerExceptionInspection */
+        return (bool)Tarteaucitron::getInstance()->getSettings()->isFacebookPixelEnabled;
     }
 
     public function isGoogleTagManagerEnabled(): bool
     {
-        return (bool)$this->getSettingsVars()['isGoogleTagManagerEnabled'];
-    }
-
-    public function isReCAPTCHAEnabled(): bool
-    {
-        return (bool)$this->getSettingsVars()['isReCAPTCHAEnabled'];
-    }
-
-    public function isGoogleMapsEnabled(): bool
-    {
-        return (bool)$this->getSettingsVars()['isGoogleMapsEnabled'];
+        /** @noinspection NullPointerExceptionInspection */
+        return (bool)Tarteaucitron::getInstance()->getSettings()->isGoogleTagManagerEnabled;
     }
 
     public function isGoogleAnalyticsUniversalEnabled(): bool
     {
-        return (bool)$this->getSettingsVars()['isGoogleAnalyticsUniversalEnabled'];
-    }
-
-    public function isGoogleAdwordsConversionEnabled(): bool
-    {
-        return (bool)$this->getSettingsVars()['isGoogleAdwordsConversionEnabled'];
+        /** @noinspection NullPointerExceptionInspection */
+        return (bool)Tarteaucitron::getInstance()->getSettings()->isGoogleAnalyticsUniversalEnabled;
     }
 
     public function isGoogleAdwordsRemarketingEnabled(): bool
     {
-        return (bool)$this->getSettingsVars()['isGoogleAdwordsRemarketingEnabled'];
+        /** @noinspection NullPointerExceptionInspection */
+        return (bool)Tarteaucitron::getInstance()->getSettings()->isGoogleAdwordsRemarketingEnabled;
     }
+
+
+    public function isReCAPTCHAEnabled(): bool
+    {
+        /** @noinspection NullPointerExceptionInspection */
+        return (bool)Tarteaucitron::getInstance()->getSettings()->isReCAPTCHAEnabled;
+    }
+
+    /**
+     * @param array $options
+     * @return Markup
+     */
+    public function renderReCAPTCHA(array $options): Markup
+    {
+        return $this->renderService(ReCaptchaServiceModel::class, $options);
+    }
+
+
+    public function isGoogleMapsEnabled(): bool
+    {
+        /** @noinspection NullPointerExceptionInspection */
+        return (bool)Tarteaucitron::getInstance()->getSettings()->isGoogleMapsEnabled;
+    }
+
+    /**
+     * @param array $options
+     * @return Markup
+     */
+    public function renderGoogleMaps(array $options): Markup
+    {
+        return $this->renderService(GoogleMapsServiceModel::class, $options);
+    }
+
+
+    public function isGoogleAdwordsConversionEnabled(): bool
+    {
+        /** @noinspection NullPointerExceptionInspection */
+        return (bool)Tarteaucitron::getInstance()->getSettings()->isGoogleAdwordsConversionEnabled;
+    }
+
+    /**
+     * @param array $options
+     * @return Markup
+     */
+    public function renderGoogleAdwordsConversion(array $options): Markup
+    {
+        return $this->renderService(GoogleAdwordsConversionServiceModel::class, $options);
+    }
+
 
     public function isLinkedinEnabled(): bool
     {
-        return (bool)$this->getSettingsVars()['isLinkedinEnabled'];
+        /** @noinspection NullPointerExceptionInspection */
+        return (bool)Tarteaucitron::getInstance()->getSettings()->isLinkedinEnabled;
     }
+
+    /**
+     * @param array $options
+     * @return Markup
+     */
+    public function renderLinkedin(array $options): Markup
+    {
+        return $this->renderService(LinkedInServiceModel::class, $options);
+    }
+
 
     public function isTwitterEnabled(): bool
     {
-        return (bool)$this->getSettingsVars()['isTwitterEnabled'];
+        /** @noinspection NullPointerExceptionInspection */
+        return (bool)Tarteaucitron::getInstance()->getSettings()->isTwitterEnabled;
     }
+
+    /**
+     * @param array $options
+     * @return Markup
+     */
+    public function renderTwitter(array $options): Markup
+    {
+        return $this->renderService(TwitterServiceModel::class, $options);
+    }
+
 
     public function isVimeoEnabled(): bool
     {
-        return (bool)$this->getSettingsVars()['isVimeoEnabled'];
+        /** @noinspection NullPointerExceptionInspection */
+        return (bool)Tarteaucitron::getInstance()->getSettings()->isVimeoEnabled;
     }
+
+    /**
+     * @param array $options
+     * @return Markup
+     */
+    public function renderVimeo(array $options): Markup
+    {
+        return $this->renderService(VimeoServiceModel::class, $options);
+    }
+
 
     public function isYoutubeEnabled(): bool
     {
-        return (bool)$this->getSettingsVars()['isYoutubeEnabled'];
+        /** @noinspection NullPointerExceptionInspection */
+        return (bool)Tarteaucitron::getInstance()->getSettings()->isYoutubeEnabled;
+    }
+
+    /**
+     * @param array $options
+     * @return Markup
+     */
+    public function renderYoutube(array $options): Markup
+    {
+        return $this->renderService(YouTubeServiceModel::class, $options);
+    }
+
+
+    protected function renderService(string $serviceModelClassName, array $options): Markup
+    {
+        if (!class_exists($serviceModelClassName)) {
+            return AbstractServiceModel::getErrorHtml(sprintf(
+                'Class %s does not exist',
+                $serviceModelClassName
+            ), 'Service model class not found.');
+        }
+
+        /** @noinspection NullPointerExceptionInspection */
+        $settingsArray = get_object_vars(Tarteaucitron::getInstance()->getSettings());
+        $vars = array_merge($settingsArray, $options);
+
+        /** @var AbstractServiceModel $model */
+        $model = new $serviceModelClassName();
+        $model->setAttributes($vars);
+
+        if (!$model instanceof AbstractServiceModel) {
+            return AbstractServiceModel::getErrorHtml(sprintf(
+                'ServiceModel classes must extend %s. %s does not.',
+                AbstractServiceModel::class,
+                $serviceModelClassName
+            ), 'Service model class doesn\'t extend AbstractServiceModel.');
+        }
+
+        if (!$model->validate()) {
+            return AbstractServiceModel::getErrorHtml(Html::errorSummary($model), 'Service model validation failed.');
+        }
+
+        if (!$model->isServiceEnabled()) {
+            return AbstractServiceModel::getErrorHtml(
+                'This service is disabled. Enable it in the craft-tarteaucitron plugin settings.',
+                'Trying to render a disabled service.'
+            );
+        }
+
+        return $model->getHtml();
+
     }
 }

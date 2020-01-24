@@ -9,7 +9,7 @@ use yii\helpers\Html;
  * Class ReCAPTCHAServiceModel
  * @package lhs\tarteaucitron\models\services
  */
-class ReCAPTCHAServiceModel extends ServiceModel
+class ReCaptchaServiceModel extends AbstractServiceModel
 {
     /**
      * @var boolean
@@ -49,7 +49,7 @@ class ReCAPTCHAServiceModel extends ServiceModel
     /**
      * @return boolean
      */
-    protected function getActivationStatus(): bool
+    public function isServiceEnabled(): bool
     {
         return $this->isReCAPTCHAEnabled;
     }
@@ -58,7 +58,7 @@ class ReCAPTCHAServiceModel extends ServiceModel
      * @return Markup
      */
     public function getHtml(): Markup {
-        if (!$this->getActivationStatus()) {
+        if (!$this->isServiceEnabled()) {
             return new Markup('', 'UTF-8');
         }
 

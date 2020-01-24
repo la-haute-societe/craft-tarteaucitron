@@ -9,7 +9,7 @@ use yii\helpers\Html;
  * Class VimeoServiceModel
  * @package lhs\tarteaucitron\models\services
  */
-class VimeoServiceModel extends ServiceModel
+class VimeoServiceModel extends AbstractServiceModel
 {
     /**
      * @var boolean
@@ -59,7 +59,7 @@ class VimeoServiceModel extends ServiceModel
     /**
      * @return boolean
      */
-    protected function getActivationStatus(): bool
+    public function isServiceEnabled(): bool
     {
         return $this->isVimeoEnabled;
     }
@@ -68,7 +68,7 @@ class VimeoServiceModel extends ServiceModel
      * @return Markup
      */
     public function getHtml(): Markup {
-        if (!$this->getActivationStatus()) {
+        if (!$this->isServiceEnabled()) {
             return new Markup('', 'UTF-8');
         }
 

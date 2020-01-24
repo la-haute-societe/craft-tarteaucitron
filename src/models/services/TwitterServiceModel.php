@@ -10,7 +10,7 @@ use Twig\Markup;
  * Class TwitterServiceModel
  * @package lhs\tarteaucitron\models\services
  */
-class TwitterServiceModel extends ServiceModel
+class TwitterServiceModel extends AbstractServiceModel
 {
     /**
      * @var boolean
@@ -61,7 +61,7 @@ class TwitterServiceModel extends ServiceModel
     /**
      * @return boolean
      */
-    protected function getActivationStatus(): bool
+    public function isServiceEnabled(): bool
     {
         return $this->isTwitterEnabled;
     }
@@ -72,7 +72,7 @@ class TwitterServiceModel extends ServiceModel
      * @throws \yii\base\Exception
      */
     public function getHtml(): Markup {
-        if (!$this->getActivationStatus()) {
+        if (!$this->isServiceEnabled()) {
             return new Markup('', 'UTF-8');
         }
 

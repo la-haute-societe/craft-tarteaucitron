@@ -9,7 +9,7 @@ use yii\helpers\Html;
  * Class GoogleMapsServiceModel
  * @package lhs\tarteaucitron\models\services
  */
-class GoogleMapsServiceModel extends ServiceModel
+class GoogleMapsServiceModel extends AbstractServiceModel
 {
     /**
      * @var boolean
@@ -76,7 +76,7 @@ class GoogleMapsServiceModel extends ServiceModel
     /**
      * @return boolean
      */
-    protected function getActivationStatus(): bool
+    public function isServiceEnabled(): bool
     {
         return $this->isGoogleMapsEnabled;
     }
@@ -85,7 +85,7 @@ class GoogleMapsServiceModel extends ServiceModel
      * @return Markup
      */
     public function getHtml(): Markup {
-        if (!$this->getActivationStatus()) {
+        if (!$this->isServiceEnabled()) {
             return new Markup('', 'UTF-8');
         }
 

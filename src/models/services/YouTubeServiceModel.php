@@ -9,7 +9,7 @@ use yii\helpers\Html;
  * Class YoutubeServiceModel
  * @package lhs\tarteaucitron\models\services
  */
-class YoutubeServiceModel extends ServiceModel
+class YouTubeServiceModel extends AbstractServiceModel
 {
     /**
      * @var boolean
@@ -88,7 +88,7 @@ class YoutubeServiceModel extends ServiceModel
     /**
      * @return boolean
      */
-    protected function getActivationStatus(): bool
+    public function isServiceEnabled(): bool
     {
         return $this->isYoutubeEnabled;
     }
@@ -97,7 +97,7 @@ class YoutubeServiceModel extends ServiceModel
      * @return Markup
      */
     public function getHtml(): Markup {
-        if (!$this->getActivationStatus()) {
+        if (!$this->isServiceEnabled()) {
             return new Markup('', 'UTF-8');
         }
 

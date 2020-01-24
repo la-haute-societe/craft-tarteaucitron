@@ -17,7 +17,6 @@ use yii\base\Exception;
 /**
  * Class Tarteaucitron
  * @package lhs\tarteaucitron
- * @method Tarteaucitron getInstance
  * @property TarteaucitronService tarteaucitron
  */
 class Tarteaucitron extends Plugin
