@@ -10,11 +10,15 @@
     "scripts": "js",
     "copy": [
       {
-        "from": "../node_modules/tarteaucitronjs/tarteaucitron.services.js",
+        "from": "../tarteaucitron.js/advertising.js",
+        "to": "js/advertising.js"
+      },
+      {
+        "from": "../tarteaucitron.js/tarteaucitron.services.js",
         "to": "js/tarteaucitron.services.js"
       },
       {
-        "from": "../node_modules/tarteaucitronjs/lang/**/*",
+        "from": "../tarteaucitron.js/lang/**/*",
         "to": "js/lang/"
       }
     ]

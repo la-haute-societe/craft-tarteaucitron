@@ -5288,11 +5288,6 @@ tar@^4:
     safe-buffer "^5.1.2"
     yallist "^3.0.3"
 
-tarteaucitronjs@^1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/tarteaucitronjs/-/tarteaucitronjs-1.2.0.tgz#8f22d35a634fcb0bea5cdff845f0bf80f3a9eaf2"
-  integrity sha512-dNBtEgvaHeKdKRaQsUpVO7dy7oRJ/Q3XmE8Ma8moAHzrQBBGT5EONqdOmUfOtiEPW5g4UWfUKgoeB3vpaE80iQ==
-
 terser-webpack-plugin@^1.4.1:
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/terser-webpack-plugin/-/terser-webpack-plugin-1.4.1.tgz#61b18e40eaee5be97e771cdbb10ed1280888c2b4"

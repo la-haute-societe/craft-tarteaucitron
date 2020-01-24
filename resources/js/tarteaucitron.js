@@ -1,6 +1,6 @@
 // Import tarteaucitron
-var tarteaucitron = require('exports-loader?tarteaucitron!tarteaucitronjs/tarteaucitron');
+var tarteaucitron = require('exports-loader?tarteaucitron!./../../tarteaucitron.js/tarteaucitron');
 window.tarteaucitron = tarteaucitron;
 
 // Styles
-import Styles from '../scss/tarteaucitron.scss';
+import "../../tarteaucitron.js/css/tarteaucitron.css";
