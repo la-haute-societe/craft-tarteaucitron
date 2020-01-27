@@ -30,7 +30,7 @@
 {% if isReCAPTCHAEnabled and reCAPTCHASiteKey is not empty %}
     {% if reCAPTCHACallbackName is not empty %}
         {% js %}
-            tarteaucitron.user.recaptchaOnLoad = function() { {{ reCAPTCHACallbackName }}() };
+            tarteaucitron.user.recaptchaOnLoad = function() { {{ reCAPTCHACallbackName | raw }}() };
         {% endjs %}
     {% endif %}
     {% js %}
@@ -50,7 +50,7 @@
 {% if isGoogleAnalyticsUniversalEnabled and googleAnalyticsUniversalUa is not empty %}
     {% js %}
         tarteaucitron.user.analyticsUa = '{{ googleAnalyticsUniversalUa }}';
-        tarteaucitron.user.analyticsMore = function () { {{ googleAnalyticsUniversalMore }} };
+        tarteaucitron.user.analyticsMore = function () { {{ googleAnalyticsUniversalMore | raw }} };
         (tarteaucitron.job = tarteaucitron.job || []).push('analytics');
     {% endjs %}
 {% endif %}
@@ -74,7 +74,7 @@
 {% if isFacebookPixelEnabled and facebookPixelId is not empty %}
     {% js %}
         tarteaucitron.user.facebookpixelId = '{{ facebookPixelId }}';
-        tarteaucitron.user.facebookpixelMore = function () { {{ facebookPixelMore }} };
+        tarteaucitron.user.facebookpixelMore = function () { {{ facebookPixelMore | raw }} };
         (tarteaucitron.job = tarteaucitron.job || []).push('facebookpixel');
     {% endjs %}
 {% endif %}
