@@ -2,7 +2,12 @@
     {% import "_includes/forms" as forms %}
     {% import "tarteaucitron-js/settings/macros" as macros %}
 
-    {% block name %}Google Adwords (conversion){% endblock %}
+    {% block name %}
+        {% if 'isGoogleAdwordsConversionEnabled' in overrides %}
+            <div class="info warning">{{ macros.configWarning('isGoogleAdwordsConversionEnabled') }}</div>
+        {% endif %}
+        Google Adwords (conversion)
+    {% endblock %}
 
     {% block enable %}
         {{ forms.lightswitchField({
@@ -10,8 +15,8 @@
             name: 'isGoogleAdwordsConversionEnabled',
             on: settings.isGoogleAdwordsConversionEnabled,
             toggle: true,
-            warning: 'isGoogleAdwordsConversionEnabled' in overrides ? macros.configWarning('isGoogleAdwordsConversionEnabled'),
-            errors: settings.getErrors('isGoogleAdwordsConversionEnabled')
+            errors: settings.getErrors('isGoogleAdwordsConversionEnabled'),
+            disabled: 'isGoogleAdwordsConversionEnabled' in overrides,
         }) }}
     {% endblock %}
 

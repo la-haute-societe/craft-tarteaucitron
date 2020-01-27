@@ -2,7 +2,12 @@
     {% import "_includes/forms" as forms %}
     {% import "tarteaucitron-js/settings/macros" as macros %}
 
-    {% block name %}Google Adwords (remarketing){% endblock %}
+    {% block name %}
+        {% if 'isGoogleAdwordsRemarketingEnabled' in overrides %}
+            <div class="info warning">{{ macros.configWarning('isGoogleAdwordsRemarketingEnabled') }}</div>
+        {% endif %}
+        Google AdWords (remarketing)
+    {% endblock %}
 
     {% block enable %}
         {{ forms.lightswitchField({
@@ -10,8 +15,8 @@
             name: 'isGoogleAdwordsRemarketingEnabled',
             on: settings.isGoogleAdwordsRemarketingEnabled,
             toggle: true,
-            warning: 'isGoogleAdwordsRemarketingEnabled' in overrides ? macros.configWarning('isGoogleAdwordsRemarketingEnabled'),
-            errors: settings.getErrors('isGoogleAdwordsRemarketingEnabled')
+            errors: settings.getErrors('isGoogleAdwordsRemarketingEnabled'),
+            disabled: 'isGoogleAdwordsRemarketingEnabled' in overrides,
         }) }}
     {% endblock %}
 

@@ -2,7 +2,12 @@
     {% import "_includes/forms" as forms %}
     {% import "tarteaucitron-js/settings/macros" as macros %}
 
-    {% block name %}Google Analytics (universal){% endblock %}
+    {% block name %}
+        {% if 'isGoogleAnalyticsUniversalEnabled' in overrides %}
+            <div class="info warning">{{ macros.configWarning('isGoogleAnalyticsUniversalEnabled') }}</div>
+        {% endif %}
+        Google Analytics (universal)
+    {% endblock %}
 
     {% block enable %}
         {{ forms.lightswitchField({
@@ -10,8 +15,8 @@
             name: 'isGoogleAnalyticsUniversalEnabled',
             on: settings.isGoogleAnalyticsUniversalEnabled,
             toggle: true,
-            warning: 'isGoogleAnalyticsUniversalEnabled' in overrides ? macros.configWarning('isGoogleAnalyticsUniversalEnabled'),
-            errors: settings.getErrors('isGoogleAnalyticsUniversalEnabled')
+            errors: settings.getErrors('isGoogleAnalyticsUniversalEnabled'),
+            disabled: 'isGoogleAnalyticsUniversalEnabled' in overrides,
         }) }}
     {% endblock %}
 

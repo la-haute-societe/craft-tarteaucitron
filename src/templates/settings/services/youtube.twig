@@ -2,7 +2,12 @@
     {% import "_includes/forms" as forms %}
     {% import "tarteaucitron-js/settings/macros" as macros %}
 
-    {% block name %}Youtube{% endblock %}
+    {% block name %}
+        {% if 'isYoutubeEnabled' in overrides %}
+            <div class="info warning">{{ macros.configWarning('isYoutubeEnabled') }}</div>
+        {% endif %}
+        YouTube
+    {% endblock %}
 
     {% block enable %}
         {{ forms.lightswitchField({
@@ -10,8 +15,8 @@
             name: 'isYoutubeEnabled',
             on: settings.isYoutubeEnabled,
             toggle: true,
-            warning: 'isYoutubeEnabled' in overrides ? macros.configWarning('isYoutubeEnabled'),
-            errors: settings.getErrors('isYoutubeEnabled')
+            errors: settings.getErrors('isYoutubeEnabled'),
+            disabled: 'isYoutubeEnabled' in overrides,
         }) }}
     {% endblock %}
 

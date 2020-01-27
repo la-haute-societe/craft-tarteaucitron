@@ -2,7 +2,12 @@
     {% import "_includes/forms" as forms %}
     {% import "tarteaucitron-js/settings/macros" as macros %}
 
-    {% block name %}Vimeo{% endblock %}
+    {% block name %}
+        {% if 'isVimeoEnabled' in overrides %}
+            <div class="info warning">{{ macros.configWarning('isVimeoEnabled') }}</div>
+        {% endif %}
+        Vimeo
+    {% endblock %}
 
     {% block enable %}
         {{ forms.lightswitchField({
@@ -10,8 +15,8 @@
             name: 'isVimeoEnabled',
             on: settings.isVimeoEnabled,
             toggle: true,
-            warning: 'isVimeoEnabled' in overrides ? macros.configWarning('isVimeoEnabled'),
-            errors: settings.getErrors('isVimeoEnabled')
+            errors: settings.getErrors('isVimeoEnabled'),
+            disabled: 'isVimeoEnabled' in overrides,
         }) }}
     {% endblock %}
 

@@ -2,7 +2,12 @@
     {% import "_includes/forms" as forms %}
     {% import "tarteaucitron-js/settings/macros" as macros %}
 
-    {% block name %}Linkedin{% endblock %}
+    {% block name %}
+        {% if 'isLinkedInEnabled' in overrides %}
+            <div class="info warning">{{ macros.configWarning('isLinkedInEnabled') }}</div>
+        {% endif %}
+        LinkedIn
+    {% endblock %}
 
     {% block enable %}
         {{ forms.lightswitchField({
@@ -10,8 +15,8 @@
             name: 'isLinkedInEnabled',
             on: settings.isLinkedInEnabled,
             toggle: true,
-            warning: 'isLinkedInEnabled' in overrides ? macros.configWarning('isLinkedInEnabled'),
-            errors: settings.getErrors('isLinkedInEnabled')
+            errors: settings.getErrors('isLinkedInEnabled'),
+            disabled: 'isLinkedInEnabled' in overrides,
         }) }}
     {% endblock %}
 

@@ -2,7 +2,12 @@
     {% import "_includes/forms" as forms %}
     {% import "tarteaucitron-js/settings/macros" as macros %}
 
-    {% block name %}Google Maps{% endblock %}
+    {% block name %}
+        {% if 'isGoogleMapsEnabled' in overrides %}
+            <div class="info warning">{{ macros.configWarning('isGoogleMapsEnabled') }}</div>
+        {% endif %}
+        Google Maps
+    {% endblock %}
 
     {% block enable %}
         {{ forms.lightswitchField({
@@ -10,8 +15,8 @@
             name: 'isGoogleMapsEnabled',
             on: settings.isGoogleMapsEnabled,
             toggle: true,
-            warning: 'isGoogleMapsEnabled' in overrides ? macros.configWarning('isGoogleMapsEnabled'),
-            errors: settings.getErrors('isGoogleMapsEnabled')
+            errors: settings.getErrors('isGoogleMapsEnabled'),
+            disabled: 'isGoogleMapsEnabled' in overrides,
         }) }}
     {% endblock %}
 

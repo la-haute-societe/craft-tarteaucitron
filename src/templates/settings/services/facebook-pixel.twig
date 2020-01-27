@@ -2,7 +2,12 @@
     {% import "_includes/forms" as forms %}
     {% import "tarteaucitron-js/settings/macros" as macros %}
 
-    {% block name %}Facebook Pixel{% endblock %}
+    {% block name %}
+        {% if 'isFacebookPixelEnabled' in overrides %}
+            <div class="info warning">{{ macros.configWarning('isFacebookPixelEnabled') }}</div>
+        {% endif %}
+        Facebook Pixel
+    {% endblock %}
 
     {% block enable %}
         {{ forms.lightswitchField({
@@ -10,8 +15,8 @@
             name: 'isFacebookPixelEnabled',
             on: settings.isFacebookPixelEnabled,
             toggle: true,
-            warning: 'isFacebookPixelEnabled' in overrides ? macros.configWarning('isFacebookPixelEnabled'),
-            errors: settings.getErrors('isFacebookPixelEnabled')
+            errors: settings.getErrors('isFacebookPixelEnabled'),
+            disabled: 'isFacebookPixelEnabled' in overrides,
         }) }}
     {% endblock %}
 

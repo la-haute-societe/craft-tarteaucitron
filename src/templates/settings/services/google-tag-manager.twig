@@ -2,7 +2,12 @@
     {% import "_includes/forms" as forms %}
     {% import "tarteaucitron-js/settings/macros" as macros %}
 
-    {% block name %}Google Tag Manager{% endblock %}
+    {% block name %}
+        {% if 'isGoogleTagManagerEnabled' in overrides %}
+            <div class="info warning">{{ macros.configWarning('isGoogleTagManagerEnabled') }}</div>
+        {% endif %}
+        Google Tag Manager
+    {% endblock %}
 
     {% block enable %}
         {{ forms.lightswitchField({
@@ -10,8 +15,8 @@
             name: 'isGoogleTagManagerEnabled',
             on: settings.isGoogleTagManagerEnabled,
             toggle: true,
-            warning: 'isGoogleTagManagerEnabled' in overrides ? macros.configWarning('isGoogleTagManagerEnabled'),
-            errors: settings.getErrors('isGoogleTagManagerEnabled')
+            errors: settings.getErrors('isGoogleTagManagerEnabled'),
+            disabled: 'isGoogleTagManagerEnabled' in overrides,
         }) }}
     {% endblock %}
 
