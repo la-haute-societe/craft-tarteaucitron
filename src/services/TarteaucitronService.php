@@ -12,7 +12,8 @@ use lhs\tarteaucitron\models\services\GoogleAdwordsConversionServiceModel;
 use lhs\tarteaucitron\models\services\GoogleMapsServiceModel;
 use lhs\tarteaucitron\models\services\LinkedInServiceModel;
 use lhs\tarteaucitron\models\services\ReCaptchaServiceModel;
-use lhs\tarteaucitron\models\services\TwitterServiceModel;
+use lhs\tarteaucitron\models\services\TwitterShareButtonServiceModel;
+use lhs\tarteaucitron\models\services\TwitterFollowButtonServiceModel;
 use lhs\tarteaucitron\models\services\VimeoServiceModel;
 use lhs\tarteaucitron\models\services\YouTubeServiceModel;
 use lhs\tarteaucitron\Tarteaucitron;
@@ -165,9 +166,18 @@ class TarteaucitronService extends Component
      * @param array $options
      * @return Markup
      */
-    public function renderTwitter(array $options): Markup
+    public function renderTwitterShareButton(array $options): Markup
     {
-        return $this->renderService(TwitterServiceModel::class, $options);
+        return $this->renderService(TwitterShareButtonServiceModel::class, $options);
+    }
+
+    /**
+     * @param array $options
+     * @return Markup
+     */
+    public function renderTwitterFollowButton(array $options): Markup
+    {
+        return $this->renderService(TwitterFollowButtonServiceModel::class, $options);
     }
 
 

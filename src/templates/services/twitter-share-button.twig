@@ -1,0 +1,12 @@
+<span class="tacTwitter"></span>
+<a href="https://twitter.com/share"
+   class="twitter-share-button"
+   data-size="{{ size | e('html_attr') }}"
+   {% if via %}data-via="{{ via | e('html_attr') }}"{% endif %}
+   {% if text %}data-text="{{ text | e('html_attr') }}"{% endif %}
+   {% if url %}data-url="{{ url | e('html_attr') }}"{% endif %}
+   {% if hashtags %}data-hashtags="{{ hashtags | e('html_attr') }}"{% endif %}
+   {% if related %}data-related="{{ related | e('html_attr') }}"{% endif %}
+   {% if lang %}data-lang="{{ lang | e('html_attr') }}"{% endif %}
+   data-dnt="true"
+></a>

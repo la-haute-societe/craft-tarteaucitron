@@ -17,7 +17,8 @@ const TWIG_INPUTS_ID = {
     'settings-reCAPTCHACallExample': {'readOnly' : true},
     'settings-googleAdwordsConversionCallExample': {'readOnly' : true, 'cursorBlinkRate': -1},
     'settings-linkedinCallExample': {'readOnly' : true, 'cursorBlinkRate': -1},
-    'settings-twitterCallExample': {'readOnly' : true, 'cursorBlinkRate': -1},
+    'settings-twitterFollowButtonCallExample': {'readOnly' : true, 'cursorBlinkRate': -1},
+    'settings-twitterShareButtonCallExample': {'readOnly' : true, 'cursorBlinkRate': -1},
     'settings-vimeoCallExample': {'readOnly' : true, 'cursorBlinkRate': -1},
     'settings-youtubeCallExample': {'readOnly' : true, 'cursorBlinkRate': -1},
 };

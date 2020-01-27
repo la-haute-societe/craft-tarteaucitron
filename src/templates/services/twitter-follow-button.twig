@@ -1,0 +1,10 @@
+<span class="tacTwitter"></span>
+<a href="https://twitter.com/{{ username | e('html_attr') }}"
+   class="twitter-follow-button"
+   {% if size == "large" %}data-size="{{ size | e('html_attr') }}"{% endif %}
+   {% if not lang %}data-lang="{{ lang | e('html_attr') }}"{% endif %}
+   {% if not showCount %}data-show-count="false"{% endif %}
+   {% if not showScreenName %}data-show-screen-name="false"{% endif %}{% if lang %}data-lang="{{ lang | e('html_attr') }}"{% endif %}
+   data-dnt="true"
+>
+</a>

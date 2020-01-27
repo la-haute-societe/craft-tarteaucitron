@@ -21,15 +21,33 @@
     {% endblock %}
 
     {% block options %}
-        <p>Include this code where you want to instantiate Twitter :</p>
+        <p>Include this code where you want to display a Twitter follow button:</p>
         {{ forms.textAreaField({
-            id: 'twitterCallExample',
+            id: 'twitterFollowButtonCallExample',
             value: "
-{{ craft.tarteaucitron.twitter({
-    username: 'USERNAME',
-    type: 'share'|'follow',
-    size: 'normal'|'large',                 {# not required #}
-    countPosition: 'vertical'|'horizontal'  {# not required, 'vertical' only available with 'share' type #}
+{{ craft.tarteaucitron.twitterFollowButton({
+    username:       'USERNAME',
+    isLarge:        true|false,          {# not required #}
+    showCount:      true|false,          {# not required #}
+    showScreenName: true|false,          {# not required #}
+    lang:           'fr'|'es'…,          {# not required #}
+}) }}",
+            rows: 1,
+            disabled: true
+        }) }}
+
+        <p>Include this code where you want to display a Twitter share button:</p>
+        {{ forms.textAreaField({
+            id: 'twitterShareButtonCallExample',
+            value: "
+{{ craft.tarteaucitron.twitterShareButton({
+    via:      'USERNAME',                {# not required #}
+    isLarge:  true|false,                {# not required #}
+    url:      'https://example.com',     {# not required #}
+    text:     'Tweet placeholder text',  {# not required #}
+    hashtags: 'hashtag1,hasgtag2',       {# not required #}
+    related:  'user1,user2'…,            {# not required #}
+    lang:     'fr'|'es'…,                {# not required #}
 }) }}",
             rows: 1,
             disabled: true

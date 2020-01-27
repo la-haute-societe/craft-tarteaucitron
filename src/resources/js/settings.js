@@ -12248,7 +12248,11 @@ var TWIG_INPUTS_ID = {
     'readOnly': true,
     'cursorBlinkRate': -1
   },
-  'settings-twitterCallExample': {
+  'settings-twitterFollowButtonCallExample': {
+    'readOnly': true,
+    'cursorBlinkRate': -1
+  },
+  'settings-twitterShareButtonCallExample': {
     'readOnly': true,
     'cursorBlinkRate': -1
   },

@@ -59,9 +59,18 @@ class TarteaucitronVariable
      * @param array $options
      * @return Markup
      */
-    public function twitter(array $options = []): Markup
+    public function twitterFollowButton(array $options = []): Markup
     {
-        return Plugin::getInstance()->tarteaucitron->renderTwitter($options);
+        return Plugin::getInstance()->tarteaucitron->renderTwitterFollowButton($options);
+    }
+
+    /**
+     * @param array $options
+     * @return Markup
+     */
+    public function twitterShareButton(array $options = []): Markup
+    {
+        return Plugin::getInstance()->tarteaucitron->renderTwitterShareButton($options);
     }
 
     /**
