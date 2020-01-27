@@ -4,6 +4,7 @@ namespace lhs\tarteaucitron\models\services;
 
 use Twig\Markup;
 use yii\helpers\Html;
+use craft\validators\ArrayValidator;
 
 /**
  * Class YoutubeServiceModel
@@ -24,42 +25,42 @@ class YouTubeServiceModel extends AbstractServiceModel
     /**
      * @var string
      */
-    public $width;
+    public $width = 'auto';
 
     /**
      * @var string
      */
-    public $height;
+    public $height = 'auto';
 
     /**
      * @var string
      */
-    public $theme;
+    public $theme = 'dark';
 
     /**
      * @var int
      */
-    public $rel;
+    public $rel = 0;
 
     /**
      * @var int
      */
-    public $controls;
+    public $controls = 1;
 
     /**
      * @var int
      */
-    public $showinfo;
+    public $showinfo = 1;
 
     /**
      * @var int
      */
-    public $autoplay;
+    public $autoplay = 0;
 
     /**
      * @var array
      */
-    public $htmlAttributes;
+    public $htmlAttributes = [];
 
     /**
      * @return array
@@ -71,17 +72,14 @@ class YouTubeServiceModel extends AbstractServiceModel
             [['isYoutubeEnabled'], 'boolean'],
             [['videoId', 'width', 'height'], 'string'],
             [['rel', 'controls', 'showinfo', 'autoplay'], 'integer'],
-            [['htmlAttributes'], 'craft\validators\ArrayValidator'],
+            [['htmlAttributes'], ArrayValidator::class],
 
             // Value validation
             ['theme', 'in', 'range' => ['dark', 'light']],
             [['rel', 'controls', 'showinfo', 'autoplay'], 'in', 'range' => [0, 1]],
 
             // Required attributes
-            [['videoId', 'width', 'height', 'rel', 'controls', 'showinfo', 'autoplay'], 'required'],
-
-            // Default values
-            [['htmlAttributes'], 'default', 'value' => []],
+            [['videoId'], 'required'],
         ];
     }
 

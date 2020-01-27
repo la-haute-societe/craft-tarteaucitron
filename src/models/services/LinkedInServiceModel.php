@@ -4,6 +4,7 @@ namespace lhs\tarteaucitron\models\services;
 
 use Twig\Markup;
 use yii\helpers\Html;
+use craft\validators\ArrayValidator;
 
 /**
  * Class LinkedinServiceModel
@@ -19,7 +20,7 @@ class LinkedInServiceModel extends AbstractServiceModel
     /**
      * @var string
      */
-    public $counter;
+    public $counter = 'none';
 
     /**
      * @var array
@@ -35,10 +36,10 @@ class LinkedInServiceModel extends AbstractServiceModel
             // Type validation
             [['isLinkedInEnabled'], 'boolean'],
             [['counter'], 'string'],
-            [['htmlAttributes'], 'craft\validators\ArrayValidator'],
+            [['htmlAttributes'], ArrayValidator::class],
 
             // Value validation
-            ['counter', 'in', 'range' => ['top', 'right']],
+            ['counter', 'in', 'range' => ['top', 'right', 'none']],
 
             // Default values
             [['htmlAttributes'], 'default', 'value' => []],

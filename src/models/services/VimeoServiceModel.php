@@ -4,6 +4,7 @@ namespace lhs\tarteaucitron\models\services;
 
 use Twig\Markup;
 use yii\helpers\Html;
+use craft\validators\ArrayValidator;
 
 /**
  * Class VimeoServiceModel
@@ -24,17 +25,17 @@ class VimeoServiceModel extends AbstractServiceModel
     /**
      * @var string
      */
-    public $width;
+    public $width = 'auto';
 
     /**
      * @var string
      */
-    public $height;
+    public $height = 'auto';
 
     /**
      * @var array
      */
-    public $htmlAttributes;
+    public $htmlAttributes = [];
 
 
     /**
@@ -46,13 +47,10 @@ class VimeoServiceModel extends AbstractServiceModel
             // Type validation
             [['isVimeoEnabled'], 'boolean'],
             [['videoId', 'width', 'height'], 'string'],
-            [['htmlAttributes'], 'craft\validators\ArrayValidator'],
+            [['htmlAttributes'], ArrayValidator::class],
 
             // Required attributes
-            [['videoId', 'width', 'height'], 'required'],
-
-            // Default values
-            [['htmlAttributes'], 'default', 'value' => []],
+            [['videoId'], 'required'],
         ];
     }
 

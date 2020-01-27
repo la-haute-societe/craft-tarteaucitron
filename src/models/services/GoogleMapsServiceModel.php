@@ -4,6 +4,7 @@ namespace lhs\tarteaucitron\models\services;
 
 use Twig\Markup;
 use yii\helpers\Html;
+use craft\validators\ArrayValidator;
 
 /**
  * Class GoogleMapsServiceModel
@@ -49,7 +50,7 @@ class GoogleMapsServiceModel extends AbstractServiceModel
     /**
      * @var array
      */
-    public $htmlAttributes;
+    public $htmlAttributes = [];
 
 
     /**
@@ -63,7 +64,7 @@ class GoogleMapsServiceModel extends AbstractServiceModel
             [['googleMapsAPIKey', 'width', 'height'], 'string'],
             [['zoom'], 'integer'],
             [['latitude', 'longitude'], 'double'],
-            [['htmlAttributes'], 'craft\validators\ArrayValidator'],
+            [['htmlAttributes'], ArrayValidator::class],
 
             // Required attributes
             [['googleMapsAPIKey', 'zoom', 'latitude', 'longitude', 'width', 'height'], 'required'],

@@ -30,12 +30,12 @@ class TwitterServiceModel extends AbstractServiceModel
     /**
      * @var string
      */
-    public $size;
+    public $size = 'normal';
 
     /**
      * @var string
      */
-    public $countPosition;
+    public $countPosition = 'none';
 
 
     /**
@@ -51,10 +51,10 @@ class TwitterServiceModel extends AbstractServiceModel
             // Value validation
             ['type', 'in', 'range' => ['share', 'follow']],
             ['size', 'in', 'range' => ['normal', 'large']],
-            ['countPosition', 'in', 'range' => ['vertical', 'horizontal']],
+            ['countPosition', 'in', 'range' => ['vertical', 'horizontal', 'none']],
 
             // Required attributes
-            [['username'], 'required'],
+            [['username', 'type', ], 'required'],
         ];
     }
 

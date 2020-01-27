@@ -4,6 +4,7 @@ namespace lhs\tarteaucitron\models\services;
 
 use Twig\Markup;
 use yii\helpers\Html;
+use craft\validators\ArrayValidator;
 
 /**
  * Class ReCAPTCHAServiceModel
@@ -24,7 +25,7 @@ class ReCaptchaServiceModel extends AbstractServiceModel
     /**
      * @var array
      */
-    public $htmlAttributes;
+    public $htmlAttributes = [];
 
 
     /**
@@ -36,13 +37,10 @@ class ReCaptchaServiceModel extends AbstractServiceModel
             // Type validation
             [['isReCAPTCHAEnabled'], 'boolean'],
             [['reCAPTCHASiteKey'], 'string'],
-            [['htmlAttributes'], 'craft\validators\ArrayValidator'],
+            [['htmlAttributes'], ArrayValidator::class],
 
             // Required attributes
             [['reCAPTCHASiteKey'], 'required'],
-
-            // Default values
-            [['htmlAttributes'], 'default', 'value' => []],
         ];
     }
 
