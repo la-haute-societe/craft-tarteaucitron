@@ -87,7 +87,7 @@ return [
     'facebookPixelMore'                 => '',
 
     /** @var bool Enable the LinkedIn service */
-    'isLinkedinEnabled'                 => false,
+    'isLinkedInEnabled'                 => false,
 
     /** @var bool Enable the Twitter service */
     'isTwitterEnabled'                  => false,

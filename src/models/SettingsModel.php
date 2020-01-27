@@ -92,7 +92,7 @@ class SettingsModel extends Model
     public $facebookPixelMore = '';
 
     /** @var boolean */
-    public $isLinkedinEnabled = false;
+    public $isLinkedInEnabled = false;
 
     /** @var boolean */
     public $isTwitterEnabled = false;
@@ -140,7 +140,7 @@ class SettingsModel extends Model
             [['googleTagManagerId'], 'lhs\tarteaucitron\validators\GoogleTagManagerValidator'],
 
             // Service - Linkedin
-            [['isLinkedinEnabled'], 'boolean'],
+            [['isLinkedInEnabled'], 'boolean'],
 
             // Service - Twitter
             [['isTwitterEnabled'], 'boolean'],

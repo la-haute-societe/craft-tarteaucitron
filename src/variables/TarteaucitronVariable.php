@@ -117,9 +117,9 @@ class TarteaucitronVariable
         return Plugin::getInstance()->tarteaucitron->isGoogleAdwordsRemarketingEnabled();
     }
 
-    public function isLinkedinEnabled(): bool
+    public function isLinkedInEnabled(): bool
     {
-        return Plugin::getInstance()->tarteaucitron->isLinkedinEnabled();
+        return Plugin::getInstance()->tarteaucitron->isLinkedInEnabled();
     }
 
     public function isTwitterEnabled(): bool

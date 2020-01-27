@@ -139,10 +139,10 @@ class TarteaucitronService extends Component
     }
 
 
-    public function isLinkedinEnabled(): bool
+    public function isLinkedInEnabled(): bool
     {
         /** @noinspection NullPointerExceptionInspection */
-        return (bool)Tarteaucitron::getInstance()->getSettings()->isLinkedinEnabled;
+        return (bool)Tarteaucitron::getInstance()->getSettings()->isLinkedInEnabled;
     }
 
     /**

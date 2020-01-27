@@ -6,12 +6,12 @@
 
     {% block enable %}
         {{ forms.lightswitchField({
-            id: 'isLinkedinEnabled',
-            name: 'isLinkedinEnabled',
-            on: settings.isLinkedinEnabled,
+            id: 'isLinkedInEnabled',
+            name: 'isLinkedInEnabled',
+            on: settings.isLinkedInEnabled,
             toggle: true,
-            warning: 'isLinkedinEnabled' in overrides ? macros.configWarning('isLinkedinEnabled'),
-            errors: settings.getErrors('isLinkedinEnabled')
+            warning: 'isLinkedInEnabled' in overrides ? macros.configWarning('isLinkedInEnabled'),
+            errors: settings.getErrors('isLinkedInEnabled')
         }) }}
     {% endblock %}
 

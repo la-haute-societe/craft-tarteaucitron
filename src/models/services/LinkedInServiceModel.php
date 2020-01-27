@@ -14,7 +14,7 @@ class LinkedInServiceModel extends AbstractServiceModel
     /**
      * @var boolean
      */
-    public $isLinkedinEnabled = false;
+    public $isLinkedInEnabled = false;
 
     /**
      * @var string
@@ -33,7 +33,7 @@ class LinkedInServiceModel extends AbstractServiceModel
     {
         return [
             // Type validation
-            [['isLinkedinEnabled'], 'boolean'],
+            [['isLinkedInEnabled'], 'boolean'],
             [['counter'], 'string'],
             [['htmlAttributes'], 'craft\validators\ArrayValidator'],
 
@@ -50,7 +50,7 @@ class LinkedInServiceModel extends AbstractServiceModel
      */
     public function isServiceEnabled(): bool
     {
-        return $this->isLinkedinEnabled;
+        return $this->isLinkedInEnabled;
     }
 
     /**
