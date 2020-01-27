@@ -28,18 +28,20 @@
             value: settings.reCAPTCHASiteKey,
             required: true,
             warning: 'reCAPTCHASiteKey' in overrides ? macros.configWarning('reCAPTCHASiteKey'),
+            disabled: 'reCAPTCHASiteKey' in overrides,
             errors: settings.getErrors('reCAPTCHASiteKey')
         }) }}
 
         {{ forms.textField({
-            label: "Callback name"|t,
-            id: 'reCAPTCHACallbackName',
-            name: 'reCAPTCHACallbackName',
-            instructions: 'The name of a globally defined javascript function to call when the reCAPTCHA script has finished loading.'|t,
-            value: settings.reCAPTCHACallbackName,
+            label: "reCAPTCHA more"|t,
+            id: 'reCAPTCHAMore',
+            name: 'reCAPTCHAMore',
+            instructions: 'Optional - Some javascript code to be executed when the reCAPTCHA service has been loaded.'|t,
+            value: settings.reCAPTCHAMore,
             required: true,
-            warning: 'reCAPTCHACallbackName' in overrides ? macros.configWarning('reCAPTCHACallbackName'),
-            errors: settings.getErrors('reCAPTCHACallbackName')
+            warning: 'reCAPTCHAMore' in overrides ? macros.configWarning('reCAPTCHAMore'),
+            disabled: 'reCAPTCHAMore' in overrides,
+            errors: settings.getErrors('reCAPTCHAMore'),
         }) }}
 
         <p>Include this code where you want to instantiate reCAPTCHA :</p>

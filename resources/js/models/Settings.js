@@ -8,6 +8,7 @@ const CSS_INPUTS_ID = {
 const JS_INPUTS_ID = {
     'settings-googleAnalyticsUniversalMore': {'autoCloseBrackets': true},
     'settings-facebookPixelMore': {'autoCloseBrackets': true},
+    'settings-reCAPTCHAMore': {'autoCloseBrackets': true},
 };
 
 const TWIG_INPUTS_ID = {

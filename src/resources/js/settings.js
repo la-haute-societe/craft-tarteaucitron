@@ -12223,6 +12223,9 @@ var JS_INPUTS_ID = {
   },
   'settings-facebookPixelMore': {
     'autoCloseBrackets': true
+  },
+  'settings-reCAPTCHAMore': {
+    'autoCloseBrackets': true
   }
 };
 var TWIG_INPUTS_ID = {

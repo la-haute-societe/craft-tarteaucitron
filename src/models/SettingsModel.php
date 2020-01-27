@@ -56,7 +56,7 @@ class SettingsModel extends Model
     public $reCAPTCHASiteKey = '';
 
     /** @var string */
-    public $reCAPTCHACallbackName = '';
+    public $reCAPTCHAMore = '';
 
     /** @var boolean */
     public $isGoogleMapsEnabled = false;
@@ -147,7 +147,7 @@ class SettingsModel extends Model
 
             // Service - reCAPTCHA
             [['isReCAPTCHAEnabled'], 'boolean'],
-            [['reCAPTCHASiteKey', 'reCAPTCHACallbackName'], 'string'],
+            [['reCAPTCHASiteKey', 'reCAPTCHAMore'], 'string'],
             [['reCAPTCHASiteKey'], 'lhs\tarteaucitron\validators\ReCAPTCHAValidator'],
 
             // Service - Vimeo

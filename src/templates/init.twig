@@ -28,9 +28,9 @@
 
 {# reCAPTCHA #}
 {% if isReCAPTCHAEnabled and reCAPTCHASiteKey is not empty %}
-    {% if reCAPTCHACallbackName is not empty %}
+    {% if reCAPTCHAMore is not empty %}
         {% js %}
-            tarteaucitron.user.recaptchaOnLoad = function() { {{ reCAPTCHACallbackName | raw }}() };
+            tarteaucitron.user.recaptchaOnLoad = function() { {{ reCAPTCHAMore | raw }} };
         {% endjs %}
     {% endif %}
     {% js %}

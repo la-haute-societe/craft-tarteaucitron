@@ -57,7 +57,7 @@ return [
     /** @var string reCAPTCHA site key */
     'reCAPTCHASiteKey'                  => '',
     /** @var string Callback name — The name of a globally defined javascript function to call when the reCAPTCHA script has finished loading. */
-    'reCAPTCHACallbackName'             => '',
+    'reCAPTCHAMore'             => '',
 
     /** @var bool Enable the Google Maps service */
     'isGoogleMapsEnabled'               => false,
