@@ -3,6 +3,7 @@
 namespace lhs\tarteaucitron\models;
 
 use craft\base\Model;
+use craft\validators\ArrayValidator;
 
 /**
  * Class SettingsModel
@@ -63,6 +64,12 @@ class SettingsModel extends Model
 
     /** @var string */
     public $googleMapsAPIKey = '';
+
+    /** @var string[] */
+    public $googleMapsLibraries = [];
+
+    /** @var string */
+    public $googleMapsCallbackName;
 
     /** @var boolean */
     public $isGoogleAnalyticsUniversalEnabled = false;
@@ -133,6 +140,8 @@ class SettingsModel extends Model
             // Service - Google Maps
             [['isGoogleMapsEnabled'], 'boolean'],
             [['googleMapsAPIKey'], 'lhs\tarteaucitron\validators\GoogleMapsValidator'],
+            [['googleMapsLibraries'], ArrayValidator::class],
+            [['googleMapsCallbackName'], 'string'],
 
             // Service - Google Tag Manager
             [['isGoogleTagManagerEnabled'], 'boolean'],

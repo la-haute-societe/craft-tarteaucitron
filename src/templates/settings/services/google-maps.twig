@@ -22,13 +22,40 @@
 
     {% block options %}
         {{ forms.textField({
-            label: "Google Maps API KEY"|t,
-            id: 'googleMapsAPIKey',
-            name: 'googleMapsAPIKey',
-            value: settings.googleMapsAPIKey,
+            label:    "Google Maps API KEY"|t,
+            id:       'googleMapsAPIKey',
+            name:     'googleMapsAPIKey',
+            value:    settings.googleMapsAPIKey,
             required: true,
-            warning: 'googleMapsAPIKey' in overrides ? macros.configWarning('googleMapsAPIKey'),
-            errors: settings.getErrors('googleMapsAPIKey')
+            warning:  'googleMapsAPIKey' in overrides ? macros.configWarning('googleMapsAPIKey'),
+            disabled: 'googleMapsAPIKey' in overrides,
+            errors:   settings.getErrors('googleMapsAPIKey'),
+        }) }}
+
+        {{ forms.textField({
+            label:        'Callback name',
+            name:         'googleMapsCallbackName',
+            instructions: 'The name of a globally-defined Javascript function to call when the API is ready.',
+            value:        settings.googleMapsCallbackName,
+            warning:      'googleMapsCallbackName' in overrides ? macros.configWarning('googleMapsCallbackName'),
+            disabled:     'googleMapsCallbackName' in overrides,
+            errors:       settings.getErrors('googleMapsCallbackName'),
+        }) }}
+
+        {{ forms.checkboxGroupField({
+            label:        'Libraries',
+            instructions: 'Additional Google Maps libraries to load.',
+            name:         'googleMapsLibraries',
+            options:      [
+                { label: 'Drawing',       disabled: 'googleMapsLibraries' in overrides, value: 'drawing' },
+                { label: 'Geometry',      disabled: 'googleMapsLibraries' in overrides, value: 'geometry' },
+                { label: 'Places',        disabled: 'googleMapsLibraries' in overrides, value: 'places' },
+                { label: 'Visualization', disabled: 'googleMapsLibraries' in overrides, value: 'visualization' },
+            ],
+            values:   settings.googleMapsLibraries,
+            warning:  'googleMapsLibraries' in overrides ? macros.configWarning('googleMapsLibraries'),
+            disabled: 'googleMapsLibraries' in overrides,
+            errors:   settings.getErrors('googleMapsLibraries'),
         }) }}
 
         <p>Include this code where you want to instantiate Google Maps :</p>
@@ -41,9 +68,8 @@
     longitude: LONGITUDE,
     width: 'WIDTH',
     height: 'HEIGHT',
-    htmlAttributes: YOUR_HTML_OPTIONS {# not required #}
-}) }}
-{% js %}tarteaucitron.user.mapscallback = 'CALLBACK_FUNCTION';tarteaucitron.user.googlemapsLibraries = 'LIBRARIES';{% endjs %}",
+    htmlAttributes: {} {# not required #}
+}) }}",
             rows: 1,
             disabled: true
         }) }}

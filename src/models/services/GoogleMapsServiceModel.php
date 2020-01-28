@@ -22,6 +22,12 @@ class GoogleMapsServiceModel extends AbstractServiceModel
      */
     public $googleMapsAPIKey;
 
+    /** @var string[] */
+    public $googleMapsLibraries = [];
+
+    /** @var string */
+    public $googleMapsCallbackName;
+
     /**
      * @var int
      */
@@ -61,16 +67,13 @@ class GoogleMapsServiceModel extends AbstractServiceModel
         return [
             // Type validation
             [['isGoogleMapsEnabled'], 'boolean'],
-            [['googleMapsAPIKey', 'width', 'height'], 'string'],
+            [['googleMapsAPIKey', 'googleMapsCallbackName', 'width', 'height'], 'string'],
             [['zoom'], 'integer'],
             [['latitude', 'longitude'], 'double'],
-            [['htmlAttributes'], ArrayValidator::class],
+            [['htmlAttributes', 'googleMapsLibraries'], ArrayValidator::class],
 
             // Required attributes
             [['googleMapsAPIKey', 'zoom', 'latitude', 'longitude', 'width', 'height'], 'required'],
-
-            // Default values
-            [['htmlAttributes'], 'default', 'value' => []],
         ];
     }
 
@@ -90,12 +93,14 @@ class GoogleMapsServiceModel extends AbstractServiceModel
             return new Markup('', 'UTF-8');
         }
 
-        $this->htmlAttributes['zoom'] = $this->zoom;
-        $this->htmlAttributes['latitude'] = $this->latitude;
-        $this->htmlAttributes['longitude'] = $this->longitude;
-        Html::addCssStyle($this->htmlAttributes, sprintf('width: %s; height: %s;', $this->width, $this->height));
-        Html::addCssClass($this->htmlAttributes, 'googlemaps-canvas');
-        $html = Html::tag('div', '', $this->htmlAttributes);
+        $htmlAttributes = array_merge([
+            'zoom'      => $this->zoom,
+            'latitude'  => $this->latitude,
+            'longitude' => $this->longitude,
+        ], $this->htmlAttributes);
+        Html::addCssStyle($htmlAttributes, sprintf('width: %s; height: %s;', $this->width, $this->height));
+        Html::addCssClass($htmlAttributes, 'googlemaps-canvas');
+        $html = Html::tag('div', '', $htmlAttributes);
         return new Markup($html, 'UTF-8');
     }
 }

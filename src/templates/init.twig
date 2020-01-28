@@ -43,6 +43,14 @@
     {% js %}
         tarteaucitron.user.googlemapsKey = '{{ googleMapsAPIKey }}';
         (tarteaucitron.job = tarteaucitron.job || []).push('googlemaps');
+
+        {% if googleMapsCallbackName %}
+            tarteaucitron.user.mapscallback = '{{ googleMapsCallbackName }}';
+        {% endif %}
+
+        {% if googleMapsAPIKey %}
+            tarteaucitron.user.googlemapsLibraries = '{{ googleMapsLibraries | join (',') }}';
+        {% endif %}
     {% endjs %}
 {% endif %}
 
