@@ -2,7 +2,7 @@
 {% import "tarteaucitron/settings/macros" as macros %}
 
 <div class="bar bar--secondary">
-    {{ 'Include this code in all pages where you want tarteaucitron to be loaded :'|t('tarteaucitron')|raw }}<br>
+    {{ 'Include this code in all pages where you want tarteaucitron to be loaded:'|t('tarteaucitron')|raw }}<br>
     {{ forms.textAreaField({
         id: 'tarteaucitronInitCallExample',
         value: "{{ craft.tarteaucitron.initScript }}",
@@ -146,7 +146,7 @@
             label: "Cookie domain"|t('tarteaucitron'),
             id: 'cookieDomain',
             name: 'cookieDomain',
-            instructions: "Optional - Domain name on which the cookie will be placed (for multisites / subdomains)"|t('tarteaucitron'),
+            instructions: "[Optional] Domain name on which the cookie will be placed (for multisites / subdomains)"|t('tarteaucitron'),
             value: settings.cookieDomain,
             disabled: 'cookieDomain' in overrides,
             warning: 'cookieDomain' in overrides ? macros.configWarning('cookieDomain'),

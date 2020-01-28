@@ -6,7 +6,7 @@
         {% if 'isVimeoEnabled' in overrides %}
             <div class="info warning">{{ macros.configWarning('isVimeoEnabled') }}</div>
         {% endif %}
-        Vimeo
+        {{ 'Vimeo'|t('tarteaucitron') }}
     {% endblock %}
 
     {% block enable %}
@@ -21,7 +21,7 @@
     {% endblock %}
 
     {% block options %}
-        <p>Include this code where you want to instantiate Vimeo :</p>
+        <p>{{ 'Include this code where you want to instantiate {service}:'|t('tarteaucitron', { service: 'Vimeo' }) }}</p>
         {{ forms.textAreaField({
             id: 'vimeoCallExample',
             value: "

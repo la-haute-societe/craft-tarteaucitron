@@ -6,7 +6,7 @@
         {% if 'isGoogleAdWordsRemarketingEnabled' in overrides %}
             <div class="info warning">{{ macros.configWarning('isGoogleAdWordsRemarketingEnabled') }}</div>
         {% endif %}
-        Google AdWords (remarketing)
+        {{ 'Google AdWords (remarketing)'|t('tarteaucitron') }}
     {% endblock %}
 
     {% block enable %}
@@ -22,7 +22,7 @@
 
     {% block options %}
         {{ forms.textField({
-            label: "Google AdWords Remarketing ID"|t,
+            label: 'Google AdWords Remarketing ID'|t('tarteaucitron'),
             id: 'googleAdWordsRemarketingId',
             name: 'googleAdWordsRemarketingId',
             value: settings.googleAdWordsRemarketingId,

@@ -6,7 +6,7 @@
         {% if 'isYoutubeEnabled' in overrides %}
             <div class="info warning">{{ macros.configWarning('isYoutubeEnabled') }}</div>
         {% endif %}
-        YouTube
+        {{ 'YouTube'|t('tarteaucitron') }}
     {% endblock %}
 
     {% block enable %}
@@ -21,7 +21,7 @@
     {% endblock %}
 
     {% block options %}
-        <p>Include this code where you want to instantiate Youtube :</p>
+        <p>{{ 'Include this code where you want to instantiate {service}:'|t('tarteaucitron', { service: 'YouTube' }) }}</p>
         {{ forms.textAreaField({
             id: 'youtubeCallExample',
             value: "

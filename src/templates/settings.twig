@@ -1,12 +1,12 @@
 <div class="tarteaucitron-settings">
-    <div class="bar bar--info">tarteaucitron.js official documentation is available here : <a href="https://opt-out.ferank.eu/fr/install/">https://opt-out.ferank.eu/fr/install/</a></div>
+    <div class="bar bar--info">{{ 'The official documentation of tarteaucitron.js available here:'|t('tarteaucitron') }} <a href="{{ 'https://opt-out.ferank.eu/en/install/'|t('tarteaucitron') }}" target="_blank">{{ 'https://opt-out.ferank.eu/en/install/'|t('tarteaucitron') }}</a></div>
     <br>
 
-    <h2>Configuration</h2>
+    <h2>{{ 'Configuration'|t('tarteaucitron') }}</h2>
     <hr>
     {% include 'tarteaucitron/settings/core' %}
 
-    <h2>Services</h2>
+    <h2>{{ 'Services'|t('tarteaucitron') }}</h2>
     <hr>
     {% include 'tarteaucitron/settings/services/facebook-pixel' %}
     {% include 'tarteaucitron/settings/services/google-adwords-conversion' %}

@@ -6,7 +6,7 @@
         {% if 'isReCAPTCHAEnabled' in overrides %}
             <div class="info warning">{{ macros.configWarning('isReCAPTCHAEnabled') }}</div>
         {% endif %}
-        reCAPTCHA
+        {{ 'reCAPTCHA'|t('tarteaucitron') }}
     {% endblock %}
 
     {% block enable %}
@@ -22,7 +22,7 @@
 
     {% block options %}
         {{ forms.textField({
-            label: "reCAPTCHA site key"|t,
+            label: "reCAPTCHA site key"|t('tarteaucitron'),
             id: 'reCAPTCHASiteKey',
             name: 'reCAPTCHASiteKey',
             value: settings.reCAPTCHASiteKey,
@@ -33,10 +33,10 @@
         }) }}
 
         {{ forms.textField({
-            label: "reCAPTCHA more"|t,
+            label: "Additional Javascript"|t('tarteaucitron'),
             id: 'reCAPTCHAMore',
             name: 'reCAPTCHAMore',
-            instructions: 'Optional - Some javascript code to be executed when the reCAPTCHA service has been loaded.'|t,
+            instructions: '[Optional] Some javascript code to be executed when the {service} service has been loaded.'|t('tarteaucitron', { service: 'reCAPTCHA' }),
             value: settings.reCAPTCHAMore,
             required: true,
             warning: 'reCAPTCHAMore' in overrides ? macros.configWarning('reCAPTCHAMore'),
@@ -44,7 +44,7 @@
             errors: settings.getErrors('reCAPTCHAMore'),
         }) }}
 
-        <p>Include this code where you want to instantiate reCAPTCHA :</p>
+        <p>{{ 'Include this code where you want to instantiate {service}:'|t('tarteaucitron', { service: 'reCAPTCHA'}) }}</p>
         {{ forms.textAreaField({
             id: 'reCAPTCHACallExample',
             value: "{{ craft.tarteaucitron.reCAPTCHA({

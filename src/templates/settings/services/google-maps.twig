@@ -6,7 +6,7 @@
         {% if 'isGoogleMapsEnabled' in overrides %}
             <div class="info warning">{{ macros.configWarning('isGoogleMapsEnabled') }}</div>
         {% endif %}
-        Google Maps
+        {{ 'Google Maps'|t('tarteaucitron') }}
     {% endblock %}
 
     {% block enable %}
@@ -22,7 +22,7 @@
 
     {% block options %}
         {{ forms.textField({
-            label:    "Google Maps API KEY"|t,
+            label:    "Google Maps API key"|t('tarteaucitron'),
             id:       'googleMapsAPIKey',
             name:     'googleMapsAPIKey',
             value:    settings.googleMapsAPIKey,
@@ -33,9 +33,9 @@
         }) }}
 
         {{ forms.textField({
-            label:        'Callback name',
+            label:        'Callback name'|t('tarteaucitron'),
             name:         'googleMapsCallbackName',
-            instructions: 'The name of a globally-defined Javascript function to call when the API is ready.',
+            instructions: 'The name of a globally-defined Javascript function to call when the API is ready.'|t('tarteaucitron'),
             value:        settings.googleMapsCallbackName,
             warning:      'googleMapsCallbackName' in overrides ? macros.configWarning('googleMapsCallbackName'),
             disabled:     'googleMapsCallbackName' in overrides,
@@ -43,8 +43,8 @@
         }) }}
 
         {{ forms.checkboxGroupField({
-            label:        'Libraries',
-            instructions: 'Additional Google Maps libraries to load.',
+            label:        'Libraries'|t('tarteaucitron'),
+            instructions: 'Additional Google Maps libraries to load.'|t('tarteaucitron'),
             name:         'googleMapsLibraries',
             options:      [
                 { label: 'Drawing',       disabled: 'googleMapsLibraries' in overrides, value: 'drawing' },
@@ -58,7 +58,7 @@
             errors:   settings.getErrors('googleMapsLibraries'),
         }) }}
 
-        <p>Include this code where you want to instantiate Google Maps :</p>
+        <p>{{ 'Include this code where you want to instantiate {service}:'|t('tarteaucitron', { service: 'Google Maps' }) }}</p>
         {{ forms.textAreaField({
             id: 'googleMapsCallExample',
             value: "

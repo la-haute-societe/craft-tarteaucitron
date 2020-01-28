@@ -6,7 +6,7 @@
         {% if 'isLinkedInEnabled' in overrides %}
             <div class="info warning">{{ macros.configWarning('isLinkedInEnabled') }}</div>
         {% endif %}
-        LinkedIn
+        {{ 'LinkedIn'|t('tarteaucitron') }}
     {% endblock %}
 
     {% block enable %}
@@ -21,7 +21,7 @@
     {% endblock %}
 
     {% block options %}
-        <p>Include this code where you want to instantiate Linkedin :</p>
+        <p>{{ 'Include this code where you want to instantiate {service}:'|t('tarteaucitron', { service: 'LinkedIn' }) }}</p>
         {{ forms.textAreaField({
             id: 'linkedinCallExample',
             value: "

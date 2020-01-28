@@ -6,7 +6,7 @@
         {% if 'isGoogleTagManagerEnabled' in overrides %}
             <div class="info warning">{{ macros.configWarning('isGoogleTagManagerEnabled') }}</div>
         {% endif %}
-        Google Tag Manager
+        {{ 'Google Tag Manager'|t('tarteaucitron') }}
     {% endblock %}
 
     {% block enable %}
@@ -22,7 +22,7 @@
 
     {% block options %}
         {{ forms.textField({
-            label: "Google Tag Manager ID"|t,
+            label: "Google Tag Manager ID"|t('tarteaucitron'),
             id: 'googleTagManagerId',
             name: 'googleTagManagerId',
             value: settings.googleTagManagerId,

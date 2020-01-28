@@ -6,7 +6,7 @@
         {% if 'isTwitterEnabled' in overrides %}
            <div class="info warning">{{ macros.configWarning('isTwitterEnabled') }}</div>
         {% endif %}
-        Twitter
+        {{ 'Twitter'|t('tarteaucitron') }}
     {% endblock %}
 
     {% block enable %}
@@ -21,7 +21,7 @@
     {% endblock %}
 
     {% block options %}
-        <p>Include this code where you want to display a Twitter follow button:</p>
+        <p>{{ 'Include this code where you want to display a {buttonName}:'|t('tarteaucitron', { buttonName: 'Twitter follow button'}) }}</p>
         {{ forms.textAreaField({
             id: 'twitterFollowButtonCallExample',
             value: "
@@ -36,7 +36,7 @@
             disabled: true
         }) }}
 
-        <p>Include this code where you want to display a Twitter share button:</p>
+        <p>{{ 'Include this code where you want to display a {buttonName}:'|t('tarteaucitron', { buttonName: 'Twitter share button'}) }}</p>
         {{ forms.textAreaField({
             id: 'twitterShareButtonCallExample',
             value: "

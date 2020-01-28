@@ -6,7 +6,7 @@
         {% if 'isGoogleAnalyticsUniversalEnabled' in overrides %}
             <div class="info warning">{{ macros.configWarning('isGoogleAnalyticsUniversalEnabled') }}</div>
         {% endif %}
-        Google Analytics (universal)
+        {{ 'Google Analytics (universal)'|t('tarteaucitron') }}
     {% endblock %}
 
     {% block enable %}
@@ -22,7 +22,7 @@
 
     {% block options %}
         {{ forms.textField({
-            label: "Analytics UA"|t,
+            label: "Analytics UA"|t('tarteaucitron'),
             id: 'googleAnalyticsUniversalUa',
             name: 'googleAnalyticsUniversalUa',
             value: settings.googleAnalyticsUniversalUa,
@@ -33,15 +33,14 @@
         }) }}
 
         {{ forms.textField({
-            label: "Additional Javascript"|t,
+            label: "Additional Javascript"|t('tarteaucitron'),
             id: 'googleAnalyticsUniversalMore',
             name: 'googleAnalyticsUniversalMore',
-            instructions: "Optional - Add here your optional ga.push()",
+            instructions: '[Optional] Some javascript code to be executed when the {service} service has been loaded.'|t('tarteaucitron', { service: 'Google Analytics (universal)' }),
             value: settings.googleAnalyticsUniversalMore,
             warning: 'googleAnalyticsUniversalMore' in overrides ? macros.configWarning('googleAnalyticsUniversalMore'),
             disabled: 'googleAnalyticsUniversalMore' in overrides,
             errors: settings.getErrors('googleAnalyticsUniversalMore')
         }) }}
-
     {% endblock %}
 {% endembed %}

@@ -6,7 +6,7 @@
         {% if 'isGoogleAdWordsConversionEnabled' in overrides %}
             <div class="info warning">{{ macros.configWarning('isGoogleAdWordsConversionEnabled') }}</div>
         {% endif %}
-        Google AdWords (conversion)
+        {{ 'Google AdWords (conversion)'|t('tarteaucitron') }}
     {% endblock %}
 
     {% block enable %}
@@ -21,7 +21,7 @@
     {% endblock %}
 
     {% block options %}
-        <p>Include this code where you want to instantiate Google AdWords (conversion) :</p>
+        <p>{{ 'Include this code where you want to instantiate {service}:'|t('tarteaucitron', { service: 'Google AdWords (conversion)'}) }}</p>
         {{ forms.textAreaField({
             id: 'googleAdWordsConversionCallExample',
             value: "
