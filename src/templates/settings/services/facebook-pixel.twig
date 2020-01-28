@@ -28,6 +28,7 @@
             value: settings.facebookPixelId,
             required: true,
             warning: 'facebookPixelId' in overrides ? macros.configWarning('facebookPixelId'),
+            disabled: 'facebookPixelId' in overrides,
             errors: settings.getErrors('facebookPixelId')
         }) }}
 
@@ -38,6 +39,7 @@
             instructions: "Optional - Add here your optional Facebook Pixel function",
             value: settings.facebookPixelMore,
             warning: 'facebookPixelMore' in overrides ? macros.configWarning('facebookPixelMore'),
+            disabled: 'facebookPixelMore' in overrides,
             errors: settings.getErrors('facebookPixelMore')
         }) }}
     {% endblock %}

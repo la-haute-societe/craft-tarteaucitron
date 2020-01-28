@@ -28,7 +28,8 @@
             value: settings.googleAdwordsRemarketingId,
             required: true,
             warning: 'googleAdwordsRemarketingId' in overrides ? macros.configWarning('googleAdwordsRemarketingId'),
-            errors: settings.getErrors('googleAdwordsRemarketingId')
+            errors: settings.getErrors('googleAdwordsRemarketingId'),
+            disabled: 'googleAdwordsRemarketingId' in overrides,
         }) }}
     {% endblock %}
 {% endembed %}

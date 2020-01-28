@@ -28,7 +28,8 @@
             value: settings.googleTagManagerId,
             required: true,
             warning: 'googleTagManagerId' in overrides ? macros.configWarning('googleTagManagerId'),
-            errors: settings.getErrors('googleTagManagerId')
+            errors: settings.getErrors('googleTagManagerId'),
+            disabled: 'googleTagManagerId' in overrides,
         }) }}
     {% endblock %}
 {% endembed %}

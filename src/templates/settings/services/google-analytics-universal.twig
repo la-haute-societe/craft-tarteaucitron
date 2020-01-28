@@ -28,6 +28,7 @@
             value: settings.googleAnalyticsUniversalUa,
             required: true,
             warning: 'googleAnalyticsUniversalUa' in overrides ? macros.configWarning('googleAnalyticsUniversalUa'),
+            disabled: 'googleAnalyticsUniversalUa' in overrides,
             errors: settings.getErrors('googleAnalyticsUniversalUa')
         }) }}
 
@@ -38,6 +39,7 @@
             instructions: "Optional - Add here your optional ga.push()",
             value: settings.googleAnalyticsUniversalMore,
             warning: 'googleAnalyticsUniversalMore' in overrides ? macros.configWarning('googleAnalyticsUniversalMore'),
+            disabled: 'googleAnalyticsUniversalMore' in overrides,
             errors: settings.getErrors('googleAnalyticsUniversalMore')
         }) }}
 
