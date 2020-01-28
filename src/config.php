@@ -15,7 +15,7 @@
  * This file exists only as a template for the TarteAuCitron settings.
  * It does nothing on its own.
  *
- * Don't edit this file, instead copy it to 'craft/config' as 'tarteaucitron-js.php'
+ * Don't edit this file, instead copy it to 'craft/config' as 'tarteaucitron.php'
  * and make your changes there to override default settings.
  *
  * Once copied to 'craft/config', this file will be multi-environment aware as

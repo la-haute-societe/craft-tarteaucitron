@@ -66,7 +66,7 @@ class TwitterFollowButtonServiceModel extends AbstractServiceModel
 
         $oldMode = Craft::$app->getView()->getTemplateMode();
         Craft::$app->getView()->setTemplateMode(View::TEMPLATE_MODE_CP);
-        $html = Craft::$app->getView()->renderTemplate('tarteaucitron-js/services/twitter-follow-button', [
+        $html = Craft::$app->getView()->renderTemplate('tarteaucitron/services/twitter-follow-button', [
             'username'       => $this->username,
             'size'           => $this->isLarge ? 'large' : 'normal',
             'showCount'      => $this->showCount,

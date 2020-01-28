@@ -1,8 +1,8 @@
 {% import "_includes/forms" as forms %}
-{% import "tarteaucitron-js/settings/macros" as macros %}
+{% import "tarteaucitron/settings/macros" as macros %}
 
 <div class="bar bar--secondary">
-    {{ 'Include this code in all pages where you want tarteaucitron to be loaded :'|t('tarteaucitron-js')|raw }}<br>
+    {{ 'Include this code in all pages where you want tarteaucitron to be loaded :'|t('tarteaucitron')|raw }}<br>
     {{ forms.textAreaField({
         id: 'tarteaucitronInitCallExample',
         value: "{{ craft.tarteaucitron.initScript }}",
@@ -15,10 +15,10 @@
 <div class="flex align-start">
     <div class="fit-container">
         {{ forms.textField({
-            label: "Hashtag"|t('tarteaucitron-js'),
+            label: "Hashtag"|t('tarteaucitron'),
             id: 'hashtag',
             name: 'hashtag',
-            instructions: "Open panel automatically with this hashtag in URL"|t('tarteaucitron-js'),
+            instructions: "Open panel automatically with this hashtag in URL"|t('tarteaucitron'),
             value: settings.hashtag,
             required: true,
             disabled: 'hashtag' in overrides,
@@ -27,10 +27,10 @@
         }) }}
 
         {{ forms.lightswitchField({
-            label: "High Privacy"|t('tarteaucitron-js'),
+            label: "High Privacy"|t('tarteaucitron'),
             id: 'highPrivacy',
             name: 'highPrivacy',
-            instructions: "Disable implied consent (while browsing)"|t('tarteaucitron-js'),
+            instructions: "Disable implied consent (while browsing)"|t('tarteaucitron'),
             on: settings.highPrivacy,
             toggle: true,
             required: true,
@@ -40,10 +40,10 @@
         }) }}
 
         {{ forms.lightswitchField({
-            label: "Accept all CTA"|t('tarteaucitron-js'),
+            label: "Accept all CTA"|t('tarteaucitron'),
             id: 'acceptAllCta',
             name: 'acceptAllCta',
-            instructions: "Show the accept all button when highPrivacy on"|t('tarteaucitron-js'),
+            instructions: "Show the accept all button when highPrivacy on"|t('tarteaucitron'),
             on: settings.acceptAllCta,
             toggle: true,
             required: true,
@@ -53,10 +53,10 @@
         }) }}
 
         {{ forms.selectField({
-            label: "Orientation"|t('tarteaucitron-js'),
+            label: "Orientation"|t('tarteaucitron'),
             id: 'orientation',
             name: 'orientation',
-            instructions: "Banner position"|t('tarteaucitron-js'),
+            instructions: "Banner position"|t('tarteaucitron'),
             value: settings.orientation,
             required: true,
             options: [
@@ -75,10 +75,10 @@
         }) }}
 
         {{ forms.lightswitchField({
-            label: "Adblocker"|t('tarteaucitron-js'),
+            label: "Adblocker"|t('tarteaucitron'),
             id: 'adblocker',
             name: 'adblocker',
-            instructions: "Display a message if an adblocker is detected"|t('tarteaucitron-js'),
+            instructions: "Display a message if an adblocker is detected"|t('tarteaucitron'),
             on: settings.adblocker,
             toggle: true,
             required: true,
@@ -88,10 +88,10 @@
         }) }}
 
         {{ forms.lightswitchField({
-            label: "Show small alert"|t('tarteaucitron-js'),
+            label: "Show small alert"|t('tarteaucitron'),
             id: 'showAlertSmall',
             name: 'showAlertSmall',
-            instructions: "Display the small banner at the bottom right"|t('tarteaucitron-js'),
+            instructions: "Display the small banner at the bottom right"|t('tarteaucitron'),
             on: settings.showAlertSmall,
             toggle: true,
             required: true,
@@ -101,10 +101,10 @@
         }) }}
 
         {{ forms.lightswitchField({
-            label: "Cookies list"|t('tarteaucitron-js'),
+            label: "Cookies list"|t('tarteaucitron'),
             id: 'cookieslist',
             name: 'cookieslist',
-            instructions: "View the list of installed cookies"|t('tarteaucitron-js'),
+            instructions: "View the list of installed cookies"|t('tarteaucitron'),
             on: settings.cookieslist,
             toggle: true,
             required: true,
@@ -117,10 +117,10 @@
     <div class="fit-container">
 
         {{ forms.lightswitchField({
-            label: "Remove credit"|t('tarteaucitron-js'),
+            label: "Remove credit"|t('tarteaucitron'),
             id: 'removeCredit',
             name: 'removeCredit',
-            instructions: "Delete the link to the source"|t('tarteaucitron-js'),
+            instructions: "Delete the link to the source"|t('tarteaucitron'),
             on: settings.removeCredit,
             toggle: true,
             required: true,
@@ -130,10 +130,10 @@
         }) }}
 
         {{ forms.lightswitchField({
-            label: "Handle browser DNT request"|t('tarteaucitron-js'),
+            label: "Handle browser DNT request"|t('tarteaucitron'),
             id: 'handleBrowserDNTRequest',
             name: 'handleBrowserDNTRequest',
-            instructions: "Respond to the DoNotTrack request"|t('tarteaucitron-js'),
+            instructions: "Respond to the DoNotTrack request"|t('tarteaucitron'),
             on: settings.handleBrowserDNTRequest,
             toggle: true,
             required: true,
@@ -143,10 +143,10 @@
         }) }}
 
         {{ forms.textField({
-            label: "Cookie domain"|t('tarteaucitron-js'),
+            label: "Cookie domain"|t('tarteaucitron'),
             id: 'cookieDomain',
             name: 'cookieDomain',
-            instructions: "Optional - Domain name on which the cookie will be placed (for multisites / subdomains)"|t('tarteaucitron-js'),
+            instructions: "Optional - Domain name on which the cookie will be placed (for multisites / subdomains)"|t('tarteaucitron'),
             value: settings.cookieDomain,
             disabled: 'cookieDomain' in overrides,
             warning: 'cookieDomain' in overrides ? macros.configWarning('cookieDomain'),
@@ -154,10 +154,10 @@
         }) }}
 
         {{ forms.textAreaField({
-            label: "Custom CSS"|t('tarteaucitron-js'),
+            label: "Custom CSS"|t('tarteaucitron'),
             id: 'customCss',
             name: 'customCss',
-            instructions: "Set custom CSS for tarteaucitron.js"|t('tarteaucitron-js'),
+            instructions: "Set custom CSS for tarteaucitron.js"|t('tarteaucitron'),
             value: settings.customCss,
             disabled: 'customCss' in overrides,
             warning: 'customCss' in overrides ? macros.configWarning('customCss'),

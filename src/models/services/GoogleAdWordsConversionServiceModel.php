@@ -100,7 +100,7 @@ class GoogleAdWordsConversionServiceModel extends AbstractServiceModel
 
         $oldMode = Craft::$app->getView()->getTemplateMode();
         Craft::$app->getView()->setTemplateMode(View::TEMPLATE_MODE_CP);
-        $html = Craft::$app->getView()->renderTemplate('tarteaucitron-js/services/google-adWords-conversion', [
+        $html = Craft::$app->getView()->renderTemplate('tarteaucitron/services/google-adWords-conversion', [
             'id' => $this->id,
             'label' => $this->label,
             'language' => $this->language,

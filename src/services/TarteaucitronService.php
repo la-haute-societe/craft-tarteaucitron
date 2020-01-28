@@ -61,7 +61,7 @@ class TarteaucitronService extends Component
     {
         $oldMode = Craft::$app->getView()->getTemplateMode();
         Craft::$app->getView()->setTemplateMode(View::TEMPLATE_MODE_CP);
-        $html = Craft::$app->getView()->renderTemplate('tarteaucitron-js/init', $vars);
+        $html = Craft::$app->getView()->renderTemplate('tarteaucitron/init', $vars);
         Craft::$app->getView()->setTemplateMode($oldMode);
         return $html;
     }

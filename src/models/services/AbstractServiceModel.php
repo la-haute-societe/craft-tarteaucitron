@@ -46,7 +46,7 @@ abstract class AbstractServiceModel extends Model
         $oldTemplateMode = $view->getTemplateMode();
         $view->setTemplateMode(View::TEMPLATE_MODE_CP);
 
-        $html = $view->renderTemplate('tarteaucitron-js/rendering-error', [
+        $html = $view->renderTemplate('tarteaucitron/rendering-error', [
             'errors' => $errors,
         ]);
 

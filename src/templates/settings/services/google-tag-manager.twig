@@ -1,6 +1,6 @@
-{% embed "tarteaucitron-js/settings/service" with {"id": "google-tag-manager"} %}
+{% embed "tarteaucitron/settings/service" with {"id": "google-tag-manager"} %}
     {% import "_includes/forms" as forms %}
-    {% import "tarteaucitron-js/settings/macros" as macros %}
+    {% import "tarteaucitron/settings/macros" as macros %}
 
     {% block name %}
         {% if 'isGoogleTagManagerEnabled' in overrides %}

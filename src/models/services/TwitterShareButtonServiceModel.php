@@ -73,7 +73,7 @@ class TwitterShareButtonServiceModel extends AbstractServiceModel
 
         $oldMode = Craft::$app->getView()->getTemplateMode();
         Craft::$app->getView()->setTemplateMode(View::TEMPLATE_MODE_CP);
-        $html = Craft::$app->getView()->renderTemplate('tarteaucitron-js/services/twitter-share-button', [
+        $html = Craft::$app->getView()->renderTemplate('tarteaucitron/services/twitter-share-button', [
             'via'      => $this->via,
             'size'     => $this->isLarge ? 'large' : 'normal',
             'text'     => $this->text,

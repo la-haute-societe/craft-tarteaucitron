@@ -12,7 +12,6 @@ use lhs\tarteaucitron\services\TarteaucitronService;
 use lhs\tarteaucitron\variables\TarteaucitronVariable;
 
 use yii\base\Event;
-use yii\base\Exception;
 
 /**
  * Class Tarteaucitron
@@ -86,7 +85,7 @@ class Tarteaucitron extends Plugin
         $overrides = Craft::$app->getConfig()->getConfigFromFile(strtolower($this->handle));
 
         Craft::$app->view->registerAssetBundle(SettingsAsset::class);
-        return Craft::$app->getView()->renderTemplate('tarteaucitron-js/settings', [
+        return Craft::$app->getView()->renderTemplate('tarteaucitron/settings', [
             'settings' => $settings,
             'overrides' => array_keys($overrides),
         ]);
