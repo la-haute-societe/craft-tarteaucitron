@@ -70,11 +70,13 @@ class VimeoServiceModel extends AbstractServiceModel
             return new Markup('', 'UTF-8');
         }
 
-        $this->htmlAttributes['videoID'] = $this->videoId;
-        $this->htmlAttributes['width'] = $this->width;
-        $this->htmlAttributes['height'] = $this->height;
-        Html::addCssClass($this->htmlAttributes, 'vimeo_player');
-        $html = Html::tag('div', '', $this->htmlAttributes);
+        $htmlAttributes = array_merge([
+            'data-videoID' => $this->videoId,
+            'data-width'   => $this->width,
+            'data-height'  => $this->height,
+        ], $this->htmlAttributes);
+        Html::addCssClass($htmlAttributes, 'vimeo_player');
+        $html = Html::tag('div', '', $htmlAttributes);
         return new Markup($html, 'UTF-8');
     }
 }
