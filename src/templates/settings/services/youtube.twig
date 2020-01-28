@@ -27,14 +27,14 @@
             value: "
 {{ craft.tarteaucitron.youtube({
     videoId: 'VIDEO_ID',
-    width: 'WIDTH',
-    height: 'HEIGHT',
-    theme: 'dark'|'light',
-    rel: 0|1,
-    controls: 0|1,
-    showinfo: 0|1,
-    autoplay: 0|1,
-    htmlAttributes: YOUR_HTML_OPTIONS  {# not required #}
+    width: 'WIDTH',                    {# not required, default: auto #}
+    height: 'HEIGHT',                  {# not required, default: auto #}
+    theme: 'dark'|'light',             {# not required, default: dark #}
+    rel: 0|1,                          {# not required, default: 0 #}
+    controls: 0|1,                     {# not required, default: 1 #}
+    showinfo: 0|1,                     {# not required, default: 1 #}
+    autoplay: 0|1,                     {# not required, default: 0 #}
+    htmlAttributes: { class: 'yt' }    {# not required, default: {} #}
 }) }}",
             rows: 1,
             disabled: true
