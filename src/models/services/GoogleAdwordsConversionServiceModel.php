@@ -98,20 +98,19 @@ class GoogleAdwordsConversionServiceModel extends AbstractServiceModel
             return new Markup('', 'UTF-8');
         }
 
-        $attributes = [];
-        $attributes['id'] = $this->id;
-        $attributes['label'] = $this->label;
-        $attributes['language'] = $this->language;
-        $attributes['format'] = $this->format;
-        $attributes['color'] = $this->color;
-        $attributes['value'] = $this->value;
-        $attributes['currency'] = $this->value;
-        $attributes['custom1'] = $this->custom1;
-        $attributes['custom2'] = $this->custom2;
-
         $oldMode = Craft::$app->getView()->getTemplateMode();
         Craft::$app->getView()->setTemplateMode(View::TEMPLATE_MODE_CP);
-        $html = Craft::$app->getView()->renderTemplate('tarteaucitron-js/services/google-adwords-conversion', $attributes);
+        $html = Craft::$app->getView()->renderTemplate('tarteaucitron-js/services/google-adwords-conversion', [
+            'id' => $this->id,
+            'label' => $this->label,
+            'language' => $this->language,
+            'format' => $this->format,
+            'color' => $this->color,
+            'value' => $this->value,
+            'currency' => $this->value,
+            'custom1' => $this->custom1,
+            'custom2' => $this->custom2,
+        ]);
         Craft::$app->getView()->setTemplateMode($oldMode);
 
         return new Markup($html, 'UTF-8');
