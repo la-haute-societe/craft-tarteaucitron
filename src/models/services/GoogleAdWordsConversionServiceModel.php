@@ -7,15 +7,15 @@ use craft\web\View;
 use Twig\Markup;
 
 /**
- * Class GoogleAdwordsConversionServiceModel
+ * Class GoogleAdWordsConversionServiceModel
  * @package lhs\tarteaucitron\models\services
  */
-class GoogleAdwordsConversionServiceModel extends AbstractServiceModel
+class GoogleAdWordsConversionServiceModel extends AbstractServiceModel
 {
     /**
      * @var boolean
      */
-    public $isGoogleAdwordsConversionEnabled = false;
+    public $isGoogleAdWordsConversionEnabled = false;
 
     /**
      * @var string
@@ -70,7 +70,7 @@ class GoogleAdwordsConversionServiceModel extends AbstractServiceModel
     {
         return [
             // Type validation
-            [['isGoogleAdwordsConversionEnabled'], 'boolean'],
+            [['isGoogleAdWordsConversionEnabled'], 'boolean'],
             [['id', 'label', 'language', 'format', 'color', 'value', 'currency', 'custom1', 'custom2'], 'string'],
             [['format'], 'integer'],
             [['value'], 'double'],
@@ -85,7 +85,7 @@ class GoogleAdwordsConversionServiceModel extends AbstractServiceModel
      */
     public function isServiceEnabled(): bool
     {
-        return $this->isGoogleAdwordsConversionEnabled;
+        return $this->isGoogleAdWordsConversionEnabled;
     }
 
     /**
@@ -100,7 +100,7 @@ class GoogleAdwordsConversionServiceModel extends AbstractServiceModel
 
         $oldMode = Craft::$app->getView()->getTemplateMode();
         Craft::$app->getView()->setTemplateMode(View::TEMPLATE_MODE_CP);
-        $html = Craft::$app->getView()->renderTemplate('tarteaucitron-js/services/google-adwords-conversion', [
+        $html = Craft::$app->getView()->renderTemplate('tarteaucitron-js/services/google-adWords-conversion', [
             'id' => $this->id,
             'label' => $this->label,
             'language' => $this->language,

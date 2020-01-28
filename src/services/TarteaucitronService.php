@@ -8,7 +8,7 @@ use craft\web\View;
 
 use lhs\tarteaucitron\bundles\FrontAsset;
 use lhs\tarteaucitron\models\services\AbstractServiceModel;
-use lhs\tarteaucitron\models\services\GoogleAdwordsConversionServiceModel;
+use lhs\tarteaucitron\models\services\GoogleAdWordsConversionServiceModel;
 use lhs\tarteaucitron\models\services\GoogleMapsServiceModel;
 use lhs\tarteaucitron\models\services\LinkedInServiceModel;
 use lhs\tarteaucitron\models\services\ReCaptchaServiceModel;
@@ -85,10 +85,10 @@ class TarteaucitronService extends Component
         return (bool)Tarteaucitron::getInstance()->getSettings()->isGoogleAnalyticsUniversalEnabled;
     }
 
-    public function isGoogleAdwordsRemarketingEnabled(): bool
+    public function isGoogleAdWordsRemarketingEnabled(): bool
     {
         /** @noinspection NullPointerExceptionInspection */
-        return (bool)Tarteaucitron::getInstance()->getSettings()->isGoogleAdwordsRemarketingEnabled;
+        return (bool)Tarteaucitron::getInstance()->getSettings()->isGoogleAdWordsRemarketingEnabled;
     }
 
 
@@ -124,19 +124,19 @@ class TarteaucitronService extends Component
     }
 
 
-    public function isGoogleAdwordsConversionEnabled(): bool
+    public function isGoogleAdWordsConversionEnabled(): bool
     {
         /** @noinspection NullPointerExceptionInspection */
-        return (bool)Tarteaucitron::getInstance()->getSettings()->isGoogleAdwordsConversionEnabled;
+        return (bool)Tarteaucitron::getInstance()->getSettings()->isGoogleAdWordsConversionEnabled;
     }
 
     /**
      * @param array $options
      * @return Markup
      */
-    public function renderGoogleAdwordsConversion(array $options): Markup
+    public function renderGoogleAdWordsConversion(array $options): Markup
     {
-        return $this->renderService(GoogleAdwordsConversionServiceModel::class, $options);
+        return $this->renderService(GoogleAdWordsConversionServiceModel::class, $options);
     }
 
 

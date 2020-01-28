@@ -81,13 +81,13 @@ class SettingsModel extends Model
     public $googleAnalyticsUniversalMore = '';
 
     /** @var boolean */
-    public $isGoogleAdwordsConversionEnabled = false;
+    public $isGoogleAdWordsConversionEnabled = false;
 
     /** @var boolean */
-    public $isGoogleAdwordsRemarketingEnabled = false;
+    public $isGoogleAdWordsRemarketingEnabled = false;
 
     /** @var string */
-    public $googleAdwordsRemarketingId = '';
+    public $googleAdWordsRemarketingId = '';
 
     /** @var boolean */
     public $isFacebookPixelEnabled = false;
@@ -126,12 +126,12 @@ class SettingsModel extends Model
             [['isFacebookPixelEnabled'], 'boolean'],
             [['facebookPixelId'], 'lhs\tarteaucitron\validators\FacebookPixelValidator'],
 
-            // Service - Google Adwords (conversion)
-            [['isGoogleAdwordsConversionEnabled'], 'boolean'],
+            // Service - Google AdWords (conversion)
+            [['isGoogleAdWordsConversionEnabled'], 'boolean'],
 
-            // Service - Google Adwords (remarketing)
-            [['isGoogleAdwordsRemarketingEnabled'], 'boolean'],
-            [['googleAdwordsRemarketingId'], 'lhs\tarteaucitron\validators\GoogleAdwordsRemarketingValidator'],
+            // Service - Google AdWords (remarketing)
+            [['isGoogleAdWordsRemarketingEnabled'], 'boolean'],
+            [['googleAdWordsRemarketingId'], 'lhs\tarteaucitron\validators\GoogleAdWordsRemarketingValidator'],
 
             // Service - Google Analytics Universal UA
             [['isGoogleAnalyticsUniversalEnabled'], 'boolean'],

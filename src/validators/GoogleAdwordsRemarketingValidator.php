@@ -3,10 +3,10 @@
 namespace lhs\tarteaucitron\validators;
 
 /**
- * Class GoogleAdwordsRemarketingValidator
+ * Class GoogleAdWordsRemarketingValidator
  * @package lhs\tarteaucitron\validators
  */
-class GoogleAdwordsRemarketingValidator extends TarteaucitronValidator
+class GoogleAdWordsRemarketingValidator extends TarteaucitronValidator
 {
-    protected $enablerKey = "isGoogleAdwordsRemarketingEnabled";
+    protected $enablerKey = "isGoogleAdWordsRemarketingEnabled";
 }

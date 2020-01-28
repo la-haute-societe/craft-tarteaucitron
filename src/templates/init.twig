@@ -63,17 +63,17 @@
     {% endjs %}
 {% endif %}
 
-{# Google Adwords Conversion #}
-{% if isGoogleAdwordsConversionEnabled %}
+{# Google AdWords Conversion #}
+{% if isGoogleAdWordsConversionEnabled %}
     {% js %}
         (tarteaucitron.job = tarteaucitron.job || []).push('googleadwordsconversion');
     {% endjs %}
 {% endif %}
 
-{# Google Adwords Remarketing #}
-{% if isGoogleAdwordsRemarketingEnabled and googleAdwordsRemarketingId is not empty %}
+{# Google AdWords Remarketing #}
+{% if isGoogleAdWordsRemarketingEnabled and googleAdWordsRemarketingId is not empty %}
     {% js %}
-        tarteaucitron.user.adwordsremarketingId = '{{ googleAdwordsRemarketingId }}';
+        tarteaucitron.user.adwordsremarketingId = '{{ googleAdWordsRemarketingId }}';
         (tarteaucitron.job = tarteaucitron.job || []).push('googleadwordsremarketing');
     {% endjs %}
 {% endif %}

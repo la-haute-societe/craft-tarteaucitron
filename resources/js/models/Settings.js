@@ -15,7 +15,7 @@ const TWIG_INPUTS_ID = {
     'settings-tarteaucitronInitCallExample': {'readOnly' : true, 'cursorBlinkRate': -1},
     'settings-googleMapsCallExample': {'readOnly' : true, 'cursorBlinkRate': -1},
     'settings-reCAPTCHACallExample': {'readOnly' : true},
-    'settings-googleAdwordsConversionCallExample': {'readOnly' : true, 'cursorBlinkRate': -1},
+    'settings-googleAdWordsConversionCallExample': {'readOnly' : true, 'cursorBlinkRate': -1},
     'settings-linkedinCallExample': {'readOnly' : true, 'cursorBlinkRate': -1},
     'settings-twitterFollowButtonCallExample': {'readOnly' : true, 'cursorBlinkRate': -1},
     'settings-twitterShareButtonCallExample': {'readOnly' : true, 'cursorBlinkRate': -1},

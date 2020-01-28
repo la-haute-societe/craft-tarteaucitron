@@ -41,9 +41,9 @@ class TarteaucitronVariable
      * @param array $options
      * @return Markup
      */
-    public function googleAdwordsConversion(array $options = []): Markup
+    public function googleAdWordsConversion(array $options = []): Markup
     {
-        return Plugin::getInstance()->tarteaucitron->renderGoogleAdwordsConversion($options);
+        return Plugin::getInstance()->tarteaucitron->renderGoogleAdWordsConversion($options);
     }
 
     /**
@@ -116,14 +116,14 @@ class TarteaucitronVariable
         return Plugin::getInstance()->tarteaucitron->isGoogleAnalyticsUniversalEnabled();
     }
 
-    public function isGoogleAdwordsConversionEnabled(): bool
+    public function isGoogleAdWordsConversionEnabled(): bool
     {
-        return Plugin::getInstance()->tarteaucitron->isGoogleAdwordsConversionEnabled();
+        return Plugin::getInstance()->tarteaucitron->isGoogleAdWordsConversionEnabled();
     }
 
-    public function isGoogleAdwordsRemarketingEnabled(): bool
+    public function isGoogleAdWordsRemarketingEnabled(): bool
     {
-        return Plugin::getInstance()->tarteaucitron->isGoogleAdwordsRemarketingEnabled();
+        return Plugin::getInstance()->tarteaucitron->isGoogleAdWordsRemarketingEnabled();
     }
 
     public function isLinkedInEnabled(): bool

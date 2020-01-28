@@ -72,12 +72,12 @@ return [
     'googleAnalyticsUniversalMore'      => '',
 
     /** @var bool Enable the Google AdWords Conversion service */
-    'isGoogleAdwordsConversionEnabled'  => false,
+    'isGoogleAdWordsConversionEnabled'  => false,
 
     /** @var bool Enable the Google AdWords Remarketing service */
-    'isGoogleAdwordsRemarketingEnabled' => false,
-    /** @var string Google Adwords Remarketing ID */
-    'googleAdwordsRemarketingId'        => '',
+    'isGoogleAdWordsRemarketingEnabled' => false,
+    /** @var string Google AdWords Remarketing ID */
+    'googleAdWordsRemarketingId'        => '',
 
     /** @var bool Enable the Facebook Pixel service */
     'isFacebookPixelEnabled'            => false,

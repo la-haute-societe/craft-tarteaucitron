@@ -1,29 +1,29 @@
-{% embed "tarteaucitron-js/settings/service" with {"id": "google-adwords-conversion"} %}
+{% embed "tarteaucitron-js/settings/service" with {"id": "google-adWords-conversion"} %}
     {% import "_includes/forms" as forms %}
     {% import "tarteaucitron-js/settings/macros" as macros %}
 
     {% block name %}
-        {% if 'isGoogleAdwordsConversionEnabled' in overrides %}
-            <div class="info warning">{{ macros.configWarning('isGoogleAdwordsConversionEnabled') }}</div>
+        {% if 'isGoogleAdWordsConversionEnabled' in overrides %}
+            <div class="info warning">{{ macros.configWarning('isGoogleAdWordsConversionEnabled') }}</div>
         {% endif %}
-        Google Adwords (conversion)
+        Google AdWords (conversion)
     {% endblock %}
 
     {% block enable %}
         {{ forms.lightswitchField({
-            id: 'isGoogleAdwordsConversionEnabled',
-            name: 'isGoogleAdwordsConversionEnabled',
-            on: settings.isGoogleAdwordsConversionEnabled,
+            id: 'isGoogleAdWordsConversionEnabled',
+            name: 'isGoogleAdWordsConversionEnabled',
+            on: settings.isGoogleAdWordsConversionEnabled,
             toggle: true,
-            errors: settings.getErrors('isGoogleAdwordsConversionEnabled'),
-            disabled: 'isGoogleAdwordsConversionEnabled' in overrides,
+            errors: settings.getErrors('isGoogleAdWordsConversionEnabled'),
+            disabled: 'isGoogleAdWordsConversionEnabled' in overrides,
         }) }}
     {% endblock %}
 
     {% block options %}
-        <p>Include this code where you want to instantiate Google Adwords (conversion) :</p>
+        <p>Include this code where you want to instantiate Google AdWords (conversion) :</p>
         {{ forms.textAreaField({
-            id: 'googleAdwordsConversionCallExample',
+            id: 'googleAdWordsConversionCallExample',
             value: "
 {{ craft.tarteaucitron.googleAdwordsConversion({
     id: 'ADWORDS_CONVERSION_ID',

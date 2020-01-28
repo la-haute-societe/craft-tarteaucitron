@@ -6,8 +6,8 @@ Handle GDPR in your Craft CMS projet the easy way with tarteaucitron.js.
 
 This plugin currently support the following services :
  - Facebook Pixel
- - Google Adwords (conversion)
- - Google Adwords (remarketing)
+ - Google AdWords (conversion)
+ - Google AdWords (remarketing)
  - Google Analytics (universal)
  - Google Maps
  - Google Tag Manager
@@ -37,7 +37,7 @@ Just install the plugin from the Craft Plugin Store.
 
 ## Tarte au citron plugin Overview
 
-[tarteaucitron.js](https://github.com/AmauriC/tarteaucitron.js) is a javascript library allowing you to handle GDPR compliance on your site. 
+[tarteaucitron.js](https://github.com/AmauriC/tarteaucitron.js) is a javascript library allowing you to handle GDPR compliance on your site.
 It allows the end users to give their consent before exposing them to third party services (such as Google, Facebook, Twitter...).
 
 This plugin makes the integration of tarteaucitron.js as easy as possible in Craft CMS projets.
@@ -58,7 +58,7 @@ Add the following twig code in the templates where you want the plugin to be loa
 
 Plugin and associated services are configurable from the plugin settings page.
 
-Depending on the used services in your project, you first have to activate them, then, when required, add the specified twig code on the pages where you want the service to appear. 
+Depending on the used services in your project, you first have to activate them, then, when required, add the specified twig code on the pages where you want the service to appear.
 Just replace the service parameters specified in the twig code with yours.
 
 ### Service HTML Attributes

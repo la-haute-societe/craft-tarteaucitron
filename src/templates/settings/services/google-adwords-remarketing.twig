@@ -1,35 +1,35 @@
-{% embed "tarteaucitron-js/settings/service" with {"id": "google-adwords-remarketing"} %}
+{% embed "tarteaucitron-js/settings/service" with {"id": "google-adWords-remarketing"} %}
     {% import "_includes/forms" as forms %}
     {% import "tarteaucitron-js/settings/macros" as macros %}
 
     {% block name %}
-        {% if 'isGoogleAdwordsRemarketingEnabled' in overrides %}
-            <div class="info warning">{{ macros.configWarning('isGoogleAdwordsRemarketingEnabled') }}</div>
+        {% if 'isGoogleAdWordsRemarketingEnabled' in overrides %}
+            <div class="info warning">{{ macros.configWarning('isGoogleAdWordsRemarketingEnabled') }}</div>
         {% endif %}
         Google AdWords (remarketing)
     {% endblock %}
 
     {% block enable %}
         {{ forms.lightswitchField({
-            id: 'isGoogleAdwordsRemarketingEnabled',
-            name: 'isGoogleAdwordsRemarketingEnabled',
-            on: settings.isGoogleAdwordsRemarketingEnabled,
+            id: 'isGoogleAdWordsRemarketingEnabled',
+            name: 'isGoogleAdWordsRemarketingEnabled',
+            on: settings.isGoogleAdWordsRemarketingEnabled,
             toggle: true,
-            errors: settings.getErrors('isGoogleAdwordsRemarketingEnabled'),
-            disabled: 'isGoogleAdwordsRemarketingEnabled' in overrides,
+            errors: settings.getErrors('isGoogleAdWordsRemarketingEnabled'),
+            disabled: 'isGoogleAdWordsRemarketingEnabled' in overrides,
         }) }}
     {% endblock %}
 
     {% block options %}
         {{ forms.textField({
-            label: "Google Adwords Remarketing ID"|t,
-            id: 'googleAdwordsRemarketingId',
-            name: 'googleAdwordsRemarketingId',
-            value: settings.googleAdwordsRemarketingId,
+            label: "Google AdWords Remarketing ID"|t,
+            id: 'googleAdWordsRemarketingId',
+            name: 'googleAdWordsRemarketingId',
+            value: settings.googleAdWordsRemarketingId,
             required: true,
-            warning: 'googleAdwordsRemarketingId' in overrides ? macros.configWarning('googleAdwordsRemarketingId'),
-            errors: settings.getErrors('googleAdwordsRemarketingId'),
-            disabled: 'googleAdwordsRemarketingId' in overrides,
+            warning: 'googleAdWordsRemarketingId' in overrides ? macros.configWarning('googleAdWordsRemarketingId'),
+            errors: settings.getErrors('googleAdWordsRemarketingId'),
+            disabled: 'googleAdWordsRemarketingId' in overrides,
         }) }}
     {% endblock %}
 {% endembed %}
