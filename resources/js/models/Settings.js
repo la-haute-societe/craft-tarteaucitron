@@ -1,91 +1,89 @@
 import CodeMirrorManager from "../managers/CodeMirrorManager";
 
 // Constantes
-const CSS_INPUTS_ID = {
-    'settings-customCss': {}
-};
+const CSS_INPUTS_ID = ["settings-customCss"];
 
-const JS_INPUTS_ID = {
-    'settings-googleAnalyticsUniversalMore': {'autoCloseBrackets': true},
-    'settings-facebookPixelMore': {'autoCloseBrackets': true},
-    'settings-reCAPTCHAMore': {'autoCloseBrackets': true},
-};
+const JS_INPUTS_ID = [
+  "settings-googleAnalyticsUniversalMore",
+  "settings-facebookPixelMore",
+  "settings-reCAPTCHAMore"
+];
 
-const TWIG_INPUTS_ID = {
-    'settings-tarteaucitronInitCallExample': {'readOnly' : true, 'cursorBlinkRate': -1},
-    'settings-googleMapsCallExample': {'readOnly' : true, 'cursorBlinkRate': -1},
-    'settings-reCAPTCHACallExample': {'readOnly' : true},
-    'settings-googleAdWordsConversionCallExample': {'readOnly' : true, 'cursorBlinkRate': -1},
-    'settings-linkedinCallExample': {'readOnly' : true, 'cursorBlinkRate': -1},
-    'settings-twitterFollowButtonCallExample': {'readOnly' : true, 'cursorBlinkRate': -1},
-    'settings-twitterShareButtonCallExample': {'readOnly' : true, 'cursorBlinkRate': -1},
-    'settings-vimeoCallExample': {'readOnly' : true, 'cursorBlinkRate': -1},
-    'settings-youtubeCallExample': {'readOnly' : true, 'cursorBlinkRate': -1},
-};
-
+const TWIG_INPUTS_ID = [
+  "settings-tarteaucitronInitCallExample",
+  "settings-googleMapsCallExample",
+  "settings-reCAPTCHACallExample",
+  "settings-googleAdWordsConversionCallExample",
+  "settings-linkedinCallExample",
+  "settings-twitterFollowButtonCallExample",
+  "settings-twitterShareButtonCallExample",
+  "settings-vimeoCallExample",
+  "settings-youtubeCallExample"
+];
 
 export default class Settings {
-    constructor() {
+  constructor() {}
 
-    }
+  init() {
+    this.setCollapsingElements();
+    this.initCodeMirrorInputs();
+  }
 
-    init() {
-        this.setCollapsingElements();
-        this.initCodeMirrorInputs();
-    }
+  initCodeMirrorInputs() {
+    CSS_INPUTS_ID.forEach(id => {
+      let el = document.getElementById(id);
+      if (el) {
+        CodeMirrorManager.initCssInput(el, CSS_INPUTS_ID[id]);
+      }
+    });
 
-    initCodeMirrorInputs() {
-        for (let id in CSS_INPUTS_ID) {
-            let el = document.getElementById(id);
-            if (el) {
-                CodeMirrorManager.initCssInput(el, CSS_INPUTS_ID[id]);
-            }
-        }
+    JS_INPUTS_ID.forEach(id => {
+      let el = document.getElementById(id);
+      if (el) {
+        CodeMirrorManager.initJsInput(el, { autoCloseBrackets: true });
+      }
+    });
 
-        for (let id in JS_INPUTS_ID) {
-            let el = document.getElementById(id);
-            if (el) {
-                CodeMirrorManager.initJsInput(el, JS_INPUTS_ID[id]);
-            }
-        }
-
-        for (let id in TWIG_INPUTS_ID) {
-            let el = document.getElementById(id);
-            if (el) {
-                CodeMirrorManager.initTwigInput(el, TWIG_INPUTS_ID[id]);
-            }
-        }
-    }
-
-    setCollapsingElements() {
-        // Set height of each collapsing element
-        document.addEventListener("DOMContentLoaded",function() {
-            Array.prototype.forEach.call(
-                document.getElementsByClassName("collapse__content"), function (hideable) {
-                    hideable.style.maxHeight = hideable.scrollHeight + "px";
-                }
-            );
+    TWIG_INPUTS_ID.forEach(id => {
+      let el = document.getElementById(id);
+      if (el) {
+        CodeMirrorManager.initTwigInput(el, {
+          readOnly: true,
+          cursorBlinkRate: -1
         });
+      }
+    });
+  }
 
-        document.querySelectorAll(".collapse__enable").forEach(function (el) {
+  setCollapsingElements() {
+    // Set height of each collapsing element
+    document.addEventListener("DOMContentLoaded", function() {
+      Array.prototype.forEach.call(
+        document.getElementsByClassName("collapse__content"),
+        function(hideable) {
+          hideable.style.maxHeight = hideable.scrollHeight + "px";
+        }
+      );
+    });
 
-            // Collapse if enabled
-            let isEnabled = el.querySelector('input').value;
-            let collapser = el.nextSibling.nextSibling;
-            if (isEnabled) {
-                collapser.checked = isEnabled;
-            }
+    document.querySelectorAll(".collapse__enable").forEach(function(el) {
+      // Collapse if enabled
+      let isEnabled = el.querySelector("input").value;
+      let collapser = el.nextSibling.nextSibling;
+      if (isEnabled) {
+        collapser.checked = isEnabled;
+      }
 
-            // Collapse / uncollapse on click
-            el.addEventListener('click', function (e) {
-                let isEnabled = el.querySelector('input').value;
-                let collapser = el.nextSibling.nextSibling;
-                if (collapser.type === "checkbox") {
-                    collapser.checked = isEnabled;
-                } else {
-                    console.log('Error: collapser template is poorly formated.')
-                }
-            })
-        })
-    }
+      // Collapse / uncollapse on click
+      el.addEventListener("click", function() {
+        let isEnabled = el.querySelector("input").value;
+        let collapser = el.nextSibling.nextSibling;
+        if (collapser.type === "checkbox") {
+          collapser.checked = isEnabled;
+        } else {
+          console.log("Error: collapser template is poorly formated.");
+        }
+      });
+    });
+  }
 }
