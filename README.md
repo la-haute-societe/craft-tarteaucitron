@@ -20,7 +20,8 @@ This plugin currently support the following services :
 
 ## Requirements
 
-This plugin requires Craft CMS 3.0.0 or later.
+This plugin requires Craft CMS 3.3.0 or later (may work with previous Craft 3
+versions but this hasn't been tested).
 
 
 ## Installation
@@ -29,47 +30,60 @@ This plugin requires Craft CMS 3.0.0 or later.
 
 Just install the plugin from the Craft Plugin Store.
 
-### Using Composer
+### From the command line
 
-  - Install with Composer from your project directory: `composer require la-haute-societe/craft-tarteaucitron`
-  - In the Craft Control Panel, go to Settings → Plugins and click the **Install** button for **tarteaucitron.js**.
-
-
-## Tarte au citron plugin Overview
-
-[tarteaucitron.js](https://github.com/AmauriC/tarteaucitron.js) is a javascript library allowing you to handle GDPR compliance on your site.
-It allows the end users to give their consent before exposing them to third party services (such as Google, Facebook, Twitter...).
-
-This plugin makes the integration of tarteaucitron.js as easy as possible in Craft CMS projets.
+```shell script
+composer require la-haute-societe/craft-tarteaucitron
+./craft install/plugin tarteaucitron
+````
 
 
-## Using Tarte au citron plugin
+## Tarteaucitron plugin Overview
 
-### Initialisation script
+[tarteaucitron.js](https://github.com/AmauriC/tarteaucitron.js) is a javascript
+library allowing you to handle GDPR compliance on your site.
+It allows end-users to give their consent before exposing them to third party
+services (such as Google, Facebook, Twitter…).
 
-Add the following twig code in the templates where you want the plugin to be loaded (in the `<head>` section of the layout page for example):
-```twig
+This plugin makes the integrating tarteaucitron.js in Craft CMS projects a
+breeze.
+
+
+## Using the Tarteaucitron plugin
+
+### Initialization script
+
+Add the following twig code in the templates where you want the plugin to be
+loaded (in the `<head>` section of the layout page for example):
+
+````twig
 {{ craft.tarteaucitron.initScript }}
-```
+````
 
 ### Loading services
 
-![Settings page](.readme/settings.jpg)
+<img src=".readme/settings.png" width="699" height="769" alt="Settings page" />
 
-Plugin and associated services are configurable from the plugin settings page.
+The plugin and its associated services are configurable from the plugin settings
+page.
 
-Depending on the used services in your project, you first have to activate them, then, when required, add the specified twig code on the pages where you want the service to appear.
-Just replace the service parameters specified in the twig code with yours.
+To activate a service on your site, you need to activate it and then, depending
+on the service, add the given Twig code where you want the service to be loaded.
+The Twig code will output a tarteaucitron.js placeholder, that will get replaced
+by the content you wanted to load (eg. a YouTube video, a Google Maps…) once
+tarteaucitron.js has loaded, and the user has given its consent for the service.
 
 ### Service HTML Attributes
 
-For some service templates, you can include a parameter named `htmlAttributes`. This parameter allows you to define html parameters for the html tag associated with the service.
+For some service templates, you can include a parameter named `htmlAttributes`.
+This parameter allows you to define html attributes for the html tag associated
+with the service.
 
 Example :
 
 ```twig
 {{ craft.tarteaucitron.vimeo({
-    videoId: '54989781',
+    videoId: 'xxxxxxxx',
     width: '500px',
     height: '200px',
     htmlAttributes: {
@@ -78,7 +92,88 @@ Example :
 }) }}
 ```
 
-See [dataAttributes Yii documentation](https://www.yiiframework.com/doc/api/2.0/yii-helpers-basehtml#$dataAttributes-detail).
+
+## Advanced usage
+
+### Manually instantiating services
+
+If for some reason, you'd rather not use the `craft.tarteaucitron.xxx()` methods
+to instantiate your services, you can always add the tarteaucitron.js
+placeceholder element by yourself.
+
+These two examples will have the exact same result (you still need to enable the
+Vimeo service in the plugin settings):
+
+````twig
+{{ craft.tarteaucitron.vimeo({
+    videoId: 'xxxxxxxx',
+    width: '500px',
+    height: '200px',
+    htmlAttributes: {
+        class: 'border-black',
+    }
+}) }}
+````
+
+````html
+<div
+    class="border-black vimeo_player"
+    data-videoID="xxxxxxxx"
+    data-width="500px"
+    data-height="200px"
+></div>
+````
+
+### Checking if a service is enabled
+
+You may need to check whether or not a service is enabled (as in "enabled in the
+plugin settings", this has nothing to do with whether or not the user has given
+its consent) :
+
+````twig
+{% if not craft.tarteaucitron.isTwitterEnabled() %}
+    The site admin decided to disable Twitter widgets.
+{% endif %}
+````
+
+Here are the available `isXXXEnabled()` methods:
+
+  * `isFacebookPixelEnabled()`
+  * `isGoogleTagManagerEnabled()`
+  * `isReCAPTCHAEnabled()`
+  * `isGoogleMapsEnabled()`
+  * `isGoogleAnalyticsUniversalEnabled()`
+  * `isGoogleAdWordsConversionEnabled()`
+  * `isGoogleAdWordsRemarketingEnabled()`
+  * `isLinkedInEnabled()`
+  * `isTwitterEnabled()`
+  * `isVimeoEnabled()`
+  * `isYoutubeEnabled()`
+
+### JS - Dynamically adding elements managed by a service
+
+Sometimes you need to dynamically add an element that should be managed by
+tarteaucitron.js (eg. you load a page fragment containing a Vimeo video using
+AJAX). Adding the tarteaucitron.js placeholder to the DOM isn't enough.
+You need to ask tarteaucitron.js to re-render the service :
+
+`````javascript
+// Create a tarteaucitron.js Vimeo placeholder element and add it to the document
+var div = document.createElement('div');
+div.className = 'vimeo_player';
+div.attributes['data-videoID'] = 'XXXXXX';
+div.dataset.width = '500px';
+div.dataset.height = '300px';
+document.body.appendChild(document.body.firstChild);
+
+// Make tarteaucitron.js re-render the vimeo service
+tarteaucitron.services.vimeo[tarteaucitron.state.vimeo ? 'js' : 'fallback']();
+`````
+
+### JS - Reacting to the user giving its consent to a service
+
+Unfortunately, there is no clean way to do this at the moment but a PR will be
+submitted to try and improve tarteaucitron.js.
 
 
 ## Contribute
@@ -86,9 +181,5 @@ See [dataAttributes Yii documentation](https://www.yiiframework.com/doc/api/2.0/
 Want to contribute? See [CONTRIBUTE.md](./CONTRIBUTE.md)
 
 
-## Tarte au citron plugin Roadmap
-
-* More services support
-
-
-Brought to you by ![Logo La Haute Société](.readme/logo-lahautesociete.png) [La Haute Société](https://www.lahautesociete.com)
+Brought to you by
+<a href="https://www.lahautesociete.com" target="_blank"><img src=".readme/logo-lahautesociete.png" height="200" alt="Logo La Haute Société" /></a>
