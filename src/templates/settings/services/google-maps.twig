@@ -35,7 +35,7 @@
         {{ forms.textField({
             label:        'Callback name'|t('tarteaucitron'),
             name:         'googleMapsCallbackName',
-            instructions: 'The name of a globally-defined Javascript function to call when the API is ready.'|t('tarteaucitron'),
+            instructions: '[Optional] The name of a globally-defined Javascript function to call when the API is ready.'|t('tarteaucitron'),
             value:        settings.googleMapsCallbackName,
             warning:      'googleMapsCallbackName' in overrides ? macros.configWarning('googleMapsCallbackName'),
             disabled:     'googleMapsCallbackName' in overrides,
