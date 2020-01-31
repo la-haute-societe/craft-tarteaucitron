@@ -20,6 +20,10 @@
       {
         "from": "../tarteaucitron.js/lang/**/*",
         "to": "js/lang/"
+      },
+      {
+        "from": "../resources/assets/**/*",
+        "to": "assets/"
       }
     ]
   },
