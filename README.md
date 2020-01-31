@@ -178,7 +178,7 @@ submitted to try and improve tarteaucitron.js.
 
 ## Contribute
 
-Want to contribute? See [CONTRIBUTE.md](./CONTRIBUTE.md)
+Want to contribute? See [CONTRIBUTING.md](./CONTRIBUTING.md)
 
 
 Brought to you by
