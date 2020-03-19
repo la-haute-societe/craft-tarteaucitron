@@ -1,6 +1,6 @@
 # Contribute
 
-This plugin does not currently include all of the services offered by tarteaucitron.js, any contribution is therefore welcome.
+This plugin does not currently include all the services offered by tarteaucitron.js, any contribution is therefore welcome.
 
 ## Installation
 
