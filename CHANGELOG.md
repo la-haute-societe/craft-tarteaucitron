@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+
+## [2.1.0]
 ### Added
 - Support Youtube Js API tarteaucitron.js service
 ### Changed
@@ -31,7 +34,8 @@ Updated tarteaucitron.js (we're currently using the
 ## [2.0.0] - 2020-31-01
 First public release
 
-[Unreleased]: https://github.com/la-haute-societe/craft-tarteaucitron/compare/2.0.2...HEAD
+[Unreleased]: https://github.com/la-haute-societe/craft-tarteaucitron/compare/2.1.0...HEAD
+[2.1.0]: https://github.com/la-haute-societe/craft-tarteaucitron/compare/2.0.2...2.1.0
 [2.0.2]: https://github.com/la-haute-societe/craft-tarteaucitron/compare/2.0.1...2.0.2
 [2.0.1]: https://github.com/la-haute-societe/craft-tarteaucitron/compare/2.0.0...2.0.1
 [2.0.0]: https://github.com/la-haute-societe/craft-tarteaucitron/releases/tag/2.0.0
