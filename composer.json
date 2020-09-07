@@ -2,7 +2,7 @@
   "name": "la-haute-societe/craft-tarteaucitron",
   "description": "Manage your sites' cookies with this tarteaucitron.js Craft CMS 3 integration",
   "type": "craft-plugin",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "keywords": [
     "craft",
     "cms",
