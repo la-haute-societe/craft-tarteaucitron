@@ -59,7 +59,7 @@ return [
     'YouTube'                                                                                      => 'YouTube',
 
     // Frontend
-    'Follow {user}'                                                                                => 'Suive {user}',
+    'Follow {user}'                                                                                => 'Suivre {user}',
     'Tweet'                                                                                        => 'Tweeter',
     'Something\'s wrong with the tarteaucitron plugin!'                                            => 'Le plugin tarteaucitron est mal configuré !',
 ];
