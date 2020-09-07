@@ -145,4 +145,9 @@ class TarteaucitronVariable
     {
         return Plugin::getInstance()->tarteaucitron->isYoutubeEnabled();
     }
+
+    public function isYoutubeJsApiEnabled(): bool
+    {
+        return Plugin::getInstance()->tarteaucitron->isYoutubeJsApiEnabled();
+    }
 }

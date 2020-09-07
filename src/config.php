@@ -97,4 +97,7 @@ return [
 
     /** @var bool Enable the YouTube service */
     'isYoutubeEnabled'                  => false,
+    
+    /** @var bool Enable the YouTube service */
+    'isYoutubeJsApiEnabled'             => false,
 ];

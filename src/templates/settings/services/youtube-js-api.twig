@@ -1,0 +1,26 @@
+{% embed "tarteaucitron/settings/service" with {"id": "youtubejsapi"} %}
+    {% import "_includes/forms" as forms %}
+    {% import "tarteaucitron/settings/macros" as macros %}
+
+    {% block name %}
+        {% if 'isYoutubeJsApiEnabled' in overrides %}
+            <div class="info warning">{{ macros.configWarning('isYoutubeJsApiEnabled') }}</div>
+        {% endif %}
+        {{ 'YouTube (Js API)'|t('tarteaucitron') }}
+    {% endblock %}
+
+    {% block options %}
+        {{ 'This service has no options.'|t('tarteaucitron') }}
+    {% endblock %}
+
+    {% block enable %}
+        {{ forms.lightswitchField({
+            id: 'isYoutubeJsApiEnabled',
+            name: 'isYoutubeJsApiEnabled',
+            on: settings.isYoutubeJsApiEnabled,
+            toggle: true,
+            errors: settings.getErrors('isYoutubeJsApiEnabled'),
+            disabled: 'isYoutubeJsApiEnabled' in overrides,
+        }) }}
+    {% endblock %}
+{% endembed %}

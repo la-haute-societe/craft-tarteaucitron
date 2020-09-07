@@ -32,6 +32,7 @@ return [
     'Services'                                                                                     => 'Services',
 
     // Service settings
+    'This service has no options.'                                                                  => 'Ce service n\'a pas d\'options.',
     'Facebook Pixel'                                                                               => 'Facebook Pixel',
     'Facebook Pixel ID'                                                                            => 'Identifiant Facebook Pixel',
     'Additional Javascript'                                                                        => 'Javascript additionel',

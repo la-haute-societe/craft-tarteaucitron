@@ -91,6 +91,12 @@ class TarteaucitronService extends Component
         return (bool)Tarteaucitron::getInstance()->getSettings()->isGoogleAdWordsRemarketingEnabled;
     }
 
+    public function isYoutubeJsApiEnabled(): bool
+    {
+        /** @noinspection NullPointerExceptionInspection */
+        return (bool)Tarteaucitron::getInstance()->getSettings()->isYoutubeJsApiEnabled;
+    }
+
 
     public function isReCAPTCHAEnabled(): bool
     {

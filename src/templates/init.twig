@@ -114,3 +114,10 @@
         (tarteaucitron.job = tarteaucitron.job || []).push('youtube');
     {% endjs %}
 {% endif %}
+
+{# Youtube JS API #}
+{% if isYoutubeJsApiEnabled %}
+    {% js %}
+        (tarteaucitron.job = tarteaucitron.job || []).push('youtubeapi');
+    {% endjs %}
+{% endif %}

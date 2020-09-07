@@ -110,6 +110,9 @@ class SettingsModel extends Model
     /** @var boolean */
     public $isYoutubeEnabled = false;
 
+    /** @var boolean */
+    public $isYoutubeJsApiEnabled = false;
+
 
     /**
      * @return array
@@ -164,6 +167,9 @@ class SettingsModel extends Model
 
             // Service - Youtube
             [['isYoutubeEnabled'], 'boolean'],
+
+            // Service - Youtube
+            [['isYoutubeJsApiEnabled'], 'boolean'],
         ];
     }
 }
