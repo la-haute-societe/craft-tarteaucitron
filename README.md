@@ -16,6 +16,7 @@ This plugin currently support the following services :
  - Twitter
  - Vimeo
  - Youtube
+ - Youtube Js API
 
 
 ## Requirements

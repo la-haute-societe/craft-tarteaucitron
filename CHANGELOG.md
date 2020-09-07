@@ -7,7 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 
-## [2.1.0]
+## [2.1.1] - 2020-09-07
+## Changed
+- Merge dependabot PRs
+
+
+## [2.1.0] - 2020-09-07
 ### Added
 - Support Youtube Js API tarteaucitron.js service
 ### Changed
