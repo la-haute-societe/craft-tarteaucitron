@@ -1,26 +1,13 @@
 {
   "entry": {
-    "settings": "./js/settings.js",
-    "tarteaucitron": "./js/tarteaucitron.js"
+    "settings": "./js/settings.js"
   },
   "sourceDir": "..\/resources\/",
-  "outputDir": "..\/src\/resources",
+  "outputDir": "..\/src\/resources/control-panel",
   "assets": {
     "styles": "css",
     "scripts": "js",
     "copy": [
-      {
-        "from": "../tarteaucitron.js/advertising.js",
-        "to": "js/advertising.js"
-      },
-      {
-        "from": "../tarteaucitron.js/tarteaucitron.services.js",
-        "to": "js/tarteaucitron.services.js"
-      },
-      {
-        "from": "../tarteaucitron.js/lang/**/*",
-        "to": "js/lang/"
-      },
       {
         "from": "../resources/assets/**/*",
         "to": "assets/"

@@ -12,10 +12,10 @@ class SettingsAsset extends AssetBundle
 {
     public function init()
     {
-        $assetsFilenames = json_decode(file_get_contents(__DIR__."/../resources/webpack-assets.json"), true);
+        $assetsFilenames = json_decode(file_get_contents(__DIR__."/../resources/control-panel/webpack-assets.json"), true);
 
         // define the path that your publishable resources live
-        $this->sourcePath = '@lhs/tarteaucitron/resources';
+        $this->sourcePath = '@lhs/tarteaucitron/resources/control-panel';
 
         // define the dependencies
         $this->depends = [
