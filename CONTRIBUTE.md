@@ -45,6 +45,12 @@ yarn build  # Build assets in production mode
 
 ## Updating tarteaucitron.js
 
+```bash
+git submodule init
+git submodule update
+yarn
+yarn gulp css js
+```
 
 
 
