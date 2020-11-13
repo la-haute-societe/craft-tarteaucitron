@@ -11,59 +11,86 @@ use craft\validators\ArrayValidator;
  */
 class SettingsModel extends Model
 {
+    ///////////////////////////////
+    // tarteaucitron.js settings //
+    ///////////////////////////////
+    /** @var string */
+    public $privacyUrl = null;
+
     /** @var string */
     public $hashtag = '#tarteaucitron';
-
-    /** @var bool */
-    public $highPrivacy = false;
-
-    /** @var bool */
-    public $acceptAllCta = false;
+    /** @var string */
+    public $cookieName = 'tarteaucitron';
 
     /** @var string */
     public $orientation = "top";
 
     /** @var bool */
-    public $adblocker = false;
-
-    /** @var bool */
     public $showAlertSmall = true;
-
     /** @var bool */
     public $cookieslist = true;
 
     /** @var bool */
-    public $removeCredit = false;
+    public $showIcon = true;
+    /** @var bool */
+    public $iconPosition = 'BottomRight';
+
+    /** @var bool */
+    public $adblocker = false;
+
+    /** @var bool */
+    public $denyAllCta = true;
+    /** @var bool */
+    public $acceptAllCta = false;
+    /** @var bool */
+    public $highPrivacy = false;
 
     /** @var bool */
     public $handleBrowserDNTRequest = false;
 
-    /** @var string */
-    public $cookieDomain = '';
+    /** @var bool */
+    public $removeCredit = false;
+    /** @var bool More info link — Show more info link */
+    public $moreInfoLink = true;
+    /** @var bool */
+    public $useExternalCss = false;
 
     /** @var string */
-    public $customCss = '';
+    public $cookieDomain = null;
+
+    /** @var string */
+    public $readMoreLink = null;
+
+    /** @var bool */
+    public $mandatory = true;
+
+    ///////////////////////////////////
+    // Craft plugin specific-options //
+    ///////////////////////////////////
+
+    /** @var string */
+    public $customCss = null;
 
     /** @var boolean */
     public $isGoogleTagManagerEnabled = false;
 
     /** @var string */
-    public $googleTagManagerId = '';
+    public $googleTagManagerId = null;
 
     /** @var boolean */
     public $isReCAPTCHAEnabled = false;
 
     /** @var string */
-    public $reCAPTCHASiteKey = '';
+    public $reCAPTCHASiteKey = null;
 
     /** @var string */
-    public $reCAPTCHAMore = '';
+    public $reCAPTCHAMore = null;
 
     /** @var boolean */
     public $isGoogleMapsEnabled = false;
 
     /** @var string */
-    public $googleMapsAPIKey = '';
+    public $googleMapsAPIKey = null;
 
     /** @var string[] */
     public $googleMapsLibraries = [];
@@ -75,10 +102,10 @@ class SettingsModel extends Model
     public $isGoogleAnalyticsUniversalEnabled = false;
 
     /** @var string */
-    public $googleAnalyticsUniversalUa = '';
+    public $googleAnalyticsUniversalUa = null;
 
     /** @var string */
-    public $googleAnalyticsUniversalMore = '';
+    public $googleAnalyticsUniversalMore = null;
 
     /** @var boolean */
     public $isGoogleAdWordsConversionEnabled = false;
@@ -87,16 +114,16 @@ class SettingsModel extends Model
     public $isGoogleAdWordsRemarketingEnabled = false;
 
     /** @var string */
-    public $googleAdWordsRemarketingId = '';
+    public $googleAdWordsRemarketingId = null;
 
     /** @var boolean */
     public $isFacebookPixelEnabled = false;
 
     /** @var string */
-    public $facebookPixelId = '';
+    public $facebookPixelId = null;
 
     /** @var string */
-    public $facebookPixelMore = '';
+    public $facebookPixelMore = null;
 
     /** @var boolean */
     public $isLinkedInEnabled = false;
@@ -121,9 +148,9 @@ class SettingsModel extends Model
     {
         return [
             // Core
-            [['hashtag'], 'required'],
-            [['hashtag', 'orientation', 'cookieDomain', 'customCss',], 'string'],
-            [['highPrivacy', 'adblocker', 'showAlertSmall', 'cookieslist', 'removeCredit', 'handleBrowserDNTRequest', 'acceptAllCta'], 'boolean'],
+            [['hashtag', 'cookieName'], 'required'],
+            [['privacyUrl', 'hashtag', 'cookieName', 'orientation', 'iconPosition', 'cookieDomain', 'customCss'], 'string'],
+            [['showAlertSmall', 'cookieslist', 'showIcon', 'adblocker', 'denyAllCta', 'acceptAllCta', 'highPrivacy', 'handleBrowserDNTRequest', 'removeCredit', 'moreInfoLink', 'useExternalCss', 'mandatory'], 'boolean'],
 
             // Service - Facebook Pixel
             [['isFacebookPixelEnabled'], 'boolean'],

@@ -24,80 +24,118 @@
  */
 
 return [
-    /** @var string Hashtag — Open panel automatically with this hashtag in URL */
-    'hashtag'                           => '#tarteaucitron',
-    /** @var bool High Privacy — Disable implied consent (while browsing) */
-    'highPrivacy'                       => false,
-    /** @var bool Accept all CTA — Show the accept all button when highPrivacy on */
-    'acceptAllCta'                      => false,
-    /** @var string Orientation — Banner position */
-    'orientation'                       => "top",
-    /** @var bool Adblocker — Display a message if an adblocker is detected */
-    'adblocker'                         => false,
+    ///////////////////////////////
+    // tarteaucitron.js settings //
+    ///////////////////////////////
+    /** @var string Privacy policy URL */
+    'privacyUrl' => null,
+
+    /** @var string Hashtag — Open panel with this hashtag */
+    'hashtag' => '#tarteaucitron',
+    /** @var string Cookie name */
+    'cookieName' => 'tarteaucitron',
+
+    /** @var string Orientation — Banner position [top|bottom|middle] */
+    'orientation' => 'top',
+
     /** @var bool Show small alert — Display the small banner at the bottom right */
-    'showAlertSmall'                    => true,
+    'showAlertSmall' => true,
     /** @var bool Cookie list — View the list of installed cookies */
-    'cookieslist'                       => true,
-    /** @var bool Remove credit — Delete the link to the source */
-    'removeCredit'                      => false,
-    /** @var bool Handle browser DNT request — Respond to the DoNotTrack request */
-    'handleBrowserDNTRequest'           => false,
+    'cookieslist' => true,
+
+    /** @var bool Show icon — Show cookie icon to manage cookies */
+    'showIcon' => false,
+    /** @var string Icon position — Position of the icon [BottomRight|BottomLeft|TopRight|TopLeft] */
+    'iconPosition' => 'BottomRight',
+
+    /** @var bool Adblocker — Display a message if an adblocker is detected */
+    'adblocker' => false,
+
+    /** @var bool Deny all CTA — Show the deny all button */
+    'denyAllCta' => true,
+    /** @var bool Accept all CTA — Show the accept all button when highPrivacy on */
+    'acceptAllCta' => false,
+    /** @var bool High Privacy — HIGHLY RECOMMANDED Disable auto consent */
+    'highPrivacy' => false,
+
+    /** @var bool Handle browser DNT request — If Do Not Track == 1, disallow all */
+    'handleBrowserDNTRequest' => false,
+
+    /** @var bool Remove credit — Remove credit link */
+    'removeCredit' => false,
+    /** @var bool More info link — Show more info link */
+    'moreInfoLink' => true,
+    /** @var bool Use external CSS — If false, the tarteaucitron.css file will be loaded */
+    'useExternalCss' => false,
+
     /** @var string Cookie domain — Optional - Domain name on which the cookie will be placed (for multisites / subdomains) */
-    'cookieDomain'                      => '',
+    'cookieDomain' => '',
+
+    /* @var string Change the default readmore link pointing to tarteaucitron.io */
+    'readMoreLink' => '',
+
+    /* @var bool Mandatory — Show a message about mandatory cookies */
+    'mandatory' => true,
+
+
+    ///////////////////////////////////
+    // Craft plugin specific-options //
+    ///////////////////////////////////
+
     /** @var string Custom CSS — Set custom CSS for tarteaucitron.js */
-    'customCss'                         => '',
+    'customCss' => '',
 
     /** @var bool Enable the Google Tag Manager service */
-    'isGoogleTagManagerEnabled'         => false,
+    'isGoogleTagManagerEnabled' => false,
     /** @var string Google Tag Manager ID */
-    'googleTagManagerId'                => '',
+    'googleTagManagerId' => '',
 
     /** @var bool Enable the Google Tag Manager service */
-    'isReCAPTCHAEnabled'                => false,
+    'isReCAPTCHAEnabled' => false,
     /** @var string reCAPTCHA site key */
-    'reCAPTCHASiteKey'                  => '',
+    'reCAPTCHASiteKey' => '',
     /** @var string Callback name — The name of a globally defined javascript function to call when the reCAPTCHA script has finished loading. */
-    'reCAPTCHAMore'             => '',
+    'reCAPTCHAMore' => '',
 
     /** @var bool Enable the Google Maps service */
-    'isGoogleMapsEnabled'               => false,
+    'isGoogleMapsEnabled' => false,
     /** @var string Google Maps API KEY */
-    'googleMapsAPIKey'                  => '',
+    'googleMapsAPIKey' => '',
 
     /** @var bool Enable the Google Analytics service */
     'isGoogleAnalyticsUniversalEnabled' => false,
     /** @var string Analytics UA */
-    'googleAnalyticsUniversalUa'        => '',
+    'googleAnalyticsUniversalUa' => '',
     /** @var string Additional Javascript — Optional - Add here your optional ga.push() */
-    'googleAnalyticsUniversalMore'      => '',
+    'googleAnalyticsUniversalMore' => '',
 
     /** @var bool Enable the Google AdWords Conversion service */
-    'isGoogleAdWordsConversionEnabled'  => false,
+    'isGoogleAdWordsConversionEnabled' => false,
 
     /** @var bool Enable the Google AdWords Remarketing service */
     'isGoogleAdWordsRemarketingEnabled' => false,
     /** @var string Google AdWords Remarketing ID */
-    'googleAdWordsRemarketingId'        => '',
+    'googleAdWordsRemarketingId' => '',
 
     /** @var bool Enable the Facebook Pixel service */
-    'isFacebookPixelEnabled'            => false,
+    'isFacebookPixelEnabled' => false,
     /** @var string Facebook Pixel ID */
-    'facebookPixelId'                   => '',
+    'facebookPixelId' => '',
     /** @var string Additional Javascript — Optional - Add here your optional Facebook Pixel function */
-    'facebookPixelMore'                 => '',
+    'facebookPixelMore' => '',
 
     /** @var bool Enable the LinkedIn service */
-    'isLinkedInEnabled'                 => false,
+    'isLinkedInEnabled' => false,
 
     /** @var bool Enable the Twitter service */
-    'isTwitterEnabled'                  => false,
+    'isTwitterEnabled' => false,
 
     /** @var bool Enable the Vimeo service */
-    'isVimeoEnabled'                    => false,
+    'isVimeoEnabled' => false,
 
     /** @var bool Enable the YouTube service */
-    'isYoutubeEnabled'                  => false,
-    
+    'isYoutubeEnabled' => false,
+
     /** @var bool Enable the YouTube service */
-    'isYoutubeJsApiEnabled'             => false,
+    'isYoutubeJsApiEnabled' => false,
 ];

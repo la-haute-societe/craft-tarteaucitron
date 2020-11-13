@@ -43,7 +43,7 @@ class TarteaucitronService extends Component
 
         /** @noinspection NullPointerExceptionInspection */
         $settings = Tarteaucitron::getInstance()->getSettings();
-        $html = $this->getInitHtml(get_object_vars($settings));
+        $html = $this->getInitHtml([ 'settings' => $settings ]);
 
         return new Markup($html, 'UTF-8');
     }

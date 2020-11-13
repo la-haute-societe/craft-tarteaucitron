@@ -1,36 +1,65 @@
+{# @var settings \lhs\tarteaucitron\models\SettingsModel #}
+
 {% css %}
-    {{ customCss }}
+    {{ settings.customCss }}
 {% endcss %}
 
 {% js %}
     tarteaucitron.init({
-        "hashtag": "{{ hashtag }}",
-        "highPrivacy": {{ highPrivacy ? 'true' : 'false' }},
-        "acceptAllCta": {{ acceptAllCta ? 'true' : 'false' }},
-        "orientation": "{{ orientation }}",
-        "adblocker": {{ adblocker ? 'true' : 'false' }},
-        "showAlertSmall": {{ showAlertSmall ? 'true' : 'false' }},
-        "cookieslist": {{ cookieslist ? 'true' : 'false' }},
-        "removeCredit": {{ removeCredit ? 'true' : 'false' }},
-        "handleBrowserDNTRequest": {{ handleBrowserDNTRequest ? 'true' : 'false' }},
-        "useExternalCss": "true",
-        {% if cookieDomain %}"cookieDomain": "{{ cookieDomain }}"{% endif %}
+        {% if settings.privacyUrl -%}
+            privacyUrl: {{ settings.privacyUrl|json_encode|raw }},
+        {% endif -%}
+
+        hashtag:    {{ settings.hashtag|json_encode|raw }},
+        cookieName: {{ settings.cookieName|json_encode|raw }},
+
+        orientation: {{ settings.orientation|json_encode|raw }},
+
+        showAlertSmall: {{ settings.showAlertSmall|json_encode|raw }},
+        cookieslist:    {{ settings.cookieslist|json_encode|raw }},
+
+        showIcon:     {{ settings.showIcon|json_encode|raw }},
+        iconPosition: {{ settings.iconPosition|json_encode|raw }},
+
+        adblocker: {{ settings.adblocker|json_encode|raw }},
+
+        AcceptAllCta: {{ settings.acceptAllCta|json_encode|raw }},
+        DenyAllCta:   {{ settings.denyAllCta|json_encode|raw }},
+        highPrivacy:  {{ settings.highPrivacy|json_encode|raw }},
+
+        handleBrowserDNTRequest: {{ settings.handleBrowserDNTRequest|json_encode|raw }},
+
+        removeCredit: {{ settings.removeCredit|json_encode|raw }},
+        {% if settings.moreInfoLink -%}
+            moreInfoLink: {{ settings.moreInfoLink|json_encode|raw }},
+        {% endif -%}
+        useExternalCss: {{ settings.useExternalCss|json_encode|raw }},
+
+        {% if settings.cookieDomain -%}
+            cookieDomain: {{ settings.cookieDomain|json_encode|raw }}
+        {% endif -%}
+
+        {% if settings.moreInfoLink -%}
+            readmoreLink: {{ settings.readMoreLink|json_encode|raw }},
+        {% endif -%}
+
+        mandatory: {{ settings.mandatory|json_encode|raw }},
     });
 {% endjs %}
 
 {# Google Tag Manager #}
-{% if isGoogleTagManagerEnabled and googleTagManagerId is not empty %}
+{% if settings.isGoogleTagManagerEnabled and settings.googleTagManagerId is not empty %}
     {% js %}
-        tarteaucitron.user.googletagmanagerId = '{{ googleTagManagerId }}';
+        tarteaucitron.user.googletagmanagerId = '{{ settings.googleTagManagerId }}';
         (tarteaucitron.job = tarteaucitron.job || []).push('googletagmanager');
     {% endjs %}
 {% endif %}
 
 {# reCAPTCHA #}
-{% if isReCAPTCHAEnabled and reCAPTCHASiteKey is not empty %}
+{% if settings.isReCAPTCHAEnabled and settings.reCAPTCHASiteKey is not empty %}
     {% if reCAPTCHAMore is not empty %}
         {% js %}
-            tarteaucitron.user.recaptchaOnLoad = function() { {{ reCAPTCHAMore | raw }} };
+            tarteaucitron.user.recaptchaOnLoad = function() { {{ settings.reCAPTCHAMore | raw }} };
         {% endjs %}
     {% endif %}
     {% js %}
@@ -39,84 +68,84 @@
 {% endif %}
 
 {# Google Maps #}
-{% if isGoogleMapsEnabled and googleMapsAPIKey is not empty %}
+{% if settings.isGoogleMapsEnabled and settings.googleMapsAPIKey is not empty %}
     {% js %}
-        tarteaucitron.user.googlemapsKey = '{{ googleMapsAPIKey }}';
+        tarteaucitron.user.googlemapsKey = '{{ settings.googleMapsAPIKey }}';
         (tarteaucitron.job = tarteaucitron.job || []).push('googlemaps');
 
-        {% if googleMapsCallbackName %}
-            tarteaucitron.user.mapscallback = '{{ googleMapsCallbackName }}';
+        {% if settings.googleMapsCallbackName %}
+            tarteaucitron.user.mapscallback = '{{ settings.googleMapsCallbackName }}';
         {% endif %}
 
-        {% if googleMapsAPIKey %}
-            tarteaucitron.user.googlemapsLibraries = '{{ googleMapsLibraries | join (',') }}';
+        {% if settings.googleMapsAPIKey %}
+            tarteaucitron.user.googlemapsLibraries = '{{ settings.googleMapsLibraries | join (',') }}';
         {% endif %}
     {% endjs %}
 {% endif %}
 
 {# Google Analytics Universal #}
-{% if isGoogleAnalyticsUniversalEnabled and googleAnalyticsUniversalUa is not empty %}
+{% if settings.isGoogleAnalyticsUniversalEnabled and settings.googleAnalyticsUniversalUa is not empty %}
     {% js %}
-        tarteaucitron.user.analyticsUa = '{{ googleAnalyticsUniversalUa }}';
-        tarteaucitron.user.analyticsMore = function () { {{ googleAnalyticsUniversalMore | raw }} };
+        tarteaucitron.user.analyticsUa = '{{ settings.googleAnalyticsUniversalUa }}';
+        tarteaucitron.user.analyticsMore = function () { {{ settings.googleAnalyticsUniversalMore | raw }} };
         (tarteaucitron.job = tarteaucitron.job || []).push('analytics');
     {% endjs %}
 {% endif %}
 
 {# Google AdWords Conversion #}
-{% if isGoogleAdWordsConversionEnabled %}
+{% if settings.isGoogleAdWordsConversionEnabled %}
     {% js %}
         (tarteaucitron.job = tarteaucitron.job || []).push('googleadwordsconversion');
     {% endjs %}
 {% endif %}
 
 {# Google AdWords Remarketing #}
-{% if isGoogleAdWordsRemarketingEnabled and googleAdWordsRemarketingId is not empty %}
+{% if settings.isGoogleAdWordsRemarketingEnabled and settings.googleAdWordsRemarketingId is not empty %}
     {% js %}
-        tarteaucitron.user.adwordsremarketingId = '{{ googleAdWordsRemarketingId }}';
+        tarteaucitron.user.adwordsremarketingId = '{{ settings.googleAdWordsRemarketingId }}';
         (tarteaucitron.job = tarteaucitron.job || []).push('googleadwordsremarketing');
     {% endjs %}
 {% endif %}
 
 {# Facebook Pixel #}
-{% if isFacebookPixelEnabled and facebookPixelId is not empty %}
+{% if settings.isFacebookPixelEnabled and settings.facebookPixelId is not empty %}
     {% js %}
-        tarteaucitron.user.facebookpixelId = '{{ facebookPixelId }}';
-        tarteaucitron.user.facebookpixelMore = function () { {{ facebookPixelMore | raw }} };
+        tarteaucitron.user.facebookpixelId = '{{ settings.facebookPixelId }}';
+        tarteaucitron.user.facebookpixelMore = function () { {{ settings.facebookPixelMore | raw }} };
         (tarteaucitron.job = tarteaucitron.job || []).push('facebookpixel');
     {% endjs %}
 {% endif %}
 
 {# Linkedin #}
-{% if isLinkedInEnabled %}
+{% if settings.isLinkedInEnabled %}
     {% js %}
         (tarteaucitron.job = tarteaucitron.job || []).push('linkedin');
     {% endjs %}
 {% endif %}
 
 {# Twitter #}
-{% if isTwitterEnabled %}
+{% if settings.isTwitterEnabled %}
     {% js %}
         (tarteaucitron.job = tarteaucitron.job || []).push('twitter');
     {% endjs %}
 {% endif %}
 
 {# Vimeo #}
-{% if isVimeoEnabled %}
+{% if settings.isVimeoEnabled %}
     {% js %}
         (tarteaucitron.job = tarteaucitron.job || []).push('vimeo');
     {% endjs %}
 {% endif %}
 
 {# Youtube #}
-{% if isYoutubeEnabled %}
+{% if settings.isYoutubeEnabled %}
     {% js %}
         (tarteaucitron.job = tarteaucitron.job || []).push('youtube');
     {% endjs %}
 {% endif %}
 
 {# Youtube JS API #}
-{% if isYoutubeJsApiEnabled %}
+{% if settings.isYoutubeJsApiEnabled %}
     {% js %}
         (tarteaucitron.job = tarteaucitron.job || []).push('youtubeapi');
     {% endjs %}
