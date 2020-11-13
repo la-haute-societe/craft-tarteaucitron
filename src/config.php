@@ -81,6 +81,8 @@ return [
     ///////////////////////////////////
     // Craft plugin specific-options //
     ///////////////////////////////////
+    /** @var bool Force tarteaucitron.js language to the same language as Craft */
+    'forceLanguage' => true,
 
     /** @var string Custom CSS — Set custom CSS for tarteaucitron.js */
     'customCss' => '',

@@ -292,6 +292,19 @@
         }) }}
 
 
+        {{ forms.lightswitchField({
+            label: "Force language"|t('tarteaucitron'),
+            id: 'forceLanguage',
+            name: 'forceLanguage',
+            instructions: "Force tarteaucitron.js to use the same language as Craft"|t('tarteaucitron'),
+            on: settings.forceLanguage,
+            toggle: true,
+            required: true,
+            disabled: 'forceLanguage' in overrides,
+            warning: 'forceLanguage' in overrides ? macros.configWarning('forceLanguage'),
+            errors: settings.getErrors('forceLanguage')
+        }) }}
+
         {{ forms.textAreaField({
             label: "Custom CSS"|t('tarteaucitron'),
             id: 'customCss',

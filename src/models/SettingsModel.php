@@ -68,6 +68,9 @@ class SettingsModel extends Model
     // Craft plugin specific-options //
     ///////////////////////////////////
 
+    /** @var bool */
+    public $forceLanguage = true;
+
     /** @var string */
     public $customCss = null;
 

@@ -5,6 +5,9 @@
 {% endcss %}
 
 {% js %}
+    {% if settings.forceLanguage -%}
+        var tarteaucitronForceLanguage = {{ craft.app.language|json_encode|raw }};
+    {% endif -%}
     tarteaucitron.init({
         {% if settings.privacyUrl -%}
             privacyUrl: {{ settings.privacyUrl|json_encode|raw }},

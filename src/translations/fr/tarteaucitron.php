@@ -31,6 +31,8 @@ return [
     'Custom CSS'                                                                                   => 'CSS personnalisé',
     'Read more link' => 'Lien "En savoir plus"',
     '[Optional] Change the default read more link pointing to tarteaucitron.io' => '[Optionnel] Changer l\'URL lien "En savoir plus" qui pointe normalement vers tarteaucitron.io',
+    'Force language' => 'Forcer la langue',
+    'Force tarteaucitron.js to use the same language as Craft' => 'Forcer tarteaucitron.js à utiliser la même langue que Craft',
     'Set custom CSS for tarteaucitron.js'                                                          => 'Injecte du CSS pour personnaliser Tarteaucitron.',
     'Configuration'                                                                                => 'Configuration',
     'Services'                                                                                     => 'Services',
