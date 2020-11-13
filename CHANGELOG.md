@@ -7,16 +7,34 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 
+## [2.2.0] - 2020-11-13
+### Added
+- Add support for new tarteaucitron.js settings: `privacyUrl`, `cookieName`,
+  `showIcon`, `iconPosition`, `DenyAllCta`, `moreInfoLink`, `readmoreLink`,
+  & `mandatory`
+- Force tarteaucitron.js to use the same language as Craft by default
+  (may be disabled to get the old behavior)
+
+### Changed
+- Updated tarteaucitron.js
+- Merge dependabot PRs
+
+### Fixed
+- A bug that prevented forcing tarteaucitron.js language
+
+
 ## [2.1.1] - 2020-09-07
-## Changed
+### Changed
 - Merge dependabot PRs
 
 
 ## [2.1.0] - 2020-09-07
 ### Added
 - Support Youtube Js API tarteaucitron.js service
+
 ### Changed
 - Updated tarteaucitron.js
+
 ### Fixed
 - Typo in french translation
 
@@ -24,7 +42,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [2.0.2] - 2020-06-24
 ### Changed
 - Updated tarteaucitron.js
-- Fix a composer deprecation notice (due to a filename classname casse mismatch)
+- Fix a composer deprecation notice (due to a filename classname case mismatch)
 
 
 ## [2.0.1] - 2020-03-19
@@ -39,7 +57,8 @@ Updated tarteaucitron.js (we're currently using the
 ## [2.0.0] - 2020-31-01
 First public release
 
-[Unreleased]: https://github.com/la-haute-societe/craft-tarteaucitron/compare/2.1.0...HEAD
+[Unreleased]: https://github.com/la-haute-societe/craft-tarteaucitron/compare/2.2.0...HEAD
+[2.2.0]: https://github.com/la-haute-societe/craft-tarteaucitron/compare/2.1.0...2.2.0
 [2.1.0]: https://github.com/la-haute-societe/craft-tarteaucitron/compare/2.0.2...2.1.0
 [2.0.2]: https://github.com/la-haute-societe/craft-tarteaucitron/compare/2.0.1...2.0.2
 [2.0.1]: https://github.com/la-haute-societe/craft-tarteaucitron/compare/2.0.0...2.0.1
