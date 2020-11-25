@@ -119,6 +119,14 @@
     {% endjs %}
 {% endif %}
 
+{# FACIL'iti #}
+{% if settings.isFacilitiEnabled and settings.facilitiId is not empty %}
+    {% js %}
+        tarteaucitron.user.facilitiID = '{{ settings.facilitiId }}';
+        (tarteaucitron.job = tarteaucitron.job || []).push('faciliti');
+    {% endjs %}
+{% endif %}
+
 {# Linkedin #}
 {% if settings.isLinkedInEnabled %}
     {% js %}

@@ -92,6 +92,11 @@ return [
     /** @var string Google Tag Manager ID */
     'googleTagManagerId' => '',
 
+    /** @var bool Enable the FACIL'iti service */
+    'isFacilitiEnabled' => false,
+    /** @var string FACIL'iti ID */
+    'facilitiId' => '',
+
     /** @var bool Enable the Google Tag Manager service */
     'isReCAPTCHAEnabled' => false,
     /** @var string reCAPTCHA site key */

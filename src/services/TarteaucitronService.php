@@ -73,6 +73,12 @@ class TarteaucitronService extends Component
         return (bool)Tarteaucitron::getInstance()->getSettings()->isFacebookPixelEnabled;
     }
 
+    public function isFacilitiEnabled(): bool
+    {
+        /** @noinspection NullPointerExceptionInspection */
+        return (bool)Tarteaucitron::getInstance()->getSettings()->isFacilitiEnabled;
+    }
+
     public function isGoogleTagManagerEnabled(): bool
     {
         /** @noinspection NullPointerExceptionInspection */
@@ -256,6 +262,5 @@ class TarteaucitronService extends Component
         }
 
         return $model->getHtml();
-
     }
 }

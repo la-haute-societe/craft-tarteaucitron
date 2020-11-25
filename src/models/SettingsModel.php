@@ -75,6 +75,12 @@ class SettingsModel extends Model
     public $customCss = null;
 
     /** @var boolean */
+    public $isFacilitiEnabled = false;
+
+    /** @var string */
+    public $facilitiId = null;
+
+    /** @var boolean */
     public $isGoogleTagManagerEnabled = false;
 
     /** @var string */

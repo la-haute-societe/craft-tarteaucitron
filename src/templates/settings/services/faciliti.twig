@@ -1,0 +1,35 @@
+{% embed "tarteaucitron/settings/service" with {"id": "facil-iti"} %}
+    {% import "_includes/forms" as forms %}
+    {% import "tarteaucitron/settings/macros" as macros %}
+
+    {% block name %}
+        {% if 'isFacilitiEnabled' in overrides %}
+            <div class="info warning">{{ macros.configWarning('isFacilitiEnabled') }}</div>
+        {% endif %}
+        {{ "FACIL'iti"|t('tarteaucitron') }}
+    {% endblock %}
+
+    {% block enable %}
+        {{ forms.lightswitchField({
+            id: 'isFacilitiEnabled',
+            name: 'isFacilitiEnabled',
+            on: settings.isFacilitiEnabled,
+            toggle: true,
+            errors: settings.getErrors('isFacilitiEnabled'),
+            disabled: 'isFacilitiEnabled' in overrides,
+        }) }}
+    {% endblock %}
+
+    {% block options %}
+        {{ forms.textField({
+            label: "FACIL'iti ID"|t('tarteaucitron'),
+            id: 'facilitiId',
+            name: 'facilitiId',
+            value: settings.facilitiId,
+            required: true,
+            warning: 'facilitiId' in overrides ? macros.configWarning('facilitiId'),
+            disabled: 'facilitiId' in overrides,
+            errors: settings.getErrors('facilitiId')
+        }) }}
+    {% endblock %}
+{% endembed %}

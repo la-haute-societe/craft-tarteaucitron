@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 
+## [2.3.0] - 2020-11-25
+### Added
+- Add support for the FACIL'iti tarteaucitron.js service
+
+
 ## [2.2.0] - 2020-11-13
 ### Added
 - Add support for new tarteaucitron.js settings: `privacyUrl`, `cookieName`,
@@ -58,7 +63,9 @@ Updated tarteaucitron.js (we're currently using the
 First public release
 
 [Unreleased]: https://github.com/la-haute-societe/craft-tarteaucitron/compare/2.2.0...HEAD
-[2.2.0]: https://github.com/la-haute-societe/craft-tarteaucitron/compare/2.1.0...2.2.0
+[2.3.0]: https://github.com/la-haute-societe/craft-tarteaucitron/compare/2.2.0...2.3.0
+[2.2.0]: https://github.com/la-haute-societe/craft-tarteaucitron/compare/2.1.1...2.2.0
+[2.1.1]: https://github.com/la-haute-societe/craft-tarteaucitron/compare/2.1.0...2.1.1
 [2.1.0]: https://github.com/la-haute-societe/craft-tarteaucitron/compare/2.0.2...2.1.0
 [2.0.2]: https://github.com/la-haute-societe/craft-tarteaucitron/compare/2.0.1...2.0.2
 [2.0.1]: https://github.com/la-haute-societe/craft-tarteaucitron/compare/2.0.0...2.0.1
