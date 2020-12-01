@@ -60,7 +60,7 @@
 
 {# reCAPTCHA #}
 {% if settings.isReCAPTCHAEnabled and settings.reCAPTCHASiteKey is not empty %}
-    {% if reCAPTCHAMore is not empty %}
+    {% if settings.reCAPTCHAMore is not empty %}
         {% js %}
             tarteaucitron.user.recaptchaOnLoad = function() { {{ settings.reCAPTCHAMore | raw }} };
         {% endjs %}

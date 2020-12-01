@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 
+## [2.3.1] - 2020-12-01
+### Fixed
+- Fix reference error when reCaptcha service is enabled
+
+
 ## [2.3.0] - 2020-11-25
 ### Added
 - Add support for the FACIL'iti tarteaucitron.js service
@@ -62,7 +67,8 @@ Updated tarteaucitron.js (we're currently using the
 ## [2.0.0] - 2020-31-01
 First public release
 
-[Unreleased]: https://github.com/la-haute-societe/craft-tarteaucitron/compare/2.2.0...HEAD
+[Unreleased]: https://github.com/la-haute-societe/craft-tarteaucitron/compare/2.3.1...HEAD
+[2.3.1]: https://github.com/la-haute-societe/craft-tarteaucitron/compare/2.3.0...2.3.1
 [2.3.0]: https://github.com/la-haute-societe/craft-tarteaucitron/compare/2.2.0...2.3.0
 [2.2.0]: https://github.com/la-haute-societe/craft-tarteaucitron/compare/2.1.1...2.2.0
 [2.1.1]: https://github.com/la-haute-societe/craft-tarteaucitron/compare/2.1.0...2.1.1
