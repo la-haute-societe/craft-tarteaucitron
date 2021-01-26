@@ -4,7 +4,7 @@
     {{ settings.customCss }}
 {% endcss %}
 
-{% js %}
+<script>
     {% if settings.forceLanguage -%}
         var tarteaucitronForceLanguage = {{ craft.app.language|json_encode|raw }};
     {% endif -%}
@@ -48,31 +48,23 @@
 
         mandatory: {{ settings.mandatory|json_encode|raw }},
     });
-{% endjs %}
 
-{# Google Tag Manager #}
-{% if settings.isGoogleTagManagerEnabled and settings.googleTagManagerId is not empty %}
-    {% js %}
+    {# Google Tag Manager #}
+    {% if settings.isGoogleTagManagerEnabled and settings.googleTagManagerId is not empty %}
         tarteaucitron.user.googletagmanagerId = '{{ settings.googleTagManagerId }}';
         (tarteaucitron.job = tarteaucitron.job || []).push('googletagmanager');
-    {% endjs %}
-{% endif %}
-
-{# reCAPTCHA #}
-{% if settings.isReCAPTCHAEnabled and settings.reCAPTCHASiteKey is not empty %}
-    {% if settings.reCAPTCHAMore is not empty %}
-        {% js %}
-            tarteaucitron.user.recaptchaOnLoad = function() { {{ settings.reCAPTCHAMore | raw }} };
-        {% endjs %}
     {% endif %}
-    {% js %}
-        (tarteaucitron.job = tarteaucitron.job || []).push('recaptcha');
-    {% endjs %}
-{% endif %}
 
-{# Google Maps #}
-{% if settings.isGoogleMapsEnabled and settings.googleMapsAPIKey is not empty %}
-    {% js %}
+    {# reCAPTCHA #}
+    {% if settings.isReCAPTCHAEnabled and settings.reCAPTCHASiteKey is not empty %}
+        {% if settings.reCAPTCHAMore is not empty %}
+            tarteaucitron.user.recaptchaOnLoad = function() { {{ settings.reCAPTCHAMore | raw }} };
+        {% endif %}
+        (tarteaucitron.job = tarteaucitron.job || []).push('recaptcha');
+    {% endif %}
+
+    {# Google Maps #}
+    {% if settings.isGoogleMapsEnabled and settings.googleMapsAPIKey is not empty %}
         tarteaucitron.user.googlemapsKey = '{{ settings.googleMapsAPIKey }}';
         (tarteaucitron.job = tarteaucitron.job || []).push('googlemaps');
 
@@ -83,81 +75,61 @@
         {% if settings.googleMapsAPIKey %}
             tarteaucitron.user.googlemapsLibraries = '{{ settings.googleMapsLibraries | join (',') }}';
         {% endif %}
-    {% endjs %}
-{% endif %}
+    {% endif %}
 
-{# Google Analytics Universal #}
-{% if settings.isGoogleAnalyticsUniversalEnabled and settings.googleAnalyticsUniversalUa is not empty %}
-    {% js %}
+    {# Google Analytics Universal #}
+    {% if settings.isGoogleAnalyticsUniversalEnabled and settings.googleAnalyticsUniversalUa is not empty %}
         tarteaucitron.user.analyticsUa = '{{ settings.googleAnalyticsUniversalUa }}';
         tarteaucitron.user.analyticsMore = function () { {{ settings.googleAnalyticsUniversalMore | raw }} };
         (tarteaucitron.job = tarteaucitron.job || []).push('analytics');
-    {% endjs %}
-{% endif %}
+    {% endif %}
 
-{# Google AdWords Conversion #}
-{% if settings.isGoogleAdWordsConversionEnabled %}
-    {% js %}
+    {# Google AdWords Conversion #}
+    {% if settings.isGoogleAdWordsConversionEnabled %}
         (tarteaucitron.job = tarteaucitron.job || []).push('googleadwordsconversion');
-    {% endjs %}
-{% endif %}
+    {% endif %}
 
-{# Google AdWords Remarketing #}
-{% if settings.isGoogleAdWordsRemarketingEnabled and settings.googleAdWordsRemarketingId is not empty %}
-    {% js %}
+    {# Google AdWords Remarketing #}
+    {% if settings.isGoogleAdWordsRemarketingEnabled and settings.googleAdWordsRemarketingId is not empty %}
         tarteaucitron.user.adwordsremarketingId = '{{ settings.googleAdWordsRemarketingId }}';
         (tarteaucitron.job = tarteaucitron.job || []).push('googleadwordsremarketing');
-    {% endjs %}
-{% endif %}
+    {% endif %}
 
-{# Facebook Pixel #}
-{% if settings.isFacebookPixelEnabled and settings.facebookPixelId is not empty %}
-    {% js %}
+    {# Facebook Pixel #}
+    {% if settings.isFacebookPixelEnabled and settings.facebookPixelId is not empty %}
         tarteaucitron.user.facebookpixelId = '{{ settings.facebookPixelId }}';
         tarteaucitron.user.facebookpixelMore = function () { {{ settings.facebookPixelMore | raw }} };
         (tarteaucitron.job = tarteaucitron.job || []).push('facebookpixel');
-    {% endjs %}
-{% endif %}
+    {% endif %}
 
-{# FACIL'iti #}
-{% if settings.isFacilitiEnabled and settings.facilitiId is not empty %}
-    {% js %}
+    {# FACIL'iti #}
+    {% if settings.isFacilitiEnabled and settings.facilitiId is not empty %}
         tarteaucitron.user.facilitiID = '{{ settings.facilitiId }}';
         (tarteaucitron.job = tarteaucitron.job || []).push('faciliti');
-    {% endjs %}
-{% endif %}
+    {% endif %}
 
-{# Linkedin #}
-{% if settings.isLinkedInEnabled %}
-    {% js %}
+    {# Linkedin #}
+    {% if settings.isLinkedInEnabled %}
         (tarteaucitron.job = tarteaucitron.job || []).push('linkedin');
-    {% endjs %}
-{% endif %}
+    {% endif %}
 
-{# Twitter #}
-{% if settings.isTwitterEnabled %}
-    {% js %}
+    {# Twitter #}
+    {% if settings.isTwitterEnabled %}
         (tarteaucitron.job = tarteaucitron.job || []).push('twitter');
-    {% endjs %}
-{% endif %}
+    {% endif %}
 
-{# Vimeo #}
-{% if settings.isVimeoEnabled %}
-    {% js %}
+    {# Vimeo #}
+    {% if settings.isVimeoEnabled %}
         (tarteaucitron.job = tarteaucitron.job || []).push('vimeo');
-    {% endjs %}
-{% endif %}
+    {% endif %}
 
-{# Youtube #}
-{% if settings.isYoutubeEnabled %}
-    {% js %}
+    {# Youtube #}
+    {% if settings.isYoutubeEnabled %}
         (tarteaucitron.job = tarteaucitron.job || []).push('youtube');
-    {% endjs %}
-{% endif %}
+    {% endif %}
 
-{# Youtube JS API #}
-{% if settings.isYoutubeJsApiEnabled %}
-    {% js %}
+    {# Youtube JS API #}
+    {% if settings.isYoutubeJsApiEnabled %}
         (tarteaucitron.job = tarteaucitron.job || []).push('youtubeapi');
-    {% endjs %}
-{% endif %}
+    {% endif %}
+</script>

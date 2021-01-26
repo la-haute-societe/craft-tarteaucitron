@@ -100,7 +100,7 @@ Example :
 
 If for some reason, you'd rather not use the `craft.tarteaucitron.xxx()` methods
 to instantiate your services, you can always add the tarteaucitron.js
-placeceholder element by yourself.
+placeholder element by yourself.
 
 These two examples will have the exact same result (you still need to enable the
 Vimeo service in the plugin settings):
@@ -127,9 +127,9 @@ Vimeo service in the plugin settings):
 
 ### Checking if a service is enabled
 
-You may need to check whether or not a service is enabled (as in "enabled in the
-plugin settings", this has nothing to do with whether or not the user has given
-its consent) :
+You may need to check whether a service is enabled (as in "enabled in the
+plugin settings", this has nothing to do with whether the user has given
+its consent):
 
 ````twig
 {% if not craft.tarteaucitron.isTwitterEnabled() %}
@@ -173,8 +173,26 @@ tarteaucitron.services.vimeo[tarteaucitron.state.vimeo ? 'js' : 'fallback']();
 
 ### JS - Reacting to the user giving its consent to a service
 
-Unfortunately, there is no clean way to do this at the moment but a PR will be
-submitted to try and improve tarteaucitron.js.
+Unfortunately, there is no clean way to do this at the moment, but a PR will be
+submitted to try to improve tarteaucitron.js.
+
+### Customizing JS output in the page
+
+Instead of using `{{ craft.tarteaucitron.initScript() }}` to output both the
+tarteaucitron.js tag and the configuation JS tag, use:
+  - `{{ craft.tarteaucitron.javascriptImportTag() }}` to output just the
+    tarteaucitron.js import tag
+  - `{{ craft.tarteaucitron.javascriptConfigTag() }}` to output just the
+    tarteaucitron.js configuration inline JS tag
+
+### Customizing CSS output
+
+By default, tarteaucitron.js imports the _css/tarteaucitron.css_ stylesheet
+located next to the _tarteaucitron.js_ file. You can prevent this using the
+`useCustomCss` setting of the plugin.
+You can provide your own stylesheet or use
+`{{ craft.tarteaucitron.stylesheetTag() }}` to output the tarteaucitron.js
+stylesheet import tag
 
 
 ## Contribute

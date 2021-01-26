@@ -7,6 +7,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 
+## [2.4.0] - 2021-01-26
+### Added
+- Add `craft.tarteaucitron.javascriptImportTag()` to output the tarteaucitron.js
+  import tag. See [#9][ticket-9].
+- Add `craft.tarteaucitron.javascriptConfigTag()` to output the tarteaucitron.js
+  configuration inline JS tag. See [#9][ticket-9].
+- Add `craft.tarteaucitron.stylesheetTag()` to output the tarteaucitron.js
+  stylesheet import tag. See [#9][ticket-9].
+
+### Changed
+- `craft.tarteaucitron.initScript()` now renders tarteaucitron.js import tag &
+  tarteaucitron.js configuration inline JS tag in place.
+  It used to render at the end of the `<body>` tag, no matter where it was
+  called in the source.
+
+### Fixed
+- Honor the `useExternalCss` setting. See [#9][ticket-9].
+
+
 ## [2.3.1] - 2020-12-01
 ### Fixed
 - Fix reference error when reCaptcha service is enabled
@@ -67,7 +86,8 @@ Updated tarteaucitron.js (we're currently using the
 ## [2.0.0] - 2020-31-01
 First public release
 
-[Unreleased]: https://github.com/la-haute-societe/craft-tarteaucitron/compare/2.3.1...HEAD
+[Unreleased]: https://github.com/la-haute-societe/craft-tarteaucitron/compare/2.4.0...HEAD
+[2.4.0]: https://github.com/la-haute-societe/craft-tarteaucitron/compare/2.3.1...2.4.0
 [2.3.1]: https://github.com/la-haute-societe/craft-tarteaucitron/compare/2.3.0...2.3.1
 [2.3.0]: https://github.com/la-haute-societe/craft-tarteaucitron/compare/2.2.0...2.3.0
 [2.2.0]: https://github.com/la-haute-societe/craft-tarteaucitron/compare/2.1.1...2.2.0
@@ -77,3 +97,4 @@ First public release
 [2.0.1]: https://github.com/la-haute-societe/craft-tarteaucitron/compare/2.0.0...2.0.1
 [2.0.0]: https://github.com/la-haute-societe/craft-tarteaucitron/releases/tag/2.0.0
 [nstCactus/tarteaucitron.js]: https://github.com/nstCactus/tarteaucitron.js
+[ticket-9]: https://github.com/la-haute-societe/craft-tarteaucitron/issues/9

@@ -30,22 +30,53 @@ class TarteaucitronService extends Component
      * Call tarteaucitron init script
      *
      * @return Markup
-     *
-     * @throws \Twig\Error\LoaderError
-     * @throws \Twig\Error\RuntimeError
-     * @throws \Twig\Error\SyntaxError
-     * @throws \yii\base\Exception
-     * @throws \yii\base\InvalidConfigException
      */
     public function renderInitScript(): Markup
     {
-        Craft::$app->getView()->registerAssetBundle(FrontAsset::class);
+        return new Markup($this->renderJavascriptImportTag() . $this->renderJavascriptConfigTag(), 'UTF-8');
+    }
 
+    /**
+     * Render tarteaucitron main JS tag
+     * @param array $options See [[HTML::tag()]] for details on how options are being used.
+     * @return Markup
+     * @throws \yii\base\InvalidConfigException
+     */
+    public function renderJavascriptImportTag(array $options = []): Markup
+    {
+        $assetBundle = Craft::$app->getView()->registerAssetBundle(FrontAsset::class);
+        $options = array_merge(['src' => $assetBundle->baseUrl . '/tarteaucitron.js' ], $options);
+
+        return new Markup(Html::tag('script', null, $options), 'UTF-8');
+    }
+
+    /**
+     * Render tarteaucitron config JS tag
+     */
+    public function renderJavascriptConfigTag(): Markup
+    {
         /** @noinspection NullPointerExceptionInspection */
         $settings = Tarteaucitron::getInstance()->getSettings();
         $html = $this->getInitHtml([ 'settings' => $settings ]);
 
         return new Markup($html, 'UTF-8');
+    }
+
+    /**
+     * Render tarteaucitron stylesheet tag
+     * @param array $options See [[HTML::tag()]] for details on how options are being used.
+     * @return Markup
+     * @throws \yii\base\InvalidConfigException
+     */
+    public function renderStylesheetTag(array $options = []): Markup
+    {
+        $assetBundle = Craft::$app->getView()->registerAssetBundle(FrontAsset::class);
+        $options = array_merge([
+            'rel' => 'stylesheet',
+            'href' => $assetBundle->baseUrl . '/css/tarteaucitron.css',
+        ], $options);
+
+        return new Markup(Html::tag('link', null, $options), 'UTF-8');
     }
 
     /**
