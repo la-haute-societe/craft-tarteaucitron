@@ -10,20 +10,12 @@ use craft\web\assets\cp\CpAsset;
  */
 class FrontAsset extends AssetBundle
 {
+    /**
+     * Just publish the asset bundle but do not auto inject assets in the page
+     */
     public function init()
     {
-        // define the path that your publishable resources live
         $this->sourcePath = '@lhs/tarteaucitron/resources/tarteaucitron';
-
-        // define the relative path to CSS/JS files that should be registered with the page
-        // when this asset bundle is registered
-        $this->js = [
-            'tarteaucitron.js',
-        ];
-
-        $this->css = [
-            'css/tarteaucitron.css'
-        ];
 
         parent::init();
     }

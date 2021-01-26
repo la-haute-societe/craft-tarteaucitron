@@ -20,6 +20,32 @@ class TarteaucitronVariable
     }
 
     /**
+     * @param array $options See [[HTML::tag()]] for details on how options are being used.
+     * @return Markup
+     */
+    public function javascriptImportTag($options = []): Markup
+    {
+        return Plugin::getInstance()->tarteaucitron->renderJavascriptImportTag($options);
+    }
+
+    /**
+     * @return Markup
+     */
+    public function javascriptConfigTag(): Markup
+    {
+        return Plugin::getInstance()->tarteaucitron->renderJavascriptConfigTag();
+    }
+
+    /**
+     * @param array $options See [[HTML::tag()]] for details on how options are being used.
+     * @return Markup
+     */
+    public function stylesheetTag($options = []): Markup
+    {
+        return Plugin::getInstance()->tarteaucitron->renderStylesheetTag($options);
+    }
+
+    /**
      * @param array $options
      * @return Markup
      */
