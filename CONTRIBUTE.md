@@ -35,11 +35,11 @@ All sources are located in the `resources` folder in the plugin root folder.
 To build assets, run these commands from the plugin root folder :
 
 ```bash
-yarn        # Install node dependencies needed for building assets
+npm install        # Install node dependencies needed for building assets
 
-yarn watch  # Build assets in development mode & watch them for changes
-yarn dev    # Build assets in development mode
-yarn build  # Build assets in production mode
+npm run watch  # Build assets in development mode & watch them for changes
+npm run dev    # Build assets in development mode
+npm run build  # Build assets in production mode
 ```
 
 
@@ -48,8 +48,7 @@ yarn build  # Build assets in production mode
 ```bash
 git submodule init
 git submodule update
-yarn
-yarn gulp css js
+cp -r tarteaucitron.js/* src/resources/tarteaucitron
 ```
 
 
