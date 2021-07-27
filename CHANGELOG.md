@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Fixes
+- Automatic tarteaucitron translation selection on Craft sites using a "complex"
+  locale (country + language)
 
 
 ## [2.4.0] - 2021-01-26
@@ -15,13 +18,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   configuration inline JS tag. See [#9][ticket-9].
 - Add `craft.tarteaucitron.stylesheetTag()` to output the tarteaucitron.js
   stylesheet import tag. See [#9][ticket-9].
-
 ### Changed
 - `craft.tarteaucitron.initScript()` now renders tarteaucitron.js import tag &
   tarteaucitron.js configuration inline JS tag in place.
   It used to render at the end of the `<body>` tag, no matter where it was
   called in the source.
-
 ### Fixed
 - Honor the `useExternalCss` setting. See [#9][ticket-9].
 
@@ -43,11 +44,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   & `mandatory`
 - Force tarteaucitron.js to use the same language as Craft by default
   (may be disabled to get the old behavior)
-
 ### Changed
 - Updated tarteaucitron.js
 - Merge dependabot PRs
-
 ### Fixed
 - A bug that prevented forcing tarteaucitron.js language
 
@@ -60,10 +59,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [2.1.0] - 2020-09-07
 ### Added
 - Support Youtube Js API tarteaucitron.js service
-
 ### Changed
 - Updated tarteaucitron.js
-
 ### Fixed
 - Typo in french translation
 
