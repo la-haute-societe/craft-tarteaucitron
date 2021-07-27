@@ -1,1 +1,1 @@
-tarteaucitronNoAdBlocker=!0;
+tarteaucitronNoAdBlocker = true;

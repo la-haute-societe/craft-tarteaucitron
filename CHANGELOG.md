@@ -5,7 +5,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
-### Fixes
+### Changed
+- Update tarteaucitron.js to [1.9.3](https://github.com/AmauriC/tarteaucitron.js/releases/tag/v1.9.3)
+### Fixed
 - Automatic tarteaucitron translation selection on Craft sites using a "complex"
   locale (country + language)
 
