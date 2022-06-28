@@ -8,5 +8,5 @@ namespace lhs\tarteaucitron\validators;
  */
 class ReCAPTCHAValidator extends TarteaucitronValidator
 {
-    protected $enablerKey = "isReCAPTCHAEnabled";
+    protected ?string $enablerKey = "isReCAPTCHAEnabled";
 }

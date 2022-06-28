@@ -12,20 +12,14 @@ use craft\validators\ArrayValidator;
  */
 class ReCaptchaServiceModel extends AbstractServiceModel
 {
-    /**
-     * @var boolean
-     */
-    public $isReCAPTCHAEnabled = false;
+    /** @var bool Whether the service is enabled */
+    public bool $isReCAPTCHAEnabled = false;
 
-    /**
-     * @var string
-     */
-    public $reCAPTCHASiteKey;
+    /** @var string */
+    public string $reCAPTCHASiteKey;
 
-    /**
-     * @var array
-     */
-    public $htmlAttributes = [];
+    /** @var array */
+    public array $htmlAttributes = [];
 
 
     /**

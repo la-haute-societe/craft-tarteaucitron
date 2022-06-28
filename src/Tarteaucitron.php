@@ -3,6 +3,7 @@
 namespace lhs\tarteaucitron;
 
 use Craft;
+use craft\base\Model;
 use craft\base\Plugin;
 use craft\web\twig\variables\CraftVariable;
 
@@ -11,19 +12,27 @@ use lhs\tarteaucitron\models\SettingsModel;
 use lhs\tarteaucitron\services\TarteaucitronService;
 use lhs\tarteaucitron\variables\TarteaucitronVariable;
 
+use Twig\Error\LoaderError;
+use Twig\Error\RuntimeError;
+use Twig\Error\SyntaxError;
 use yii\base\Event;
+use yii\base\Exception;
+use yii\base\InvalidConfigException;
 
 /**
  * Class Tarteaucitron
+ *
  * @package lhs\tarteaucitron
- * @property TarteaucitronService tarteaucitron
+ * @property TarteaucitronService $tarteaucitron
+ * @method static Tarteaucitron getInstance()
+ * @method SettingsModel getSettings()
  */
 class Tarteaucitron extends Plugin
 {
     /**
      * @var bool
      */
-    public $hasCpSettings = true;
+    public bool $hasCpSettings = true;
 
     /**
      * Initialize plugin.
@@ -32,7 +41,7 @@ class Tarteaucitron extends Plugin
     {
         parent::init();
 
-        Event::on(CraftVariable::class, CraftVariable::EVENT_INIT, function(Event $event) {
+        Event::on(CraftVariable::class, CraftVariable::EVENT_INIT, static function(Event $event) {
             /** @var CraftVariable $variable */
             $variable = $event->sender;
             $variable->set('tarteaucitron', TarteaucitronVariable::class);
@@ -70,10 +79,11 @@ class Tarteaucitron extends Plugin
 
     /**
      * @return string
-     * @throws \Twig\Error\LoaderError
-     * @throws \Twig\Error\RuntimeError
-     * @throws \Twig\Error\SyntaxError
-     * @throws \yii\base\InvalidConfigException
+     * @throws LoaderError
+     * @throws RuntimeError
+     * @throws SyntaxError
+     * @throws Exception
+     * @throws InvalidConfigException
      */
     protected function settingsHtml(): string
     {

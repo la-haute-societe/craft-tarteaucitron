@@ -8,5 +8,5 @@ namespace lhs\tarteaucitron\validators;
  */
 class GoogleMapsValidator extends TarteaucitronValidator
 {
-    protected $enablerKey = "isGoogleMapsEnabled";
+    protected ?string $enablerKey = "isGoogleMapsEnabled";
 }

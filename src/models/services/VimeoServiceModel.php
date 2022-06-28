@@ -12,30 +12,20 @@ use craft\validators\ArrayValidator;
  */
 class VimeoServiceModel extends AbstractServiceModel
 {
-    /**
-     * @var boolean
-     */
-    public $isVimeoEnabled = false;
+    /** @var boolean Whether the service is enabled */
+    public bool $isVimeoEnabled = false;
 
-    /**
-     * @var string
-     */
-    public $videoId;
+    /** @var string */
+    public string $videoId;
 
-    /**
-     * @var string
-     */
-    public $width = 'auto';
+    /** @var string */
+    public string $width = 'auto';
 
-    /**
-     * @var string
-     */
-    public $height = 'auto';
+    /** @var string */
+    public string $height = 'auto';
 
-    /**
-     * @var array
-     */
-    public $htmlAttributes = [];
+    /** @var array */
+    public array $htmlAttributes = [];
 
 
     /**

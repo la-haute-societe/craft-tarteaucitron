@@ -13,29 +13,29 @@ use Twig\Markup;
  */
 class TwitterShareButtonServiceModel extends AbstractServiceModel
 {
-    /** @var boolean */
-    public $isTwitterEnabled = false;
+    /** @var boolean Whether the service is enabled */
+    public bool $isTwitterEnabled = false;
 
     /** @var string Attribute the source of a Tweet to a Twitter username. */
-    public $via;
+    public string $via;
 
     /** @var bool A boolean indicating whether to display the large version of the button. */
-    public $isLarge = false;
+    public bool $isLarge = false;
 
     /** @var string Pre-populated text highlighted in the Tweet composer. */
-    public $text;
+    public string $text;
 
     /** @var string URL included with the Tweet. */
-    public $url;
+    public string $url;
 
     /** @var string A comma-separated list of hashtags to be appended to default Tweet text. */
-    public $hashtags;
+    public string $hashtags;
 
     /** @var string A comma-separated list of accounts related to the content of the shared URI. */
-    public $related;
+    public string $related;
 
     /** @var string Force the button language. Must be a set to a supported Twitter language code. */
-    public $lang;
+    public string $lang;
 
 
 

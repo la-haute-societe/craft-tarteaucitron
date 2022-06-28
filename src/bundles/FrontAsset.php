@@ -2,7 +2,6 @@
 namespace lhs\tarteaucitron\bundles;
 
 use craft\web\AssetBundle;
-use craft\web\assets\cp\CpAsset;
 
 /**
  * Class FrontAsset

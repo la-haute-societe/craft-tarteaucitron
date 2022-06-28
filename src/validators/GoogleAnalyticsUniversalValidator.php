@@ -8,5 +8,5 @@ namespace lhs\tarteaucitron\validators;
  */
 class GoogleAnalyticsUniversalValidator extends TarteaucitronValidator
 {
-    protected $enablerKey = "isGoogleAnalyticsUniversalEnabled";
+    protected ?string $enablerKey = "isGoogleAnalyticsUniversalEnabled";
 }

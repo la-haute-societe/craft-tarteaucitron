@@ -13,23 +13,23 @@ use Twig\Markup;
  */
 class TwitterFollowButtonServiceModel extends AbstractServiceModel
 {
-    /** @var boolean */
-    public $isTwitterEnabled = false;
+    /** @var boolean Whether the service is enabled */
+    public bool $isTwitterEnabled = false;
 
     /** @var string The name of the user to follow if type is "follow". */
-    public $username;
+    public string $username;
 
     /** @var bool A boolean indicating whether to display the large version of the button. */
-    public $isLarge = false;
+    public bool $isLarge = false;
 
     /** @var bool A boolean indicating whether to display the follower count. */
-    public $showCount = true;
+    public bool $showCount = true;
 
     /** @var bool A boolean indicating whether to display the screen name. */
-    public $showScreenName = true;
+    public bool $showScreenName = true;
 
     /** @var string Force the button language. Must be a set to a supported Twitter language code. */
-    public $lang;
+    public string $lang;
 
     /**
      * @return array

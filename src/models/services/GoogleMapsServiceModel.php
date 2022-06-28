@@ -12,51 +12,35 @@ use craft\validators\ArrayValidator;
  */
 class GoogleMapsServiceModel extends AbstractServiceModel
 {
-    /**
-     * @var boolean
-     */
+    /** @var bool Whether the service is enabled */
     public $isGoogleMapsEnabled = false;
 
-    /**
-     * @var string
-     */
-    public $googleMapsAPIKey;
+    /** @var string */
+    public string $googleMapsAPIKey;
 
     /** @var string[] */
-    public $googleMapsLibraries = [];
+    public array $googleMapsLibraries = [];
 
     /** @var string */
-    public $googleMapsCallbackName;
+    public string $googleMapsCallbackName;
 
-    /**
-     * @var int
-     */
-    public $zoom;
+    /** @var int */
+    public int $zoom;
 
-    /**
-     * @var double
-     */
-    public $latitude;
+    /** @var double */
+    public float $latitude;
 
-    /**
-     * @var double
-     */
-    public $longitude;
+    /** @var double */
+    public float $longitude;
 
-    /**
-     * @var string
-     */
-    public $width;
+    /** @var string */
+    public string $width;
 
-    /**
-     * @var string
-     */
-    public $height;
+    /** @var string */
+    public string $height;
 
-    /**
-     * @var array
-     */
-    public $htmlAttributes = [];
+    /** @var array */
+    public array $htmlAttributes = [];
 
 
     /**

@@ -17,7 +17,12 @@ use lhs\tarteaucitron\models\services\TwitterFollowButtonServiceModel;
 use lhs\tarteaucitron\models\services\VimeoServiceModel;
 use lhs\tarteaucitron\models\services\YouTubeServiceModel;
 use lhs\tarteaucitron\Tarteaucitron;
+use Twig\Error\LoaderError;
+use Twig\Error\RuntimeError;
+use Twig\Error\SyntaxError;
 use Twig\Markup;
+use yii\base\Exception;
+use yii\base\InvalidConfigException;
 use yii\helpers\Html;
 
 /**
@@ -28,8 +33,12 @@ class TarteaucitronService extends Component
 {
     /**
      * Call tarteaucitron init script
-     *
      * @return Markup
+     * @throws Exception
+     * @throws InvalidConfigException
+     * @throws LoaderError
+     * @throws RuntimeError
+     * @throws SyntaxError
      */
     public function renderInitScript(): Markup
     {
@@ -38,9 +47,10 @@ class TarteaucitronService extends Component
 
     /**
      * Render tarteaucitron main JS tag
+     *
      * @param array $options See [[HTML::tag()]] for details on how options are being used.
      * @return Markup
-     * @throws \yii\base\InvalidConfigException
+     * @throws InvalidConfigException
      */
     public function renderJavascriptImportTag(array $options = []): Markup
     {
@@ -52,10 +62,15 @@ class TarteaucitronService extends Component
 
     /**
      * Render tarteaucitron config JS tag
+     *
+     * @return Markup
+     * @throws Exception
+     * @throws LoaderError
+     * @throws RuntimeError
+     * @throws SyntaxError
      */
     public function renderJavascriptConfigTag(): Markup
     {
-        /** @noinspection NullPointerExceptionInspection */
         $settings = Tarteaucitron::getInstance()->getSettings();
         $html = $this->getInitHtml([ 'settings' => $settings ]);
 
@@ -64,9 +79,10 @@ class TarteaucitronService extends Component
 
     /**
      * Render tarteaucitron stylesheet tag
+     *
      * @param array $options See [[HTML::tag()]] for details on how options are being used.
      * @return Markup
-     * @throws \yii\base\InvalidConfigException
+     * @throws InvalidConfigException
      */
     public function renderStylesheetTag(array $options = []): Markup
     {
@@ -83,12 +99,12 @@ class TarteaucitronService extends Component
      *
      * @param array $vars
      * @return string
-     * @throws \Twig\Error\LoaderError
-     * @throws \Twig\Error\RuntimeError
-     * @throws \Twig\Error\SyntaxError
-     * @throws \yii\base\Exception
+     * @throws LoaderError
+     * @throws RuntimeError
+     * @throws SyntaxError
+     * @throws Exception
      */
-    private function getInitHtml(array $vars)
+    private function getInitHtml(array $vars): string
     {
         $oldMode = Craft::$app->getView()->getTemplateMode();
         Craft::$app->getView()->setTemplateMode(View::TEMPLATE_MODE_CP);
@@ -97,47 +113,66 @@ class TarteaucitronService extends Component
         return $html;
     }
 
-
+    /**
+     * @return bool
+     * @noinspection PhpUnused Public API
+     */
     public function isFacebookPixelEnabled(): bool
     {
-        /** @noinspection NullPointerExceptionInspection */
         return (bool)Tarteaucitron::getInstance()->getSettings()->isFacebookPixelEnabled;
     }
 
+    /**
+     * @return bool
+     * @noinspection PhpUnused Public API
+     */
     public function isFacilitiEnabled(): bool
     {
-        /** @noinspection NullPointerExceptionInspection */
         return (bool)Tarteaucitron::getInstance()->getSettings()->isFacilitiEnabled;
     }
 
+    /**
+     * @return bool
+     * @noinspection PhpUnused Public API
+     */
     public function isGoogleTagManagerEnabled(): bool
     {
-        /** @noinspection NullPointerExceptionInspection */
         return (bool)Tarteaucitron::getInstance()->getSettings()->isGoogleTagManagerEnabled;
     }
 
+    /**
+     * @return bool
+     * @noinspection PhpUnused Public API
+     */
     public function isGoogleAnalyticsUniversalEnabled(): bool
     {
-        /** @noinspection NullPointerExceptionInspection */
         return (bool)Tarteaucitron::getInstance()->getSettings()->isGoogleAnalyticsUniversalEnabled;
     }
 
+    /**
+     * @return bool
+     * @noinspection PhpUnused Public API
+     */
     public function isGoogleAdWordsRemarketingEnabled(): bool
     {
-        /** @noinspection NullPointerExceptionInspection */
         return (bool)Tarteaucitron::getInstance()->getSettings()->isGoogleAdWordsRemarketingEnabled;
     }
 
+    /**
+     * @return bool
+     * @noinspection PhpUnused Public API
+     */
     public function isYoutubeJsApiEnabled(): bool
     {
-        /** @noinspection NullPointerExceptionInspection */
         return (bool)Tarteaucitron::getInstance()->getSettings()->isYoutubeJsApiEnabled;
     }
 
-
+    /**
+     * @return bool
+     * @noinspection PhpUnused Public API
+     */
     public function isReCAPTCHAEnabled(): bool
     {
-        /** @noinspection NullPointerExceptionInspection */
         return (bool)Tarteaucitron::getInstance()->getSettings()->isReCAPTCHAEnabled;
     }
 
@@ -153,7 +188,6 @@ class TarteaucitronService extends Component
 
     public function isGoogleMapsEnabled(): bool
     {
-        /** @noinspection NullPointerExceptionInspection */
         return (bool)Tarteaucitron::getInstance()->getSettings()->isGoogleMapsEnabled;
     }
 
@@ -169,7 +203,6 @@ class TarteaucitronService extends Component
 
     public function isGoogleAdWordsConversionEnabled(): bool
     {
-        /** @noinspection NullPointerExceptionInspection */
         return (bool)Tarteaucitron::getInstance()->getSettings()->isGoogleAdWordsConversionEnabled;
     }
 
@@ -185,7 +218,6 @@ class TarteaucitronService extends Component
 
     public function isLinkedInEnabled(): bool
     {
-        /** @noinspection NullPointerExceptionInspection */
         return (bool)Tarteaucitron::getInstance()->getSettings()->isLinkedInEnabled;
     }
 
@@ -201,7 +233,6 @@ class TarteaucitronService extends Component
 
     public function isTwitterEnabled(): bool
     {
-        /** @noinspection NullPointerExceptionInspection */
         return (bool)Tarteaucitron::getInstance()->getSettings()->isTwitterEnabled;
     }
 
@@ -226,7 +257,6 @@ class TarteaucitronService extends Component
 
     public function isVimeoEnabled(): bool
     {
-        /** @noinspection NullPointerExceptionInspection */
         return (bool)Tarteaucitron::getInstance()->getSettings()->isVimeoEnabled;
     }
 
@@ -242,7 +272,6 @@ class TarteaucitronService extends Component
 
     public function isYoutubeEnabled(): bool
     {
-        /** @noinspection NullPointerExceptionInspection */
         return (bool)Tarteaucitron::getInstance()->getSettings()->isYoutubeEnabled;
     }
 
@@ -265,7 +294,6 @@ class TarteaucitronService extends Component
             ), 'Service model class not found.');
         }
 
-        /** @noinspection NullPointerExceptionInspection */
         $settingsArray = get_object_vars(Tarteaucitron::getInstance()->getSettings());
         $vars = array_merge($settingsArray, $options);
 

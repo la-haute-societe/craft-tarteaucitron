@@ -8,5 +8,5 @@ namespace lhs\tarteaucitron\validators;
  */
 class GoogleAdWordsRemarketingValidator extends TarteaucitronValidator
 {
-    protected $enablerKey = "isGoogleAdWordsRemarketingEnabled";
+    protected ?string $enablerKey = "isGoogleAdWordsRemarketingEnabled";
 }

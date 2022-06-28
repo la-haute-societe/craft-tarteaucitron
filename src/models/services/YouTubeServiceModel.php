@@ -12,55 +12,35 @@ use craft\validators\ArrayValidator;
  */
 class YouTubeServiceModel extends AbstractServiceModel
 {
-    /**
-     * @var boolean
-     */
-    public $isYoutubeEnabled = false;
+    /** @var boolean Whether the service is enabled */
+    public bool $isYoutubeEnabled = false;
 
-    /**
-     * @var string
-     */
-    public $videoId;
+    /*** @var string */
+    public string $videoId;
 
-    /**
-     * @var string
-     */
-    public $width = 'auto';
+    /** @var string */
+    public string $width = 'auto';
 
-    /**
-     * @var string
-     */
-    public $height = 'auto';
+    /** @var string */
+    public string $height = 'auto';
 
-    /**
-     * @var string
-     */
-    public $theme = 'dark';
+    /** @var string */
+    public string $theme = 'dark';
 
-    /**
-     * @var int
-     */
-    public $rel = 0;
+    /** @var int */
+    public int $rel = 0;
 
-    /**
-     * @var int
-     */
-    public $controls = 1;
+    /** @var int */
+    public int $controls = 1;
 
-    /**
-     * @var int
-     */
-    public $showinfo = 1;
+    /** @var int */
+    public int $showinfo = 1;
 
-    /**
-     * @var int
-     */
-    public $autoplay = 0;
+    /** @var int */
+    public int $autoplay = 0;
 
-    /**
-     * @var array
-     */
-    public $htmlAttributes = [];
+    /**  @var array */
+    public array $htmlAttributes = [];
 
     /**
      * @return array

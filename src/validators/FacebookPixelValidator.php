@@ -8,5 +8,5 @@ namespace lhs\tarteaucitron\validators;
  */
 class FacebookPixelValidator extends TarteaucitronValidator
 {
-    protected $enablerKey = "isFacebookPixelEnabled";
+    protected ?string $enablerKey = "isFacebookPixelEnabled";
 }

@@ -12,20 +12,14 @@ use craft\validators\ArrayValidator;
  */
 class LinkedInServiceModel extends AbstractServiceModel
 {
-    /**
-     * @var boolean
-     */
-    public $isLinkedInEnabled = false;
+    /** @var bool Whether the service is enabled */
+    public bool $isLinkedInEnabled = false;
 
-    /**
-     * @var string
-     */
-    public $counter = 'none';
+    /** @var string */
+    public string $counter = 'none';
 
-    /**
-     * @var array
-     */
-    public $htmlAttributes;
+    /** @var array */
+    public array $htmlAttributes;
 
     /**
      * @return array

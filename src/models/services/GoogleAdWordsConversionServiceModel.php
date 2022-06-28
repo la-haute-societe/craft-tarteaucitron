@@ -4,7 +4,11 @@ namespace lhs\tarteaucitron\models\services;
 
 use Craft;
 use craft\web\View;
+use Twig\Error\LoaderError;
+use Twig\Error\RuntimeError;
+use Twig\Error\SyntaxError;
 use Twig\Markup;
+use yii\base\Exception;
 
 /**
  * Class GoogleAdWordsConversionServiceModel
@@ -12,55 +16,35 @@ use Twig\Markup;
  */
 class GoogleAdWordsConversionServiceModel extends AbstractServiceModel
 {
-    /**
-     * @var boolean
-     */
-    public $isGoogleAdWordsConversionEnabled = false;
+    /** @var bool Whether the service is enabled */
+    public bool $isGoogleAdWordsConversionEnabled = false;
 
-    /**
-     * @var string
-     */
-    public $id;
+    /** @var string */
+    public string $id;
 
-    /**
-     * @var string
-     */
-    public $label;
+    /** @var string */
+    public string $label;
 
-    /**
-     * @var string
-     */
-    public $language;
+    /** @var string */
+    public string $language;
 
-    /**
-     * @var string
-     */
-    public $format;
+    /** @var string */
+    public string $format;
 
-    /**
-     * @var string
-     */
-    public $color;
+    /** @var string */
+    public string $color;
 
-    /**
-     * @var string
-     */
-    public $value;
+    /** @var string */
+    public string $value;
 
-    /**
-     * @var string
-     */
-    public $currency;
+    /** @var string */
+    public string $currency;
 
-    /**
-     * @var string
-     */
-    public $custom1;
+    /** @var string */
+    public string $custom1;
 
-    /**
-     * @var string
-     */
-    public $custom2;
+    /** @var string */
+    public string $custom2;
 
 
     /**
@@ -90,8 +74,10 @@ class GoogleAdWordsConversionServiceModel extends AbstractServiceModel
 
     /**
      * @return Markup
-     * @throws \Twig_Error_Loader
-     * @throws \yii\base\Exception
+     * @throws LoaderError
+     * @throws RuntimeError
+     * @throws SyntaxError
+     * @throws Exception
      */
     public function getHtml(): Markup {
         if (!$this->isServiceEnabled()) {

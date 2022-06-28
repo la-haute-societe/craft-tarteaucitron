@@ -5,8 +5,11 @@ namespace lhs\tarteaucitron\models\services;
 use Craft;
 use craft\base\Model;
 use craft\web\View;
+use Twig\Error\LoaderError;
+use Twig\Error\RuntimeError;
+use Twig\Error\SyntaxError;
 use Twig\Markup;
-use yii\helpers\Html;
+use yii\base\Exception;
 
 /**
  * Class ServiceModel
@@ -16,7 +19,7 @@ abstract class AbstractServiceModel extends Model
 {
     /**
      * Return activation status
-     * Preferably based on an model attribute
+     * Preferably based on a model attribute
      *
      * @return boolean
      */
@@ -31,8 +34,12 @@ abstract class AbstractServiceModel extends Model
 
     /**
      * @param string $errors A string containing the error(s)
-     * @param string $cause  The cause of the error. Used only in the log.
+     * @param string $cause The cause of the error. Used only in the log.
      * @return Markup
+     * @throws LoaderError
+     * @throws RuntimeError
+     * @throws SyntaxError
+     * @throws Exception
      */
     public static function getErrorHtml(string $errors, string $cause): Markup
     {

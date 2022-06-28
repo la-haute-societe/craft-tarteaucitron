@@ -3,6 +3,8 @@
 namespace lhs\tarteaucitron\validators;
 
 use Yii;
+use yii\base\Model;
+use yii\base\NotSupportedException;
 use yii\validators\Validator;
 
 /**
@@ -27,14 +29,14 @@ class TarteaucitronValidator extends Validator
 
 
     /**
-     * @var null
+     * @var ?string
      */
-    protected $enablerKey = null;
+    protected ?string $enablerKey = null;
 
     /**
      * {@inheritdoc}
      */
-    public function init()
+    public function init(): void
     {
         parent::init();
         if ($this->message === null) {
@@ -43,14 +45,15 @@ class TarteaucitronValidator extends Validator
     }
 
     /**
-     * @param \yii\base\Model $model
+     * @param Model $model
      * @param string $attribute
-     * @throws \yii\base\NotSupportedException
+     * @throws NotSupportedException
      */
-    public function validateAttribute($model, $attribute)
+    public function validateAttribute($model, $attribute): void
     {
-        if (!$model->{$this->enablerKey})
+        if (!$model->{$this->enablerKey}) {
             return;
+        }
 
         $result = $this->validateValue($model->$attribute);
         if (!empty($result)) {
@@ -61,7 +64,7 @@ class TarteaucitronValidator extends Validator
     /**
      * {@inheritdoc}
      */
-    protected function validateValue($value)
+    protected function validateValue($value): ?array
     {
         if ($this->isEmpty($value)) {
             return [$this->message, []];

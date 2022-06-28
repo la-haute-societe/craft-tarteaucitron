@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Changed
+- [BREAKING]: Make the plugin compatible with Craft 4 (fixes [#19][ticket-19])
 
 
 ## [2.4.1] - 2021-07-27
@@ -101,3 +103,4 @@ First public release
 [2.0.0]: https://github.com/la-haute-societe/craft-tarteaucitron/releases/tag/2.0.0
 [nstCactus/tarteaucitron.js]: https://github.com/nstCactus/tarteaucitron.js
 [ticket-9]: https://github.com/la-haute-societe/craft-tarteaucitron/issues/9
+[ticket-19]: https://github.com/la-haute-societe/craft-tarteaucitron/issues/19

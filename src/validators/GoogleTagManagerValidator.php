@@ -8,5 +8,5 @@ namespace lhs\tarteaucitron\validators;
  */
 class GoogleTagManagerValidator extends TarteaucitronValidator
 {
-    protected $enablerKey = "isGoogleTagManagerEnabled";
+    protected ?string $enablerKey = "isGoogleTagManagerEnabled";
 }
