@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ### Changed
 - [BREAKING]: Make the plugin compatible with Craft 4 (fixes [#19][ticket-19])
+### Fixed
+- Honor the `moreInfoLink` & `readMoreLink` settings
 
 
 ## [2.4.1] - 2021-07-27

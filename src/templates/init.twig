@@ -33,7 +33,7 @@
         handleBrowserDNTRequest: {{ settings.handleBrowserDNTRequest|json_encode|raw }},
 
         removeCredit: {{ settings.removeCredit|json_encode|raw }},
-        {% if settings.moreInfoLink -%}
+        {% if settings.moreInfoLink is not null -%}
             moreInfoLink: {{ settings.moreInfoLink|json_encode|raw }},
         {% endif -%}
         useExternalCss: {{ settings.useExternalCss|json_encode|raw }},
@@ -42,7 +42,7 @@
             cookieDomain: {{ settings.cookieDomain|json_encode|raw }}
         {% endif -%}
 
-        {% if settings.moreInfoLink -%}
+        {% if settings.readMoreLink -%}
             readmoreLink: {{ settings.readMoreLink|json_encode|raw }},
         {% endif -%}
 
