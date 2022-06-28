@@ -48,7 +48,7 @@ npm run build  # Build assets in production mode
 ```bash
 git submodule init
 git submodule update
-cp -r tarteaucitron.js/* src/resources/tarteaucitron
+npm gulp js css
 ```
 
 
