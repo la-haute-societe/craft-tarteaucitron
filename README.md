@@ -1,6 +1,6 @@
 ![Logo tarteaucitron.js](.readme/logo-tarteaucitron.png)
 
-# Craft 3 - tarteaucitron.js
+# Craft 4 - tarteaucitron.js
 
 Handle GDPR in your Craft CMS projet the easy way with tarteaucitron.js.
 
@@ -16,13 +16,13 @@ This plugin currently support the following services :
  - Twitter
  - Vimeo
  - Youtube
- - Youtube Js API
+ - YouTube Js API
 
 
 ## Requirements
 
-This plugin requires Craft CMS 3.3.0 or later (may work with previous Craft 3
-versions but this hasn't been tested).
+This plugin requires Craft CMS 4.0.0 or later. Version 2.x of this plugin 
+supports Craft CMS 3.x
 
 
 ## Installation
@@ -33,7 +33,7 @@ Just install the plugin from the Craft Plugin Store.
 
 ### From the command line
 
-```shell script
+````shell script
 composer require la-haute-societe/craft-tarteaucitron
 ./craft install/plugin tarteaucitron
 ````
@@ -71,7 +71,7 @@ page.
 To activate a service on your site, you need to activate it and then, depending
 on the service, add the given Twig code where you want the service to be loaded.
 The Twig code will output a tarteaucitron.js placeholder, that will get replaced
-by the content you wanted to load (eg. a YouTube video, a Google Maps…) once
+by the content you wanted to load (e.g. a YouTube video, a Google Maps…) once
 tarteaucitron.js has loaded, and the user has given its consent for the service.
 
 ### Service HTML Attributes
@@ -82,7 +82,7 @@ with the service.
 
 Example :
 
-```twig
+````twig
 {{ craft.tarteaucitron.vimeo({
     videoId: 'xxxxxxxx',
     width: '500px',
@@ -91,7 +91,7 @@ Example :
         class: 'border-black',
     }
 }) }}
-```
+````
 
 
 ## Advanced usage
@@ -158,7 +158,7 @@ tarteaucitron.js (eg. you load a page fragment containing a Vimeo video using
 AJAX). Adding the tarteaucitron.js placeholder to the DOM isn't enough.
 You need to ask tarteaucitron.js to re-render the service :
 
-`````javascript
+````javascript
 // Create a tarteaucitron.js Vimeo placeholder element and add it to the document
 var div = document.createElement('div');
 div.className = 'vimeo_player';
@@ -169,7 +169,7 @@ document.body.appendChild(document.body.firstChild);
 
 // Make tarteaucitron.js re-render the vimeo service
 tarteaucitron.services.vimeo[tarteaucitron.state.vimeo ? 'js' : 'fallback']();
-`````
+````
 
 ### JS - Reacting to the user giving its consent to a service
 
@@ -179,7 +179,7 @@ submitted to try to improve tarteaucitron.js.
 ### Customizing JS output in the page
 
 Instead of using `{{ craft.tarteaucitron.initScript() }}` to output both the
-tarteaucitron.js tag and the configuation JS tag, use:
+tarteaucitron.js tag and the configuration JS tag, use:
   - `{{ craft.tarteaucitron.javascriptImportTag() }}` to output just the
     tarteaucitron.js import tag
   - `{{ craft.tarteaucitron.javascriptConfigTag() }}` to output just the
@@ -201,4 +201,4 @@ Want to contribute? See [CONTRIBUTING.md](./CONTRIBUTING.md)
 
 
 Brought to you by
-<a href="https://www.lahautesociete.com" target="_blank"><img src=".readme/logo-lahautesociete.png" height="200" alt="Logo La Haute Société" /></a>
+<a href="https://www.lahautesociete.com" target="_blank"><br><img src=".readme/logo-lahautesociete.png" height="100" alt="Logo La Haute Société" /></a>
