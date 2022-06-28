@@ -1,4 +1,4 @@
 [submodule "tarteaucitron.js"]
 	path = tarteaucitron.js
-#	url = git@github.com:AmauriC/tarteaucitron.js.git
-	url = git@github.com:nstCactus/tarteaucitron.js.git
+	url = git@github.com:AmauriC/tarteaucitron.js.git
+#	url = git@github.com:nstCactus/tarteaucitron.js.git

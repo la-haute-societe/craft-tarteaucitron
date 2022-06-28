@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ### Changed
 - [BREAKING]: Make the plugin compatible with Craft 4 (fixes [#19][ticket-19])
+- Update tarteaucitron.js to [1.9.6](https://github.com/AmauriC/tarteaucitron.js/releases/tag/v1.9.6)
 ### Fixed
 - Honor the `moreInfoLink` & `readMoreLink` settings
 
