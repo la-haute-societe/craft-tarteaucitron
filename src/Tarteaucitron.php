@@ -3,7 +3,6 @@
 namespace lhs\tarteaucitron;
 
 use Craft;
-use craft\base\Model;
 use craft\base\Plugin;
 use craft\web\twig\variables\CraftVariable;
 
