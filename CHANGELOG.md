@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 
+## [3.0.1] — 2022-08-24
+### Changed
+- Update plugin icon
+
+
 ## [3.0.0] — 2022-06-28
 ### Changed
 - [BREAKING]: Make the plugin compatible with Craft 4 (fixes [#19][ticket-19])
@@ -96,7 +101,8 @@ Updated tarteaucitron.js (we're currently using the
 ## [2.0.0] - 2020-31-01
 First public release
 
-[Unreleased]: https://github.com/la-haute-societe/craft-tarteaucitron/compare/3.0.0...HEAD
+[Unreleased]: https://github.com/la-haute-societe/craft-tarteaucitron/compare/3.0.1...HEAD
+[3.0.1]: https://github.com/la-haute-societe/craft-tarteaucitron/compare/3.0.0...3.0.1
 [3.0.0]: https://github.com/la-haute-societe/craft-tarteaucitron/compare/2.4.1...3.0.0
 [2.4.1]: https://github.com/la-haute-societe/craft-tarteaucitron/compare/2.4.0...2.4.1
 [2.4.0]: https://github.com/la-haute-societe/craft-tarteaucitron/compare/2.3.1...2.4.0
