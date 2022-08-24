@@ -1,4 +1,4 @@
-![Logo tarteaucitron.js](.readme/logo-tarteaucitron.png)
+<img src=".readme/logo-tarteaucitron.png" width="100" />
 
 # Craft 4 - tarteaucitron.js
 
