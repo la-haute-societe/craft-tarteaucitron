@@ -1,7 +1,7 @@
 {
   "name": "craft-tarteaucitron",
   "version": "0.1",
-  "description": "tarteaucitron.js integration for Craft CMS 3",
+  "description": "tarteaucitron.js integration for Craft CMS 5",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "NODE_ENV=development ./node_modules/.bin/webpack --config build/dev.js --watch",
