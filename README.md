@@ -1,6 +1,6 @@
 <img src=".readme/logo-tarteaucitron.png" width="100" />
 
-# Craft 4 - tarteaucitron.js
+# Craft 5 - tarteaucitron.js
 
 Handle GDPR in your Craft CMS projet the easy way with tarteaucitron.js.
 
@@ -21,8 +21,8 @@ This plugin currently support the following services :
 
 ## Requirements
 
-This plugin requires Craft CMS 4.0.0 or later. Version 2.x of this plugin 
-supports Craft CMS 3.x
+This plugin requires Craft CMS 5.0.0 or later and PHP 8.2+. Version 3.x of this plugin
+supports Craft CMS 4.x, and version 2.x supports Craft CMS 3.x.
 
 
 ## Installation
