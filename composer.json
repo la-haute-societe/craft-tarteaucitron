@@ -1,6 +1,6 @@
 {
   "name": "la-haute-societe/craft-tarteaucitron",
-  "description": "Manage your sites' cookies with this tarteaucitron.js Craft CMS 3 integration",
+  "description": "Manage your sites' cookies with this tarteaucitron.js Craft CMS 5 integration",
   "type": "craft-plugin",
   "keywords": [
     "craft",
@@ -21,7 +21,7 @@
   "minimum-stability": "dev",
   "prefer-stable": true,
   "require": {
-    "craftcms/cms": "^4.0.0"
+    "craftcms/cms": "^5.0.0"
   },
   "autoload": {
     "psr-4": {
